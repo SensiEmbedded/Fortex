@@ -14,6 +14,7 @@ namespace DiffPress {
   public delegate void AlarmOccured(int ixPressure,DevAlarms type);
 
   public enum DevStatus {
+
     None,
     OK,
     AddressExeption,
