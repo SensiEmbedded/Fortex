@@ -39,16 +39,16 @@ namespace DiffPress {
       Int32 typeSQL = 0;
       switch (ixPressure) {
         case 5:
-          //typeSQL = (int)DevTypeSQL.Press1;
-          typeSQL =gl.g_wr.channelIDDiffPRess1;
+          typeSQL = (int)DevTypeSQL.Press1;
+          //typeSQL =gl.g_wr.channelIDDiffPRess1;
           break;
         case 6:
-          //typeSQL = (Int32)DevTypeSQL.Press2;
-          typeSQL = gl.g_wr.channelIDDiffPRess2;
+          typeSQL = (Int32)DevTypeSQL.Press2;
+          //typeSQL = gl.g_wr.channelIDDiffPRess2;
           break;
         case 7:
-          //typeSQL = (Int32)DevTypeSQL.Press3;
-          typeSQL = gl.g_wr.channelIDDiffPRess3;
+          typeSQL = (Int32)DevTypeSQL.Press3;
+          //typeSQL = gl.g_wr.channelIDDiffPRess3;
           break;
       }
       if (type == DevAlarms.None) {
@@ -78,13 +78,13 @@ namespace DiffPress {
       fl2 = (float)(Math.Truncate((double)fl2 * 10.0) / 10.0);
       fl3 = (float)(Math.Truncate((double)fl3 * 10.0) / 10.0);
 
-      //CRecord rec1 = new CRecord(fl1, (int)DevTypeSQL.Press1);
-      //CRecord rec2 = new CRecord(fl2, (int)DevTypeSQL.Press2);
-      //CRecord rec3 = new CRecord(fl3, (int)DevTypeSQL.Press3);
+      CRecord rec1 = new CRecord(fl1, (int)DevTypeSQL.Press1);
+      CRecord rec2 = new CRecord(fl2, (int)DevTypeSQL.Press2);
+      CRecord rec3 = new CRecord(fl3, (int)DevTypeSQL.Press3);
 
-      CRecord rec1 = new CRecord(fl1, gl.g_wr.channelIDDiffPRess1);
-      CRecord rec2 = new CRecord(fl2, gl.g_wr.channelIDDiffPRess2);
-      CRecord rec3 = new CRecord(fl3, gl.g_wr.channelIDDiffPRess3);
+      //CRecord rec1 = new CRecord(fl1, gl.g_wr.channelIDDiffPRess1);
+      //CRecord rec2 = new CRecord(fl2, gl.g_wr.channelIDDiffPRess2);
+      //CRecord rec3 = new CRecord(fl3, gl.g_wr.channelIDDiffPRess3);
       lst.Add(rec1);
       lst.Add(rec2);
       lst.Add(rec3);

@@ -29,11 +29,6 @@
         private void InitializeComponent()
         {
           this.components = new System.ComponentModel.Container();
-          System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-          System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-          System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-          System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
-          System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
           System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
           System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
           System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -59,14 +54,8 @@
           this.pictureBox1 = new System.Windows.Forms.PictureBox();
           this.tmrBlink = new System.Windows.Forms.Timer(this.components);
           this.tmrUpdateGUI = new System.Windows.Forms.Timer(this.components);
-          this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-          this.chbDiff1 = new System.Windows.Forms.CheckBox();
-          this.chbDiff2 = new System.Windows.Forms.CheckBox();
-          this.chbDiff3 = new System.Windows.Forms.CheckBox();
           this.dataGridView1 = new System.Windows.Forms.DataGridView();
           this.label5 = new System.Windows.Forms.Label();
-          this.ucValue3 = new DiffPress.ucValue();
-          this.ucValue2 = new DiffPress.ucValue();
           this.ucValue1 = new DiffPress.ucValue();
           this.pnlMenu.SuspendLayout();
           this.grbStatus.SuspendLayout();
@@ -75,7 +64,6 @@
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
           this.groupBox1.SuspendLayout();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-          ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
           ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
           this.SuspendLayout();
           // 
@@ -294,6 +282,7 @@
           this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
           this.pictureBox1.TabIndex = 41;
           this.pictureBox1.TabStop = false;
+          this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
           // 
           // tmrBlink
           // 
@@ -306,91 +295,6 @@
           this.tmrUpdateGUI.Enabled = true;
           this.tmrUpdateGUI.Interval = 500;
           this.tmrUpdateGUI.Tick += new System.EventHandler(this.tmrUpdateGUI_Tick);
-          // 
-          // chart1
-          // 
-          this.chart1.BorderlineColor = System.Drawing.Color.Black;
-          this.chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-          chartArea1.AxisX.LineWidth = 2;
-          chartArea1.AxisY.LineWidth = 2;
-          chartArea1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-          chartArea1.Name = "ChartArea1";
-          this.chart1.ChartAreas.Add(chartArea1);
-          legend1.Name = "Legend1";
-          legend1.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Tall;
-          this.chart1.Legends.Add(legend1);
-          this.chart1.Location = new System.Drawing.Point(608, 79);
-          this.chart1.Name = "chart1";
-          series1.BorderWidth = 2;
-          series1.ChartArea = "ChartArea1";
-          series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-          series1.Legend = "Legend1";
-          series1.MarkerSize = 6;
-          series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
-          series1.Name = "DiffPress1";
-          series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-          series2.BorderWidth = 2;
-          series2.ChartArea = "ChartArea1";
-          series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-          series2.Legend = "Legend1";
-          series2.MarkerSize = 6;
-          series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-          series2.Name = "DiffPress2";
-          series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-          series3.BorderWidth = 2;
-          series3.ChartArea = "ChartArea1";
-          series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
-          series3.Legend = "Legend1";
-          series3.MarkerSize = 6;
-          series3.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Cross;
-          series3.Name = "DiffPress3";
-          series3.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-          this.chart1.Series.Add(series1);
-          this.chart1.Series.Add(series2);
-          this.chart1.Series.Add(series3);
-          this.chart1.Size = new System.Drawing.Size(1289, 419);
-          this.chart1.TabIndex = 60;
-          this.chart1.Text = "chart1";
-          this.chart1.Click += new System.EventHandler(this.chart1_Click);
-          // 
-          // chbDiff1
-          // 
-          this.chbDiff1.AutoSize = true;
-          this.chbDiff1.Checked = true;
-          this.chbDiff1.CheckState = System.Windows.Forms.CheckState.Checked;
-          this.chbDiff1.Location = new System.Drawing.Point(1766, 151);
-          this.chbDiff1.Name = "chbDiff1";
-          this.chbDiff1.Size = new System.Drawing.Size(106, 17);
-          this.chbDiff1.TabIndex = 61;
-          this.chbDiff1.Text = "DiffPress1 visible";
-          this.chbDiff1.UseVisualStyleBackColor = true;
-          this.chbDiff1.CheckedChanged += new System.EventHandler(this.chbDiff1_CheckedChanged);
-          // 
-          // chbDiff2
-          // 
-          this.chbDiff2.AutoSize = true;
-          this.chbDiff2.Checked = true;
-          this.chbDiff2.CheckState = System.Windows.Forms.CheckState.Checked;
-          this.chbDiff2.Location = new System.Drawing.Point(1766, 174);
-          this.chbDiff2.Name = "chbDiff2";
-          this.chbDiff2.Size = new System.Drawing.Size(106, 17);
-          this.chbDiff2.TabIndex = 61;
-          this.chbDiff2.Text = "DiffPress2 visible";
-          this.chbDiff2.UseVisualStyleBackColor = true;
-          this.chbDiff2.CheckedChanged += new System.EventHandler(this.chbDiff1_CheckedChanged);
-          // 
-          // chbDiff3
-          // 
-          this.chbDiff3.AutoSize = true;
-          this.chbDiff3.Checked = true;
-          this.chbDiff3.CheckState = System.Windows.Forms.CheckState.Checked;
-          this.chbDiff3.Location = new System.Drawing.Point(1766, 197);
-          this.chbDiff3.Name = "chbDiff3";
-          this.chbDiff3.Size = new System.Drawing.Size(106, 17);
-          this.chbDiff3.TabIndex = 61;
-          this.chbDiff3.Text = "DiffPress3 visible";
-          this.chbDiff3.UseVisualStyleBackColor = true;
-          this.chbDiff3.CheckedChanged += new System.EventHandler(this.chbDiff1_CheckedChanged);
           // 
           // dataGridView1
           // 
@@ -412,7 +316,7 @@
           dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
           dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
           this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-          this.dataGridView1.Location = new System.Drawing.Point(609, 522);
+          this.dataGridView1.Location = new System.Drawing.Point(910, 107);
           this.dataGridView1.Name = "dataGridView1";
           dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
           dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -426,7 +330,7 @@
           dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
           this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
           this.dataGridView1.RowTemplate.Height = 25;
-          this.dataGridView1.Size = new System.Drawing.Size(1275, 509);
+          this.dataGridView1.Size = new System.Drawing.Size(788, 154);
           this.dataGridView1.TabIndex = 65;
           // 
           // label5
@@ -437,22 +341,9 @@
           this.label5.Name = "label5";
           this.label5.Size = new System.Drawing.Size(1638, 34);
           this.label5.TabIndex = 66;
-          this.label5.Text = "Система за следене подналягането в чистите производствени помещения.";
+          this.label5.Text = "Система за следене влажност, температура и надналягане в помещенията на Fortex Nu" +
+              "trasu";
           this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-          // 
-          // ucValue3
-          // 
-          this.ucValue3.Location = new System.Drawing.Point(241, 770);
-          this.ucValue3.Name = "ucValue3";
-          this.ucValue3.Size = new System.Drawing.Size(341, 257);
-          this.ucValue3.TabIndex = 64;
-          // 
-          // ucValue2
-          // 
-          this.ucValue2.Location = new System.Drawing.Point(245, 392);
-          this.ucValue2.Name = "ucValue2";
-          this.ucValue2.Size = new System.Drawing.Size(331, 246);
-          this.ucValue2.TabIndex = 63;
           // 
           // ucValue1
           // 
@@ -469,13 +360,7 @@
           this.ClientSize = new System.Drawing.Size(1912, 1053);
           this.Controls.Add(this.label5);
           this.Controls.Add(this.dataGridView1);
-          this.Controls.Add(this.ucValue3);
-          this.Controls.Add(this.ucValue2);
           this.Controls.Add(this.ucValue1);
-          this.Controls.Add(this.chbDiff3);
-          this.Controls.Add(this.chbDiff2);
-          this.Controls.Add(this.chbDiff1);
-          this.Controls.Add(this.chart1);
           this.Controls.Add(this.pnlMenu);
           this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
           this.Name = "frmMain";
@@ -491,10 +376,8 @@
           this.groupBox1.ResumeLayout(false);
           this.groupBox1.PerformLayout();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-          ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
           ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
           this.ResumeLayout(false);
-          this.PerformLayout();
 
         }
 
@@ -512,13 +395,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
-        private System.Windows.Forms.CheckBox chbDiff1;
-        private System.Windows.Forms.CheckBox chbDiff2;
-        private System.Windows.Forms.CheckBox chbDiff3;
         private ucValue ucValue1;
-        private ucValue ucValue2;
-        private ucValue ucValue3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox grbStatus;
         private System.Windows.Forms.Label lblRemain;

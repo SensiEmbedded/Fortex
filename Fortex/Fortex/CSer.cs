@@ -46,51 +46,35 @@ namespace DiffPress {
       set;
     } */
 
-    [Category("technologic"), Description("Pressure2 Alarm Low Limit (PA)")]
-    public double alarm1 {
+    [Category("technologic"), Description("Pressure  Alarm (PA)")]
+    public double[] alarmsDiffPres {
       get;
       set;
     }
-    [Category("technologic"), Description("Pressure2 Alarm Low Limit (PA)")]
-    public double alarm2_Hi {
+
+    [Category("technologic"), Description("RH Alarms (%)")]
+    public double[] alarmsRH_Hi {
       get;
       set;
     }
-    [Category("technologic"), Description("Pressure2 Alarm Low Limit (PA)")]
-    public double alarm2_Low {
+    [Category("technologic"), Description("Temperature Alarms Hi Limit(%)")]
+    public double[] alarmsT_Hi {
       get;
       set;
     }
-    [Category("technologic"), Description("Pressure3 Alarm Low Limit (PA)")]
-    public double alarm3 {
+    [Category("technologic"), Description("Temperature Alarms Low Limit(%)")]
+    public double[] alarmsT_Low {
       get;
       set;
     }
+    
     [Category("technologic"), Description("Time (sec) presence alarm")]
     public int timeAlarm {
       get;
       set;
     }
-    [Category("channelID"), Description("channelID1")]
-    public Int32 channelIDDiffPRess1
-    {
-        get;
-        set;
-    }
-    [Category("channelID"), Description("channelID2")]
-    public Int32 channelIDDiffPRess2
-    {
-        get;
-        set;
-    }
-    [Category("channelID"), Description("channelID3")]
-    public Int32 channelIDDiffPRess3
-    {
-        get;
-        set;
-    }
 
-    [Category("appereance"), Description("Specifies something")]
+     [Category("appereance"), Description("Specifies something")]
     public bool fullScreen { get; set;}
 
     [Category("MS Server"), Description("Connection string to SENSATA traceabillity MS SQL")]
@@ -119,9 +103,7 @@ namespace DiffPress {
       writeInterval = 5*60;
       writeIfAlarm = true;
       writeWhenNormalize = true;
-      channelIDDiffPRess1 = 1;
-      channelIDDiffPRess2 = 2;
-      channelIDDiffPRess3 = 3;
+    
       //alarms.ToList().ForEach(c => c = 12.3);
       //alarms[0] = 0.0;
       /*

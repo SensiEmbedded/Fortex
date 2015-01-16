@@ -34,23 +34,23 @@ namespace DiffPress {
       } else {
         lblAlarmType.Text = "Low Level";
       }
-      double al1 = glob.g_wr.alarm2_Low;
-      double al2 = glob.g_wr.alarm2_Hi;
+      double al1 = glob.g_wr.alarmsDiffPres[0];
+      double al2 = glob.g_wr.alarmsDiffPres[0];
 
       if (index == 5) {
-        al1 = glob.g_wr.alarm1;
+        al1 = glob.g_wr.alarmsDiffPres[0];
         lblAlarmLimit1.Text = al1.ToString();
         lblAlarmLimit2.Text = "---";
       }
       if (index == 6) {
-        al1 = glob.g_wr.alarm2_Low;
-        al2 = glob.g_wr.alarm2_Hi;
+        al1 = glob.g_wr.alarmsDiffPres[0];
+        al2 = glob.g_wr.alarmsDiffPres[0];
         lblAlarmLimit1.Text = al1.ToString();
         lblAlarmLimit2.Text = al2.ToString();
       }
 
       if (index == 7) {
-        al1 = glob.g_wr.alarm3;
+        al1 = glob.g_wr.alarmsDiffPres[0];
         lblAlarmLimit1.Text = al1.ToString();
         lblAlarmLimit2.Text = "---";
       }
@@ -325,8 +325,8 @@ namespace DiffPress {
         if (isOutOfRange == true) {
           double al1=0, al2=0;
           if (index == 6) {
-            al1 = glob.g_wr.alarm2_Hi;
-            al2 = glob.g_wr.alarm2_Low;
+            al1 = glob.g_wr.alarmsDiffPres[0];
+            al2 = glob.g_wr.alarmsDiffPres[0];
           }
           //alarms
           rect = CalcAlarm((int)al1);
@@ -338,10 +338,10 @@ namespace DiffPress {
         } else {
           double al1 = 0;
           if (index == 5) {
-            al1 = glob.g_wr.alarm1;
+            al1 = glob.g_wr.alarmsDiffPres[0];
           }
           if (index == 7) {
-            al1 = glob.g_wr.alarm3;
+            al1 = glob.g_wr.alarmsDiffPres[0];
           }
           //alarms
           rect = CalcAlarm((int)al1);

@@ -33,17 +33,15 @@ namespace DiffPress {
     int sample;
       
     public CSQLite(){
-      //CreateDataBase();
+      CreateDataBase();
       GenerateStaticMessageList();
       tmr.Elapsed += new System.Timers.ElapsedEventHandler(tmr_Elapsed);
       tmr.Enabled = true;
     }
-
     void tmr_Elapsed(object sender, System.Timers.ElapsedEventArgs e) {
       if (++sample > 10 /** 60*/) {
         sample = 0;
         ClearOldMessages();
-
       }
     }
     #region Message Related
@@ -105,7 +103,6 @@ namespace DiffPress {
       }
     }
     void CreateDataBase() {
-
       string DB_NAME = Application.StartupPath + @"\log.db";
       if (File.Exists(DB_NAME) == true) {
         return;
@@ -142,6 +139,10 @@ namespace DiffPress {
       try {
         insertSQL.ExecuteNonQuery();
       } catch (Exception ex) {
+        if (ex.Message.Contains("no such table")) {
+          CreateTable();
+          return;
+        }
         throw new Exception(ex.Message);
       }
       sqlconn.Close();

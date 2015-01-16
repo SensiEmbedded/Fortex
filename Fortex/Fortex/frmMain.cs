@@ -43,11 +43,8 @@ namespace DiffPress {
       GoFullscreen(glob.g_wr.fullScreen);
       fullScreen = glob.g_wr.fullScreen;
       ucValue1.SetRef(ref glob);
-      ucValue2.SetRef(ref glob);
-      ucValue3.SetRef(ref glob);
       ucValue1.isOutOfRange = false;
-      ucValue2.isOutOfRange = true;
-      ucValue3.isOutOfRange = false;
+      
       glob.sqlite.Changed += new ChangedEventHandler(sqlite_Changed);
 
       //string str = "basi basi";
@@ -108,67 +105,12 @@ namespace DiffPress {
       blueClock1.Hour = dt.Hour;
       blueClock1.Minute = dt.Minute;
       blueClock1.Second = dt.Second;
-      
     }
-    private void UpdateChart(){
-      DateTime baseDate = DateTime.Today;
-
-      double t = glob.comm.devs.devVir.pressure[5];
-      double t2= glob.comm.devs.devVir.pressure[6];
-      double t3 = glob.comm.devs.devVir.pressure[7];
-      chart1.Series[0].Points.AddXY(DateTime.Now, t);
-      chart1.Series[1].Points.AddXY(DateTime.Now, t2);
-      chart1.Series[2].Points.AddXY(DateTime.Now, t3);
-      if (count < 50) {
-       ++count;
-     } else {
-       chart1.Series[0].Points.RemoveAt(0);
-       chart1.Series[1].Points.RemoveAt(0);
-       chart1.Series[2].Points.RemoveAt(0);
-     }
-      // Adjust Y & X axis scale
-      chart1.ResetAutoValues();
-      // Redraw chart
-      chart1.Invalidate();
-    }
-    Random rnd = new Random();
-    int count = 0;
-    private void TestChart() {
-      DateTime baseDate = DateTime.Today;
-
-      int t = rnd.Next(100);
-      int t2 = rnd.Next(100);
-      int t3 = rnd.Next(100);
-
-     //if (count >= 2 && count <= 5) {
-      // chart1.DataManipulator.InsertEmptyPoints(1,System.Windows.Forms.DataVisualization.Charting.IntervalType.Days, "DiffPress1");
-       
-     //}else{
-      chart1.Series[0].Points.AddXY(DateTime.Now, t);
-      chart1.Series[1].Points.AddXY(DateTime.Now, t2);
-      chart1.Series[2].Points.AddXY(DateTime.Now, t3);
-     //}
-
-     if (count < 100) {
-       ++count;
-     } else {
-       chart1.Series[0].Points.RemoveAt(0);
-       chart1.Series[1].Points.RemoveAt(0);
-       chart1.Series[2].Points.RemoveAt(0);
-     }
-     
-
-      // Adjust Y & X axis scale
-      chart1.ResetAutoValues();
-
-      // Redraw chart
-      chart1.Invalidate();
-      
-    }
+    
     private void UpdateBarGraphs() {
-      ucValue1.Update(5);
-      ucValue2.Update(6);
-      ucValue3.Update(7);
+      //ucValue1.Update(5);
+      //ucValue2.Update(6);
+      //ucValue3.Update(7);
       
     }
     private void UpdateStatus() {
@@ -199,11 +141,11 @@ namespace DiffPress {
       sample1s = 0;
       
       UpdateClock();
-      UpdateStatus();
+      //UpdateStatus();
 
       if (++sample2s < 2) return;
       sample2s = 0;
-      UpdateChart();
+      
       UpdateBarGraphs();
       //TestChart();
 
@@ -264,9 +206,7 @@ namespace DiffPress {
     }
 
     private void chbDiff1_CheckedChanged(object sender, EventArgs e) {
-      chart1.Series[0].Enabled = chbDiff1.Checked;
-      chart1.Series[1].Enabled = chbDiff2.Checked;
-      chart1.Series[2].Enabled = chbDiff3.Checked;
+      
     }
     #region SQLite
     void sqlite_Changed(object sender, EventArgs e) {
@@ -283,5 +223,10 @@ namespace DiffPress {
       
     }
     #endregion
+
+    private void pictureBox1_Click(object sender, EventArgs e) {
+      frmAbout frm = new frmAbout();
+      frm.ShowDialog();
+    }
   }
 }
