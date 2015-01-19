@@ -17,6 +17,13 @@ namespace DiffPress {
       glob = rfGl;
       propertyGrid1.SelectedObject = glob.g_wr;
     }
+    protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+      if (keyData == Keys.Escape) {
+        this.Close();
+        return true;
+      }
+      return base.ProcessCmdKey(ref msg, keyData);
+    }
     private void button1_Click(object sender, EventArgs e) {
       if (glob.g_wr == null) {
         glob.g_wr = new CSer();
@@ -29,28 +36,10 @@ namespace DiffPress {
     private void btnClose_Click(object sender, EventArgs e) {
       this.Close();
     }
-
-    private void btnTestConnection_Click(object sender, EventArgs e) {
-      string r;
-      r = glob.mssql.Connect();
-      if (r == "OK") {
-        glob.mssql.Disconnect();
-      }
-      MessageBox.Show(r.ToString());
-    }
-
+    
     private void btnDefault_Click(object sender, EventArgs e) {
       glob.g_wr.SetDefaults();
       propertyGrid1.SelectedObject = glob.g_wr;
-    }
-
-    private void button2_Click(object sender, EventArgs e) {
-      string r = glob.mssql.Connect();
-      if (r == "OK") {
-        CRecord rec = new CRecord((float)11.22, 2);
-        glob.mssql.ExecuteSP(rec);
-      }
-      glob.mssql.Disconnect();
     }
   }
 }

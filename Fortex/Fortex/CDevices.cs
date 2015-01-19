@@ -352,14 +352,14 @@ namespace DiffPress {
       
       switch (ix) {
         case 5:
-          alarmLo = gl.g_wr.alarm1;
+          alarmLo = gl.g_wr.alarmsDiffPres[0];
           break;
         case 6:
-          alarmLo = gl.g_wr.alarm2_Low;
-          alarmHi = gl.g_wr.alarm2_Hi;
+          alarmLo = gl.g_wr.alarmsDiffPres[0];
+          alarmHi = gl.g_wr.alarmsDiffPres[0];
           break;
         case 7:
-          alarmLo = gl.g_wr.alarm3;
+          alarmLo = gl.g_wr.alarmsDiffPres[0];
           break;
         default:
           alarmStatus[ix] = DevAlarms.None;  

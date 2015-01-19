@@ -27,16 +27,12 @@
       this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
       this.button1 = new System.Windows.Forms.Button();
       this.btnClose = new System.Windows.Forms.Button();
-      this.btnTestConnection = new System.Windows.Forms.Button();
       this.btnDefault = new System.Windows.Forms.Button();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.pictureBox4 = new System.Windows.Forms.PictureBox();
-      this.pictureBox3 = new System.Windows.Forms.PictureBox();
       this.pictureBox2 = new System.Windows.Forms.PictureBox();
-      this.button2 = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
       this.SuspendLayout();
       // 
@@ -44,7 +40,7 @@
       // 
       this.propertyGrid1.Location = new System.Drawing.Point(130, 12);
       this.propertyGrid1.Name = "propertyGrid1";
-      this.propertyGrid1.Size = new System.Drawing.Size(792, 600);
+      this.propertyGrid1.Size = new System.Drawing.Size(784, 377);
       this.propertyGrid1.TabIndex = 41;
       // 
       // button1
@@ -71,18 +67,6 @@
       this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
       this.btnClose.UseVisualStyleBackColor = true;
       this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-      // 
-      // btnTestConnection
-      // 
-      this.btnTestConnection.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.btnTestConnection.Location = new System.Drawing.Point(13, 234);
-      this.btnTestConnection.Name = "btnTestConnection";
-      this.btnTestConnection.Size = new System.Drawing.Size(100, 62);
-      this.btnTestConnection.TabIndex = 42;
-      this.btnTestConnection.Text = "test \r\nSQL\r\nConn";
-      this.btnTestConnection.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-      this.btnTestConnection.UseVisualStyleBackColor = true;
-      this.btnTestConnection.Click += new System.EventHandler(this.btnTestConnection_Click);
       // 
       // btnDefault
       // 
@@ -121,19 +105,6 @@
       this.pictureBox4.TabStop = false;
       this.pictureBox4.Click += new System.EventHandler(this.btnDefault_Click);
       // 
-      // pictureBox3
-      // 
-      this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.pictureBox3.Image = global::DiffPress.Properties.Resources.Database;
-      this.pictureBox3.InitialImage = global::DiffPress.Properties.Resources.delta_logo_full;
-      this.pictureBox3.Location = new System.Drawing.Point(21, 240);
-      this.pictureBox3.Name = "pictureBox3";
-      this.pictureBox3.Size = new System.Drawing.Size(45, 47);
-      this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-      this.pictureBox3.TabIndex = 43;
-      this.pictureBox3.TabStop = false;
-      this.pictureBox3.Click += new System.EventHandler(this.btnTestConnection_Click);
-      // 
       // pictureBox2
       // 
       this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -147,18 +118,6 @@
       this.pictureBox2.TabStop = false;
       this.pictureBox2.Click += new System.EventHandler(this.btnClose_Click);
       // 
-      // button2
-      // 
-      this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-      this.button2.Location = new System.Drawing.Point(15, 324);
-      this.button2.Name = "button2";
-      this.button2.Size = new System.Drawing.Size(100, 62);
-      this.button2.TabIndex = 42;
-      this.button2.Text = "test \r\nSQL\r\nConn";
-      this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-      this.button2.UseVisualStyleBackColor = true;
-      this.button2.Click += new System.EventHandler(this.button2_Click);
-      // 
       // frmSett
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -167,11 +126,8 @@
       this.ClientSize = new System.Drawing.Size(934, 633);
       this.Controls.Add(this.pictureBox1);
       this.Controls.Add(this.pictureBox4);
-      this.Controls.Add(this.pictureBox3);
       this.Controls.Add(this.pictureBox2);
       this.Controls.Add(this.btnDefault);
-      this.Controls.Add(this.button2);
-      this.Controls.Add(this.btnTestConnection);
       this.Controls.Add(this.btnClose);
       this.Controls.Add(this.button1);
       this.Controls.Add(this.propertyGrid1);
@@ -180,7 +136,6 @@
       this.Text = "frmSett";
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
       this.ResumeLayout(false);
 
@@ -193,10 +148,7 @@
     private System.Windows.Forms.Button btnClose;
     private System.Windows.Forms.PictureBox pictureBox2;
     private System.Windows.Forms.PictureBox pictureBox1;
-    private System.Windows.Forms.Button btnTestConnection;
-    private System.Windows.Forms.PictureBox pictureBox3;
     private System.Windows.Forms.Button btnDefault;
     private System.Windows.Forms.PictureBox pictureBox4;
-    private System.Windows.Forms.Button button2;
   }
 }

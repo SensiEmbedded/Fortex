@@ -39,40 +39,27 @@ namespace DiffPress {
 
     [Category("Communication"), Description("Asking for data interval (ms)")]
     public int updatems {get;set; }
-    /*
-    [Category("technologic"), Description("Pressure1 Alarm Low Limit (PA)")]
-    public double[] alarms {
-      get;
-      set;
-    } */
+
+    [Category("technologic"), Description("Number of devices per floor")]
+    public int[] devicesPerFloor { get;set;}
+
+    [Category("technologic"), Description("Number of RH devices per floor")]
+    public int[] rhPerFloor { get;set; }
+    [Category("technologic"), Description("Number of DiffPress devices per floor")]
+    public int[] diffPressPerFloor { get; set; }
+
 
     [Category("technologic"), Description("Pressure  Alarm (PA)")]
-    public double[] alarmsDiffPres {
-      get;
-      set;
-    }
+    public double[] alarmsDiffPres {  get;  set; }
 
     [Category("technologic"), Description("RH Alarms (%)")]
-    public double[] alarmsRH_Hi {
-      get;
-      set;
-    }
+    public double[] alarmsRH_Hi { get; set; }
     [Category("technologic"), Description("Temperature Alarms Hi Limit(%)")]
-    public double[] alarmsT_Hi {
-      get;
-      set;
-    }
+    public double[] alarmsT_Hi { get; set; }
     [Category("technologic"), Description("Temperature Alarms Low Limit(%)")]
-    public double[] alarmsT_Low {
-      get;
-      set;
-    }
-    
+    public double[] alarmsT_Low { get; set;}
     [Category("technologic"), Description("Time (sec) presence alarm")]
-    public int timeAlarm {
-      get;
-      set;
-    }
+    public int timeAlarm { get; set;}
 
      [Category("appereance"), Description("Specifies something")]
     public bool fullScreen { get; set;}
@@ -93,8 +80,8 @@ namespace DiffPress {
       parity = Parity.None;
       stopBits = StopBits.One;
       dataBits = 8;
-      baudRate = 9600;
-      portName = "COM3";
+      baudRate = 19200;
+      portName = "COM2";
       timeOut = 500;
       retries = 2;
       updatems = 1000;
@@ -103,6 +90,26 @@ namespace DiffPress {
       writeInterval = 5*60;
       writeIfAlarm = true;
       writeWhenNormalize = true;
+      devicesPerFloor = new int[3];
+      alarmsDiffPres.ToList().ForEach(c => c = 18);
+
+      rhPerFloor = new int[3];
+      diffPressPerFloor = new int[3];
+
+      rhPerFloor.ToList().ForEach(c => c = 18);   //18 rh & t na etaz
+      diffPressPerFloor.ToList().ForEach(c => c = 6);//6  DiffPress na etaz
+      
+
+      alarmsDiffPres = new double[32];
+      alarmsRH_Hi = new double[64];
+      alarmsT_Hi = new double[64];
+      alarmsT_Low = new double[64];
+
+      alarmsDiffPres.ToList().ForEach(c => c=20);
+      alarmsRH_Hi.ToList().ForEach(c => c=60);
+      alarmsT_Hi.ToList().ForEach(c => c=60);
+      alarmsT_Low.ToList().ForEach(c => c = -10);
+     
     
       //alarms.ToList().ForEach(c => c = 12.3);
       //alarms[0] = 0.0;
