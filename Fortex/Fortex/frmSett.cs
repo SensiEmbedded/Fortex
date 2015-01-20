@@ -38,8 +38,9 @@ namespace DiffPress {
     }
     
     private void btnDefault_Click(object sender, EventArgs e) {
-      glob.g_wr.SetDefaults();
-      propertyGrid1.SelectedObject = glob.g_wr;
+      frmDevsSett devs = new frmDevsSett();
+      devs.SetRef(ref glob);
+      devs.ShowDialog();
     }
   }
 }

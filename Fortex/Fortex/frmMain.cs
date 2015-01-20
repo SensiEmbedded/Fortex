@@ -42,8 +42,8 @@ namespace DiffPress {
 
       GoFullscreen(glob.g_wr.fullScreen);
       fullScreen = glob.g_wr.fullScreen;
-      ucValue1.SetRef(ref glob);
-      ucValue1.isOutOfRange = false;
+      //ucValue1.SetRef(ref glob);
+      //ucValue1.isOutOfRange = false;
       
       glob.sqlite.Changed += new ChangedEventHandler(sqlite_Changed);
 

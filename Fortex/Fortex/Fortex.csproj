@@ -90,6 +90,18 @@
     <Compile Include="frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDevSett.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDevSett.Designer.cs">
+      <DependentUpon>frmDevSett.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDevsSett.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDevsSett.Designer.cs">
+      <DependentUpon>frmDevsSett.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,14 +125,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ucValue.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="ucValue.Designer.cs">
-      <DependentUpon>ucValue.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDevSett.resx">
+      <DependentUpon>frmDevSett.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDevsSett.resx">
+      <DependentUpon>frmDevsSett.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
@@ -142,9 +154,6 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="ucValue.resx">
-      <DependentUpon>ucValue.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -185,6 +194,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\logoFrotex.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\devices.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

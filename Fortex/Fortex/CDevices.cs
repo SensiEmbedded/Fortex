@@ -5,8 +5,9 @@ using System.Text;
 using Modbus.Device;
 using System.IO.Ports;  //for serial port
 using System.Windows.Forms;
-using System.Threading; 
-
+using System.Threading;
+using System.Xml.Serialization;
+using System.ComponentModel;
 
 namespace DiffPress {
   
@@ -182,6 +183,47 @@ namespace DiffPress {
 
   }
   //----------------------------------------------------------------------------------------------------------------------------------
+  public class CDev{
+    public CDev(){}
+    [Browsable(false)]
+    public double val1 {get; set;}
+    [Browsable(false)]
+    public double val2 { get;set; }
+
+    public TypeDevice type { get;set; }
+    public string name {get;set;}
+    public bool Enable { get;set;}
+    public double alarmHi { get; set; }
+    public double alarmLow { get;set; }
+
+  }
+  //----------------------------------------------------------------------------------------------------------------------------------
+  public enum TypeDevice {NotSet,RHT, DiffPress};
+  public class CRH{
+    public CRH() { }
+
+    [Browsable(false)]
+    public double RH {get; set;}
+    [Browsable(false)]
+    public double Temp { get;set; }
+
+    public TypeDevice type { get;set; }
+
+    public string name {get;set;}
+    public bool Enable { get;set;}
+    public double alarmHi { get; set; }
+    public double alarmLow { get;set; }
+  }
+  //----------------------------------------------------------------------------------------------------------------------------------
+  public class CDiff{
+    public CDiff() {}
+    [Browsable(false)]
+    public string name {  get; set;}
+    public bool Enable { get;set;}
+    public double Pressure { get;set;}
+    public double alarmLowPress {  get; set; }
+  }
+  //----------------------------------------------------------------------------------------------------------------------------------
   public class CDev_Virtual {
     public CDevCommon cmn = new CDevCommon();
     private CGlobal gl;
@@ -243,9 +285,7 @@ namespace DiffPress {
       }
     }
     void TTTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e) {
-      SetAlarms(5);
-      SetAlarms(6);
-      SetAlarms(7);
+      //SetAlarms(5);
     }
     /// <summary>
     /// 
@@ -339,107 +379,7 @@ namespace DiffPress {
       return 1;
     } 
     
-    //holdingregister = master.ReadHoldingRegisters(slaveID, startAddress, numofPoints);
-    /// <summary>
-    /// Vika se na vsiaka sekunda
-    /// </summary>
-    /// <param name="ix"></param>
-    int[] demp = new int[8];
-    void SetAlarms(int ix) {
-      double alarmLo=0, alarmHi=0;
-      double press = pressure[ix];
-
-      
-      switch (ix) {
-        case 5:
-          alarmLo = gl.g_wr.alarmsDiffPres[0];
-          break;
-        case 6:
-          alarmLo = gl.g_wr.alarmsDiffPres[0];
-          alarmHi = gl.g_wr.alarmsDiffPres[0];
-          break;
-        case 7:
-          alarmLo = gl.g_wr.alarmsDiffPres[0];
-          break;
-        default:
-          alarmStatus[ix] = DevAlarms.None;  
-          return;
-      }
-      if (alarmStatus[ix] == DevAlarms.Error) {
-        return;
-      }
-      if (alarmStatus[ix] == DevAlarms.NotSet) {
-        alarmStatus[ix] = DevAlarms.None;
-        return;
-      }
-      if (ix == 5 || ix == 7) {
-        // i dvete rabotiat kato dolna granica
-        if (press < alarmLo) {
-          if (demp[ix] < gl.g_wr.timeAlarm)
-            demp[ix]++;	
-        } else {
-          if (demp[ix] > 0)
-            demp[ix]--;		
-        }
-        if (demp[ix] >= gl.g_wr.timeAlarm) {
-          alarmStatus[ix] = DevAlarms.Lo;
-          if (alarmStatusLast[ix] == DevAlarms.None) {
-            FireAlarmEvent(ix, DevAlarms.Lo);
-            if (ix == 5) {
-              gl.sqlite.LogMessage("Alarm: Pressure 1 bellow low limit.");
-            } else {
-              gl.sqlite.LogMessage("Alarm: Pressure 3 bellow low limit.");
-            }
-          }
-        } else {
-          if (demp[ix] == 0) {
-            alarmStatus[ix] = DevAlarms.None;
-            if (alarmStatusLast[ix] == DevAlarms.Lo) {
-              FireAlarmEvent(ix, DevAlarms.None);
-              if (ix == 5) {
-                gl.sqlite.LogMessage("Pressure 1 enter in normal range.");
-              } else {
-                gl.sqlite.LogMessage("Pressure 3 enter in normal rangle.");
-              }
-            }
-          }
-        }
-      }
-      if (ix == 6) {
-        //out of range tip na granica
-        if (press < alarmLo) {
-          if (demp[ix] < gl.g_wr.timeAlarm)
-            demp[ix]++;	
-        }
-        if (press > alarmHi) {
-          if (demp[ix] < gl.g_wr.timeAlarm)
-            demp[ix]++;	
-        }
-        if (press >= alarmLo && press <= alarmHi) {
-          if (demp[ix] > 0)
-            demp[ix]--;		
-        }
-
-        if (demp[ix] >= gl.g_wr.timeAlarm) {
-          alarmStatus[ix] = DevAlarms.OutOfRange;
-          
-          if (alarmStatusLast[ix] == DevAlarms.None) {
-            FireAlarmEvent(ix, DevAlarms.OutOfRange);
-            gl.sqlite.LogMessage("Alarm: Pressure 2 Out Of Range.");
-          }
-        } else {
-          if (demp[ix] == 0) {
-            alarmStatus[ix] = DevAlarms.None;
-            if (alarmStatusLast[ix] == DevAlarms.OutOfRange) {
-              FireAlarmEvent(ix, DevAlarms.None);
-              gl.sqlite.LogMessage("Pressure 2 become in normal range.");
-            }
-          }
-        }
-
-      }
-      alarmStatusLast[ix] = alarmStatus[ix];
-    }
+    
     
   }
   #endregion

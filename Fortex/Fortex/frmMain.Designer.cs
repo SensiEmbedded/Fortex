@@ -36,9 +36,6 @@
           System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
           this.pnlMenu = new System.Windows.Forms.Panel();
           this.grbStatus = new System.Windows.Forms.GroupBox();
-          this.line1 = new Unclassified.UI.Line();
-          this.line3 = new Unclassified.UI.Line();
-          this.line2 = new Unclassified.UI.Line();
           this.lblComm = new System.Windows.Forms.Label();
           this.label4 = new System.Windows.Forms.Label();
           this.lblRemain = new System.Windows.Forms.Label();
@@ -56,7 +53,9 @@
           this.tmrUpdateGUI = new System.Windows.Forms.Timer(this.components);
           this.dataGridView1 = new System.Windows.Forms.DataGridView();
           this.label5 = new System.Windows.Forms.Label();
-          this.ucValue1 = new DiffPress.ucValue();
+          this.line1 = new Unclassified.UI.Line();
+          this.line3 = new Unclassified.UI.Line();
+          this.line2 = new Unclassified.UI.Line();
           this.pnlMenu.SuspendLayout();
           this.grbStatus.SuspendLayout();
           this.groupBox2.SuspendLayout();
@@ -96,43 +95,6 @@
           this.grbStatus.TabIndex = 48;
           this.grbStatus.TabStop = false;
           this.grbStatus.Text = "Status:";
-          // 
-          // line1
-          // 
-          this.line1.BorderColor = System.Drawing.SystemColors.ControlText;
-          this.line1.Dark3dColor = System.Drawing.SystemColors.ControlDark;
-          this.line1.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-          this.line1.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
-          this.line1.Location = new System.Drawing.Point(100, 20);
-          this.line1.Name = "line1";
-          this.line1.Orientation = Unclassified.UI.LineOrientation.Vertical;
-          this.line1.Size = new System.Drawing.Size(1, 98);
-          this.line1.TabIndex = 5;
-          this.line1.TabStop = false;
-          // 
-          // line3
-          // 
-          this.line3.BorderColor = System.Drawing.SystemColors.ControlText;
-          this.line3.Dark3dColor = System.Drawing.SystemColors.ControlDark;
-          this.line3.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-          this.line3.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
-          this.line3.Location = new System.Drawing.Point(9, 92);
-          this.line3.Name = "line3";
-          this.line3.Size = new System.Drawing.Size(188, 2);
-          this.line3.TabIndex = 6;
-          this.line3.TabStop = false;
-          // 
-          // line2
-          // 
-          this.line2.BorderColor = System.Drawing.SystemColors.ControlText;
-          this.line2.Dark3dColor = System.Drawing.SystemColors.ControlDark;
-          this.line2.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-          this.line2.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
-          this.line2.Location = new System.Drawing.Point(8, 70);
-          this.line2.Name = "line2";
-          this.line2.Size = new System.Drawing.Size(188, 2);
-          this.line2.TabIndex = 6;
-          this.line2.TabStop = false;
           // 
           // lblComm
           // 
@@ -342,15 +304,45 @@
           this.label5.Size = new System.Drawing.Size(1638, 34);
           this.label5.TabIndex = 66;
           this.label5.Text = "Система за следене влажност, температура и надналягане в помещенията на Fortex Nu" +
-              "trasu";
+              "traceuticals";
           this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
           // 
-          // ucValue1
+          // line1
           // 
-          this.ucValue1.Location = new System.Drawing.Point(246, 80);
-          this.ucValue1.Name = "ucValue1";
-          this.ucValue1.Size = new System.Drawing.Size(335, 254);
-          this.ucValue1.TabIndex = 62;
+          this.line1.BorderColor = System.Drawing.SystemColors.ControlText;
+          this.line1.Dark3dColor = System.Drawing.SystemColors.ControlDark;
+          this.line1.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+          this.line1.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
+          this.line1.Location = new System.Drawing.Point(100, 20);
+          this.line1.Name = "line1";
+          this.line1.Orientation = Unclassified.UI.LineOrientation.Vertical;
+          this.line1.Size = new System.Drawing.Size(1, 98);
+          this.line1.TabIndex = 5;
+          this.line1.TabStop = false;
+          // 
+          // line3
+          // 
+          this.line3.BorderColor = System.Drawing.SystemColors.ControlText;
+          this.line3.Dark3dColor = System.Drawing.SystemColors.ControlDark;
+          this.line3.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+          this.line3.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
+          this.line3.Location = new System.Drawing.Point(9, 92);
+          this.line3.Name = "line3";
+          this.line3.Size = new System.Drawing.Size(188, 2);
+          this.line3.TabIndex = 6;
+          this.line3.TabStop = false;
+          // 
+          // line2
+          // 
+          this.line2.BorderColor = System.Drawing.SystemColors.ControlText;
+          this.line2.Dark3dColor = System.Drawing.SystemColors.ControlDark;
+          this.line2.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+          this.line2.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
+          this.line2.Location = new System.Drawing.Point(8, 70);
+          this.line2.Name = "line2";
+          this.line2.Size = new System.Drawing.Size(188, 2);
+          this.line2.TabIndex = 6;
+          this.line2.TabStop = false;
           // 
           // frmMain
           // 
@@ -360,7 +352,6 @@
           this.ClientSize = new System.Drawing.Size(1912, 1053);
           this.Controls.Add(this.label5);
           this.Controls.Add(this.dataGridView1);
-          this.Controls.Add(this.ucValue1);
           this.Controls.Add(this.pnlMenu);
           this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
           this.Name = "frmMain";
@@ -395,7 +386,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
-        private ucValue ucValue1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox grbStatus;
         private System.Windows.Forms.Label lblRemain;

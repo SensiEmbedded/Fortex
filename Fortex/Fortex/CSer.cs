@@ -8,6 +8,9 @@ using System.Windows.Forms;
 using System.IO.Ports;  //for serial port
 using System.ComponentModel;
 
+using System.Collections.Generic;
+
+
 namespace DiffPress {
   [Serializable]
   public class CSer {
@@ -40,15 +43,12 @@ namespace DiffPress {
     [Category("Communication"), Description("Asking for data interval (ms)")]
     public int updatems {get;set; }
 
-    [Category("technologic"), Description("Number of devices per floor")]
-    public int[] devicesPerFloor { get;set;}
-
     [Category("technologic"), Description("Number of RH devices per floor")]
     public int[] rhPerFloor { get;set; }
     [Category("technologic"), Description("Number of DiffPress devices per floor")]
     public int[] diffPressPerFloor { get; set; }
 
-
+    /*
     [Category("technologic"), Description("Pressure  Alarm (PA)")]
     public double[] alarmsDiffPres {  get;  set; }
 
@@ -58,6 +58,16 @@ namespace DiffPress {
     public double[] alarmsT_Hi { get; set; }
     [Category("technologic"), Description("Temperature Alarms Low Limit(%)")]
     public double[] alarmsT_Low { get; set;}
+      */
+
+    [Category("technologic"), Description("Floor1 Devices")]
+    public CDev[] floor1Devs {get;set;}
+
+    [Category("technologic"), Description("Floor2 Devices")]
+    public CDev[] floor2Devs {get;set;}
+    [Category("technologic"), Description("Floor3 Devices")]
+    public CDev[] floor3Devs {get;set;}
+
     [Category("technologic"), Description("Time (sec) presence alarm")]
     public int timeAlarm { get; set;}
 
@@ -76,6 +86,8 @@ namespace DiffPress {
     [Category("MS Server"), Description("Write when alarm disappear (normalize).")]
     public bool writeWhenNormalize{get; set;}
 
+    
+
     public void SetDefaults(){
       parity = Parity.None;
       stopBits = StopBits.One;
@@ -90,16 +102,24 @@ namespace DiffPress {
       writeInterval = 5*60;
       writeIfAlarm = true;
       writeWhenNormalize = true;
-      devicesPerFloor = new int[3];
-      alarmsDiffPres.ToList().ForEach(c => c = 18);
 
-      rhPerFloor = new int[3];
-      diffPressPerFloor = new int[3];
+      floor1Devs = new CDev[32];
+      floor2Devs = new CDev[32];
+      floor3Devs = new CDev[32];
 
-      rhPerFloor.ToList().ForEach(c => c = 18);   //18 rh & t na etaz
-      diffPressPerFloor.ToList().ForEach(c => c = 6);//6  DiffPress na etaz
-      
+      for (int i = 0; i < 32; ++i) {
+        floor1Devs[i] = new CDev();
+        floor2Devs[i] = new CDev();
+        floor3Devs[i] = new CDev();
+      }
 
+      floor1Devs.ToList().ForEach(c => {c.Enable = false; c.type = TypeDevice.NotSet;});
+      floor2Devs.ToList().ForEach(c => {c.Enable = false; c.type = TypeDevice.NotSet;});
+      floor3Devs.ToList().ForEach(c => {c.Enable = false; c.type = TypeDevice.NotSet;});
+
+          
+
+      /*
       alarmsDiffPres = new double[32];
       alarmsRH_Hi = new double[64];
       alarmsT_Hi = new double[64];
@@ -109,7 +129,7 @@ namespace DiffPress {
       alarmsRH_Hi.ToList().ForEach(c => c=60);
       alarmsT_Hi.ToList().ForEach(c => c=60);
       alarmsT_Low.ToList().ForEach(c => c = -10);
-     
+        */
     
       //alarms.ToList().ForEach(c => c = 12.3);
       //alarms[0] = 0.0;
