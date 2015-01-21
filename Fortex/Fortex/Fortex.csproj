@@ -125,6 +125,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucDevSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDevSet.Designer.cs">
+      <DependentUpon>ucDevSet.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
@@ -154,6 +160,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ucDevSet.resx">
+      <DependentUpon>ucDevSet.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -197,6 +206,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\devices.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\LowLimit2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\HighLimit2.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\OK.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\109_AllAnnotations_Default_24x24_72.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Cancel.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

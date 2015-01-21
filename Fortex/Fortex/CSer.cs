@@ -111,6 +111,11 @@ namespace DiffPress {
         floor1Devs[i] = new CDev();
         floor2Devs[i] = new CDev();
         floor3Devs[i] = new CDev();
+
+        floor1Devs[i].address = i+1;
+        floor2Devs[i].address = i+1;
+        floor3Devs[i].address = i+1;
+
       }
 
       floor1Devs.ToList().ForEach(c => {c.Enable = false; c.type = TypeDevice.NotSet;});

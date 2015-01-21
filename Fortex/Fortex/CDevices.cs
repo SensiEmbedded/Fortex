@@ -189,12 +189,12 @@ namespace DiffPress {
     public double val1 {get; set;}
     [Browsable(false)]
     public double val2 { get;set; }
-
     public TypeDevice type { get;set; }
     public string name {get;set;}
     public bool Enable { get;set;}
     public double alarmHi { get; set; }
     public double alarmLow { get;set; }
+    public int address { get;set; }
 
   }
   //----------------------------------------------------------------------------------------------------------------------------------
