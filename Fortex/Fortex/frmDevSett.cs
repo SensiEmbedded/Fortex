@@ -24,26 +24,22 @@ namespace DiffPress {
     }
     private void PopulateControls() {
       lblAddr.Text = dev.address.ToString();
-      cmbType.Text = dev.type.ToString();
+      cmbType.SelectedIndex = (int)dev.type;
       txtName.Text = dev.name;
       nudAlarmHi.Value = (decimal)dev.alarmHi;
       nudAlarmLo.Value = (decimal)dev.alarmLow;
-      if (dev.Enable == true) {
-        cmbEnable.Text = "Enable";
-      } else {
-        cmbEnable.Text = "Disable";
-      }
+      txtDescr.Text = dev.description;
+      ucOnOff1.isOn  = dev.Enable ;
+     
     }
     private void PopulateFromControl() {
       dev.type = (TypeDevice)cmbType.SelectedIndex;
       dev.name = txtName.Text;
       dev.alarmHi = (double)nudAlarmHi.Value;
       dev.alarmLow = (double)nudAlarmLo.Value;
-      if (cmbEnable.Text == "Enable") {
-        dev.Enable = true;
-      } else {
-        dev.Enable = false;
-      }
+      dev.description = txtDescr.Text;
+      dev.Enable = ucOnOff1.isOn; 
+      
     }
     private void btnOK_Click(object sender, EventArgs e) {
       PopulateFromControl();

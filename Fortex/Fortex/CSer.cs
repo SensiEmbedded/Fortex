@@ -43,10 +43,13 @@ namespace DiffPress {
     [Category("Communication"), Description("Asking for data interval (ms)")]
     public int updatems {get;set; }
 
-    [Category("technologic"), Description("Number of RH devices per floor")]
-    public int[] rhPerFloor { get;set; }
-    [Category("technologic"), Description("Number of DiffPress devices per floor")]
-    public int[] diffPressPerFloor { get; set; }
+    [Category("technologic"), Description("Number of devices per floor1 (RHT + DiffPRess)")]
+    public int devsFloor1 { get;set; }
+    [Category("technologic"), Description("Number of devices per floor2 (RHT + DiffPRess)")]
+    public int devsFloor2 { get;set; }
+    [Category("technologic"), Description("Number of devices per floor3 (RHT + DiffPRess)")]
+    public int devsFloor3 { get;set; }
+    
 
     /*
     [Category("technologic"), Description("Pressure  Alarm (PA)")]
@@ -103,6 +106,10 @@ namespace DiffPress {
       writeIfAlarm = true;
       writeWhenNormalize = true;
 
+      devsFloor1 = 8;
+      devsFloor2 = 8;
+      devsFloor3 = 8;
+
       floor1Devs = new CDev[32];
       floor2Devs = new CDev[32];
       floor3Devs = new CDev[32];
@@ -118,9 +125,9 @@ namespace DiffPress {
 
       }
 
-      floor1Devs.ToList().ForEach(c => {c.Enable = false; c.type = TypeDevice.NotSet;});
-      floor2Devs.ToList().ForEach(c => {c.Enable = false; c.type = TypeDevice.NotSet;});
-      floor3Devs.ToList().ForEach(c => {c.Enable = false; c.type = TypeDevice.NotSet;});
+      floor1Devs.ToList().ForEach(c => {c.Enable = false; c.type = TypeDevice.RHT;});
+      floor2Devs.ToList().ForEach(c => {c.Enable = false; c.type = TypeDevice.RHT;});
+      floor3Devs.ToList().ForEach(c => {c.Enable = false; c.type = TypeDevice.RHT;});
 
           
 

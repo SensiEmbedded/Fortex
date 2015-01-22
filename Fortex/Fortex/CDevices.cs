@@ -195,10 +195,11 @@ namespace DiffPress {
     public double alarmHi { get; set; }
     public double alarmLow { get;set; }
     public int address { get;set; }
+    public string description {get;set;}
 
   }
   //----------------------------------------------------------------------------------------------------------------------------------
-  public enum TypeDevice {NotSet,RHT, DiffPress};
+  public enum TypeDevice {RHT, DiffPress};
   public class CRH{
     public CRH() { }
 

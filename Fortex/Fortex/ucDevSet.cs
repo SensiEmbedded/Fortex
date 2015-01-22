@@ -25,7 +25,7 @@ namespace DiffPress {
     }
     private void PopulateControls() {
       lblName.Text = dev.name;
-      lblType.Text = dev.type.ToString();
+      
       lblEnable.Text = dev.Enable.ToString();
       lblAlarmLow.Text = dev.alarmLow.ToString("F1");
       lblAlarmHi.Text = dev.alarmHi.ToString("F1");
@@ -34,6 +34,12 @@ namespace DiffPress {
         this.BackColor = Color.Gray;
       } else {
         this.BackColor = Color.GhostWhite;
+      }
+      lblType.Text = dev.type.ToString();
+      if (dev.type == TypeDevice.DiffPress) {
+        lblType.ForeColor = Color.Blue;
+      } else {
+        lblType.ForeColor = Color.Black;
       }
     }
 

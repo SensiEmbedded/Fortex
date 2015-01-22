@@ -131,6 +131,12 @@
     <Compile Include="ucDevSet.Designer.cs">
       <DependentUpon>ucDevSet.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucOnOff.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucOnOff.Designer.cs">
+      <DependentUpon>ucOnOff.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,6 +168,9 @@
     </Compile>
     <EmbeddedResource Include="ucDevSet.resx">
       <DependentUpon>ucDevSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucOnOff.resx">
+      <DependentUpon>ucOnOff.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">
@@ -221,6 +230,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\Cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\n3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\n2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\n1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\CloseGray.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

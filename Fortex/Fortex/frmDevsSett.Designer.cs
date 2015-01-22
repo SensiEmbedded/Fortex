@@ -24,16 +24,45 @@
     /// </summary>
     private void InitializeComponent() {
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevsSett));
+      this.pnlFloor3 = new System.Windows.Forms.Panel();
+      this.pnlFloor2 = new System.Windows.Forms.Panel();
       this.pnlFloor1 = new System.Windows.Forms.Panel();
-      this.pictureBox1 = new System.Windows.Forms.PictureBox();
-      this.pictureBox2 = new System.Windows.Forms.PictureBox();
+      this.button1 = new System.Windows.Forms.Button();
       this.pictureBox3 = new System.Windows.Forms.PictureBox();
-      this.panel1 = new System.Windows.Forms.Panel();
-      this.panel2 = new System.Windows.Forms.Panel();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+      this.pictureBox2 = new System.Windows.Forms.PictureBox();
+      this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.groupBox1 = new System.Windows.Forms.GroupBox();
+      this.button2 = new System.Windows.Forms.Button();
+      this.pictureBox4 = new System.Windows.Forms.PictureBox();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
       this.SuspendLayout();
+      // 
+      // pnlFloor3
+      // 
+      this.pnlFloor3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.pnlFloor3.AutoScroll = true;
+      this.pnlFloor3.AutoScrollMargin = new System.Drawing.Size(100, 10);
+      this.pnlFloor3.BackColor = System.Drawing.Color.Gray;
+      this.pnlFloor3.Location = new System.Drawing.Point(74, 2);
+      this.pnlFloor3.Name = "pnlFloor3";
+      this.pnlFloor3.Size = new System.Drawing.Size(1104, 219);
+      this.pnlFloor3.TabIndex = 2;
+      // 
+      // pnlFloor2
+      // 
+      this.pnlFloor2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.pnlFloor2.AutoScroll = true;
+      this.pnlFloor2.AutoScrollMargin = new System.Drawing.Size(100, 10);
+      this.pnlFloor2.BackColor = System.Drawing.Color.Gray;
+      this.pnlFloor2.Location = new System.Drawing.Point(75, 235);
+      this.pnlFloor2.Name = "pnlFloor2";
+      this.pnlFloor2.Size = new System.Drawing.Size(1103, 219);
+      this.pnlFloor2.TabIndex = 3;
       // 
       // pnlFloor1
       // 
@@ -42,64 +71,88 @@
       this.pnlFloor1.AutoScroll = true;
       this.pnlFloor1.AutoScrollMargin = new System.Drawing.Size(100, 10);
       this.pnlFloor1.BackColor = System.Drawing.Color.Gray;
-      this.pnlFloor1.Location = new System.Drawing.Point(74, 2);
+      this.pnlFloor1.Location = new System.Drawing.Point(76, 468);
       this.pnlFloor1.Name = "pnlFloor1";
-      this.pnlFloor1.Size = new System.Drawing.Size(1120, 219);
-      this.pnlFloor1.TabIndex = 2;
+      this.pnlFloor1.Size = new System.Drawing.Size(1102, 219);
+      this.pnlFloor1.TabIndex = 3;
       // 
-      // pictureBox1
+      // button1
       // 
-      this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-      this.pictureBox1.Location = new System.Drawing.Point(8, 158);
-      this.pictureBox1.Name = "pictureBox1";
-      this.pictureBox1.Size = new System.Drawing.Size(67, 64);
-      this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-      this.pictureBox1.TabIndex = 3;
-      this.pictureBox1.TabStop = false;
+      this.button1.Image = global::DiffPress.Properties.Resources.CloseGray;
+      this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.button1.Location = new System.Drawing.Point(4, 712);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(100, 62);
+      this.button1.TabIndex = 18;
+      this.button1.Text = "Close";
+      this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new System.EventHandler(this.button1_Click);
+      // 
+      // pictureBox3
+      // 
+      this.pictureBox3.Image = global::DiffPress.Properties.Resources.n1;
+      this.pictureBox3.Location = new System.Drawing.Point(2, 640);
+      this.pictureBox3.Name = "pictureBox3";
+      this.pictureBox3.Size = new System.Drawing.Size(69, 47);
+      this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pictureBox3.TabIndex = 4;
+      this.pictureBox3.TabStop = false;
       // 
       // pictureBox2
       // 
-      this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-      this.pictureBox2.Location = new System.Drawing.Point(42, 382);
+      this.pictureBox2.Image = global::DiffPress.Properties.Resources.n2;
+      this.pictureBox2.Location = new System.Drawing.Point(0, 404);
       this.pictureBox2.Name = "pictureBox2";
-      this.pictureBox2.Size = new System.Drawing.Size(34, 77);
+      this.pictureBox2.Size = new System.Drawing.Size(69, 47);
       this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
       this.pictureBox2.TabIndex = 4;
       this.pictureBox2.TabStop = false;
       // 
-      // pictureBox3
+      // pictureBox1
       // 
-      this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-      this.pictureBox3.Location = new System.Drawing.Point(42, 614);
-      this.pictureBox3.Name = "pictureBox3";
-      this.pictureBox3.Size = new System.Drawing.Size(34, 77);
-      this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-      this.pictureBox3.TabIndex = 5;
-      this.pictureBox3.TabStop = false;
+      this.pictureBox1.Image = global::DiffPress.Properties.Resources.n3;
+      this.pictureBox1.Location = new System.Drawing.Point(3, 175);
+      this.pictureBox1.Name = "pictureBox1";
+      this.pictureBox1.Size = new System.Drawing.Size(69, 47);
+      this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pictureBox1.TabIndex = 4;
+      this.pictureBox1.TabStop = false;
       // 
-      // panel1
+      // groupBox1
       // 
-      this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+      this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
                   | System.Windows.Forms.AnchorStyles.Right)));
-      this.panel1.AutoScroll = true;
-      this.panel1.AutoScrollMargin = new System.Drawing.Size(100, 10);
-      this.panel1.BackColor = System.Drawing.Color.Gray;
-      this.panel1.Location = new System.Drawing.Point(75, 240);
-      this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(1104, 219);
-      this.panel1.TabIndex = 3;
+      this.groupBox1.Location = new System.Drawing.Point(1, 695);
+      this.groupBox1.Name = "groupBox1";
+      this.groupBox1.Size = new System.Drawing.Size(1180, 12);
+      this.groupBox1.TabIndex = 19;
+      this.groupBox1.TabStop = false;
       // 
-      // panel2
+      // button2
       // 
-      this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
-                  | System.Windows.Forms.AnchorStyles.Right)));
-      this.panel2.AutoScroll = true;
-      this.panel2.AutoScrollMargin = new System.Drawing.Size(100, 10);
-      this.panel2.BackColor = System.Drawing.Color.Gray;
-      this.panel2.Location = new System.Drawing.Point(76, 471);
-      this.panel2.Name = "panel2";
-      this.panel2.Size = new System.Drawing.Size(1104, 219);
-      this.panel2.TabIndex = 3;
+      this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.button2.Location = new System.Drawing.Point(120, 713);
+      this.button2.Name = "button2";
+      this.button2.Size = new System.Drawing.Size(100, 62);
+      this.button2.TabIndex = 43;
+      this.button2.Text = "Save";
+      this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.button2.UseVisualStyleBackColor = true;
+      this.button2.Click += new System.EventHandler(this.button2_Click);
+      // 
+      // pictureBox4
+      // 
+      this.pictureBox4.Cursor = System.Windows.Forms.Cursors.Hand;
+      this.pictureBox4.Image = global::DiffPress.Properties.Resources.Save;
+      this.pictureBox4.InitialImage = global::DiffPress.Properties.Resources.delta_logo_full;
+      this.pictureBox4.Location = new System.Drawing.Point(135, 720);
+      this.pictureBox4.Name = "pictureBox4";
+      this.pictureBox4.Size = new System.Drawing.Size(45, 47);
+      this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pictureBox4.TabIndex = 44;
+      this.pictureBox4.TabStop = false;
+      this.pictureBox4.Click += new System.EventHandler(this.button2_Click);
       // 
       // frmDevsSett
       // 
@@ -107,31 +160,40 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.AutoScroll = true;
       this.AutoScrollMinSize = new System.Drawing.Size(100, 10);
-      this.ClientSize = new System.Drawing.Size(1194, 734);
-      this.Controls.Add(this.panel2);
-      this.Controls.Add(this.panel1);
+      this.ClientSize = new System.Drawing.Size(1194, 790);
+      this.Controls.Add(this.pictureBox4);
+      this.Controls.Add(this.button2);
+      this.Controls.Add(this.groupBox1);
+      this.Controls.Add(this.button1);
       this.Controls.Add(this.pictureBox3);
       this.Controls.Add(this.pictureBox2);
       this.Controls.Add(this.pictureBox1);
       this.Controls.Add(this.pnlFloor1);
+      this.Controls.Add(this.pnlFloor2);
+      this.Controls.Add(this.pnlFloor3);
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "frmDevsSett";
       this.Text = "Devices Settings";
       this.Load += new System.EventHandler(this.frmDevsSett_Load);
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
       this.ResumeLayout(false);
 
     }
 
     #endregion
 
+    private System.Windows.Forms.Panel pnlFloor3;
+    private System.Windows.Forms.Panel pnlFloor2;
     private System.Windows.Forms.Panel pnlFloor1;
     private System.Windows.Forms.PictureBox pictureBox1;
     private System.Windows.Forms.PictureBox pictureBox2;
     private System.Windows.Forms.PictureBox pictureBox3;
-    private System.Windows.Forms.Panel panel1;
-    private System.Windows.Forms.Panel panel2;
+    private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.GroupBox groupBox1;
+    private System.Windows.Forms.Button button2;
+    private System.Windows.Forms.PictureBox pictureBox4;
   }
 }
