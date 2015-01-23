@@ -85,25 +85,6 @@ namespace DiffPress {
 
   }
   //----------------------------------------------------------------------------------------------------------------------------------
-  public class CDev_RH_T {
-    public CDevCommon cmn = new CDevCommon();
-    private CGlobal gl;
-    ushort startAddress = 1;
-    ushort numofPoints = 4;
-    ushort[] holdingregister = null;
-
-    public CDev_RH_T(ref CGlobal gl) {
-      this.gl = gl;
-      cmn.slaveID = 1;
-    
-      cmn.ReadDevice = Read;
-    }
-    int Read() {
-      return 1;
-    }
-
-  }
-  //----------------------------------------------------------------------------------------------------------------------------------
   public class CDev_MMM {
     public CDevCommon cmn = new CDevCommon();
     private CGlobal gl;
@@ -185,10 +166,14 @@ namespace DiffPress {
   //----------------------------------------------------------------------------------------------------------------------------------
   public class CDev{
     public CDev(){}
+    private double _val1;
     [Browsable(false)]
-    public double val1 {get; set;}
+    public double val1 {get{ return _val1;} set {_val1 = value; FireChangeEvent();}}
+    private double _val2;
     [Browsable(false)]
-    public double val2 { get;set; }
+    public double val2 {get{ return _val2;} set {_val2 = value; FireChangeEvent();}}
+    
+
     public TypeDevice type { get;set; }
     public string name {get;set;}
     public bool Enable { get;set;}
@@ -196,34 +181,19 @@ namespace DiffPress {
     public double alarmLow { get;set; }
     public int address { get;set; }
     public string description {get;set;}
+    public event ChangedEventHandler Changed;
+    void FireChangeEvent() {
+      if (Changed != null) {
+        Changed(this, new EventArgs());
+      } else {
+        //System.Diagnostics.Debug.WriteLine("KKKKKKKUUUUUUUUUUUUUUUUUUUUUURRRRRRRRRRRRRRRRR");
+      }
+    }
 
   }
   //----------------------------------------------------------------------------------------------------------------------------------
   public enum TypeDevice {RHT, DiffPress};
-  public class CRH{
-    public CRH() { }
-
-    [Browsable(false)]
-    public double RH {get; set;}
-    [Browsable(false)]
-    public double Temp { get;set; }
-
-    public TypeDevice type { get;set; }
-
-    public string name {get;set;}
-    public bool Enable { get;set;}
-    public double alarmHi { get; set; }
-    public double alarmLow { get;set; }
-  }
-  //----------------------------------------------------------------------------------------------------------------------------------
-  public class CDiff{
-    public CDiff() {}
-    [Browsable(false)]
-    public string name {  get; set;}
-    public bool Enable { get;set;}
-    public double Pressure { get;set;}
-    public double alarmLowPress {  get; set; }
-  }
+  
   //----------------------------------------------------------------------------------------------------------------------------------
   public class CDev_Virtual {
     public CDevCommon cmn = new CDevCommon();
@@ -275,14 +245,12 @@ namespace DiffPress {
       if (Changed != null) {
         Changed(this, new EventArgs());
       } else {
-        //System.Diagnostics.Debug.WriteLine("KKKKKKKUUUUUUUUUUUUUUUUUUUUUURRRRRRRRRRRRRRRRR");
       }
     }
     void FireAlarmEvent(int ixPressure,DevAlarms type) {
       if (evAlarm != null) {
         evAlarm(ixPressure, type);
       } else {
-        //System.Diagnostics.Debug.WriteLine("KKKKKKKUUUUUUUUUUUUUUUUUUUUUURRRRRRRRRRRRRRRRR");
       }
     }
     void TTTimer_Elapsed(object sender, System.Timers.ElapsedEventArgs e) {
@@ -387,7 +355,7 @@ namespace DiffPress {
   //----------------------------------------------------------------------------------------------------------------------------------
   public class CDevices {
     public CDev_Virtual devVir;
-    public CDev_RH_T[] devsss = new CDev_RH_T[2];
+    //public CDev_RH_T[] devsss = new CDev_RH_T[2];
     public CDev_MMM[] mmm = new CDev_MMM[3];
     private CGlobal glob;
     private int order=0;
@@ -399,8 +367,7 @@ namespace DiffPress {
       mmm[2] = new CDev_MMM(ref gl);
 
       devVir = new CDev_Virtual(ref gl);
-      devsss[0] = new CDev_RH_T(ref gl);
-      devsss[1] = new CDev_RH_T(ref gl);
+      
     }
     public void ReadNextDevice() {
       int rez = 0;

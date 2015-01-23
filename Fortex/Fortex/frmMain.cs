@@ -27,8 +27,6 @@ namespace DiffPress {
     int sample2s = 0;
     int sample4s = 0;
     bool fullScreen = false;
-    
-    
 
     public frmMain() {
       InitializeComponent();
@@ -56,6 +54,7 @@ namespace DiffPress {
       
       //  progressBar1.Increment(1);
         //Thread.Sleep(1000);
+      floor1Populate();
       glob.sqlite.LogMessage("Program started.");
       
       return;
@@ -133,6 +132,7 @@ namespace DiffPress {
       
       }
     }
+    int count;
     private void tmrUpdateGUI_Tick(object sender, EventArgs e) {
       //tick on every 500 ms
 
@@ -140,6 +140,8 @@ namespace DiffPress {
       if (++sample1s < 2) return;
       sample1s = 0;
       
+      glob.g_wr.floor1Devs[0].val1 = ++count;
+
       UpdateClock();
       //UpdateStatus();
 
@@ -208,6 +210,44 @@ namespace DiffPress {
     private void chbDiff1_CheckedChanged(object sender, EventArgs e) {
       
     }
+    #region RealTime Panels
+    private void floor1Populate() {
+      int howMany = glob.g_wr.howManyDevsFloor1;
+      //Control[] cntrs = new Control[howMany];
+      List<Control> cntrs = new List<Control>(howMany);
+      ucRHTRealTime rht = null;
+      ucDiffPressRealTime diffpres = null;
+      for (int i = 0; i < howMany; i++) {
+        if (glob.g_wr.floor1Devs[i].type == TypeDevice.RHT) {
+          rht = new ucRHTRealTime();
+          rht.cdev = glob.g_wr.floor1Devs[i];
+          cntrs.Add(rht);
+        } else {
+          diffpres = new ucDiffPressRealTime();
+          diffpres.cdev = glob.g_wr.floor1Devs[i];
+          cntrs.Add(diffpres);
+        }
+      }
+      for (int i = 0; i < howMany; i++) {
+        cntrs[i].Dock = DockStyle.Left;
+        pnlFloor1.Controls.Add(cntrs[howMany-1 - i]);
+      } 
+      cntrs[0].Select();
+
+      /*
+      ucDevSet[] ucs = new ucDevSet[32];
+      for (int i = 0; i < 32; i++) {
+        ucs[i] = new ucDevSet();
+        ucs[i].SetRef(glob.g_wr.floor1Devs[i]);
+        ucs[i].Dock = DockStyle.Left;
+      }
+      for (int i = 0; i < 32; i++) {
+        pnlFloor1.Controls.Add(ucs[31-i]);
+      } 
+      ucs[0].Select(); // move scrollbar at the beging
+       */ 
+    }
+    #endregion
     #region SQLite
     void sqlite_Changed(object sender, EventArgs e) {
       PopulateGrid();

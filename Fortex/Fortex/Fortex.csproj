@@ -131,11 +131,23 @@
     <Compile Include="ucDevSet.Designer.cs">
       <DependentUpon>ucDevSet.cs</DependentUpon>
     </Compile>
+    <Compile Include="ucDiffPressRealTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucDiffPressRealTime.Designer.cs">
+      <DependentUpon>ucDiffPressRealTime.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucOnOff.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="ucOnOff.Designer.cs">
       <DependentUpon>ucOnOff.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ucRHTRealTime.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucRHTRealTime.Designer.cs">
+      <DependentUpon>ucRHTRealTime.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
@@ -169,8 +181,14 @@
     <EmbeddedResource Include="ucDevSet.resx">
       <DependentUpon>ucDevSet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ucDiffPressRealTime.resx">
+      <DependentUpon>ucDiffPressRealTime.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucOnOff.resx">
       <DependentUpon>ucOnOff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ucRHTRealTime.resx">
+      <DependentUpon>ucRHTRealTime.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="Properties\Settings.settings">

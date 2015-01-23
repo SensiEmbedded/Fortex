@@ -44,11 +44,11 @@ namespace DiffPress {
     public int updatems {get;set; }
 
     [Category("technologic"), Description("Number of devices per floor1 (RHT + DiffPRess)")]
-    public int devsFloor1 { get;set; }
+    public int howManyDevsFloor1 { get;set; }
     [Category("technologic"), Description("Number of devices per floor2 (RHT + DiffPRess)")]
-    public int devsFloor2 { get;set; }
+    public int howManyDevsFloor2 { get;set; }
     [Category("technologic"), Description("Number of devices per floor3 (RHT + DiffPRess)")]
-    public int devsFloor3 { get;set; }
+    public int howManyDevsFloor3 { get;set; }
     
 
     /*
@@ -106,9 +106,9 @@ namespace DiffPress {
       writeIfAlarm = true;
       writeWhenNormalize = true;
 
-      devsFloor1 = 8;
-      devsFloor2 = 8;
-      devsFloor3 = 8;
+      howManyDevsFloor1 = 8;
+      howManyDevsFloor2 = 8;
+      howManyDevsFloor3 = 8;
 
       floor1Devs = new CDev[32];
       floor2Devs = new CDev[32];

@@ -36,6 +36,9 @@
           System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
           this.pnlMenu = new System.Windows.Forms.Panel();
           this.grbStatus = new System.Windows.Forms.GroupBox();
+          this.line1 = new Unclassified.UI.Line();
+          this.line3 = new Unclassified.UI.Line();
+          this.line2 = new Unclassified.UI.Line();
           this.lblComm = new System.Windows.Forms.Label();
           this.label4 = new System.Windows.Forms.Label();
           this.lblRemain = new System.Windows.Forms.Label();
@@ -53,9 +56,7 @@
           this.tmrUpdateGUI = new System.Windows.Forms.Timer(this.components);
           this.dataGridView1 = new System.Windows.Forms.DataGridView();
           this.label5 = new System.Windows.Forms.Label();
-          this.line1 = new Unclassified.UI.Line();
-          this.line3 = new Unclassified.UI.Line();
-          this.line2 = new Unclassified.UI.Line();
+          this.pnlFloor1 = new System.Windows.Forms.Panel();
           this.pnlMenu.SuspendLayout();
           this.grbStatus.SuspendLayout();
           this.groupBox2.SuspendLayout();
@@ -95,6 +96,43 @@
           this.grbStatus.TabIndex = 48;
           this.grbStatus.TabStop = false;
           this.grbStatus.Text = "Status:";
+          // 
+          // line1
+          // 
+          this.line1.BorderColor = System.Drawing.SystemColors.ControlText;
+          this.line1.Dark3dColor = System.Drawing.SystemColors.ControlDark;
+          this.line1.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+          this.line1.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
+          this.line1.Location = new System.Drawing.Point(100, 20);
+          this.line1.Name = "line1";
+          this.line1.Orientation = Unclassified.UI.LineOrientation.Vertical;
+          this.line1.Size = new System.Drawing.Size(1, 98);
+          this.line1.TabIndex = 5;
+          this.line1.TabStop = false;
+          // 
+          // line3
+          // 
+          this.line3.BorderColor = System.Drawing.SystemColors.ControlText;
+          this.line3.Dark3dColor = System.Drawing.SystemColors.ControlDark;
+          this.line3.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+          this.line3.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
+          this.line3.Location = new System.Drawing.Point(9, 92);
+          this.line3.Name = "line3";
+          this.line3.Size = new System.Drawing.Size(188, 2);
+          this.line3.TabIndex = 6;
+          this.line3.TabStop = false;
+          // 
+          // line2
+          // 
+          this.line2.BorderColor = System.Drawing.SystemColors.ControlText;
+          this.line2.Dark3dColor = System.Drawing.SystemColors.ControlDark;
+          this.line2.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+          this.line2.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
+          this.line2.Location = new System.Drawing.Point(8, 70);
+          this.line2.Name = "line2";
+          this.line2.Size = new System.Drawing.Size(188, 2);
+          this.line2.TabIndex = 6;
+          this.line2.TabStop = false;
           // 
           // lblComm
           // 
@@ -278,7 +316,7 @@
           dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
           dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
           this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-          this.dataGridView1.Location = new System.Drawing.Point(910, 107);
+          this.dataGridView1.Location = new System.Drawing.Point(815, 379);
           this.dataGridView1.Name = "dataGridView1";
           dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
           dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -299,50 +337,25 @@
           // 
           this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
           this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-          this.label5.Location = new System.Drawing.Point(257, 15);
+          this.label5.Location = new System.Drawing.Point(237, 15);
           this.label5.Name = "label5";
-          this.label5.Size = new System.Drawing.Size(1638, 34);
+          this.label5.Size = new System.Drawing.Size(1658, 34);
           this.label5.TabIndex = 66;
           this.label5.Text = "Система за следене влажност, температура и надналягане в помещенията на Fortex Nu" +
               "traceuticals";
           this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
           // 
-          // line1
+          // pnlFloor1
           // 
-          this.line1.BorderColor = System.Drawing.SystemColors.ControlText;
-          this.line1.Dark3dColor = System.Drawing.SystemColors.ControlDark;
-          this.line1.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-          this.line1.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
-          this.line1.Location = new System.Drawing.Point(100, 20);
-          this.line1.Name = "line1";
-          this.line1.Orientation = Unclassified.UI.LineOrientation.Vertical;
-          this.line1.Size = new System.Drawing.Size(1, 98);
-          this.line1.TabIndex = 5;
-          this.line1.TabStop = false;
-          // 
-          // line3
-          // 
-          this.line3.BorderColor = System.Drawing.SystemColors.ControlText;
-          this.line3.Dark3dColor = System.Drawing.SystemColors.ControlDark;
-          this.line3.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-          this.line3.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
-          this.line3.Location = new System.Drawing.Point(9, 92);
-          this.line3.Name = "line3";
-          this.line3.Size = new System.Drawing.Size(188, 2);
-          this.line3.TabIndex = 6;
-          this.line3.TabStop = false;
-          // 
-          // line2
-          // 
-          this.line2.BorderColor = System.Drawing.SystemColors.ControlText;
-          this.line2.Dark3dColor = System.Drawing.SystemColors.ControlDark;
-          this.line2.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-          this.line2.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
-          this.line2.Location = new System.Drawing.Point(8, 70);
-          this.line2.Name = "line2";
-          this.line2.Size = new System.Drawing.Size(188, 2);
-          this.line2.TabIndex = 6;
-          this.line2.TabStop = false;
+          this.pnlFloor1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                      | System.Windows.Forms.AnchorStyles.Right)));
+          this.pnlFloor1.AutoScroll = true;
+          this.pnlFloor1.AutoScrollMargin = new System.Drawing.Size(100, 10);
+          this.pnlFloor1.BackColor = System.Drawing.Color.Gray;
+          this.pnlFloor1.Location = new System.Drawing.Point(238, 62);
+          this.pnlFloor1.Name = "pnlFloor1";
+          this.pnlFloor1.Size = new System.Drawing.Size(1658, 219);
+          this.pnlFloor1.TabIndex = 67;
           // 
           // frmMain
           // 
@@ -350,6 +363,7 @@
           this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
           this.BackColor = System.Drawing.Color.White;
           this.ClientSize = new System.Drawing.Size(1912, 1053);
+          this.Controls.Add(this.pnlFloor1);
           this.Controls.Add(this.label5);
           this.Controls.Add(this.dataGridView1);
           this.Controls.Add(this.pnlMenu);
@@ -396,6 +410,7 @@
         private System.Windows.Forms.Label lblComm;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Panel pnlFloor1;
         
     }
 }
