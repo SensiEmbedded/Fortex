@@ -36,9 +36,6 @@
           System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
           this.pnlMenu = new System.Windows.Forms.Panel();
           this.grbStatus = new System.Windows.Forms.GroupBox();
-          this.line1 = new Unclassified.UI.Line();
-          this.line3 = new Unclassified.UI.Line();
-          this.line2 = new Unclassified.UI.Line();
           this.lblComm = new System.Windows.Forms.Label();
           this.label4 = new System.Windows.Forms.Label();
           this.lblRemain = new System.Windows.Forms.Label();
@@ -57,6 +54,9 @@
           this.dataGridView1 = new System.Windows.Forms.DataGridView();
           this.label5 = new System.Windows.Forms.Label();
           this.pnlFloor1 = new System.Windows.Forms.Panel();
+          this.line1 = new Unclassified.UI.Line();
+          this.line3 = new Unclassified.UI.Line();
+          this.line2 = new Unclassified.UI.Line();
           this.pnlMenu.SuspendLayout();
           this.grbStatus.SuspendLayout();
           this.groupBox2.SuspendLayout();
@@ -96,43 +96,6 @@
           this.grbStatus.TabIndex = 48;
           this.grbStatus.TabStop = false;
           this.grbStatus.Text = "Status:";
-          // 
-          // line1
-          // 
-          this.line1.BorderColor = System.Drawing.SystemColors.ControlText;
-          this.line1.Dark3dColor = System.Drawing.SystemColors.ControlDark;
-          this.line1.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-          this.line1.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
-          this.line1.Location = new System.Drawing.Point(100, 20);
-          this.line1.Name = "line1";
-          this.line1.Orientation = Unclassified.UI.LineOrientation.Vertical;
-          this.line1.Size = new System.Drawing.Size(1, 98);
-          this.line1.TabIndex = 5;
-          this.line1.TabStop = false;
-          // 
-          // line3
-          // 
-          this.line3.BorderColor = System.Drawing.SystemColors.ControlText;
-          this.line3.Dark3dColor = System.Drawing.SystemColors.ControlDark;
-          this.line3.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-          this.line3.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
-          this.line3.Location = new System.Drawing.Point(9, 92);
-          this.line3.Name = "line3";
-          this.line3.Size = new System.Drawing.Size(188, 2);
-          this.line3.TabIndex = 6;
-          this.line3.TabStop = false;
-          // 
-          // line2
-          // 
-          this.line2.BorderColor = System.Drawing.SystemColors.ControlText;
-          this.line2.Dark3dColor = System.Drawing.SystemColors.ControlDark;
-          this.line2.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-          this.line2.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
-          this.line2.Location = new System.Drawing.Point(8, 70);
-          this.line2.Name = "line2";
-          this.line2.Size = new System.Drawing.Size(188, 2);
-          this.line2.TabIndex = 6;
-          this.line2.TabStop = false;
           // 
           // lblComm
           // 
@@ -351,11 +314,48 @@
                       | System.Windows.Forms.AnchorStyles.Right)));
           this.pnlFloor1.AutoScroll = true;
           this.pnlFloor1.AutoScrollMargin = new System.Drawing.Size(100, 10);
-          this.pnlFloor1.BackColor = System.Drawing.Color.Gray;
+          this.pnlFloor1.BackColor = System.Drawing.Color.Gainsboro;
           this.pnlFloor1.Location = new System.Drawing.Point(238, 62);
           this.pnlFloor1.Name = "pnlFloor1";
           this.pnlFloor1.Size = new System.Drawing.Size(1658, 219);
           this.pnlFloor1.TabIndex = 67;
+          // 
+          // line1
+          // 
+          this.line1.BorderColor = System.Drawing.SystemColors.ControlText;
+          this.line1.Dark3dColor = System.Drawing.SystemColors.ControlDark;
+          this.line1.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+          this.line1.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
+          this.line1.Location = new System.Drawing.Point(100, 20);
+          this.line1.Name = "line1";
+          this.line1.Orientation = Unclassified.UI.LineOrientation.Vertical;
+          this.line1.Size = new System.Drawing.Size(1, 98);
+          this.line1.TabIndex = 5;
+          this.line1.TabStop = false;
+          // 
+          // line3
+          // 
+          this.line3.BorderColor = System.Drawing.SystemColors.ControlText;
+          this.line3.Dark3dColor = System.Drawing.SystemColors.ControlDark;
+          this.line3.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+          this.line3.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
+          this.line3.Location = new System.Drawing.Point(9, 92);
+          this.line3.Name = "line3";
+          this.line3.Size = new System.Drawing.Size(188, 2);
+          this.line3.TabIndex = 6;
+          this.line3.TabStop = false;
+          // 
+          // line2
+          // 
+          this.line2.BorderColor = System.Drawing.SystemColors.ControlText;
+          this.line2.Dark3dColor = System.Drawing.SystemColors.ControlDark;
+          this.line2.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+          this.line2.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
+          this.line2.Location = new System.Drawing.Point(8, 70);
+          this.line2.Name = "line2";
+          this.line2.Size = new System.Drawing.Size(188, 2);
+          this.line2.TabIndex = 6;
+          this.line2.TabStop = false;
           // 
           // frmMain
           // 

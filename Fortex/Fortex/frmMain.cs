@@ -31,7 +31,13 @@ namespace DiffPress {
     public frmMain() {
       InitializeComponent();
     }
-    
+    protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+      if (keyData == Keys.Escape) {
+        this.Close();
+        return true;
+      }
+      return base.ProcessCmdKey(ref msg, keyData);
+    }
     private void Form1_Load(object sender, EventArgs e) {
 
       glob.comm.SetRef(ref glob);
@@ -140,8 +146,6 @@ namespace DiffPress {
       if (++sample1s < 2) return;
       sample1s = 0;
       
-      glob.g_wr.floor1Devs[0].val1 = ++count;
-
       UpdateClock();
       //UpdateStatus();
 

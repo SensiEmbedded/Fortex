@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using aUtils;
 
 namespace DiffPress {
   public partial class ucRHTRealTime : UserControl {
@@ -26,8 +27,10 @@ namespace DiffPress {
       }
     }
     void _cdev_Changed(object sender, EventArgs e) {
-      ShowTemp();
-      ShowRH();
+      this.UIThread(() => this.ShowRH());
+      this.UIThread(() => this.ShowTemp());
+      //ShowTemp();
+      //ShowRH();
     }
     private void ShowTemp() {
       //176  degree symbol in Microsoft Sans Serif

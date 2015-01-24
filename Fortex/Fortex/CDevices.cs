@@ -88,15 +88,29 @@ namespace DiffPress {
   public class CDev_MMM {
     public CDevCommon cmn = new CDevCommon();
     private CGlobal gl;
-    ushort startAddress = 1;
-    ushort numofPoints = 2;
+    ushort startAddress = 100;
+    ushort numofPoints = 0;
     ushort[] holdingregister = null;
-    public float[] data{get;set;}
+    CDev[] devs =  null;
+    //public float[] data{get;set;}
     public event ChangedEventHandler Changed;
+    void PointCDev() {
+      switch (cmn.slaveID) {
+        case 0:
+          devs =  gl.g_wr.floor1Devs;
+          break;
+        case 1:
+          devs =  gl.g_wr.floor2Devs;
+          break;
+        case 2:
+          devs =  gl.g_wr.floor3Devs;
+          break;
+      }
+    }
     public CDev_MMM(ref CGlobal gl) {
       this.gl = gl;
-      data = new float[8];
       cmn.ReadDevice = Read;
+      PointCDev();
     }
     void FireChangeEvent() {
       if (Changed != null) {
@@ -108,13 +122,15 @@ namespace DiffPress {
     int Read() {
       try {
         holdingregister = null;
+        numofPoints = (ushort)gl.g_wr.howManyDevsFloor1;
+        numofPoints *= 2;
         holdingregister = gl.comm.master.ReadHoldingRegisters(cmn.slaveID, startAddress, numofPoints);
         this.cmn.status = DevStatus.None;
       } catch (TimeoutException to) {
         System.Diagnostics.Debug.WriteLine("-->Time Out.<--");
         this.cmn.status = DevStatus.TimeOut;
         gl.sqlite.LogMessage("Time Out Device");
-        CDevCommon.SetVals2<float>(data, (float)DevErrorCodes.TimeOut);
+        //CDevCommon.SetVals2<float>(data, (float)DevErrorCodes.TimeOut);
         //CDevCommon.SetVals2<DevAlarms>(alarmStatus, DevAlarms.Error);
         //FireChangeEvent();
         return 0;
@@ -122,7 +138,7 @@ namespace DiffPress {
         System.Diagnostics.Debug.WriteLine("-->slave exeption<--");
         gl.sqlite.LogMessage("Modbus Slave Excepton");
         this.cmn.status = DevStatus.AddressExeption;
-        CDevCommon.SetVals2<float>(data, (float)DevErrorCodes.AddressExeption);
+        //CDevCommon.SetVals2<float>(data, (float)DevErrorCodes.AddressExeption);
         //CDevCommon.SetVals2<DevAlarms>(alarmStatus, DevAlarms.Error);
         //FireChangeEvent();
         return 0;
@@ -130,7 +146,7 @@ namespace DiffPress {
         gl.sqlite.LogMessage(ex.Message);
         System.Diagnostics.Debug.WriteLine("-->" + ex.Message + "<--");
         this.cmn.status = DevStatus.OtherErr;
-        CDevCommon.SetVals2<float>(data, (float)DevErrorCodes.ErrUnknown);
+        //CDevCommon.SetVals2<float>(data, (float)DevErrorCodes.ErrUnknown);
         //CDevCommon.SetVals2<DevAlarms>(alarmStatus, DevAlarms.Error);
         //FireChangeEvent();
         return 0;
@@ -139,6 +155,9 @@ namespace DiffPress {
         gl.sqlite.LogMessage("Device came online.");
       }
       this.cmn.status = DevStatus.OK;
+      PopulateCDevArray(holdingregister);
+      /*
+
       int count = 0;
       if (holdingregister != null) {
         foreach (ushort us in holdingregister) {
@@ -155,11 +174,29 @@ namespace DiffPress {
         System.Diagnostics.Debug.WriteLine("-->Error in returned registers.<--");
         FireChangeEvent();
         return 0;
-      }
+      } */
 
       //prDiffPress1[0] = (double)holdingregister[1];
       FireChangeEvent();
       return 1;
+    }
+    
+    void PopulateCDevArray(ushort[] holdingregister) {
+      if (holdingregister == null) return;
+      int howMany = holdingregister.Length;
+      ushort reg1,reg2;
+      //for (int i = 0; i < howMany; i += 2) {
+      for (int i = 0; i < howMany / 2; ++i) {
+        reg1 = holdingregister[2*i];
+        reg2 = holdingregister[2*i+1];
+        if ((int)reg1 == (int)DevErrorCodes.AdcErr) {
+           devs[i].val1 = (float)DevErrorCodes.AdcErr;
+           devs[i].val2 = (float)DevErrorCodes.AdcErr;
+        } else {
+          devs[i].val1 = (float)reg1 / 10.0;
+          devs[i].val2 = (float)reg2 / 10.0;
+        }
+      }
     }
 
   }
@@ -371,7 +408,7 @@ namespace DiffPress {
     }
     public void ReadNextDevice() {
       int rez = 0;
-      //order = 0;
+      order = 0;
       switch (order) {
         case 0:
           rez = mmm[0].cmn.ReadDevice(); //devVir.cmn.ReadDevice();
