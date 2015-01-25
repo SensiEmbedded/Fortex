@@ -130,6 +130,8 @@ namespace DiffPress {
         System.Diagnostics.Debug.WriteLine("-->Time Out.<--");
         this.cmn.status = DevStatus.TimeOut;
         gl.sqlite.LogMessage("Time Out Device");
+        PopulateErrorCDevvArray(DevErrorCodes.TimeOut);
+        PopulateErrorCDevvArray(DevErrorCodes.TimeOut);
         //CDevCommon.SetVals2<float>(data, (float)DevErrorCodes.TimeOut);
         //CDevCommon.SetVals2<DevAlarms>(alarmStatus, DevAlarms.Error);
         //FireChangeEvent();
@@ -138,6 +140,7 @@ namespace DiffPress {
         System.Diagnostics.Debug.WriteLine("-->slave exeption<--");
         gl.sqlite.LogMessage("Modbus Slave Excepton");
         this.cmn.status = DevStatus.AddressExeption;
+        PopulateErrorCDevvArray(DevErrorCodes.AddressExeption);
         //CDevCommon.SetVals2<float>(data, (float)DevErrorCodes.AddressExeption);
         //CDevCommon.SetVals2<DevAlarms>(alarmStatus, DevAlarms.Error);
         //FireChangeEvent();
@@ -145,7 +148,8 @@ namespace DiffPress {
       } catch (Exception ex) {
         gl.sqlite.LogMessage(ex.Message);
         System.Diagnostics.Debug.WriteLine("-->" + ex.Message + "<--");
-        this.cmn.status = DevStatus.OtherErr;
+        this.cmn.status = DevStatus.OtherErr;                               
+        PopulateErrorCDevvArray(DevErrorCodes.ErrUnknown);
         //CDevCommon.SetVals2<float>(data, (float)DevErrorCodes.ErrUnknown);
         //CDevCommon.SetVals2<DevAlarms>(alarmStatus, DevAlarms.Error);
         //FireChangeEvent();
@@ -153,6 +157,7 @@ namespace DiffPress {
       }
       if (this.cmn.status == DevStatus.TimeOut) {
         gl.sqlite.LogMessage("Device came online.");
+        
       }
       this.cmn.status = DevStatus.OK;
       PopulateCDevArray(holdingregister);
@@ -180,7 +185,14 @@ namespace DiffPress {
       FireChangeEvent();
       return 1;
     }
-    
+    void PopulateErrorCDevvArray(DevErrorCodes err) {
+      int howMany = devs.Length;
+      for (int i = 0; i < howMany;++i ) {
+        devs[i].val1 = (double)err;
+        devs[i].val2 = (double)err;
+      }
+
+    } 
     void PopulateCDevArray(ushort[] holdingregister) {
       if (holdingregister == null) return;
       int howMany = holdingregister.Length;
@@ -402,7 +414,9 @@ namespace DiffPress {
       mmm[0] = new CDev_MMM(ref gl);
       mmm[1] = new CDev_MMM(ref gl);
       mmm[2] = new CDev_MMM(ref gl);
-
+      mmm[0].cmn.slaveID = 1;
+      mmm[1].cmn.slaveID = 2;
+      mmm[2].cmn.slaveID = 3;
       devVir = new CDev_Virtual(ref gl);
       
     }

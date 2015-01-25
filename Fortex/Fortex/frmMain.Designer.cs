@@ -69,6 +69,7 @@
           // 
           // pnlMenu
           // 
+          this.pnlMenu.AutoScroll = true;
           this.pnlMenu.BackColor = System.Drawing.Color.White;
           this.pnlMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
           this.pnlMenu.Controls.Add(this.grbStatus);
@@ -78,7 +79,7 @@
           this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
           this.pnlMenu.Location = new System.Drawing.Point(0, 0);
           this.pnlMenu.Name = "pnlMenu";
-          this.pnlMenu.Size = new System.Drawing.Size(225, 1053);
+          this.pnlMenu.Size = new System.Drawing.Size(225, 733);
           this.pnlMenu.TabIndex = 42;
           // 
           // grbStatus
@@ -90,7 +91,7 @@
           this.grbStatus.Controls.Add(this.label4);
           this.grbStatus.Controls.Add(this.lblRemain);
           this.grbStatus.Controls.Add(this.label3);
-          this.grbStatus.Location = new System.Drawing.Point(3, 325);
+          this.grbStatus.Location = new System.Drawing.Point(3, 385);
           this.grbStatus.Name = "grbStatus";
           this.grbStatus.Size = new System.Drawing.Size(210, 133);
           this.grbStatus.TabIndex = 48;
@@ -145,7 +146,7 @@
           this.groupBox2.Controls.Add(this.pictureBox2);
           this.groupBox2.Controls.Add(this.label2);
           this.groupBox2.Controls.Add(this.label1);
-          this.groupBox2.Location = new System.Drawing.Point(3, 777);
+          this.groupBox2.Location = new System.Drawing.Point(3, 837);
           this.groupBox2.Name = "groupBox2";
           this.groupBox2.Size = new System.Drawing.Size(202, 264);
           this.groupBox2.TabIndex = 45;
@@ -202,7 +203,7 @@
           // 
           this.groupBox1.Controls.Add(this.blueClock1);
           this.groupBox1.Controls.Add(this.lblClock);
-          this.groupBox1.Location = new System.Drawing.Point(4, 74);
+          this.groupBox1.Location = new System.Drawing.Point(4, 134);
           this.groupBox1.Name = "groupBox1";
           this.groupBox1.Size = new System.Drawing.Size(207, 235);
           this.groupBox1.TabIndex = 44;
@@ -239,7 +240,7 @@
           // pictureBox1
           // 
           this.pictureBox1.Image = global::DiffPress.Properties.Resources.delta_logo_full;
-          this.pictureBox1.Location = new System.Drawing.Point(8, 8);
+          this.pictureBox1.Location = new System.Drawing.Point(8, 68);
           this.pictureBox1.Name = "pictureBox1";
           this.pictureBox1.Size = new System.Drawing.Size(189, 50);
           this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -317,7 +318,7 @@
           this.pnlFloor1.BackColor = System.Drawing.Color.Gainsboro;
           this.pnlFloor1.Location = new System.Drawing.Point(238, 62);
           this.pnlFloor1.Name = "pnlFloor1";
-          this.pnlFloor1.Size = new System.Drawing.Size(1658, 219);
+          this.pnlFloor1.Size = new System.Drawing.Size(1641, 219);
           this.pnlFloor1.TabIndex = 67;
           // 
           // line1
@@ -361,8 +362,9 @@
           // 
           this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
           this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+          this.AutoScroll = true;
           this.BackColor = System.Drawing.Color.White;
-          this.ClientSize = new System.Drawing.Size(1912, 1053);
+          this.ClientSize = new System.Drawing.Size(1370, 750);
           this.Controls.Add(this.pnlFloor1);
           this.Controls.Add(this.label5);
           this.Controls.Add(this.dataGridView1);
@@ -370,6 +372,7 @@
           this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
           this.Name = "frmMain";
           this.Text = "Differential Pressure";
+          this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
           this.Load += new System.EventHandler(this.Form1_Load);
           this.pnlMenu.ResumeLayout(false);
           this.grbStatus.ResumeLayout(false);

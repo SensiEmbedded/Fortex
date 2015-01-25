@@ -62,7 +62,7 @@ namespace DiffPress {
         //Thread.Sleep(1000);
       floor1Populate();
       glob.sqlite.LogMessage("Program started.");
-      
+     
       return;
     }
 
@@ -171,6 +171,7 @@ namespace DiffPress {
       frmSett fr = new frmSett();
       fr.SetRef(ref glob);
       fr.ShowDialog();
+      floor1Populate();
     }
     private void GoFullscreen(bool fullscreen) {
       if (fullscreen) {
