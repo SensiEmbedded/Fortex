@@ -34,7 +34,6 @@
           System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
           System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
           System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-          this.pnlMenu = new System.Windows.Forms.Panel();
           this.grbStatus = new System.Windows.Forms.GroupBox();
           this.lblComm = new System.Windows.Forms.Label();
           this.label4 = new System.Windows.Forms.Label();
@@ -54,10 +53,11 @@
           this.dataGridView1 = new System.Windows.Forms.DataGridView();
           this.label5 = new System.Windows.Forms.Label();
           this.pnlFloor1 = new System.Windows.Forms.Panel();
+          this.pnlFloor2 = new System.Windows.Forms.Panel();
           this.line1 = new Unclassified.UI.Line();
           this.line3 = new Unclassified.UI.Line();
           this.line2 = new Unclassified.UI.Line();
-          this.pnlMenu.SuspendLayout();
+          this.panel1 = new System.Windows.Forms.Panel();
           this.grbStatus.SuspendLayout();
           this.groupBox2.SuspendLayout();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -66,21 +66,6 @@
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
           ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
           this.SuspendLayout();
-          // 
-          // pnlMenu
-          // 
-          this.pnlMenu.AutoScroll = true;
-          this.pnlMenu.BackColor = System.Drawing.Color.White;
-          this.pnlMenu.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-          this.pnlMenu.Controls.Add(this.grbStatus);
-          this.pnlMenu.Controls.Add(this.groupBox2);
-          this.pnlMenu.Controls.Add(this.groupBox1);
-          this.pnlMenu.Controls.Add(this.pictureBox1);
-          this.pnlMenu.Dock = System.Windows.Forms.DockStyle.Left;
-          this.pnlMenu.Location = new System.Drawing.Point(0, 0);
-          this.pnlMenu.Name = "pnlMenu";
-          this.pnlMenu.Size = new System.Drawing.Size(225, 733);
-          this.pnlMenu.TabIndex = 42;
           // 
           // grbStatus
           // 
@@ -91,9 +76,9 @@
           this.grbStatus.Controls.Add(this.label4);
           this.grbStatus.Controls.Add(this.lblRemain);
           this.grbStatus.Controls.Add(this.label3);
-          this.grbStatus.Location = new System.Drawing.Point(3, 385);
+          this.grbStatus.Location = new System.Drawing.Point(2, 567);
           this.grbStatus.Name = "grbStatus";
-          this.grbStatus.Size = new System.Drawing.Size(210, 133);
+          this.grbStatus.Size = new System.Drawing.Size(162, 133);
           this.grbStatus.TabIndex = 48;
           this.grbStatus.TabStop = false;
           this.grbStatus.Text = "Status:";
@@ -146,9 +131,9 @@
           this.groupBox2.Controls.Add(this.pictureBox2);
           this.groupBox2.Controls.Add(this.label2);
           this.groupBox2.Controls.Add(this.label1);
-          this.groupBox2.Location = new System.Drawing.Point(3, 837);
+          this.groupBox2.Location = new System.Drawing.Point(9, 59);
           this.groupBox2.Name = "groupBox2";
-          this.groupBox2.Size = new System.Drawing.Size(202, 264);
+          this.groupBox2.Size = new System.Drawing.Size(151, 264);
           this.groupBox2.TabIndex = 45;
           this.groupBox2.TabStop = false;
           this.groupBox2.Text = "Params";
@@ -203,9 +188,9 @@
           // 
           this.groupBox1.Controls.Add(this.blueClock1);
           this.groupBox1.Controls.Add(this.lblClock);
-          this.groupBox1.Location = new System.Drawing.Point(4, 134);
+          this.groupBox1.Location = new System.Drawing.Point(4, 326);
           this.groupBox1.Name = "groupBox1";
-          this.groupBox1.Size = new System.Drawing.Size(207, 235);
+          this.groupBox1.Size = new System.Drawing.Size(158, 235);
           this.groupBox1.TabIndex = 44;
           this.groupBox1.TabStop = false;
           this.groupBox1.Text = "Clock";
@@ -217,7 +202,7 @@
           this.blueClock1.DisplaySecond = true;
           this.blueClock1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F);
           this.blueClock1.Hour = 12;
-          this.blueClock1.Location = new System.Drawing.Point(31, 19);
+          this.blueClock1.Location = new System.Drawing.Point(9, 18);
           this.blueClock1.Minute = 0;
           this.blueClock1.Month = 7;
           this.blueClock1.Name = "blueClock1";
@@ -240,9 +225,9 @@
           // pictureBox1
           // 
           this.pictureBox1.Image = global::DiffPress.Properties.Resources.delta_logo_full;
-          this.pictureBox1.Location = new System.Drawing.Point(8, 68);
+          this.pictureBox1.Location = new System.Drawing.Point(8, 7);
           this.pictureBox1.Name = "pictureBox1";
-          this.pictureBox1.Size = new System.Drawing.Size(189, 50);
+          this.pictureBox1.Size = new System.Drawing.Size(151, 29);
           this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
           this.pictureBox1.TabIndex = 41;
           this.pictureBox1.TabStop = false;
@@ -280,7 +265,7 @@
           dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
           dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
           this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-          this.dataGridView1.Location = new System.Drawing.Point(815, 379);
+          this.dataGridView1.Location = new System.Drawing.Point(829, 642);
           this.dataGridView1.Name = "dataGridView1";
           dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
           dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -301,9 +286,9 @@
           // 
           this.label5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
           this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-          this.label5.Location = new System.Drawing.Point(237, 15);
+          this.label5.Location = new System.Drawing.Point(5, 5);
           this.label5.Name = "label5";
-          this.label5.Size = new System.Drawing.Size(1658, 34);
+          this.label5.Size = new System.Drawing.Size(1889, 34);
           this.label5.TabIndex = 66;
           this.label5.Text = "Система за следене влажност, температура и надналягане в помещенията на Fortex Nu" +
               "traceuticals";
@@ -316,10 +301,22 @@
           this.pnlFloor1.AutoScroll = true;
           this.pnlFloor1.AutoScrollMargin = new System.Drawing.Size(100, 10);
           this.pnlFloor1.BackColor = System.Drawing.Color.Gainsboro;
-          this.pnlFloor1.Location = new System.Drawing.Point(238, 62);
+          this.pnlFloor1.Location = new System.Drawing.Point(193, 49);
           this.pnlFloor1.Name = "pnlFloor1";
-          this.pnlFloor1.Size = new System.Drawing.Size(1641, 219);
+          this.pnlFloor1.Size = new System.Drawing.Size(2732, 178);
           this.pnlFloor1.TabIndex = 67;
+          // 
+          // pnlFloor2
+          // 
+          this.pnlFloor2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                      | System.Windows.Forms.AnchorStyles.Right)));
+          this.pnlFloor2.AutoScroll = true;
+          this.pnlFloor2.AutoScrollMargin = new System.Drawing.Size(100, 10);
+          this.pnlFloor2.BackColor = System.Drawing.Color.Gainsboro;
+          this.pnlFloor2.Location = new System.Drawing.Point(193, 229);
+          this.pnlFloor2.Name = "pnlFloor2";
+          this.pnlFloor2.Size = new System.Drawing.Size(2731, 178);
+          this.pnlFloor2.TabIndex = 67;
           // 
           // line1
           // 
@@ -342,7 +339,7 @@
           this.line3.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
           this.line3.Location = new System.Drawing.Point(9, 92);
           this.line3.Name = "line3";
-          this.line3.Size = new System.Drawing.Size(188, 2);
+          this.line3.Size = new System.Drawing.Size(148, 2);
           this.line3.TabIndex = 6;
           this.line3.TabStop = false;
           // 
@@ -354,9 +351,21 @@
           this.line2.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
           this.line2.Location = new System.Drawing.Point(8, 70);
           this.line2.Name = "line2";
-          this.line2.Size = new System.Drawing.Size(188, 2);
+          this.line2.Size = new System.Drawing.Size(148, 2);
           this.line2.TabIndex = 6;
           this.line2.TabStop = false;
+          // 
+          // panel1
+          // 
+          this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                      | System.Windows.Forms.AnchorStyles.Right)));
+          this.panel1.AutoScroll = true;
+          this.panel1.AutoScrollMargin = new System.Drawing.Size(100, 10);
+          this.panel1.BackColor = System.Drawing.Color.Gainsboro;
+          this.panel1.Location = new System.Drawing.Point(192, 409);
+          this.panel1.Name = "panel1";
+          this.panel1.Size = new System.Drawing.Size(2731, 178);
+          this.panel1.TabIndex = 67;
           // 
           // frmMain
           // 
@@ -364,17 +373,21 @@
           this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
           this.AutoScroll = true;
           this.BackColor = System.Drawing.Color.White;
-          this.ClientSize = new System.Drawing.Size(1370, 750);
+          this.ClientSize = new System.Drawing.Size(1370, 846);
+          this.Controls.Add(this.pictureBox1);
+          this.Controls.Add(this.groupBox2);
+          this.Controls.Add(this.grbStatus);
+          this.Controls.Add(this.panel1);
+          this.Controls.Add(this.pnlFloor2);
           this.Controls.Add(this.pnlFloor1);
           this.Controls.Add(this.label5);
+          this.Controls.Add(this.groupBox1);
           this.Controls.Add(this.dataGridView1);
-          this.Controls.Add(this.pnlMenu);
           this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
           this.Name = "frmMain";
           this.Text = "Differential Pressure";
           this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
           this.Load += new System.EventHandler(this.Form1_Load);
-          this.pnlMenu.ResumeLayout(false);
           this.grbStatus.ResumeLayout(false);
           this.grbStatus.PerformLayout();
           this.groupBox2.ResumeLayout(false);
@@ -392,7 +405,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Panel pnlMenu;
         private System.Windows.Forms.Timer tmrBlink;
         private System.Windows.Forms.Timer tmrUpdateGUI;
         private MfgControl.AdvancedHMI.Controls.BlueClock blueClock1;
@@ -414,6 +426,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel pnlFloor1;
+        private System.Windows.Forms.Panel pnlFloor2;
+        private System.Windows.Forms.Panel panel1;
         
     }
 }

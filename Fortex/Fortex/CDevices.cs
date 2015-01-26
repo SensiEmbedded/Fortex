@@ -23,12 +23,14 @@ namespace DiffPress {
     OtherErr
   };
   public enum DevErrorCodes {
+
     None,
-    AdcErr = -102,
-    AddressExeption = -103,
-    TimeOut = -104,
-    ComNotExist = -105,
-    ErrUnknown = -106
+    AdcErr = -2000,
+    AddressExeption = -20003,
+    TimeOut = -20002,
+    TimeOutMM = -20004,
+    ComNotExist = -20005,
+    ErrUnknown = -20006
   };
   public enum DevAlarms {
     NotSet,
@@ -131,7 +133,6 @@ namespace DiffPress {
         this.cmn.status = DevStatus.TimeOut;
         gl.sqlite.LogMessage("Time Out Device");
         PopulateErrorCDevvArray(DevErrorCodes.TimeOut);
-        PopulateErrorCDevvArray(DevErrorCodes.TimeOut);
         //CDevCommon.SetVals2<float>(data, (float)DevErrorCodes.TimeOut);
         //CDevCommon.SetVals2<DevAlarms>(alarmStatus, DevAlarms.Error);
         //FireChangeEvent();
@@ -196,11 +197,11 @@ namespace DiffPress {
     void PopulateCDevArray(ushort[] holdingregister) {
       if (holdingregister == null) return;
       int howMany = holdingregister.Length;
-      ushort reg1,reg2;
+      short reg1,reg2;
       //for (int i = 0; i < howMany; i += 2) {
       for (int i = 0; i < howMany / 2; ++i) {
-        reg1 = holdingregister[2*i];
-        reg2 = holdingregister[2*i+1];
+        reg1 = (short)holdingregister[2*i];
+        reg2 = (short)holdingregister[2*i+1];
         if ((int)reg1 == (int)DevErrorCodes.AdcErr) {
            devs[i].val1 = (float)DevErrorCodes.AdcErr;
            devs[i].val2 = (float)DevErrorCodes.AdcErr;

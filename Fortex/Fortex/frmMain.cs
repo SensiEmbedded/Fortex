@@ -61,6 +61,7 @@ namespace DiffPress {
       //  progressBar1.Increment(1);
         //Thread.Sleep(1000);
       floor1Populate();
+      floor2Populate();
       glob.sqlite.LogMessage("Program started.");
      
       return;
@@ -172,6 +173,7 @@ namespace DiffPress {
       fr.SetRef(ref glob);
       fr.ShowDialog();
       floor1Populate();
+      floor2Populate();
     }
     private void GoFullscreen(bool fullscreen) {
       if (fullscreen) {
@@ -218,6 +220,7 @@ namespace DiffPress {
     #region RealTime Panels
     private void floor1Populate() {
       int howMany = glob.g_wr.howManyDevsFloor1;
+      if(howMany == 0)return;
       //Control[] cntrs = new Control[howMany];
       List<Control> cntrs = new List<Control>(howMany);
       ucRHTRealTime rht = null;
@@ -233,6 +236,12 @@ namespace DiffPress {
           cntrs.Add(diffpres);
         }
       }
+      int howToRemove = pnlFloor1.Controls.Count;
+      for(int i=0;i<howToRemove;++i){
+        pnlFloor1.Controls.RemoveAt(0);
+      }
+      
+      //pnlFloor1.Controls.Remove
       for (int i = 0; i < howMany; i++) {
         cntrs[i].Dock = DockStyle.Left;
         pnlFloor1.Controls.Add(cntrs[howMany-1 - i]);
@@ -251,6 +260,36 @@ namespace DiffPress {
       } 
       ucs[0].Select(); // move scrollbar at the beging
        */ 
+    }
+    private void floor2Populate() {
+      int howMany = glob.g_wr.howManyDevsFloor2;
+      if(howMany == 0)return;
+      //Control[] cntrs = new Control[howMany];
+      List<Control> cntrs = new List<Control>(howMany);
+      ucRHTRealTime rht = null;
+      ucDiffPressRealTime diffpres = null;
+      for (int i = 0; i < howMany; i++) {
+        if (glob.g_wr.floor2Devs[i].type == TypeDevice.RHT) {
+          rht = new ucRHTRealTime();
+          rht.cdev = glob.g_wr.floor2Devs[i];
+          cntrs.Add(rht);
+        } else {
+          diffpres = new ucDiffPressRealTime();
+          diffpres.cdev = glob.g_wr.floor2Devs[i];
+          cntrs.Add(diffpres);
+        }
+      }
+      int howToRemove = pnlFloor2.Controls.Count;
+      for(int i=0;i<howToRemove;++i){
+        pnlFloor2.Controls.RemoveAt(0);
+      }
+      
+      //pnlFloor1.Controls.Remove
+      for (int i = 0; i < howMany; i++) {
+        cntrs[i].Dock = DockStyle.Left;
+        pnlFloor2.Controls.Add(cntrs[howMany-1 - i]);
+      } 
+      cntrs[0].Select();
     }
     #endregion
     #region SQLite

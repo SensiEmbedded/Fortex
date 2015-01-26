@@ -32,17 +32,56 @@ namespace DiffPress {
       //ShowTemp();
       //ShowRH();
     }
+    private bool ShowErr(double val) {
+      int err = (int)val;
+      switch (err) {
+        case (int)DevErrorCodes.AdcErr:
+          lblTemp.Text = "Adc";
+          lblRH.Text = "Err";
+          return false;
+        case (int)DevErrorCodes.AddressExeption:
+          lblTemp.Text = "Excep";
+          lblRH.Text = "";
+          return false;
+        case (int)DevErrorCodes.ComNotExist:
+          lblTemp.Text = "Err";
+          lblRH.Text = "COM";
+          return false;
+        case (int)DevErrorCodes.ErrUnknown:
+          lblTemp.Text = "Err";
+          lblRH.Text = "";
+          return false;
+        case (int)DevErrorCodes.TimeOut:
+          lblTemp.Text = "Time";
+          lblRH.Text = "Out";
+          return false;
+      }
+      return true;
+
+    }
     private void ShowTemp() {
       //176  degree symbol in Microsoft Sans Serif
-      lblTemp.Text = _cdev.val1.ToString("F1") +" "+ ((char)176).ToString() + "C";
-      System.Diagnostics.Debug.WriteLine(lblTemp.Text);
+      //lblTemp.Text = _cdev.val1.ToString("F1") +" "+ ((char)176).ToString() + "C";
+      if (ShowErr(_cdev.val1) == true) {
+        lblTemp.Text = _cdev.val1.ToString("F1");
+        //lblDiff.Text = _cdev.val1.ToString("F1") + " PA";
+      }
+      
     }
     private void ShowRH() {
-      lblRH.Text = _cdev.val2.ToString("F1") + " %";
+      if (ShowErr(_cdev.val1) == true) {
+        lblRH.Text = _cdev.val2.ToString("F1");
+        //lblDiff.Text = _cdev.val1.ToString("F1") + " PA";
+      }
+      
     }
     private void timer1_Tick(object sender, EventArgs e) {
       //ShowTemp();
       //ShowRH();      
+    }
+
+    private void lblTemp_Click(object sender, EventArgs e) {
+
     }
   }
 }
