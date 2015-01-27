@@ -80,8 +80,9 @@
     <Compile Include="CComunication.cs" />
     <Compile Include="CDevices.cs" />
     <Compile Include="CGlobal.cs" />
-    <Compile Include="CMSSQL.cs" />
-    <Compile Include="CSer.cs" />
+    <Compile Include="CSer.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="CSQLite.cs" />
     <Compile Include="CUtils.cs" />
     <Compile Include="frmAbout.cs">
@@ -113,6 +114,18 @@
     </Compile>
     <Compile Include="frmInputValue.designer.cs">
       <DependentUpon>frmInputValue.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPassword.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPassword.Designer.cs">
+      <DependentUpon>frmPassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSetMM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSetMM.Designer.cs">
+      <DependentUpon>frmSetMM.cs</DependentUpon>
     </Compile>
     <Compile Include="frmSett.cs">
       <SubType>Form</SubType>
@@ -163,6 +176,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInputValue.resx">
       <DependentUpon>frmInputValue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPassword.resx">
+      <DependentUpon>frmPassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSetMM.resx">
+      <DependentUpon>frmSetMM.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSett.resx">
       <DependentUpon>frmSett.cs</DependentUpon>

@@ -27,8 +27,8 @@ namespace DiffPress {
       lblName.Text = dev.name;
       
       lblEnable.Text = dev.Enable.ToString();
-      lblAlarmLow.Text = dev.alarmLow.ToString("F1");
-      lblAlarmHi.Text = dev.alarmHi.ToString("F1");
+      lblAlarmLow.Text = dev.alarmLowVal1.ToString("F1");
+      lblAlarmHi.Text = dev.alarmHiVal1.ToString("F1");
       lblAddr.Text = dev.address.ToString();
       if (dev.Enable == false) {
         this.BackColor = Color.Gray;

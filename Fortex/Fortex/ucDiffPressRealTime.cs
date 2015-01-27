@@ -30,22 +30,29 @@ namespace DiffPress {
     }
     private bool ShowErr(double val) {
       int err = (int)val;
-      
       switch (err) {
-        case (int)DevErrorCodes.AdcErr:
+        case (int)DevErrorCodes.TimeOutDev:
+          lblDiff.Text = "Time\nOut";
+          
+          return false;
+        case (int)DevErrorCodes.AddressExeptionDev:
+          lblDiff.Text = "Excep\nDev";
+          return false;
+        case (int)DevErrorCodes.AdcErrDev:
           lblDiff.Text = "Adc\nErr";
           return false;
-        case (int)DevErrorCodes.AddressExeption:
-          lblDiff.Text = "Excep";
+        case (int)DevErrorCodes.TimeOutMM:
+          lblDiff.Text = "Time\nOutMM";
+          return false;
+        case (int)DevErrorCodes.AddressExeptionMM:
+          lblDiff.Text = "Excep\nMM";
           return false;
         case (int)DevErrorCodes.ComNotExist:
           lblDiff.Text = "Err\nCOM";
           return false;
         case (int)DevErrorCodes.ErrUnknown:
           lblDiff.Text = "Err";
-          return false;
-        case (int)DevErrorCodes.TimeOut:
-          lblDiff.Text = "Time\nOut";
+          
           return false;
       }
       return true;

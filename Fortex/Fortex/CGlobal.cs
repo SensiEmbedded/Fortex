@@ -12,7 +12,7 @@ namespace DiffPress{
     public CComunication comm;
     
     public CSQLite sqlite;
-    public CMSSQL  mssql;
+    
 
     public CGlobal(){
 
@@ -27,7 +27,7 @@ namespace DiffPress{
       }
       sqlite = new CSQLite();
       comm = new CComunication();
-      mssql = new CMSSQL();
+    
     }
     public void SaveSettings() {                    
       string path = Application.StartupPath + "\\CSer.xml";

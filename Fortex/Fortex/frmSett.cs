@@ -38,7 +38,17 @@ namespace DiffPress {
     }
     
     private void btnDefault_Click(object sender, EventArgs e) {
-      frmDevsSett devs = new frmDevsSett();
+      frmPassword frm = new frmPassword();
+      frm.m_Password = "aa";
+      if (frm.ShowDialog() == DialogResult.OK) {
+        frmSetMM dlg  = new frmSetMM();
+        dlg.SetRef(ref glob);
+        dlg.ShowDialog();
+      }
+    }
+
+    private void btnSetDevices_Click(object sender, EventArgs e) {
+       frmDevsSett devs = new frmDevsSett();
       devs.SetRef(ref glob);
       devs.ShowDialog();
     }

@@ -25,8 +25,6 @@
     private void InitializeComponent() {
       this.components = new System.ComponentModel.Container();
       this.lblUp = new System.Windows.Forms.Label();
-      this.pbRH = new System.Windows.Forms.ProgressBar();
-      this.pbTemp = new System.Windows.Forms.ProgressBar();
       this.lblTemp = new System.Windows.Forms.Label();
       this.lblRH = new System.Windows.Forms.Label();
       this.timer1 = new System.Windows.Forms.Timer(this.components);
@@ -46,32 +44,12 @@
       this.lblUp.Text = "T °C\r\nRH %";
       this.lblUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
-      // pbRH
-      // 
-      this.pbRH.Dock = System.Windows.Forms.DockStyle.Top;
-      this.pbRH.Location = new System.Drawing.Point(0, 32);
-      this.pbRH.Name = "pbRH";
-      this.pbRH.Size = new System.Drawing.Size(84, 11);
-      this.pbRH.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-      this.pbRH.TabIndex = 1;
-      this.pbRH.Value = 60;
-      // 
-      // pbTemp
-      // 
-      this.pbTemp.Dock = System.Windows.Forms.DockStyle.Top;
-      this.pbTemp.Location = new System.Drawing.Point(0, 43);
-      this.pbTemp.Name = "pbTemp";
-      this.pbTemp.Size = new System.Drawing.Size(84, 11);
-      this.pbTemp.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-      this.pbTemp.TabIndex = 2;
-      this.pbTemp.Value = 40;
-      // 
       // lblTemp
       // 
       this.lblTemp.Dock = System.Windows.Forms.DockStyle.Top;
       this.lblTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
       this.lblTemp.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-      this.lblTemp.Location = new System.Drawing.Point(0, 54);
+      this.lblTemp.Location = new System.Drawing.Point(0, 32);
       this.lblTemp.Name = "lblTemp";
       this.lblTemp.Size = new System.Drawing.Size(84, 33);
       this.lblTemp.TabIndex = 3;
@@ -84,7 +62,7 @@
       this.lblRH.Dock = System.Windows.Forms.DockStyle.Top;
       this.lblRH.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
       this.lblRH.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-      this.lblRH.Location = new System.Drawing.Point(0, 87);
+      this.lblRH.Location = new System.Drawing.Point(0, 65);
       this.lblRH.Name = "lblRH";
       this.lblRH.Size = new System.Drawing.Size(84, 33);
       this.lblRH.TabIndex = 3;
@@ -100,7 +78,7 @@
       // panel1
       // 
       this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-      this.panel1.Location = new System.Drawing.Point(4, 133);
+      this.panel1.Location = new System.Drawing.Point(3, 105);
       this.panel1.Name = "panel1";
       this.panel1.Size = new System.Drawing.Size(74, 43);
       this.panel1.TabIndex = 4;
@@ -112,11 +90,9 @@
       this.Controls.Add(this.lblRH);
       this.Controls.Add(this.lblTemp);
       this.Controls.Add(this.panel1);
-      this.Controls.Add(this.pbTemp);
-      this.Controls.Add(this.pbRH);
       this.Controls.Add(this.lblUp);
       this.Name = "ucRHTRealTime";
-      this.Size = new System.Drawing.Size(84, 178);
+      this.Size = new System.Drawing.Size(84, 156);
       this.ResumeLayout(false);
 
     }
@@ -124,8 +100,6 @@
     #endregion
 
     private System.Windows.Forms.Label lblUp;
-    private System.Windows.Forms.ProgressBar pbRH;
-    private System.Windows.Forms.ProgressBar pbTemp;
     private System.Windows.Forms.Label lblTemp;
     private System.Windows.Forms.Label lblRH;
     private System.Windows.Forms.Timer timer1;

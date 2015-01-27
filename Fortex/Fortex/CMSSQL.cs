@@ -30,7 +30,7 @@ namespace DiffPress {
     public void SetRef(ref CGlobal gl) {
       this.gl = gl;
       lst = new List<CRecord>();
-      gl.comm.devs.devVir.evAlarm += new AlarmOccured(devVir_evAlarm);
+      //gl.comm.devs.devVir.evAlarm += new AlarmOccured(devVir_evAlarm);
       tmr.Elapsed += new System.Timers.ElapsedEventHandler(tmr_Elapsed);
       tmr.Enabled = true;
     }

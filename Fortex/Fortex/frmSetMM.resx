@@ -117,31 +117,18 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="tmrBlink.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
-  <metadata name="tmrUpdateGUI.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>114, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>84</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        AAABAAEAICAQAAAAAADoAgAAFgAAACgAAAAgAAAAQAAAAAEABAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAA
-        AAAAAAAAAACAAACAAAAAgIAAgAAAAIAAgACAgAAAwMDAAICAgAAAAP8AAP8AAAD//wD/AAAA/wD/AP//
-        AAD///8AzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMzMwMzMzMzMzMzMzMzMzMzMzADMzMzMzM
-        zMzMzMzMzMzMwADMzMzMzMzMzMzMzMzMzMAAzMzMzMzMzMzMzMzMzMwAAAzMzMzMzMzMzMzMzMzAAAAM
-        zMzMzMzMzMzMzMzMwAAAAMzMzMzMzMzMzMzMzAAAAAAAAACZAAAAAAAAAAAAAAAAAACZmZkAAADMzMzA
-        AAAAAAAJmZmZkAAMzMzMwAAAAAAACZmZmZAADMzMzAAAAAAAAJmZmZmZAAzMzMwAAAAAAACZmZmZmQDM
-        zMzAAAAAAAAAmZmZmZkMzMzMwAAAAAAAAAmZmZmQDMzMzAAAAAAAAAAJmZmZkAzMzMwAAAAAAAAAAJmZ
-        mQDMzMzAAAAAAAAAAAAAmQAAAAAAAAAAAAAAAAAADMzMzMzMzMAAAAAAAAAAAADMzMzMzMwAAAAAAAAA
-        AAAADMzMzMzMAAAAAAAAAAAAAAzMzMzMwAAAAAAAAAAAAAAAzMzMzAAAAAAAAAAAAAAAAMzMzMwAAAAA
-        AAAAAAAAAAAMzMzAAAAAAAAAAAAAAAAAAMzMwAAAAAAAAAAAAAAAAADMzMAAAAAAAAAAAAAAAAAADMwA
-        AAAAAAAAAAAAAAAAAAzAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAAIAAAAGAAAABwAAAAcAA
-        AAPgAAAH4AAAB/AAAA//z////wPwH/4B4B/+AeA//ADgP/wAwH/8AIB//gGA//4BgP//AwH//8////+A
-        Af//wAP//+AD///gB///8A////AP///4H////B////wf///+P////n////9//w==
+  <data name="textBox1.Text" xml:space="preserve">
+    <value>С тази форма се задава по RS485 колко устройства
+има на закачени на мастер линията на Мастер Мултиплексора
+Същото число се трябва да се зададе и в програмата.
+ на howManyDevsFloor1,howManyDevsFloor2,howManyDevsFloor3.
+В зависимост от броя на устойствата толкова устройства 
+пита ММ.
+Внимавайте като се променят. Може да развали цялата
+система
+
+
+
 </value>
   </data>
 </root>

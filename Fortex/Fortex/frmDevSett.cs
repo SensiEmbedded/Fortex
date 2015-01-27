@@ -26,8 +26,8 @@ namespace DiffPress {
       lblAddr.Text = dev.address.ToString();
       cmbType.SelectedIndex = (int)dev.type;
       txtName.Text = dev.name;
-      nudAlarmHi.Value = (decimal)dev.alarmHi;
-      nudAlarmLo.Value = (decimal)dev.alarmLow;
+      nudAlarmHiVal1.Value = (decimal)dev.alarmHiVal1;
+      nudAlarmLoVal1.Value = (decimal)dev.alarmLowVal1;
       txtDescr.Text = dev.description;
       ucOnOff1.isOn  = dev.Enable ;
      
@@ -35,11 +35,21 @@ namespace DiffPress {
     private void PopulateFromControl() {
       dev.type = (TypeDevice)cmbType.SelectedIndex;
       dev.name = txtName.Text;
-      dev.alarmHi = (double)nudAlarmHi.Value;
-      dev.alarmLow = (double)nudAlarmLo.Value;
+      dev.alarmHiVal1 = (double)nudAlarmHiVal1.Value;
+      dev.alarmLowVal1 = (double)nudAlarmLoVal1.Value;
       dev.description = txtDescr.Text;
       dev.Enable = ucOnOff1.isOn; 
       
+    }
+    private void SetRHTTypeControl() {
+      grpBox1.Text = "Humidity (%)";
+      grpBox2.Visible = true;
+      grpBox2.Text = "Temperature (" + ((char)176).ToString() + "C)";
+    }
+    private void SetPressureTypeControl() {
+      grpBox1.Text = "Diff.Pressure (PA)";
+      grpBox2.Visible = false;
+      grpBox2.Text = "Temperature (" + ((char)176).ToString() + "C)";
     }
     private void btnOK_Click(object sender, EventArgs e) {
       PopulateFromControl();
@@ -56,6 +66,14 @@ namespace DiffPress {
 
     private void btnOK_Click_1(object sender, EventArgs e) {
       this.Close();
+    }
+
+    private void cmbType_SelectedIndexChanged(object sender, EventArgs e) {
+      if (cmbType.SelectedIndex == 0) {
+        SetRHTTypeControl();
+      } else {
+        SetPressureTypeControl();
+      }
     }
   }
 }

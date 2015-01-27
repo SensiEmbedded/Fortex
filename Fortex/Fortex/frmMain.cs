@@ -41,9 +41,6 @@ namespace DiffPress {
     private void Form1_Load(object sender, EventArgs e) {
 
       glob.comm.SetRef(ref glob);
-      glob.comm.devs.devVir.Changed += new ChangedEventHandler(devVir_Changed);
-      glob.mssql.SetRef(ref glob);
-
       GoFullscreen(glob.g_wr.fullScreen);
       fullScreen = glob.g_wr.fullScreen;
       //ucValue1.SetRef(ref glob);
@@ -60,8 +57,7 @@ namespace DiffPress {
       
       //  progressBar1.Increment(1);
         //Thread.Sleep(1000);
-      floor1Populate();
-      floor2Populate();
+      PopulateAllFloors();
       glob.sqlite.LogMessage("Program started.");
      
       return;
@@ -120,6 +116,7 @@ namespace DiffPress {
       
     }
     private void UpdateStatus() {
+      /*
       //MS SQL Write
       lblRemain.Text = glob.mssql.TimeRemain().ToString();
       // Communication
@@ -137,7 +134,7 @@ namespace DiffPress {
         }
         
       
-      }
+      } */
     }
     int count;
     private void tmrUpdateGUI_Tick(object sender, EventArgs e) {
@@ -172,8 +169,7 @@ namespace DiffPress {
       frmSett fr = new frmSett();
       fr.SetRef(ref glob);
       fr.ShowDialog();
-      floor1Populate();
-      floor2Populate();
+      PopulateAllFloors();
     }
     private void GoFullscreen(bool fullscreen) {
       if (fullscreen) {
@@ -218,6 +214,12 @@ namespace DiffPress {
       
     }
     #region RealTime Panels
+    private void PopulateAllFloors() {
+      floor1Populate();
+      floor2Populate();
+      floor2_2Populate();
+      floor3Populate();
+    }
     private void floor1Populate() {
       int howMany = glob.g_wr.howManyDevsFloor1;
       if(howMany == 0)return;
@@ -264,6 +266,8 @@ namespace DiffPress {
     private void floor2Populate() {
       int howMany = glob.g_wr.howManyDevsFloor2;
       if(howMany == 0)return;
+      if(howMany > 19)howMany = 19;//drugite w pnlFloor2_2
+
       //Control[] cntrs = new Control[howMany];
       List<Control> cntrs = new List<Control>(howMany);
       ucRHTRealTime rht = null;
@@ -288,6 +292,68 @@ namespace DiffPress {
       for (int i = 0; i < howMany; i++) {
         cntrs[i].Dock = DockStyle.Left;
         pnlFloor2.Controls.Add(cntrs[howMany-1 - i]);
+      } 
+      cntrs[0].Select();
+    }
+    private void floor2_2Populate() {
+      int howMany = glob.g_wr.howManyDevsFloor2;
+      if(howMany == 0)return;
+      if(howMany <= 19)return;//Prednite sa syzdadeni v pnlFloor2
+      howMany -= 19;
+      //Control[] cntrs = new Control[howMany];
+      List<Control> cntrs = new List<Control>(howMany);
+      ucRHTRealTime rht = null;
+      ucDiffPressRealTime diffpres = null;
+      for (int i = 0; i < howMany; i++) {
+        if (glob.g_wr.floor2Devs[19+i].type == TypeDevice.RHT) {
+          rht = new ucRHTRealTime();
+          rht.cdev = glob.g_wr.floor2Devs[19+i];
+          cntrs.Add(rht);
+        } else {
+          diffpres = new ucDiffPressRealTime();
+          diffpres.cdev = glob.g_wr.floor2Devs[19+i];
+          cntrs.Add(diffpres);
+        }
+      }
+      int howToRemove = pnlFloor2_2.Controls.Count;
+      for(int i=0;i<howToRemove;++i){
+        pnlFloor2_2.Controls.RemoveAt(0);
+      }
+      
+      //pnlFloor1.Controls.Remove
+      for (int i = 0; i < howMany; i++) {
+        cntrs[i].Dock = DockStyle.Left;
+        pnlFloor2_2.Controls.Add(cntrs[howMany-1 - i]);
+      } 
+      cntrs[0].Select();
+    }
+    private void floor3Populate() {
+      int howMany = glob.g_wr.howManyDevsFloor3;
+      if(howMany == 0)return;
+      //Control[] cntrs = new Control[howMany];
+      List<Control> cntrs = new List<Control>(howMany);
+      ucRHTRealTime rht = null;
+      ucDiffPressRealTime diffpres = null;
+      for (int i = 0; i < howMany; i++) {
+        if (glob.g_wr.floor3Devs[i].type == TypeDevice.RHT) {
+          rht = new ucRHTRealTime();
+          rht.cdev = glob.g_wr.floor3Devs[i];
+          cntrs.Add(rht);
+        } else {
+          diffpres = new ucDiffPressRealTime();
+          diffpres.cdev = glob.g_wr.floor3Devs[i];
+          cntrs.Add(diffpres);
+        }
+      }
+      int howToRemove = pnlFloor3.Controls.Count;
+      for(int i=0;i<howToRemove;++i){
+        pnlFloor3.Controls.RemoveAt(0);
+      }
+      
+      //pnlFloor1.Controls.Remove
+      for (int i = 0; i < howMany; i++) {
+        cntrs[i].Dock = DockStyle.Left;
+        pnlFloor3.Controls.Add(cntrs[howMany-1 - i]);
       } 
       cntrs[0].Select();
     }
