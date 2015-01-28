@@ -105,6 +105,7 @@ namespace DiffPress {
       writeInterval = 5*60;
       writeIfAlarm = true;
       writeWhenNormalize = true;
+      timeAlarm = 10;
 
       howManyDevsFloor1 = 8;
       howManyDevsFloor2 = 8;

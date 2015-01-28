@@ -19,9 +19,19 @@ namespace DiffPress {
       set {
         _cdev = value;
         if (_cdev != null) {  
-          _cdev.Changed +=new ChangedEventHandler(_cdev_Changed);                                                          
+          _cdev.Changed +=new ChangedEventHandler(_cdev_Changed);
+          _cdev.evAlarm += new AlarmOccured(_cdev_evAlarm);                                               
         }
       }
+    }
+
+    void _cdev_evAlarm(DevAlarms type,DevAlarms typeLast) {
+      //MessageBox.Show(type.ToString());
+      System.Diagnostics.Debug.WriteLine("type:" +type.ToString());
+      System.Diagnostics.Debug.WriteLine("typeLast:" +typeLast.ToString());
+      System.Diagnostics.Debug.WriteLine("name:" + _cdev.name);
+      System.Diagnostics.Debug.WriteLine("strID:" + _cdev.strID);
+
     }
     void _cdev_Changed(object sender, EventArgs e) {
       //this.UIThread(() => this.ShowRH());

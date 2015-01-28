@@ -28,6 +28,8 @@ namespace DiffPress {
       txtName.Text = dev.name;
       nudAlarmHiVal1.Value = (decimal)dev.alarmHiVal1;
       nudAlarmLoVal1.Value = (decimal)dev.alarmLowVal1;
+      nudAlarmHiVal2.Value = (decimal)dev.alarmHiVal2;
+      nudAlarmLoVal2.Value = (decimal)dev.alarmLowVal2;
       txtDescr.Text = dev.description;
       ucOnOff1.isOn  = dev.Enable ;
      
@@ -37,6 +39,8 @@ namespace DiffPress {
       dev.name = txtName.Text;
       dev.alarmHiVal1 = (double)nudAlarmHiVal1.Value;
       dev.alarmLowVal1 = (double)nudAlarmLoVal1.Value;
+      dev.alarmHiVal2 = (double)nudAlarmHiVal2.Value;
+      dev.alarmLowVal2 = (double)nudAlarmLoVal2.Value;
       dev.description = txtDescr.Text;
       dev.Enable = ucOnOff1.isOn; 
       
