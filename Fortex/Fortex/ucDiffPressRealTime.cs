@@ -20,10 +20,20 @@ namespace DiffPress {
         _cdev = value;
         if (_cdev != null) {
           _cdev.Changed += new ChangedEventHandler(_cdev_Changed);
+          _cdev.evAlarm += new AlarmOccured(_cdev_evAlarm);
         
         }
         ShowDiffPress();
       }
+    }
+
+    void _cdev_evAlarm(DevAlarms type, DevAlarms typeLast, string tag) {
+      //throw new NotImplementedException();
+    }
+    public void PrepareToDelete() {
+      _cdev.Changed -= _cdev_Changed;
+      _cdev.evAlarm -= _cdev_evAlarm;
+      _cdev = null;
     }
     void _cdev_Changed(object sender, EventArgs e) {
       this.UIThread(() => this.ShowDiffPress());

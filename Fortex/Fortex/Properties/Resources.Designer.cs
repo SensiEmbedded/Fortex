@@ -143,6 +143,16 @@ namespace DiffPress.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap DTP_031 {
+            get {
+                object obj = ResourceManager.GetObject("DTP_031", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FullScreen {
             get {
                 object obj = ResourceManager.GetObject("FullScreen", resourceCulture);
@@ -216,6 +226,16 @@ namespace DiffPress.Properties {
         internal static System.Drawing.Bitmap OK {
             get {
                 object obj = ResourceManager.GetObject("OK", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap RH_T_final {
+            get {
+                object obj = ResourceManager.GetObject("RH&T_final", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

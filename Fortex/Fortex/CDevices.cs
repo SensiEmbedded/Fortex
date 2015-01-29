@@ -5,7 +5,7 @@ using System.ComponentModel;
 namespace DiffPress {
   
   public delegate int ReadDeviceDelegate();
-  public delegate void AlarmOccured(DevAlarms type,DevAlarms typeLast);
+  public delegate void AlarmOccured(DevAlarms type,DevAlarms typeLast,string tag);
 
   public enum DevStatus {
     //test v16.01.2015 9:40
@@ -205,6 +205,7 @@ namespace DiffPress {
     private CGlobal glob;
     private System.Timers.Timer tmr = new System.Timers.Timer();
     
+ 
     public CDev(){
       tmr.Interval = 1000;
       tmr.Elapsed += new System.Timers.ElapsedEventHandler(tmr_Elapsed);
@@ -217,7 +218,8 @@ namespace DiffPress {
       alarmStatusLast_HiVal2= DevAlarms.None;
       alarmStatusLast_LoVal1= DevAlarms.None;
       alarmStatusLast_LoVal2= DevAlarms.None;
-      System.Diagnostics.Debug.WriteLine("CDev Constructor called.");
+      //System.Diagnostics.Debug.WriteLine("CDev Constructor called.");
+      this.InstanceID = Guid.NewGuid();
 
     }
     public void SetRef(ref CGlobal gl){
@@ -240,6 +242,10 @@ namespace DiffPress {
     
     [Browsable(false),NonSerialized]
     public string strID="not set";
+
+    [Browsable(false),NonSerialized]
+    public Guid InstanceID;
+
 
     public TypeDevice type { get;set; }
     public string name {get;set;}
@@ -288,9 +294,9 @@ namespace DiffPress {
         
       }
     }
-    void FireAlarmEvent(DevAlarms type,DevAlarms typeLast) {
+    void FireAlarmEvent(DevAlarms type,DevAlarms typeLast,string tag) {
       if (evAlarm != null) {
-        evAlarm(type,typeLast);
+        evAlarm(type,typeLast,tag);
       } else {
         
       }
@@ -312,7 +318,7 @@ namespace DiffPress {
         }
       }
       if (alarmStatusLast_LoVal1 != alarmStatus_LoVal1) {
-        FireAlarmEvent(alarmStatus_LoVal1,alarmStatusLast_LoVal1);
+        FireAlarmEvent(alarmStatus_LoVal1,alarmStatusLast_LoVal1,"val1");
       }
       alarmStatusLast_LoVal1 = alarmStatus_LoVal1;
     }
@@ -331,7 +337,7 @@ namespace DiffPress {
         }
       }
       if (alarmStatusLast_HiVal1 != alarmStatus_HiVal1) {
-        FireAlarmEvent(alarmStatus_HiVal1,alarmStatusLast_HiVal1);
+        FireAlarmEvent(alarmStatus_HiVal1,alarmStatusLast_HiVal1,"val1");
       }
       alarmStatusLast_HiVal1 = alarmStatus_HiVal1;
     }
@@ -351,7 +357,7 @@ namespace DiffPress {
         }
       }
       if (alarmStatusLast_LoVal2 != alarmStatus_LoVal2) {
-        FireAlarmEvent(alarmStatus_LoVal2,alarmStatusLast_LoVal2);
+        FireAlarmEvent(alarmStatus_LoVal2,alarmStatusLast_LoVal2,"val2");
       }
       alarmStatusLast_LoVal2 = alarmStatus_LoVal2;
     }
@@ -369,7 +375,7 @@ namespace DiffPress {
         }
       }
       if (alarmStatusLast_HiVal2 != alarmStatus_HiVal2) {
-        FireAlarmEvent(alarmStatus_HiVal2,alarmStatusLast_HiVal2);
+        FireAlarmEvent(alarmStatus_HiVal2,alarmStatusLast_HiVal2,"val2");
       }
       alarmStatusLast_HiVal2 = alarmStatus_HiVal2;
     }

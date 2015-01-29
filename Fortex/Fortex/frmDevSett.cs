@@ -49,11 +49,13 @@ namespace DiffPress {
       grpBox1.Text = "Humidity (%)";
       grpBox2.Visible = true;
       grpBox2.Text = "Temperature (" + ((char)176).ToString() + "C)";
+      pbDevices.Image = imageList1.Images[0];
     }
     private void SetPressureTypeControl() {
       grpBox1.Text = "Diff.Pressure (PA)";
       grpBox2.Visible = false;
       grpBox2.Text = "Temperature (" + ((char)176).ToString() + "C)";
+      pbDevices.Image = imageList1.Images[1];
     }
     private void btnOK_Click(object sender, EventArgs e) {
       PopulateFromControl();
@@ -78,6 +80,10 @@ namespace DiffPress {
       } else {
         SetPressureTypeControl();
       }
+    }
+
+    private void label10_Click(object sender, EventArgs e) {
+
     }
   }
 }

@@ -280,6 +280,12 @@
   <ItemGroup>
     <None Include="img\CloseGray.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="img\RH&amp;T_final.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\DTP_031.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

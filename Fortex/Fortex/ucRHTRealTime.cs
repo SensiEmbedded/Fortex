@@ -10,8 +10,17 @@ using aUtils;
 
 namespace DiffPress {
   public partial class ucRHTRealTime : UserControl {
+    string alarmExplanation;
+    bool isAlarmTemp = false;
+    bool isAlarmRH = false;
+    Color colorControl;
+    ~ucRHTRealTime() {
+      System.Diagnostics.Debug.WriteLine("Destructor called");
+      
+    }
     public ucRHTRealTime() {
       InitializeComponent();
+      colorControl = lblTemp.BackColor;
     }
     private CDev _cdev=null;
     public CDev cdev {
@@ -24,13 +33,19 @@ namespace DiffPress {
         }
       }
     }
-
-    void _cdev_evAlarm(DevAlarms type,DevAlarms typeLast) {
+    public void PrepareToDelete() {
+      _cdev.Changed -= _cdev_Changed;
+      _cdev.evAlarm -= _cdev_evAlarm;
+      _cdev = null;
+    }
+    void _cdev_evAlarm(DevAlarms type,DevAlarms typeLast,string tag) {
+      AnalizeAlarm(type,typeLast,tag); 
       //MessageBox.Show(type.ToString());
       System.Diagnostics.Debug.WriteLine("type:" +type.ToString());
       System.Diagnostics.Debug.WriteLine("typeLast:" +typeLast.ToString());
       System.Diagnostics.Debug.WriteLine("name:" + _cdev.name);
       System.Diagnostics.Debug.WriteLine("strID:" + _cdev.strID);
+      System.Diagnostics.Debug.WriteLine("GuID:" + _cdev.InstanceID.ToString());
 
     }
     void _cdev_Changed(object sender, EventArgs e) {
@@ -38,6 +53,41 @@ namespace DiffPress {
       //this.UIThread(() => this.ShowTemp());
       this.UIThread(() => this.ShowVals());
  
+    }
+    private void AnalizeAlarm(DevAlarms type, DevAlarms typeLast, string tag) {
+      if (type == DevAlarms.None) {
+        alarmExplanation = "No Alarm Present.";
+        if (tag == "val1") {
+          isAlarmTemp = false;
+        } else {
+          isAlarmRH = false;
+        }
+        this.UIThread(() => toolTip1.SetToolTip(lblRH,alarmExplanation));
+        this.UIThread(() => toolTip1.SetToolTip(lblTemp,alarmExplanation));
+        return;
+      }
+      
+      if (type == DevAlarms.Hi && tag == "val1") {
+        alarmExplanation = "Temperature High Limit";
+        this.UIThread(() => toolTip1.SetToolTip(lblTemp,alarmExplanation));
+        isAlarmTemp = true;
+      }
+      if (type == DevAlarms.Lo && tag == "val1") {
+        alarmExplanation = "Temperature Low Limit";
+        this.UIThread(() => toolTip1.SetToolTip(lblTemp,alarmExplanation));
+        isAlarmTemp = true;
+      }
+      if (type == DevAlarms.Hi && tag == "val2") {
+        alarmExplanation = "Humidity High Limit";
+        this.UIThread(() => toolTip1.SetToolTip(lblRH,alarmExplanation));
+        isAlarmRH = true;
+        //toolTip1.SetToolTip(lblRH,alarmExplanation);
+      }
+      if (type == DevAlarms.Lo && tag == "val2") {
+        alarmExplanation = "Humidity Low Limit";
+        this.UIThread(() => toolTip1.SetToolTip(lblRH,alarmExplanation));
+        isAlarmRH = true;
+      }
     }
     private bool ShowErr(double val) {
       int err = (int)val;
@@ -96,7 +146,45 @@ namespace DiffPress {
       }
       
     }
+    private bool blink;
     private void timer1_Tick(object sender, EventArgs e) {
+      blink = !blink;
+      if (isAlarmTemp == false) {
+        lblTemp.BackColor = colorControl;
+      } else {
+        if (blink == true) {
+          lblTemp.BackColor = colorControl;
+        } else {
+          lblTemp.BackColor = Color.Red;
+        }
+      
+      }
+      if (isAlarmRH == false) {
+        lblRH.BackColor = colorControl;
+      } else {
+        if (blink == true) {
+          lblRH.BackColor = colorControl;
+        } else {
+          lblRH.BackColor = Color.Red;
+        }
+      }
+      /*
+      if ( glob.comm.devs.devVir.alarmStatus[index] == DevAlarms.None) {
+        pnlBlink.BackColor = colorControl;
+      } else {
+        if (blink == true) {
+          pnlBlink.BackColor = colorControl;
+        } else {
+          if (glob.comm.devs.devVir.alarmStatus[index] == DevAlarms.Error) {
+            //adc err, no comminication error
+            pnlBlink.BackColor = Color.BurlyWood;
+          } else {
+            //pressure error
+            pnlBlink.BackColor = Color.Red;
+          }
+        }
+      } */
+
       //ShowTemp();
       //ShowRH();      
     }

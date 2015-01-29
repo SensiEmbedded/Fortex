@@ -220,80 +220,61 @@ namespace DiffPress {
       floor2_2Populate();
       floor3Populate();
     }
-    private void floor1Populate() {
-      int howMany = glob.g_wr.howManyDevsFloor1;
-      if(howMany == 0)return;
-      //Control[] cntrs = new Control[howMany];
+    private void RemoveControlsFromPanel(Panel pnl) {
+      int howToRemove = pnl.Controls.Count;
+      for(int i=0;i<howToRemove;++i){
+        Control rt = pnl.Controls[0];
+        if (rt.GetType() == typeof(ucRHTRealTime)) {
+          ((ucRHTRealTime)rt).PrepareToDelete();
+        }
+        if (rt.GetType() == typeof(ucDiffPressRealTime)) {
+          ((ucDiffPressRealTime)rt).PrepareToDelete();
+        }
+        //pnlFloor1.Controls[0].Dispose();
+        pnl.Controls.RemoveAt(0);
+      } 
+    }
+    private void AddControlToPanel(Panel pnl, List<Control> cntrs) {
+      int howMany = cntrs.Count;
+      for (int i = 0; i < howMany; i++) {
+        cntrs[i].Dock = DockStyle.Left;
+        pnl.Controls.Add(cntrs[howMany-1 - i]);
+      } 
+      cntrs[0].Select();
+    }
+    private List<Control> GimiListOfControls(CDev[] devs,int howMany) {
+      if(howMany == 0)return null;
       List<Control> cntrs = new List<Control>(howMany);
       ucRHTRealTime rht = null;
       ucDiffPressRealTime diffpres = null;
       for (int i = 0; i < howMany; i++) {
-        if (glob.g_wr.floor1Devs[i].type == TypeDevice.RHT) {
+        if (devs[i].type == TypeDevice.RHT) {
           rht = new ucRHTRealTime();
-          rht.cdev = glob.g_wr.floor1Devs[i];
+          rht.cdev = devs[i];
           cntrs.Add(rht);
         } else {
           diffpres = new ucDiffPressRealTime();
-          diffpres.cdev = glob.g_wr.floor1Devs[i];
+          diffpres.cdev = devs[i];
           cntrs.Add(diffpres);
         }
       }
-      int howToRemove = pnlFloor1.Controls.Count;
-      for(int i=0;i<howToRemove;++i){
-        pnlFloor1.Controls.RemoveAt(0);
-      }
-      
-      //pnlFloor1.Controls.Remove
-      for (int i = 0; i < howMany; i++) {
-        cntrs[i].Dock = DockStyle.Left;
-        pnlFloor1.Controls.Add(cntrs[howMany-1 - i]);
-      } 
-      cntrs[0].Select();
-
-      /*
-      ucDevSet[] ucs = new ucDevSet[32];
-      for (int i = 0; i < 32; i++) {
-        ucs[i] = new ucDevSet();
-        ucs[i].SetRef(glob.g_wr.floor1Devs[i]);
-        ucs[i].Dock = DockStyle.Left;
-      }
-      for (int i = 0; i < 32; i++) {
-        pnlFloor1.Controls.Add(ucs[31-i]);
-      } 
-      ucs[0].Select(); // move scrollbar at the beging
-       */ 
+      return cntrs;
+    }
+    private void floor1Populate() {
+      int howMany = glob.g_wr.howManyDevsFloor1;
+      if(howMany == 0)return;
+      List<Control> cntrs = GimiListOfControls(glob.g_wr.floor1Devs,howMany);
+      RemoveControlsFromPanel(pnlFloor1);      
+      AddControlToPanel(pnlFloor1,cntrs);
     }
     private void floor2Populate() {
       int howMany = glob.g_wr.howManyDevsFloor2;
       if(howMany == 0)return;
       if(howMany > 19)howMany = 19;//drugite w pnlFloor2_2
-
-      //Control[] cntrs = new Control[howMany];
-      List<Control> cntrs = new List<Control>(howMany);
-      ucRHTRealTime rht = null;
-      ucDiffPressRealTime diffpres = null;
-      for (int i = 0; i < howMany; i++) {
-        if (glob.g_wr.floor2Devs[i].type == TypeDevice.RHT) {
-          rht = new ucRHTRealTime();
-          rht.cdev = glob.g_wr.floor2Devs[i];
-          cntrs.Add(rht);
-        } else {
-          diffpres = new ucDiffPressRealTime();
-          diffpres.cdev = glob.g_wr.floor2Devs[i];
-          cntrs.Add(diffpres);
-        }
-      }
-      int howToRemove = pnlFloor2.Controls.Count;
-      for(int i=0;i<howToRemove;++i){
-        pnlFloor2.Controls.RemoveAt(0);
-      }
+      List<Control> cntrs = GimiListOfControls(glob.g_wr.floor2Devs,howMany);
+      RemoveControlsFromPanel(pnlFloor2);
+      AddControlToPanel(pnlFloor2,cntrs);
       
-      //pnlFloor1.Controls.Remove
-      for (int i = 0; i < howMany; i++) {
-        cntrs[i].Dock = DockStyle.Left;
-        pnlFloor2.Controls.Add(cntrs[howMany-1 - i]);
-      } 
-      cntrs[0].Select();
     }
     private void floor2_2Populate() {
       int howMany = glob.g_wr.howManyDevsFloor2;
@@ -315,47 +296,16 @@ namespace DiffPress {
           cntrs.Add(diffpres);
         }
       }
-      int howToRemove = pnlFloor2_2.Controls.Count;
-      for(int i=0;i<howToRemove;++i){
-        pnlFloor2_2.Controls.RemoveAt(0);
-      }
+      RemoveControlsFromPanel(pnlFloor2_2);
+      AddControlToPanel(pnlFloor2_2,cntrs);
       
-      //pnlFloor1.Controls.Remove
-      for (int i = 0; i < howMany; i++) {
-        cntrs[i].Dock = DockStyle.Left;
-        pnlFloor2_2.Controls.Add(cntrs[howMany-1 - i]);
-      } 
-      cntrs[0].Select();
     }
     private void floor3Populate() {
       int howMany = glob.g_wr.howManyDevsFloor3;
       if(howMany == 0)return;
-      //Control[] cntrs = new Control[howMany];
-      List<Control> cntrs = new List<Control>(howMany);
-      ucRHTRealTime rht = null;
-      ucDiffPressRealTime diffpres = null;
-      for (int i = 0; i < howMany; i++) {
-        if (glob.g_wr.floor3Devs[i].type == TypeDevice.RHT) {
-          rht = new ucRHTRealTime();
-          rht.cdev = glob.g_wr.floor3Devs[i];
-          cntrs.Add(rht);
-        } else {
-          diffpres = new ucDiffPressRealTime();
-          diffpres.cdev = glob.g_wr.floor3Devs[i];
-          cntrs.Add(diffpres);
-        }
-      }
-      int howToRemove = pnlFloor3.Controls.Count;
-      for(int i=0;i<howToRemove;++i){
-        pnlFloor3.Controls.RemoveAt(0);
-      }
-      
-      //pnlFloor1.Controls.Remove
-      for (int i = 0; i < howMany; i++) {
-        cntrs[i].Dock = DockStyle.Left;
-        pnlFloor3.Controls.Add(cntrs[howMany-1 - i]);
-      } 
-      cntrs[0].Select();
+      List<Control> cntrs = GimiListOfControls(glob.g_wr.floor2Devs,howMany);
+      RemoveControlsFromPanel(pnlFloor3);
+      AddControlToPanel(pnlFloor3,cntrs);
     }
     #endregion
     #region SQLite
@@ -377,6 +327,10 @@ namespace DiffPress {
     private void pictureBox1_Click(object sender, EventArgs e) {
       frmAbout frm = new frmAbout();
       frm.ShowDialog();
+    }
+
+    private void label3_Click(object sender, EventArgs e) {
+      
     }
   }
 }

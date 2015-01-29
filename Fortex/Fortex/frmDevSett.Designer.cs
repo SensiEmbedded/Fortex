@@ -23,6 +23,7 @@
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
+      this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDevSett));
       this.label6 = new System.Windows.Forms.Label();
       this.label4 = new System.Windows.Forms.Label();
@@ -37,26 +38,31 @@
       this.groupBox1 = new System.Windows.Forms.GroupBox();
       this.label2 = new System.Windows.Forms.Label();
       this.txtDescr = new System.Windows.Forms.TextBox();
-      this.pictureBox1 = new System.Windows.Forms.PictureBox();
-      this.picAlarm = new System.Windows.Forms.PictureBox();
-      this.button1 = new System.Windows.Forms.Button();
-      this.btnOK = new System.Windows.Forms.Button();
       this.grpBox1 = new System.Windows.Forms.GroupBox();
       this.grpBox2 = new System.Windows.Forms.GroupBox();
       this.nudAlarmLoVal2 = new System.Windows.Forms.NumericUpDown();
       this.label5 = new System.Windows.Forms.Label();
       this.label7 = new System.Windows.Forms.Label();
       this.nudAlarmHiVal2 = new System.Windows.Forms.NumericUpDown();
+      this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+      this.pbDevices = new System.Windows.Forms.PictureBox();
+      this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.picAlarm = new System.Windows.Forms.PictureBox();
+      this.button1 = new System.Windows.Forms.Button();
+      this.btnOK = new System.Windows.Forms.Button();
+      this.label9 = new System.Windows.Forms.Label();
+      this.label10 = new System.Windows.Forms.Label();
       this.ucOnOff1 = new DiffPress.ucOnOff();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmHiVal1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal1)).BeginInit();
       this.groupBox1.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.picAlarm)).BeginInit();
       this.grpBox1.SuspendLayout();
       this.grpBox2.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmHiVal2)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picAlarm)).BeginInit();
       this.SuspendLayout();
       // 
       // label6
@@ -80,7 +86,7 @@
       // label8
       // 
       this.label8.AutoSize = true;
-      this.label8.Location = new System.Drawing.Point(408, 24);
+      this.label8.Location = new System.Drawing.Point(341, 27);
       this.label8.Name = "label8";
       this.label8.Size = new System.Drawing.Size(80, 13);
       this.label8.TabIndex = 6;
@@ -181,51 +187,6 @@
       this.txtDescr.Size = new System.Drawing.Size(281, 89);
       this.txtDescr.TabIndex = 8;
       // 
-      // pictureBox1
-      // 
-      this.pictureBox1.Image = global::DiffPress.Properties.Resources.HighLimit2;
-      this.pictureBox1.Location = new System.Drawing.Point(186, 243);
-      this.pictureBox1.Name = "pictureBox1";
-      this.pictureBox1.Size = new System.Drawing.Size(141, 121);
-      this.pictureBox1.TabIndex = 17;
-      this.pictureBox1.TabStop = false;
-      // 
-      // picAlarm
-      // 
-      this.picAlarm.Image = global::DiffPress.Properties.Resources.LowLimit2;
-      this.picAlarm.Location = new System.Drawing.Point(27, 247);
-      this.picAlarm.Name = "picAlarm";
-      this.picAlarm.Size = new System.Drawing.Size(141, 116);
-      this.picAlarm.TabIndex = 17;
-      this.picAlarm.TabStop = false;
-      this.picAlarm.Click += new System.EventHandler(this.picAlarm_Click);
-      // 
-      // button1
-      // 
-      this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-      this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      this.button1.Location = new System.Drawing.Point(12, 397);
-      this.button1.Name = "button1";
-      this.button1.Size = new System.Drawing.Size(68, 40);
-      this.button1.TabIndex = 16;
-      this.button1.Text = "OK ";
-      this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-      this.button1.UseVisualStyleBackColor = true;
-      this.button1.Click += new System.EventHandler(this.btnOK_Click);
-      // 
-      // btnOK
-      // 
-      this.btnOK.Image = global::DiffPress.Properties.Resources.Cancel;
-      this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      this.btnOK.Location = new System.Drawing.Point(96, 398);
-      this.btnOK.Name = "btnOK";
-      this.btnOK.Size = new System.Drawing.Size(76, 40);
-      this.btnOK.TabIndex = 16;
-      this.btnOK.Text = "Cancel";
-      this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-      this.btnOK.UseVisualStyleBackColor = true;
-      this.btnOK.Click += new System.EventHandler(this.btnOK_Click_1);
-      // 
       // grpBox1
       // 
       this.grpBox1.Controls.Add(this.nudAlarmLoVal1);
@@ -286,10 +247,91 @@
       this.nudAlarmHiVal2.Size = new System.Drawing.Size(82, 20);
       this.nudAlarmHiVal2.TabIndex = 14;
       // 
+      // imageList1
+      // 
+      this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+      this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+      this.imageList1.Images.SetKeyName(0, "RH&T_final.png");
+      this.imageList1.Images.SetKeyName(1, "DTP_031.png");
+      // 
+      // pbDevices
+      // 
+      this.pbDevices.Image = global::DiffPress.Properties.Resources.DTP_031;
+      this.pbDevices.Location = new System.Drawing.Point(477, 3);
+      this.pbDevices.Name = "pbDevices";
+      this.pbDevices.Size = new System.Drawing.Size(150, 192);
+      this.pbDevices.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pbDevices.TabIndex = 22;
+      this.pbDevices.TabStop = false;
+      // 
+      // pictureBox1
+      // 
+      this.pictureBox1.Image = global::DiffPress.Properties.Resources.HighLimit2;
+      this.pictureBox1.Location = new System.Drawing.Point(186, 243);
+      this.pictureBox1.Name = "pictureBox1";
+      this.pictureBox1.Size = new System.Drawing.Size(141, 121);
+      this.pictureBox1.TabIndex = 17;
+      this.pictureBox1.TabStop = false;
+      // 
+      // picAlarm
+      // 
+      this.picAlarm.Image = global::DiffPress.Properties.Resources.LowLimit2;
+      this.picAlarm.Location = new System.Drawing.Point(27, 247);
+      this.picAlarm.Name = "picAlarm";
+      this.picAlarm.Size = new System.Drawing.Size(141, 116);
+      this.picAlarm.TabIndex = 17;
+      this.picAlarm.TabStop = false;
+      this.picAlarm.Click += new System.EventHandler(this.picAlarm_Click);
+      // 
+      // button1
+      // 
+      this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+      this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.button1.Location = new System.Drawing.Point(12, 397);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(68, 40);
+      this.button1.TabIndex = 16;
+      this.button1.Text = "OK ";
+      this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new System.EventHandler(this.btnOK_Click);
+      // 
+      // btnOK
+      // 
+      this.btnOK.Image = global::DiffPress.Properties.Resources.Cancel;
+      this.btnOK.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+      this.btnOK.Location = new System.Drawing.Point(96, 398);
+      this.btnOK.Name = "btnOK";
+      this.btnOK.Size = new System.Drawing.Size(76, 40);
+      this.btnOK.TabIndex = 16;
+      this.btnOK.Text = "Cancel";
+      this.btnOK.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.btnOK.UseVisualStyleBackColor = true;
+      this.btnOK.Click += new System.EventHandler(this.btnOK_Click_1);
+      // 
+      // label9
+      // 
+      this.label9.AutoSize = true;
+      this.label9.Location = new System.Drawing.Point(29, 226);
+      this.label9.Name = "label9";
+      this.label9.Size = new System.Drawing.Size(83, 13);
+      this.label9.TabIndex = 23;
+      this.label9.Text = "Low Type Alarm";
+      // 
+      // label10
+      // 
+      this.label10.AutoSize = true;
+      this.label10.Location = new System.Drawing.Point(187, 224);
+      this.label10.Name = "label10";
+      this.label10.Size = new System.Drawing.Size(85, 13);
+      this.label10.TabIndex = 24;
+      this.label10.Text = "High Type Alarm";
+      this.label10.Click += new System.EventHandler(this.label10_Click);
+      // 
       // ucOnOff1
       // 
       this.ucOnOff1.isOn = false;
-      this.ucOnOff1.Location = new System.Drawing.Point(410, 45);
+      this.ucOnOff1.Location = new System.Drawing.Point(343, 48);
       this.ucOnOff1.Name = "ucOnOff1";
       this.ucOnOff1.Size = new System.Drawing.Size(74, 132);
       this.ucOnOff1.TabIndex = 19;
@@ -300,6 +342,9 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.WhiteSmoke;
       this.ClientSize = new System.Drawing.Size(952, 460);
+      this.Controls.Add(this.label10);
+      this.Controls.Add(this.label9);
+      this.Controls.Add(this.pbDevices);
       this.Controls.Add(this.grpBox2);
       this.Controls.Add(this.grpBox1);
       this.Controls.Add(this.ucOnOff1);
@@ -322,14 +367,15 @@
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal1)).EndInit();
       this.groupBox1.ResumeLayout(false);
       this.groupBox1.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.picAlarm)).EndInit();
       this.grpBox1.ResumeLayout(false);
       this.grpBox1.PerformLayout();
       this.grpBox2.ResumeLayout(false);
       this.grpBox2.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmHiVal2)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.picAlarm)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -361,5 +407,9 @@
     private System.Windows.Forms.Label label5;
     private System.Windows.Forms.Label label7;
     private System.Windows.Forms.NumericUpDown nudAlarmHiVal2;
+    private System.Windows.Forms.PictureBox pbDevices;
+    private System.Windows.Forms.ImageList imageList1;
+    private System.Windows.Forms.Label label9;
+    private System.Windows.Forms.Label label10;
   }
 }

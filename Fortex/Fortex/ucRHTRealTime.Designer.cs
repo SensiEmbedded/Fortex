@@ -28,7 +28,7 @@
       this.lblTemp = new System.Windows.Forms.Label();
       this.lblRH = new System.Windows.Forms.Label();
       this.timer1 = new System.Windows.Forms.Timer(this.components);
-      this.panel1 = new System.Windows.Forms.Panel();
+      this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
       this.SuspendLayout();
       // 
       // lblUp
@@ -75,24 +75,15 @@
       this.timer1.Interval = 1000;
       this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
       // 
-      // panel1
-      // 
-      this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-      this.panel1.Location = new System.Drawing.Point(3, 105);
-      this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(74, 43);
-      this.panel1.TabIndex = 4;
-      // 
       // ucRHTRealTime
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.Controls.Add(this.lblRH);
       this.Controls.Add(this.lblTemp);
-      this.Controls.Add(this.panel1);
       this.Controls.Add(this.lblUp);
       this.Name = "ucRHTRealTime";
-      this.Size = new System.Drawing.Size(84, 156);
+      this.Size = new System.Drawing.Size(84, 115);
       this.ResumeLayout(false);
 
     }
@@ -103,6 +94,6 @@
     private System.Windows.Forms.Label lblTemp;
     private System.Windows.Forms.Label lblRH;
     private System.Windows.Forms.Timer timer1;
-    private System.Windows.Forms.Panel panel1;
+    private System.Windows.Forms.ToolTip toolTip1;
   }
 }
