@@ -25,10 +25,23 @@ namespace DiffPress {
     }
     private void PopulateControls() {
       lblName.Text = dev.name;
-      
+      if (dev.type == TypeDevice.RHT) {
+        lblAlarmLow2.Visible = true;
+        lblAlarmHi2.Visible = true;
+        lblStatic1.Visible = true;
+        lblStatic2.Visible = true;
+
+      } else {
+        lblAlarmLow2.Visible = false;
+        lblAlarmHi2.Visible = false;
+        lblStatic1.Visible = false;
+        lblStatic2.Visible = false;
+      }
       lblEnable.Text = dev.Enable.ToString();
-      lblAlarmLow.Text = dev.alarmLowVal1.ToString("F1");
-      lblAlarmHi.Text = dev.alarmHiVal1.ToString("F1");
+      lblAlarmLow1.Text = dev.alarmLowVal1.ToString("F1");
+      lblAlarmHi1.Text = dev.alarmHiVal1.ToString("F1");
+      lblAlarmLow2.Text = dev.alarmLowVal2.ToString("F1");
+      lblAlarmHi2.Text = dev.alarmHiVal2.ToString("F1");
       lblAddr.Text = dev.address.ToString();
       if (dev.Enable == false) {
         this.BackColor = Color.Gray;

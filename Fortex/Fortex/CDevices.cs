@@ -96,18 +96,20 @@ namespace DiffPress {
     void PointCDev() {
       string prefix = "";
       switch (cmn.slaveID) {
-        case 0:
+        case 1:
           devs =  gl.g_wr.floor1Devs;
           prefix = "floor1.";
           break;
-        case 1:
+        case 2:
           devs =  gl.g_wr.floor2Devs;
           prefix = "floor2.";
           break;
-        case 2:
+        case 3:
           devs =  gl.g_wr.floor3Devs;
-          prefix = "floor2.";
+          prefix = "floor3.";
           break;
+        default:
+          return;
       }
       int count = 0;
       foreach (CDev d in devs) {
@@ -116,21 +118,37 @@ namespace DiffPress {
         ++count;
       }
     }
-    public CDev_MMM(ref CGlobal gl) {
+    public CDev_MMM(ref CGlobal gl,int address) {
+      this.cmn.slaveID = (byte)address;
       this.gl = gl;
-      cmn.ReadDevice = Read;
+      
       PointCDev();
+      cmn.ReadDevice = Read;
     }
     void FireChangeEvent() {
       if (Changed != null) {
         Changed(this, new EventArgs());
       } 
     }
-    
+    ushort HowManyDevPerPloor() {
+      ushort h = 0;
+      switch (this.cmn.slaveID) {
+        case 1:
+          h = (ushort)gl.g_wr.howManyDevsFloor1;
+          break;
+        case 2:
+          h = (ushort)gl.g_wr.howManyDevsFloor2;
+          break;
+        case 3:
+          h = (ushort)gl.g_wr.howManyDevsFloor3;
+          break;
+      }
+      return h;
+    }
     int Read() {
       try {
         holdingregister = null;
-        numofPoints = (ushort)gl.g_wr.howManyDevsFloor1;
+        numofPoints = HowManyDevPerPloor();
         numofPoints *= 2;
         holdingregister = gl.comm.master.ReadHoldingRegisters(cmn.slaveID, startAddress, numofPoints);
         this.cmn.status = DevStatus.None;
@@ -165,7 +183,7 @@ namespace DiffPress {
       if (this.cmn.status == DevStatus.TimeOut) {
         gl.sqlite.LogMessage("Device came online.");
         
-      }
+      } 
       this.cmn.status = DevStatus.OK;
       PopulateCDevArray(holdingregister);
       FireChangeEvent();
@@ -412,18 +430,16 @@ namespace DiffPress {
     
     public CDevices(ref CGlobal gl) {
       //devVir.cmn
-      mmm[0] = new CDev_MMM(ref gl);
-      mmm[1] = new CDev_MMM(ref gl);
-      mmm[2] = new CDev_MMM(ref gl);
-      mmm[0].cmn.slaveID = 1;
-      mmm[1].cmn.slaveID = 2;
-      mmm[2].cmn.slaveID = 3;
+      mmm[0] = new CDev_MMM(ref gl,1);
+      mmm[1] = new CDev_MMM(ref gl,2);
+      mmm[2] = new CDev_MMM(ref gl,3);
+      
     
       
     }
     public void ReadNextDevice() {
       int rez = 0;
-      order = 0;
+      //order = 0;
       switch (order) {
         case 0:
           rez = mmm[0].cmn.ReadDevice(); //devVir.cmn.ReadDevice();

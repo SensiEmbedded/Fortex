@@ -10,6 +10,7 @@ using aUtils;
 
 namespace DiffPress {
   public partial class ucDiffPressRealTime : UserControl {
+    
     public ucDiffPressRealTime() {
       InitializeComponent();
     }

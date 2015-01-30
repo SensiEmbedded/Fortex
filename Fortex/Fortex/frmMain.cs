@@ -303,7 +303,7 @@ namespace DiffPress {
     private void floor3Populate() {
       int howMany = glob.g_wr.howManyDevsFloor3;
       if(howMany == 0)return;
-      List<Control> cntrs = GimiListOfControls(glob.g_wr.floor2Devs,howMany);
+      List<Control> cntrs = GimiListOfControls(glob.g_wr.floor3Devs,howMany);
       RemoveControlsFromPanel(pnlFloor3);
       AddControlToPanel(pnlFloor3,cntrs);
     }
