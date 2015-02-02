@@ -35,11 +35,16 @@
           System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
           System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
           this.grbStatus = new System.Windows.Forms.GroupBox();
+          this.line1 = new Unclassified.UI.Line();
+          this.line3 = new Unclassified.UI.Line();
+          this.line2 = new Unclassified.UI.Line();
           this.lblComm = new System.Windows.Forms.Label();
           this.label4 = new System.Windows.Forms.Label();
           this.lblRemain = new System.Windows.Forms.Label();
           this.label3 = new System.Windows.Forms.Label();
           this.groupBox2 = new System.Windows.Forms.GroupBox();
+          this.pictureBox3 = new System.Windows.Forms.PictureBox();
+          this.pictureBox2 = new System.Windows.Forms.PictureBox();
           this.label2 = new System.Windows.Forms.Label();
           this.label1 = new System.Windows.Forms.Label();
           this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -54,18 +59,13 @@
           this.pnlFloor2_2 = new System.Windows.Forms.Panel();
           this.pnlFloor3 = new System.Windows.Forms.Panel();
           this.pictureBox1 = new System.Windows.Forms.PictureBox();
-          this.pictureBox3 = new System.Windows.Forms.PictureBox();
-          this.pictureBox2 = new System.Windows.Forms.PictureBox();
-          this.line1 = new Unclassified.UI.Line();
-          this.line3 = new Unclassified.UI.Line();
-          this.line2 = new Unclassified.UI.Line();
           this.grbStatus.SuspendLayout();
           this.groupBox2.SuspendLayout();
+          ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+          ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
           this.groupBox1.SuspendLayout();
           ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-          ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-          ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
           this.SuspendLayout();
           // 
           // grbStatus
@@ -83,6 +83,43 @@
           this.grbStatus.TabIndex = 48;
           this.grbStatus.TabStop = false;
           this.grbStatus.Text = "Status:";
+          // 
+          // line1
+          // 
+          this.line1.BorderColor = System.Drawing.SystemColors.ControlText;
+          this.line1.Dark3dColor = System.Drawing.SystemColors.ControlDark;
+          this.line1.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+          this.line1.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
+          this.line1.Location = new System.Drawing.Point(100, 20);
+          this.line1.Name = "line1";
+          this.line1.Orientation = Unclassified.UI.LineOrientation.Vertical;
+          this.line1.Size = new System.Drawing.Size(1, 98);
+          this.line1.TabIndex = 5;
+          this.line1.TabStop = false;
+          // 
+          // line3
+          // 
+          this.line3.BorderColor = System.Drawing.SystemColors.ControlText;
+          this.line3.Dark3dColor = System.Drawing.SystemColors.ControlDark;
+          this.line3.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+          this.line3.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
+          this.line3.Location = new System.Drawing.Point(9, 92);
+          this.line3.Name = "line3";
+          this.line3.Size = new System.Drawing.Size(148, 2);
+          this.line3.TabIndex = 6;
+          this.line3.TabStop = false;
+          // 
+          // line2
+          // 
+          this.line2.BorderColor = System.Drawing.SystemColors.ControlText;
+          this.line2.Dark3dColor = System.Drawing.SystemColors.ControlDark;
+          this.line2.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
+          this.line2.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
+          this.line2.Location = new System.Drawing.Point(8, 70);
+          this.line2.Name = "line2";
+          this.line2.Size = new System.Drawing.Size(148, 2);
+          this.line2.TabIndex = 6;
+          this.line2.TabStop = false;
           // 
           // lblComm
           // 
@@ -139,6 +176,30 @@
           this.groupBox2.TabIndex = 45;
           this.groupBox2.TabStop = false;
           this.groupBox2.Text = "Params";
+          // 
+          // pictureBox3
+          // 
+          this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+          this.pictureBox3.Image = global::DiffPress.Properties.Resources.FullScreen;
+          this.pictureBox3.Location = new System.Drawing.Point(22, 22);
+          this.pictureBox3.Name = "pictureBox3";
+          this.pictureBox3.Size = new System.Drawing.Size(89, 77);
+          this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+          this.pictureBox3.TabIndex = 41;
+          this.pictureBox3.TabStop = false;
+          this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+          // 
+          // pictureBox2
+          // 
+          this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+          this.pictureBox2.Image = global::DiffPress.Properties.Resources.Wrench;
+          this.pictureBox2.Location = new System.Drawing.Point(22, 142);
+          this.pictureBox2.Name = "pictureBox2";
+          this.pictureBox2.Size = new System.Drawing.Size(89, 77);
+          this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+          this.pictureBox2.TabIndex = 41;
+          this.pictureBox2.TabStop = false;
+          this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
           // 
           // label2
           // 
@@ -270,7 +331,7 @@
           this.pnlFloor1.BackColor = System.Drawing.Color.WhiteSmoke;
           this.pnlFloor1.Location = new System.Drawing.Point(199, 546);
           this.pnlFloor1.Name = "pnlFloor1";
-          this.pnlFloor1.Size = new System.Drawing.Size(1645, 115);
+          this.pnlFloor1.Size = new System.Drawing.Size(1632, 115);
           this.pnlFloor1.TabIndex = 67;
           // 
           // pnlFloor2
@@ -282,7 +343,7 @@
           this.pnlFloor2.BackColor = System.Drawing.Color.Gainsboro;
           this.pnlFloor2.Location = new System.Drawing.Point(199, 380);
           this.pnlFloor2.Name = "pnlFloor2";
-          this.pnlFloor2.Size = new System.Drawing.Size(1645, 115);
+          this.pnlFloor2.Size = new System.Drawing.Size(1632, 115);
           this.pnlFloor2.TabIndex = 67;
           // 
           // pnlFloor2_2
@@ -294,7 +355,7 @@
           this.pnlFloor2_2.BackColor = System.Drawing.Color.Gainsboro;
           this.pnlFloor2_2.Location = new System.Drawing.Point(200, 219);
           this.pnlFloor2_2.Name = "pnlFloor2_2";
-          this.pnlFloor2_2.Size = new System.Drawing.Size(1644, 115);
+          this.pnlFloor2_2.Size = new System.Drawing.Size(1631, 115);
           this.pnlFloor2_2.TabIndex = 67;
           // 
           // pnlFloor3
@@ -306,7 +367,7 @@
           this.pnlFloor3.BackColor = System.Drawing.Color.Gray;
           this.pnlFloor3.Location = new System.Drawing.Point(199, 59);
           this.pnlFloor3.Name = "pnlFloor3";
-          this.pnlFloor3.Size = new System.Drawing.Size(1644, 115);
+          this.pnlFloor3.Size = new System.Drawing.Size(1631, 115);
           this.pnlFloor3.TabIndex = 67;
           // 
           // pictureBox1
@@ -320,74 +381,13 @@
           this.pictureBox1.TabStop = false;
           this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
           // 
-          // pictureBox3
-          // 
-          this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-          this.pictureBox3.Image = global::DiffPress.Properties.Resources.FullScreen;
-          this.pictureBox3.Location = new System.Drawing.Point(22, 22);
-          this.pictureBox3.Name = "pictureBox3";
-          this.pictureBox3.Size = new System.Drawing.Size(89, 77);
-          this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-          this.pictureBox3.TabIndex = 41;
-          this.pictureBox3.TabStop = false;
-          this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-          // 
-          // pictureBox2
-          // 
-          this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-          this.pictureBox2.Image = global::DiffPress.Properties.Resources.Wrench;
-          this.pictureBox2.Location = new System.Drawing.Point(22, 142);
-          this.pictureBox2.Name = "pictureBox2";
-          this.pictureBox2.Size = new System.Drawing.Size(89, 77);
-          this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-          this.pictureBox2.TabIndex = 41;
-          this.pictureBox2.TabStop = false;
-          this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-          // 
-          // line1
-          // 
-          this.line1.BorderColor = System.Drawing.SystemColors.ControlText;
-          this.line1.Dark3dColor = System.Drawing.SystemColors.ControlDark;
-          this.line1.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-          this.line1.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
-          this.line1.Location = new System.Drawing.Point(100, 20);
-          this.line1.Name = "line1";
-          this.line1.Orientation = Unclassified.UI.LineOrientation.Vertical;
-          this.line1.Size = new System.Drawing.Size(1, 98);
-          this.line1.TabIndex = 5;
-          this.line1.TabStop = false;
-          // 
-          // line3
-          // 
-          this.line3.BorderColor = System.Drawing.SystemColors.ControlText;
-          this.line3.Dark3dColor = System.Drawing.SystemColors.ControlDark;
-          this.line3.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-          this.line3.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
-          this.line3.Location = new System.Drawing.Point(9, 92);
-          this.line3.Name = "line3";
-          this.line3.Size = new System.Drawing.Size(148, 2);
-          this.line3.TabIndex = 6;
-          this.line3.TabStop = false;
-          // 
-          // line2
-          // 
-          this.line2.BorderColor = System.Drawing.SystemColors.ControlText;
-          this.line2.Dark3dColor = System.Drawing.SystemColors.ControlDark;
-          this.line2.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-          this.line2.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
-          this.line2.Location = new System.Drawing.Point(8, 70);
-          this.line2.Name = "line2";
-          this.line2.Size = new System.Drawing.Size(148, 2);
-          this.line2.TabIndex = 6;
-          this.line2.TabStop = false;
-          // 
           // frmMain
           // 
           this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
           this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
           this.AutoScroll = true;
           this.BackColor = System.Drawing.Color.White;
-          this.ClientSize = new System.Drawing.Size(1912, 1065);
+          this.ClientSize = new System.Drawing.Size(1370, 750);
           this.Controls.Add(this.pictureBox1);
           this.Controls.Add(this.groupBox2);
           this.Controls.Add(this.grbStatus);
@@ -407,12 +407,12 @@
           this.grbStatus.PerformLayout();
           this.groupBox2.ResumeLayout(false);
           this.groupBox2.PerformLayout();
+          ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+          ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
           this.groupBox1.ResumeLayout(false);
           this.groupBox1.PerformLayout();
           ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-          ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-          ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
           this.ResumeLayout(false);
 
         }

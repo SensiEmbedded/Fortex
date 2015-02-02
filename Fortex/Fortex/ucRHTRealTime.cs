@@ -71,23 +71,55 @@ namespace DiffPress {
         alarmExplanation = "Temperature High Limit";
         this.UIThread(() => toolTip1.SetToolTip(lblTemp,alarmExplanation));
         isAlarmTemp = true;
+        return;
       }
       if (type == DevAlarms.Lo && tag == "val1") {
         alarmExplanation = "Temperature Low Limit";
         this.UIThread(() => toolTip1.SetToolTip(lblTemp,alarmExplanation));
         isAlarmTemp = true;
+        return;
       }
       if (type == DevAlarms.Hi && tag == "val2") {
         alarmExplanation = "Humidity High Limit";
         this.UIThread(() => toolTip1.SetToolTip(lblRH,alarmExplanation));
         isAlarmRH = true;
+        return;
         //toolTip1.SetToolTip(lblRH,alarmExplanation);
       }
       if (type == DevAlarms.Lo && tag == "val2") {
         alarmExplanation = "Humidity Low Limit";
         this.UIThread(() => toolTip1.SetToolTip(lblRH,alarmExplanation));
         isAlarmRH = true;
+        return;
       }
+    }
+    private void ShowAlarms() {
+      if (cdev == null)
+        return;
+      if (cdev.Enable == false)
+        return;
+
+      isAlarmTemp = (cdev.alarmStatus_LoVal1 != DevAlarms.None) ? true : false;
+      isAlarmTemp = (cdev.alarmStatus_HiVal1 != DevAlarms.None) ? true : isAlarmTemp;
+      isAlarmRH = (cdev.alarmStatus_LoVal2 != DevAlarms.None) ? true : false;
+      isAlarmRH = (cdev.alarmStatus_HiVal2 != DevAlarms.None) ? true : isAlarmRH;
+      /*
+      if (isAlarmTemp == false && cdev.alarmStatusLast_LoVal1 != DevAlarms.None) {
+        AnalizeAlarm(cdev.alarmStatus_LoVal1, cdev.alarmStatusLast_LoVal1, "val1");
+      }
+      if (isAlarmTemp == false && cdev.alarmStatusLast_HiVal1 != DevAlarms.None) {
+        AnalizeAlarm(cdev.alarmStatus_HiVal1, cdev.alarmStatusLast_HiVal1, "val1");
+      }
+      if (isAlarmRH == false && cdev.alarmStatusLast_LoVal2 != DevAlarms.None) {
+        AnalizeAlarm(cdev.alarmStatus_LoVal2, cdev.alarmStatusLast_LoVal2, "val2");
+      }
+      if (isAlarmRH == false && cdev.alarmStatusLast_HiVal2 != DevAlarms.None) {   
+        AnalizeAlarm(cdev.alarmStatus_HiVal2, cdev.alarmStatusLast_HiVal2, "val2");
+      } */
+      //AnalizeAlarm(cdev.alarmStatus_HiVal1,cdev.alarmStatusLast_HiVal1,"val1");
+      //AnalizeAlarm(cdev.alarmStatus_LoVal1, cdev.alarmStatusLast_LoVal1, "val1");
+      
+      //AnalizeAlarm(cdev.alarmStatus_LoVal2, cdev.alarmStatusLast_LoVal2, "val2");
     }
     private bool ShowErr(double val) {
       int err = (int)val;
@@ -125,9 +157,11 @@ namespace DiffPress {
 
     }
     private void ShowVals() {
+      if (cdev == null)
+        return;
       if (ShowErr(_cdev.val1) == true) {
         lblTemp.Text = _cdev.val1.ToString("F1");
-         lblRH.Text = _cdev.val2.ToString("F1");
+        lblRH.Text = _cdev.val2.ToString("F1");
       }
     }
     private void ShowTemp() {
@@ -147,6 +181,7 @@ namespace DiffPress {
       
     }
     private bool blink;
+    int timerGuiUpdate=0;
     private void timer1_Tick(object sender, EventArgs e) {
       blink = !blink;
       if (isAlarmTemp == false) {
@@ -168,23 +203,12 @@ namespace DiffPress {
           lblRH.BackColor = Color.Red;
         }
       }
-      /*
-      if ( glob.comm.devs.devVir.alarmStatus[index] == DevAlarms.None) {
-        pnlBlink.BackColor = colorControl;
-      } else {
-        if (blink == true) {
-          pnlBlink.BackColor = colorControl;
-        } else {
-          if (glob.comm.devs.devVir.alarmStatus[index] == DevAlarms.Error) {
-            //adc err, no comminication error
-            pnlBlink.BackColor = Color.BurlyWood;
-          } else {
-            //pressure error
-            pnlBlink.BackColor = Color.Red;
-          }
-        }
-      } */
-
+      if (++timerGuiUpdate < 5)
+        return;
+      timerGuiUpdate = 0;
+      
+      ShowVals();
+      ShowAlarms();
       //ShowTemp();
       //ShowRH();      
     }
