@@ -23,8 +23,10 @@
     /// the contents of this method with the code editor.
     /// </summary>
     private void InitializeComponent() {
+      this.components = new System.ComponentModel.Container();
       this.lblUp = new System.Windows.Forms.Label();
       this.lblDiff = new System.Windows.Forms.Label();
+      this.timer1 = new System.Windows.Forms.Timer(this.components);
       this.SuspendLayout();
       // 
       // lblUp
@@ -51,6 +53,13 @@
       this.lblDiff.TabIndex = 7;
       this.lblDiff.Text = "--.-  ";
       this.lblDiff.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.lblDiff.Click += new System.EventHandler(this.ucDiffPressRealTime_Click);
+      // 
+      // timer1
+      // 
+      this.timer1.Enabled = true;
+      this.timer1.Interval = 1000;
+      this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
       // 
       // ucDiffPressRealTime
       // 
@@ -60,6 +69,7 @@
       this.Controls.Add(this.lblUp);
       this.Name = "ucDiffPressRealTime";
       this.Size = new System.Drawing.Size(84, 156);
+      this.Click += new System.EventHandler(this.ucDiffPressRealTime_Click);
       this.ResumeLayout(false);
 
     }
@@ -68,5 +78,6 @@
 
     private System.Windows.Forms.Label lblUp;
     private System.Windows.Forms.Label lblDiff;
+    private System.Windows.Forms.Timer timer1;
   }
 }

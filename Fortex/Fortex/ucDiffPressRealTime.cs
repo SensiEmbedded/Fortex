@@ -10,9 +10,13 @@ using aUtils;
 
 namespace DiffPress {
   public partial class ucDiffPressRealTime : UserControl {
+    string alarmExplanation;
+    bool isAlarmDiff = false;
     
+    Color colorControl;
     public ucDiffPressRealTime() {
       InitializeComponent();
+      colorControl = lblDiff.BackColor;
     }
     private CDev _cdev=null;
     public CDev cdev {
@@ -22,14 +26,8 @@ namespace DiffPress {
         if (_cdev != null) {
           _cdev.Changed += new ChangedEventHandler(_cdev_Changed);
           _cdev.evAlarm += new AlarmOccured(_cdev_evAlarm);
-        
         }
-        ShowDiffPress();
       }
-    }
-
-    void _cdev_evAlarm(DevAlarms type, DevAlarms typeLast, string tag) {
-      //throw new NotImplementedException();
     }
     public void PrepareToDelete() {
       _cdev.Changed -= _cdev_Changed;
@@ -37,46 +35,61 @@ namespace DiffPress {
       _cdev = null;
     }
     void _cdev_Changed(object sender, EventArgs e) {
-      this.UIThread(() => this.ShowDiffPress());
+      this.UIThread(() => this.ShowVals());
     }
-    private bool ShowErr(double val) {
-      int err = (int)val;
-      switch (err) {
-        case (int)DevErrorCodes.TimeOutDev:
-          lblDiff.Text = "Time\nOut";
-          
-          return false;
-        case (int)DevErrorCodes.AddressExeptionDev:
-          lblDiff.Text = "Excep\nDev";
-          return false;
-        case (int)DevErrorCodes.AdcErrDev:
-          lblDiff.Text = "Adc\nErr";
-          return false;
-        case (int)DevErrorCodes.TimeOutMM:
-          lblDiff.Text = "Time\nOutMM";
-          return false;
-        case (int)DevErrorCodes.AddressExeptionMM:
-          lblDiff.Text = "Excep\nMM";
-          return false;
-        case (int)DevErrorCodes.ComNotExist:
-          lblDiff.Text = "Err\nCOM";
-          return false;
-        case (int)DevErrorCodes.ErrUnknown:
-          lblDiff.Text = "Err";
-          
-          return false;
+    void _cdev_evAlarm(DevAlarms type, DevAlarms typeLast, string tag) {
+    }
+    private void ShowAlarms() {
+      if (cdev == null)
+        return;
+      if (cdev.Enable == false)
+        return;
+      isAlarmDiff = (cdev.alarmStatus_LoVal1 != DevAlarms.None) ? true : false;
+      isAlarmDiff = (cdev.alarmStatus_HiVal1 != DevAlarms.None) ? true : isAlarmDiff;
+    }
+    private void ShowVals() {
+      if (cdev == null) {
+        lblDiff.Text = "OFF1";
+        return;
       }
-      return true;
-
-    }
-    private void ShowDiffPress() {
-      if (ShowErr(_cdev.val1) == true) {
+      if (cdev.Enable == false) {
+        lblDiff.Text = "OFF";
+        return;
+      }
+      string err = CDev.ShowErr(_cdev.val1);
+      if ( err == null) {
         lblDiff.Text = _cdev.val1.ToString("F1");
-        //lblDiff.Text = _cdev.val1.ToString("F1") + " PA";
+      } else {
+        lblDiff.Text = err;
       }
     }
     
+    private bool blink;
+    int timerGuiUpdate=0;
     private void timer1_Tick(object sender, EventArgs e) {
+      blink = !blink;
+      if (isAlarmDiff == false) {
+        lblDiff.BackColor = colorControl;
+      } else {
+        if (blink == true) {
+          lblDiff.BackColor = colorControl;
+        } else {
+          lblDiff.BackColor = Color.Red;
+        }
+      }
+      
+      if (++timerGuiUpdate < 5)
+        return;
+      timerGuiUpdate = 0;
+      
+      ShowVals();
+      ShowAlarms();
+    }
+
+    private void ucDiffPressRealTime_Click(object sender, EventArgs e) {
+      frmIxView frm = new frmIxView();
+      frm.cdev = _cdev;
+      frm.ShowDialog(this);
     }
   }
 }

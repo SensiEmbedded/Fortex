@@ -43,6 +43,7 @@
       this.lblUp.TabIndex = 0;
       this.lblUp.Text = "T °C\r\nRH %";
       this.lblUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.lblUp.Click += new System.EventHandler(this.ucRHTRealTime_Click);
       // 
       // lblTemp
       // 
@@ -55,7 +56,7 @@
       this.lblTemp.TabIndex = 3;
       this.lblTemp.Text = "--.-";
       this.lblTemp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-      this.lblTemp.Click += new System.EventHandler(this.lblTemp_Click);
+      this.lblTemp.Click += new System.EventHandler(this.ucRHTRealTime_Click);
       // 
       // lblRH
       // 
@@ -68,6 +69,7 @@
       this.lblRH.TabIndex = 3;
       this.lblRH.Text = "--.-";
       this.lblRH.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.lblRH.Click += new System.EventHandler(this.ucRHTRealTime_Click);
       // 
       // timer1
       // 
@@ -84,6 +86,8 @@
       this.Controls.Add(this.lblUp);
       this.Name = "ucRHTRealTime";
       this.Size = new System.Drawing.Size(84, 115);
+      this.Load += new System.EventHandler(this.ucRHTRealTime_Load);
+      this.Click += new System.EventHandler(this.ucRHTRealTime_Click);
       this.ResumeLayout(false);
 
     }

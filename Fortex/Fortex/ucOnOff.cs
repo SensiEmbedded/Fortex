@@ -21,24 +21,30 @@ namespace DiffPress {
     }
   
   
-	public bool isOn
-	{
-		get { return (currIx == 0) ? false : true;}
-		set { currIx = (value == false) ? 0 : 1; }
-	}
-	
+	  public bool isOn
+	  {
+		  get { return (currIx == 0) ? false : true;}
+		  set { currIx = (value == false) ? 0 : 1; Populate();}
+	  }
 
-    private void ucOnOff_Load(object sender, EventArgs e) {
-      pictureBox1.Image = imageList1.Images[currIx];
+    public bool ReadOnly {
+      get;
+      set;
+    }
+    private void Populate() {
       lblOnOff.Text = txt[currIx];
+      pictureBox1.Image = imageList1.Images[currIx];
       lblOnOff.ForeColor = clr[currIx];
+    }
+    private void ucOnOff_Load(object sender, EventArgs e) {
+      Populate();
     }
 
     private void pictureBox1_Click(object sender, EventArgs e) {
-      currIx = (currIx == 0) ? 1 : 0;
-      lblOnOff.Text = txt[currIx];
-      pictureBox1.Image = imageList1.Images[currIx];
-      lblOnOff.ForeColor = clr[currIx];
+      if (ReadOnly == false) {
+        currIx = (currIx == 0) ? 1 : 0;
+      }
+      Populate();
     }
   }
 }

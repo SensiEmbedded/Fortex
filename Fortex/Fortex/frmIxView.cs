@@ -1,39 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
 using System.Data;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using aUtils;
 
 namespace DiffPress {
-  public partial class ucRHTRealTime : UserControl {
+  public partial class frmIxView : Form {
+    CGlobal glob;
     string alarmExplanation;
     bool isAlarmTemp = false;
     bool isAlarmRH = false;
     Color colorControl;
-    
-    public ucRHTRealTime() {
-      InitializeComponent();
-      colorControl = lblTemp.BackColor;
-    }
-    /*
-    protected override void WndProc(ref Message m)
-    {
-      const int WM_NCHITTEST = 0x0084;
-      const int HTTRANSPARENT = (-1);
 
-      if (m.Msg == WM_NCHITTEST)
-      {
-          m.Result = (IntPtr)HTTRANSPARENT;
+    public frmIxView() {
+      InitializeComponent();
+    }
+    protected override bool ProcessCmdKey(ref Message msg, Keys keyData) {
+      if (keyData == Keys.Escape) {
+        this.Close();
+        return true;
       }
-      else
-      {
-          base.WndProc(ref m);
-      }
-    } */
+      return base.ProcessCmdKey(ref msg, keyData);
+    }
+    
     private CDev _cdev=null;
     public CDev cdev {
       get{return _cdev;}
@@ -45,14 +38,15 @@ namespace DiffPress {
         }
       }
     }
+
     public void PrepareToDelete() {
       _cdev.Changed -= _cdev_Changed;
       _cdev.evAlarm -= _cdev_evAlarm;
       _cdev = null;
     }
     void _cdev_evAlarm(DevAlarms type,DevAlarms typeLast,string tag) {
-      AnalizeAlarm(type,typeLast,tag); 
-      //MessageBox.Show(type.ToString());
+      //./AnalizeAlarm(type,typeLast,tag); 
+      
       System.Diagnostics.Debug.WriteLine("type:" +type.ToString());
       System.Diagnostics.Debug.WriteLine("typeLast:" +typeLast.ToString());
       System.Diagnostics.Debug.WriteLine("name:" + _cdev.name);
@@ -61,49 +55,38 @@ namespace DiffPress {
 
     }
     void _cdev_Changed(object sender, EventArgs e) {
-      //this.UIThread(() => this.ShowRH());
-      //this.UIThread(() => this.ShowTemp());
+      
       this.UIThread(() => this.ShowVals());
  
     }
-    private void AnalizeAlarm(DevAlarms type, DevAlarms typeLast, string tag) {
-      if (type == DevAlarms.None) {
-        alarmExplanation = "No Alarm Present.";
-        if (tag == "val1") {
-          isAlarmTemp = false;
-        } else {
-          isAlarmRH = false;
-        }
-        this.UIThread(() => toolTip1.SetToolTip(lblRH,alarmExplanation));
-        this.UIThread(() => toolTip1.SetToolTip(lblTemp,alarmExplanation));
-        return;
+    void PopulateStaticLabels() {
+      lblAddr.Text = cdev.address.ToString();
+      //cmbType.SelectedIndex = (int)cdev.type;
+      txtType.Text = cdev.type.ToString();
+      txtName.Text = cdev.name;
+      txtDescr.Text = cdev.description;
+      nudAlarmHiVal1.Value = (decimal)cdev.alarmHiVal1;
+      nudAlarmLoVal1.Value = (decimal)cdev.alarmLowVal1;
+      nudAlarmHiVal2.Value = (decimal)cdev.alarmHiVal2;
+      nudAlarmLoVal2.Value = (decimal)cdev.alarmLowVal2;
+      if (cdev.type == TypeDevice.RHT) {
+        SetRHTTypeControl();
+      } else {
+        SetPressureTypeControl();
       }
-      
-      if (type == DevAlarms.Hi && tag == "val1") {
-        alarmExplanation = "Temperature High Limit";
-        this.UIThread(() => toolTip1.SetToolTip(lblTemp,alarmExplanation));
-        isAlarmTemp = true;
-        return;
-      }
-      if (type == DevAlarms.Lo && tag == "val1") {
-        alarmExplanation = "Temperature Low Limit";
-        this.UIThread(() => toolTip1.SetToolTip(lblTemp,alarmExplanation));
-        isAlarmTemp = true;
-        return;
-      }
-      if (type == DevAlarms.Hi && tag == "val2") {
-        alarmExplanation = "Humidity High Limit";
-        this.UIThread(() => toolTip1.SetToolTip(lblRH,alarmExplanation));
-        isAlarmRH = true;
-        return;
-        //toolTip1.SetToolTip(lblRH,alarmExplanation);
-      }
-      if (type == DevAlarms.Lo && tag == "val2") {
-        alarmExplanation = "Humidity Low Limit";
-        this.UIThread(() => toolTip1.SetToolTip(lblRH,alarmExplanation));
-        isAlarmRH = true;
-        return;
-      }
+      ucOnOff1.isOn  = cdev.Enable;
+    }
+    private void SetRHTTypeControl() {
+      grpBox1.Text = "Humidity (%)";
+      grpBox2.Visible = true;
+      grpBox2.Text = "Temperature (" + ((char)176).ToString() + "C)";
+      pbDevices.Image = imageList1.Images[0];
+    }
+    private void SetPressureTypeControl() {
+      grpBox1.Text = "Diff.Pressure (PA)";
+      grpBox2.Visible = false;
+      grpBox2.Text = "Temperature (" + ((char)176).ToString() + "C)";
+      pbDevices.Image = imageList1.Images[1];
     }
     private void ShowAlarms() {
       if (cdev == null)
@@ -118,17 +101,8 @@ namespace DiffPress {
     }
     
     private void ShowVals() {
-
-      if (cdev == null) {
-        lblTemp.Text = "OFF1";
-        lblRH.Text = "--.-";
+      if (cdev == null)
         return;
-      }
-      if (cdev.Enable == false) {
-        lblTemp.Text = "OFF";
-        lblRH.Text = "--.-";
-        return;
-      }
       string err = CDev.ShowErr(_cdev.val1);
       if ( err == null) {
         lblTemp.Text = _cdev.val1.ToString("F1");
@@ -139,6 +113,14 @@ namespace DiffPress {
       }
     }
     
+
+    private void frmIxView_Load(object sender, EventArgs e) {
+      Control parent= this.Owner;
+      if (parent != null) {
+        glob = ((frmMain)parent).glob;
+      }
+      PopulateStaticLabels();
+    }
     private bool blink;
     int timerGuiUpdate=0;
     private void timer1_Tick(object sender, EventArgs e) {
@@ -168,22 +150,14 @@ namespace DiffPress {
       
       ShowVals();
       ShowAlarms();
-      //ShowTemp();
-      //ShowRH();      
+         
     }
 
-    private void lblTemp_Click(object sender, EventArgs e) {
+    private void label3_Click(object sender, EventArgs e) {
 
     }
 
-    private void ucRHTRealTime_Click(object sender, EventArgs e) {
-      
-      frmIxView frm = new frmIxView();
-      frm.cdev = _cdev;
-      frm.ShowDialog(this);
-    }
-
-    private void ucRHTRealTime_Load(object sender, EventArgs e) {
+    private void txtName_TextChanged(object sender, EventArgs e) {
 
     }
   }

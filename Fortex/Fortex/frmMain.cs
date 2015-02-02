@@ -22,7 +22,7 @@ namespace DiffPress {
   
 
   public partial class frmMain : Form {
-    CGlobal glob = new CGlobal();
+    public CGlobal glob = new CGlobal();
     int sample1s = 0;
     int sample2s = 0;
     int sample4s = 0;

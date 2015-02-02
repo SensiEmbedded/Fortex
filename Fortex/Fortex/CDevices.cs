@@ -319,6 +319,37 @@ namespace DiffPress {
         
       }
     }
+    public static string ShowErr(double val) {
+      int err = (int)val;
+      string strErr=null;
+      switch (err) {
+        case (int)DevErrorCodes.TimeOutDev:
+          strErr = "Time\nOut";
+          //lblRH.Text = "Out";
+          break;
+        case (int)DevErrorCodes.AddressExeptionDev:
+          strErr = "Excep\nDev";
+          break;
+        case (int)DevErrorCodes.AdcErrDev:
+          strErr = "Adc\nErr";
+          break;
+        case (int)DevErrorCodes.TimeOutMM:
+          strErr = "Time\nOutMM";
+          break;
+        case (int)DevErrorCodes.AddressExeptionMM:
+          strErr = "Excep\nMM";
+          break;
+        case (int)DevErrorCodes.ComNotExist:
+          strErr = "Err\nCOM";
+          
+          break;
+        case (int)DevErrorCodes.ErrUnknown:
+          strErr = "Err";
+          break;
+      }
+      return strErr;
+      
+    }
     #region Alarms
     
     private void CheckVal1AlarmsLo(int timeAlarm) {

@@ -103,6 +103,12 @@
     <Compile Include="frmDevsSett.Designer.cs">
       <DependentUpon>frmDevsSett.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmIxView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIxView.Designer.cs">
+      <DependentUpon>frmIxView.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDevsSett.resx">
       <DependentUpon>frmDevsSett.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIxView.resx">
+      <DependentUpon>frmIxView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
