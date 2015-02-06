@@ -23,7 +23,7 @@ namespace DiffPress {
       return base.ProcessCmdKey(ref msg, keyData);
     }
     private void PopulateControls() {
-      lblAddr.Text = dev.address.ToString();
+      lblAddr.Text = dev.strID;
       cmbType.SelectedIndex = (int)dev.type;
       txtName.Text = dev.name;
       nudAlarmHiVal1.Value = (decimal)dev.alarmHiVal1;

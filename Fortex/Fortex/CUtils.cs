@@ -87,6 +87,21 @@ namespace aUtils {
       return str;
 
     }
+    public static string GimiGlobalDateTime(DateTime dt) {
+      string str = null;
+      //DateTime dt = DateTime.Now;
+      str = dt.Year.ToString("D4") + "-";
+      str += dt.Month.ToString("D2") + "-";
+      str += dt.Day.ToString("D2") + " ";
+      
+      
+      str += dt.Hour.ToString("D2") + ":";
+      str += dt.Minute.ToString("D2") + ":";
+      str += dt.Second.ToString("D2");
+
+      return str;
+
+    }
     public static string GimiBGDateTimeForMainScreen() {
       string str = null;
       DateTime dt = DateTime.Now;

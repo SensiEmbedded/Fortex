@@ -160,7 +160,7 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.AutoScroll = true;
       this.AutoScrollMinSize = new System.Drawing.Size(100, 10);
-      this.ClientSize = new System.Drawing.Size(1194, 790);
+      this.ClientSize = new System.Drawing.Size(1211, 750);
       this.Controls.Add(this.pictureBox4);
       this.Controls.Add(this.button2);
       this.Controls.Add(this.groupBox1);

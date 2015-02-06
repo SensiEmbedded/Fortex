@@ -12,6 +12,7 @@ namespace DiffPress{
     public CComunication comm;
     
     public CSQLite sqlite;
+    public CSQLiteData data;
     
 
     public CGlobal(){
@@ -26,6 +27,7 @@ namespace DiffPress{
         CSer.SerializeMe(g_wr, path);
       }
       sqlite = new CSQLite();
+      data = new CSQLiteData();
       comm = new CComunication();
     
     }

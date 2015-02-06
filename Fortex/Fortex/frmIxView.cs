@@ -65,6 +65,7 @@ namespace DiffPress {
       txtType.Text = cdev.type.ToString();
       txtName.Text = cdev.name;
       txtDescr.Text = cdev.description;
+      txtID.Text = cdev.strID;
       nudAlarmHiVal1.Value = (decimal)cdev.alarmHiVal1;
       nudAlarmLoVal1.Value = (decimal)cdev.alarmLowVal1;
       nudAlarmHiVal2.Value = (decimal)cdev.alarmHiVal2;
@@ -75,18 +76,29 @@ namespace DiffPress {
         SetPressureTypeControl();
       }
       ucOnOff1.isOn  = cdev.Enable;
+      dtpStart.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 0, 0, 0);
+      dtpEnd.Value = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, 23,59, 0);
+
     }
     private void SetRHTTypeControl() {
       grpBox1.Text = "Humidity (%)";
       grpBox2.Visible = true;
       grpBox2.Text = "Temperature (" + ((char)176).ToString() + "C)";
       pbDevices.Image = imageList1.Images[0];
+      lblStaticVal1.Text = "Temp. (" + ((char)176).ToString() + "C)";
+      lblStaticVal2.Text = "RH (%)";
+      lblStaticVal1.Visible = true;
+      lblStaticVal2.Visible = true;
     }
     private void SetPressureTypeControl() {
       grpBox1.Text = "Diff.Pressure (PA)";
       grpBox2.Visible = false;
       grpBox2.Text = "Temperature (" + ((char)176).ToString() + "C)";
       pbDevices.Image = imageList1.Images[1];
+      lblStaticVal1.Text = "Diff.Pressure (PA)";
+      lblStaticVal1.Visible = true;
+      lblStaticVal2.Visible = false;
+      lblVal2.Visible = false;
     }
     private void ShowAlarms() {
       if (cdev == null)
@@ -105,43 +117,43 @@ namespace DiffPress {
         return;
       string err = CDev.ShowErr(_cdev.val1);
       if ( err == null) {
-        lblTemp.Text = _cdev.val1.ToString("F1");
-        lblRH.Text = _cdev.val2.ToString("F1");
+        lblVal1.Text = _cdev.val1.ToString("F1");
+        lblVal2.Text = _cdev.val2.ToString("F1");
       } else {
-        lblTemp.Text = err;
-        lblRH.Text = "";
+        lblVal1.Text = err;
+        lblVal2.Text = "";
       }
     }
-    
-
     private void frmIxView_Load(object sender, EventArgs e) {
       Control parent= this.Owner;
       if (parent != null) {
         glob = ((frmMain)parent).glob;
       }
       PopulateStaticLabels();
+      //PopulateGrid();
+      glob.data.Changed += new ChangedEventHandler(data_Changed);
     }
     private bool blink;
     int timerGuiUpdate=0;
     private void timer1_Tick(object sender, EventArgs e) {
       blink = !blink;
       if (isAlarmTemp == false) {
-        lblTemp.BackColor = colorControl;
+        lblVal1.BackColor = colorControl;
       } else {
         if (blink == true) {
-          lblTemp.BackColor = colorControl;
+          lblVal1.BackColor = colorControl;
         } else {
-          lblTemp.BackColor = Color.Red;
+          lblVal1.BackColor = Color.Red;
         }
       
       }
       if (isAlarmRH == false) {
-        lblRH.BackColor = colorControl;
+        lblVal2.BackColor = colorControl;
       } else {
         if (blink == true) {
-          lblRH.BackColor = colorControl;
+          lblVal2.BackColor = colorControl;
         } else {
-          lblRH.BackColor = Color.Red;
+          lblVal2.BackColor = Color.Red;
         }
       }
       if (++timerGuiUpdate < 5)
@@ -150,6 +162,7 @@ namespace DiffPress {
       
       ShowVals();
       ShowAlarms();
+      glob.data.InsertDataRow(cdev.strID, 12.3,32.1);
          
     }
 
@@ -159,6 +172,27 @@ namespace DiffPress {
 
     private void txtName_TextChanged(object sender, EventArgs e) {
 
+    }
+    #region SQLite Data
+    void data_Changed(object sender, EventArgs e) {
+      //PopulateGrid();
+    }
+    void PopulateGrid() {
+      DataSet ds = glob.data.GimitblMess(cdev.strID);
+      if (ds == null) {
+        return;
+      }
+      this.UIThread(() => this.dataGridView1.DataSource = ds.Tables[0].DefaultView);
+
+    }
+    #endregion
+
+    private void btnSelect_Click(object sender, EventArgs e) {
+      DataSet ds = glob.data.GimitblMess(cdev.type,cdev.strID, dtpStart.Value,dtpEnd.Value,(int)nudLimit.Value);
+      if (ds == null) {
+        return;
+      }
+      this.UIThread(() => this.dataGridView1.DataSource = ds.Tables[0].DefaultView);
     }
   }
 }

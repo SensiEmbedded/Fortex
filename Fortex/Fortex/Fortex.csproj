@@ -84,6 +84,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CSQLite.cs" />
+    <Compile Include="CSQLiteData.cs" />
     <Compile Include="CUtils.cs" />
     <Compile Include="frmAbout.cs">
       <SubType>Form</SubType>

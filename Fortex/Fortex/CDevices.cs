@@ -90,7 +90,7 @@ namespace DiffPress {
     ushort startAddress = 100;
     ushort numofPoints = 0;
     ushort[] holdingregister = null;
-    CDev[] devs =  null;
+    public CDev[] devs =  null;
     //public float[] data{get;set;}
     public event ChangedEventHandler Changed;
     void PointCDev() {
@@ -114,7 +114,7 @@ namespace DiffPress {
       int count = 0;
       foreach (CDev d in devs) {
         d.SetRef(ref gl);
-        d.strID = prefix + count.ToString();
+        d.strID = prefix + (count+1).ToString();
         ++count;
       }
     }
@@ -218,11 +218,10 @@ namespace DiffPress {
 
   }
   //----------------------------------------------------------------------------------------------------------------------------------
-
   public class CDev{
     private CGlobal glob;
     private System.Timers.Timer tmr = new System.Timers.Timer();
-    
+    private int timerDB;
  
     public CDev(){
       tmr.Interval = 1000;
@@ -246,7 +245,9 @@ namespace DiffPress {
     void tmr_Elapsed(object sender, System.Timers.ElapsedEventArgs e) {
       
       this.CheckAlarms();
-      
+      if (++timerDB > glob.g_wr.writeInterval) {
+        Write2DB();
+      }
     }
 
     
@@ -319,6 +320,11 @@ namespace DiffPress {
         
       }
     }
+    public void Write2DB() {
+      if (this.Enable == false)
+        return;
+      glob.data.InsertDataRow(this.strID, this.val1,this.val2);
+    }
     public static string ShowErr(double val) {
       int err = (int)val;
       string strErr=null;
@@ -353,7 +359,7 @@ namespace DiffPress {
     #region Alarms
     
     private void CheckVal1AlarmsLo(int timeAlarm) {
-      if (val1 < alarmLowVal1) {
+      if (val1 <= alarmLowVal1) {
         if (dempAlarm_LoVal1 < timeAlarm)dempAlarm_LoVal1++;
       } else {
         if (dempAlarm_LoVal1 > 0) dempAlarm_LoVal1--;
@@ -372,7 +378,7 @@ namespace DiffPress {
       alarmStatusLast_LoVal1 = alarmStatus_LoVal1;
     }
     private void CheckVal1AlarmsHi(int timeAlarm) {
-      if (val1 > alarmHiVal1) {
+      if (val1 >= alarmHiVal1) {
         if (dempAlarm_HiVal1 < timeAlarm)dempAlarm_HiVal1++;
       } else {
         if (dempAlarm_HiVal1 > 0) dempAlarm_HiVal1--;
@@ -392,7 +398,7 @@ namespace DiffPress {
     }
 
     private void CheckVal2AlarmsLo(int timeAlarm) {
-      if (val2 < alarmLowVal2) {
+      if (val2 <= alarmLowVal2) {
         if (dempAlarm_LoVal2 < timeAlarm)dempAlarm_LoVal2++;
       } else {
         if (dempAlarm_LoVal2 > 0) dempAlarm_LoVal2--;
@@ -411,7 +417,7 @@ namespace DiffPress {
       alarmStatusLast_LoVal2 = alarmStatus_LoVal2;
     }
     private void CheckVal2AlarmsHi(int timeAlarm) {
-      if (val2 > alarmHiVal2) {
+      if (val2 >= alarmHiVal2) {
         if (dempAlarm_HiVal2 < timeAlarm)dempAlarm_HiVal2++;
       } else {
         if (dempAlarm_HiVal2 > 0) dempAlarm_HiVal2--;
@@ -465,8 +471,6 @@ namespace DiffPress {
       mmm[1] = new CDev_MMM(ref gl,2);
       mmm[2] = new CDev_MMM(ref gl,3);
       
-    
-      
     }
     public void ReadNextDevice() {
       int rez = 0;
@@ -485,6 +489,25 @@ namespace DiffPress {
        
       if (++order > 2) order = 0;
       
+    }
+    public TypeDevice GimiType(string strID) {
+
+      foreach(CDev d in mmm[0].devs){
+        if(d.strID == strID)return d.type;
+
+      }
+      foreach (CDev d in mmm[1].devs) {
+        if (d.strID == strID)
+          return d.type;
+
+      }
+      foreach (CDev d in mmm[1].devs) {
+        if (d.strID == strID)
+          return d.type;
+
+      }
+
+      return TypeDevice.RHT;
     }
   }
 }

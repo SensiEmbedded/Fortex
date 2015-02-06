@@ -35,7 +35,6 @@
       this.nudAlarmHiVal1 = new System.Windows.Forms.NumericUpDown();
       this.nudAlarmLoVal1 = new System.Windows.Forms.NumericUpDown();
       this.lblAddr = new System.Windows.Forms.Label();
-      this.groupBox1 = new System.Windows.Forms.GroupBox();
       this.label2 = new System.Windows.Forms.Label();
       this.txtDescr = new System.Windows.Forms.TextBox();
       this.grpBox1 = new System.Windows.Forms.GroupBox();
@@ -53,9 +52,9 @@
       this.label9 = new System.Windows.Forms.Label();
       this.label10 = new System.Windows.Forms.Label();
       this.ucOnOff1 = new DiffPress.ucOnOff();
+      this.label11 = new System.Windows.Forms.Label();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmHiVal1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal1)).BeginInit();
-      this.groupBox1.SuspendLayout();
       this.grpBox1.SuspendLayout();
       this.grpBox2.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal2)).BeginInit();
@@ -95,7 +94,7 @@
       // label3
       // 
       this.label3.AutoSize = true;
-      this.label3.Location = new System.Drawing.Point(85, 89);
+      this.label3.Location = new System.Drawing.Point(4, 90);
       this.label3.Name = "label3";
       this.label3.Size = new System.Drawing.Size(38, 13);
       this.label3.TabIndex = 3;
@@ -104,7 +103,7 @@
       // label1
       // 
       this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(90, 54);
+      this.label1.Location = new System.Drawing.Point(178, 55);
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(34, 13);
       this.label1.TabIndex = 2;
@@ -122,53 +121,64 @@
       this.cmbType.Items.AddRange(new object[] {
             "RH & T",
             "Diff Press"});
-      this.cmbType.Location = new System.Drawing.Point(134, 48);
+      this.cmbType.Location = new System.Drawing.Point(222, 48);
       this.cmbType.Name = "cmbType";
-      this.cmbType.Size = new System.Drawing.Size(192, 21);
-      this.cmbType.TabIndex = 7;
+      this.cmbType.Size = new System.Drawing.Size(104, 21);
+      this.cmbType.TabIndex = 0;
       this.cmbType.SelectedIndexChanged += new System.EventHandler(this.cmbType_SelectedIndexChanged);
       // 
       // txtName
       // 
-      this.txtName.Location = new System.Drawing.Point(135, 83);
+      this.txtName.Location = new System.Drawing.Point(44, 83);
       this.txtName.Name = "txtName";
-      this.txtName.Size = new System.Drawing.Size(189, 20);
-      this.txtName.TabIndex = 8;
+      this.txtName.Size = new System.Drawing.Size(280, 20);
+      this.txtName.TabIndex = 1;
       // 
       // nudAlarmHiVal1
       // 
       this.nudAlarmHiVal1.DecimalPlaces = 1;
       this.nudAlarmHiVal1.Location = new System.Drawing.Point(66, 25);
+      this.nudAlarmHiVal1.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+      this.nudAlarmHiVal1.Minimum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            -2147483648});
       this.nudAlarmHiVal1.Name = "nudAlarmHiVal1";
       this.nudAlarmHiVal1.Size = new System.Drawing.Size(82, 20);
-      this.nudAlarmHiVal1.TabIndex = 14;
+      this.nudAlarmHiVal1.TabIndex = 0;
       // 
       // nudAlarmLoVal1
       // 
       this.nudAlarmLoVal1.DecimalPlaces = 1;
       this.nudAlarmLoVal1.Location = new System.Drawing.Point(64, 79);
+      this.nudAlarmLoVal1.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+      this.nudAlarmLoVal1.Minimum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            -2147483648});
       this.nudAlarmLoVal1.Name = "nudAlarmLoVal1";
       this.nudAlarmLoVal1.Size = new System.Drawing.Size(84, 20);
-      this.nudAlarmLoVal1.TabIndex = 14;
+      this.nudAlarmLoVal1.TabIndex = 1;
       // 
       // lblAddr
       // 
       this.lblAddr.AutoSize = true;
       this.lblAddr.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.lblAddr.Location = new System.Drawing.Point(11, 12);
+      this.lblAddr.Location = new System.Drawing.Point(97, 50);
       this.lblAddr.Name = "lblAddr";
       this.lblAddr.Size = new System.Drawing.Size(20, 24);
       this.lblAddr.TabIndex = 13;
       this.lblAddr.Text = "1";
-      // 
-      // groupBox1
-      // 
-      this.groupBox1.Controls.Add(this.lblAddr);
-      this.groupBox1.Location = new System.Drawing.Point(3, 1);
-      this.groupBox1.Name = "groupBox1";
-      this.groupBox1.Size = new System.Drawing.Size(41, 46);
-      this.groupBox1.TabIndex = 18;
-      this.groupBox1.TabStop = false;
       // 
       // label2
       // 
@@ -185,7 +195,7 @@
       this.txtDescr.Multiline = true;
       this.txtDescr.Name = "txtDescr";
       this.txtDescr.Size = new System.Drawing.Size(281, 89);
-      this.txtDescr.TabIndex = 8;
+      this.txtDescr.TabIndex = 2;
       // 
       // grpBox1
       // 
@@ -217,9 +227,19 @@
       // 
       this.nudAlarmLoVal2.DecimalPlaces = 1;
       this.nudAlarmLoVal2.Location = new System.Drawing.Point(64, 79);
+      this.nudAlarmLoVal2.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+      this.nudAlarmLoVal2.Minimum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            -2147483648});
       this.nudAlarmLoVal2.Name = "nudAlarmLoVal2";
       this.nudAlarmLoVal2.Size = new System.Drawing.Size(84, 20);
-      this.nudAlarmLoVal2.TabIndex = 14;
+      this.nudAlarmLoVal2.TabIndex = 1;
       // 
       // label5
       // 
@@ -243,9 +263,19 @@
       // 
       this.nudAlarmHiVal2.DecimalPlaces = 1;
       this.nudAlarmHiVal2.Location = new System.Drawing.Point(66, 25);
+      this.nudAlarmHiVal2.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+      this.nudAlarmHiVal2.Minimum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            -2147483648});
       this.nudAlarmHiVal2.Name = "nudAlarmHiVal2";
       this.nudAlarmHiVal2.Size = new System.Drawing.Size(82, 20);
-      this.nudAlarmHiVal2.TabIndex = 14;
+      this.nudAlarmHiVal2.TabIndex = 0;
       // 
       // imageList1
       // 
@@ -333,8 +363,18 @@
       this.ucOnOff1.isOn = false;
       this.ucOnOff1.Location = new System.Drawing.Point(343, 48);
       this.ucOnOff1.Name = "ucOnOff1";
+      this.ucOnOff1.ReadOnly = false;
       this.ucOnOff1.Size = new System.Drawing.Size(74, 132);
       this.ucOnOff1.TabIndex = 19;
+      // 
+      // label11
+      // 
+      this.label11.AutoSize = true;
+      this.label11.Location = new System.Drawing.Point(40, 56);
+      this.label11.Name = "label11";
+      this.label11.Size = new System.Drawing.Size(58, 13);
+      this.label11.TabIndex = 70;
+      this.label11.Text = "Device ID:";
       // 
       // frmDevSett
       // 
@@ -342,13 +382,14 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.WhiteSmoke;
       this.ClientSize = new System.Drawing.Size(952, 460);
+      this.Controls.Add(this.lblAddr);
+      this.Controls.Add(this.label11);
       this.Controls.Add(this.label10);
       this.Controls.Add(this.label9);
       this.Controls.Add(this.pbDevices);
       this.Controls.Add(this.grpBox2);
       this.Controls.Add(this.grpBox1);
       this.Controls.Add(this.ucOnOff1);
-      this.Controls.Add(this.groupBox1);
       this.Controls.Add(this.pictureBox1);
       this.Controls.Add(this.picAlarm);
       this.Controls.Add(this.button1);
@@ -365,8 +406,6 @@
       this.Load += new System.EventHandler(this.frmDevSett_Load);
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmHiVal1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal1)).EndInit();
-      this.groupBox1.ResumeLayout(false);
-      this.groupBox1.PerformLayout();
       this.grpBox1.ResumeLayout(false);
       this.grpBox1.PerformLayout();
       this.grpBox2.ResumeLayout(false);
@@ -396,7 +435,6 @@
     private System.Windows.Forms.Button btnOK;
     private System.Windows.Forms.PictureBox picAlarm;
     private System.Windows.Forms.PictureBox pictureBox1;
-    private System.Windows.Forms.GroupBox groupBox1;
     private System.Windows.Forms.Button button1;
     private System.Windows.Forms.Label label2;
     private System.Windows.Forms.TextBox txtDescr;
@@ -411,5 +449,6 @@
     private System.Windows.Forms.ImageList imageList1;
     private System.Windows.Forms.Label label9;
     private System.Windows.Forms.Label label10;
+    private System.Windows.Forms.Label label11;
   }
 }
