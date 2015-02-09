@@ -12,11 +12,15 @@ namespace DiffPress {
   public partial class ucDiffPressRealTime : UserControl {
     string alarmExplanation;
     bool isAlarmDiff = false;
+    Font fontControlLarge;
+    Font fontControlSmall;
     
     Color colorControl;
     public ucDiffPressRealTime() {
       InitializeComponent();
       colorControl = lblDiff.BackColor;
+      fontControlLarge = lblDiff.Font;
+      fontControlSmall =  new Font(fontControlLarge.FontFamily, 10);
     }
     private CDev _cdev=null;
     public CDev cdev {
@@ -59,7 +63,9 @@ namespace DiffPress {
       string err = CDev.ShowErr(_cdev.val1);
       if ( err == null) {
         lblDiff.Text = _cdev.val1.ToString("F1");
+        lblDiff.Font = fontControlLarge;
       } else {
+        lblDiff.Font = fontControlSmall;
         lblDiff.Text = err;
       }
     }

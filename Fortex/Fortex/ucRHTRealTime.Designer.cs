@@ -60,12 +60,12 @@
       // 
       // lblRH
       // 
-      this.lblRH.Dock = System.Windows.Forms.DockStyle.Top;
+      this.lblRH.Dock = System.Windows.Forms.DockStyle.Fill;
       this.lblRH.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
       this.lblRH.ForeColor = System.Drawing.SystemColors.ActiveCaption;
       this.lblRH.Location = new System.Drawing.Point(0, 65);
       this.lblRH.Name = "lblRH";
-      this.lblRH.Size = new System.Drawing.Size(84, 33);
+      this.lblRH.Size = new System.Drawing.Size(84, 50);
       this.lblRH.TabIndex = 3;
       this.lblRH.Text = "--.-";
       this.lblRH.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;

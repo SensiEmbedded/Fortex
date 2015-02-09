@@ -14,10 +14,14 @@ namespace DiffPress {
     bool isAlarmTemp = false;
     bool isAlarmRH = false;
     Color colorControl;
+    Font fontControlLarge;
+    Font fontControlSmall;
     
     public ucRHTRealTime() {
       InitializeComponent();
       colorControl = lblTemp.BackColor;
+      fontControlLarge = lblTemp.Font;
+      fontControlSmall =  new Font(fontControlLarge.FontFamily, 10);
     }
     /*
     protected override void WndProc(ref Message m)
@@ -133,7 +137,10 @@ namespace DiffPress {
       if ( err == null) {
         lblTemp.Text = _cdev.val1.ToString("F1");
         lblRH.Text = _cdev.val2.ToString("F1");
+        //lblTemp.Font = new Font(lblTemp.Font.FontFamily, 16);
+        lblTemp.Font = fontControlLarge;
       } else {
+        lblTemp.Font = fontControlSmall;
         lblTemp.Text = err;
         lblRH.Text = "";
       }

@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using aUtils;
 
 namespace DiffPress {
@@ -60,7 +61,7 @@ namespace DiffPress {
  
     }
     void PopulateStaticLabels() {
-      lblAddr.Text = cdev.address.ToString();
+      
       //cmbType.SelectedIndex = (int)cdev.type;
       txtType.Text = cdev.type.ToString();
       txtName.Text = cdev.name;
@@ -130,6 +131,7 @@ namespace DiffPress {
         glob = ((frmMain)parent).glob;
       }
       PopulateStaticLabels();
+      InitChart();
       //PopulateGrid();
       glob.data.Changed += new ChangedEventHandler(data_Changed);
     }
@@ -178,13 +180,162 @@ namespace DiffPress {
       //PopulateGrid();
     }
     void PopulateGrid() {
-      DataSet ds = glob.data.GimitblMess(cdev.strID);
+      //DataSet ds = glob.data.GimitblMess(cdev.strID);
+      DataSet ds = glob.data.GimitblMess(cdev.type,cdev.strID, dtpStart.Value,dtpEnd.Value,(int)nudLimit.Value);
       if (ds == null) {
         return;
       }
-      this.UIThread(() => this.dataGridView1.DataSource = ds.Tables[0].DefaultView);
+      //this.UIThread(() => this.dataGridView1.DataSource = ds.Tables[0].DefaultView);
+      /*
+      ds.Tables[0].Columns["dt"].ColumnName = "Date Time";
+      ds.Tables[0].Columns["device"].ColumnName = "Device ID";
+      if (cdev.type == TypeDevice.RHT) {
+        ds.Tables[0].Columns["val1"].ColumnName = "Temp";
+        ds.Tables[0].Columns["val2"].ColumnName = "RH";
+      } else {
+        ds.Tables[0].Columns["val1"].ColumnName = "Pressure";
+      } */
+      this.dataGridView1.DataSource = ds.Tables[0].DefaultView;
 
+      dataGridView1.Columns["dt"].HeaderText = "Date Time"; 
+      dataGridView1.Columns["device"].HeaderText = "Device ID"; 
+      if (cdev.type == TypeDevice.RHT) {
+        dataGridView1.Columns["val1"].HeaderText = "Temp";
+        dataGridView1.Columns["val2"].HeaderText = "RH";
+      } else {
+        dataGridView1.Columns["val1"].HeaderText = "Pressure";
+      } 
+      UpdateChart(ds.Tables[0]);
+   
     }
+    #endregion
+    #region ChartData
+    void InitChart() {
+      chart1.ChartAreas[0].CursorX.IsUserEnabled = true;
+      chart1.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
+      chart1.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+      chart1.ChartAreas[0].AxisX.ScrollBar.IsPositionedInside = true;
+      chart1.ChartAreas[0].AxisX.LabelStyle.Format ="yy-MM-dd \n HH:mm:ss";
+      chart1.ChartAreas[0].CursorX.Interval = 0.00001;
+
+      chart1.ChartAreas[0].CursorY.IsUserEnabled = true;
+      chart1.ChartAreas[0].CursorY.IsUserSelectionEnabled = true;
+      chart1.ChartAreas[0].AxisY.ScaleView.Zoomable = true;
+      chart1.ChartAreas[0].AxisY.ScrollBar.IsPositionedInside = true;
+    }
+
+    Point? prevPosition = null;
+    ToolTip tooltip = new ToolTip();
+
+    void chart1_MouseMove(object sender, MouseEventArgs e) {
+      var pos = e.Location;
+      if (prevPosition.HasValue && pos == prevPosition.Value)
+        return;
+      tooltip.RemoveAll();
+      prevPosition = pos;
+      var results = chart1.HitTest(pos.X, pos.Y, false, ChartElementType.DataPoint);
+      foreach (var result in results) {
+        if (result.ChartElementType == ChartElementType.DataPoint) {
+          var prop = result.Object as DataPoint;
+          if (prop != null) {
+            var pointXPixel = result.ChartArea.AxisX.ValueToPixelPosition(prop.XValue);
+            var pointYPixel = result.ChartArea.AxisY.ValueToPixelPosition(prop.YValues[0]);
+             
+            // check if the cursor is really close to the point (2 pixels around the point)
+            if (Math.Abs(pos.X - pointXPixel) < 2 &&
+                Math.Abs(pos.Y - pointYPixel) < 2) {
+              tooltip.Show("X=" + DateTime.FromOADate( prop.XValue) + ", Y=" + prop.YValues[0], this.chart1,
+                              pos.X, pos.Y - 15);
+            }
+          }
+        }
+      }
+    }
+    void chart1_CursorPositionChanging(object sender, CursorEventArgs e) {
+      if (!double.IsNaN(e.NewPosition)) {
+        if (e.Axis.AxisName == AxisName.X) {
+          //DateTime xValue = DateTime.FromOADate(((Chart)sender).Series[0].Points[(int)e.NewPosition - 1].XValue);
+          lbl_selDate.Text = DateTime.FromOADate(e.NewPosition).ToString();
+          //lbl_selDate.Text = xValue.ToString();
+        } else {
+          //double yValue = ((Chart)sender).Series[0].Points[(int)e.NewPosition - 1].YValues[0];
+          lbl_selValue.Text = e.NewPosition.ToString();
+          //lbl_selValue.Text = yValue.ToString();
+        }
+      }
+    }
+    private void UpdateChart(DataTable dt){
+      DateTime baseDate = DateTime.Today;
+      
+
+      double t = cdev.val1;
+      double t2= cdev.val2;
+      DateTime dtv;
+      
+      //dt.Columns["dt"]
+      foreach(DataRow dr in dt.Rows){
+        dtv = Convert.ToDateTime( dr["dt"]);
+        t = Convert.ToDouble(dr["val1"]);
+        chart1.Series[0].Points.AddXY(dtv, t);
+        if (cdev.type == TypeDevice.RHT) {
+          t2 = Convert.ToDouble(dr["val2"]);
+          chart1.Series[1].Points.AddXY(dtv, t2);
+        }
+        //System.Diagnostics.Debug.WriteLine(dr["dt"].ToString());
+        //System.Diagnostics.Debug.WriteLine(dr["val1"].ToString());
+      }
+      
+
+      //chart1.Series[0].Points.AddXY(DateTime.Now, t);
+      //chart1.Series[1].Points.AddXY(DateTime.Now, t2);
+      
+      if (count < 50) {
+       ++count;
+     } else {
+       //chart1.Series[0].Points.RemoveAt(0);
+       //chart1.Series[1].Points.RemoveAt(0);
+      
+     }
+      // Adjust Y & X axis scale
+      chart1.ResetAutoValues();
+      // Redraw chart
+      chart1.Invalidate();
+    }
+    Random rnd = new Random();
+    int count = 0;
+    private void TestChart() {
+      DateTime baseDate = DateTime.Today;
+
+      int t = rnd.Next(100);
+      int t2 = rnd.Next(100);
+    
+
+     //if (count >= 2 && count <= 5) {
+      // chart1.DataManipulator.InsertEmptyPoints(1,System.Windows.Forms.DataVisualization.Charting.IntervalType.Days, "DiffPress1");
+       
+     //}else{
+      chart1.Series[0].Points.AddXY(DateTime.Now, t);
+      chart1.Series[1].Points.AddXY(DateTime.Now, t2);
+    
+     //}
+
+     if (count < 100) {
+       ++count;
+     } else {
+       chart1.Series[0].Points.RemoveAt(0);
+       chart1.Series[1].Points.RemoveAt(0);
+    
+     }
+     
+
+      // Adjust Y & X axis scale
+      chart1.ResetAutoValues();
+
+      // Redraw chart
+      chart1.Invalidate();
+      
+    }
+    
     #endregion
 
     private void btnSelect_Click(object sender, EventArgs e) {
@@ -192,7 +343,9 @@ namespace DiffPress {
       if (ds == null) {
         return;
       }
-      this.UIThread(() => this.dataGridView1.DataSource = ds.Tables[0].DefaultView);
+      //this.UIThread(() => this.dataGridView1.DataSource = ds.Tables[0].DefaultView);
+      PopulateGrid();
+      //./TestChart();
     }
   }
 }

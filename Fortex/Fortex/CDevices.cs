@@ -150,6 +150,7 @@ namespace DiffPress {
         holdingregister = null;
         numofPoints = HowManyDevPerPloor();
         numofPoints *= 2;
+        if(numofPoints == 0 )return 0;
         holdingregister = gl.comm.master.ReadHoldingRegisters(cmn.slaveID, startAddress, numofPoints);
         this.cmn.status = DevStatus.None;
       } catch (TimeoutException to) {

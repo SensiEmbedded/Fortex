@@ -29,11 +29,14 @@
       System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
       System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
       System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+      System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+      System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+      System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
       this.lblUp = new System.Windows.Forms.Label();
       this.lblVal2 = new System.Windows.Forms.Label();
       this.lblVal1 = new System.Windows.Forms.Label();
       this.timer1 = new System.Windows.Forms.Timer(this.components);
-      this.lblAddr = new System.Windows.Forms.Label();
       this.txtDescr = new System.Windows.Forms.TextBox();
       this.txtName = new System.Windows.Forms.TextBox();
       this.label2 = new System.Windows.Forms.Label();
@@ -65,6 +68,9 @@
       this.label11 = new System.Windows.Forms.Label();
       this.nudLimit = new System.Windows.Forms.NumericUpDown();
       this.label12 = new System.Windows.Forms.Label();
+      this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+      this.lbl_selDate = new System.Windows.Forms.Label();
+      this.lbl_selValue = new System.Windows.Forms.Label();
       this.ucOnOff1 = new DiffPress.ucOnOff();
       this.grpBox2.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal2)).BeginInit();
@@ -75,6 +81,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudLimit)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
       this.SuspendLayout();
       // 
       // lblUp
@@ -117,16 +124,6 @@
       this.timer1.Enabled = true;
       this.timer1.Interval = 1000;
       this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
-      // 
-      // lblAddr
-      // 
-      this.lblAddr.AutoSize = true;
-      this.lblAddr.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.lblAddr.Location = new System.Drawing.Point(10, 5);
-      this.lblAddr.Name = "lblAddr";
-      this.lblAddr.Size = new System.Drawing.Size(20, 24);
-      this.lblAddr.TabIndex = 13;
-      this.lblAddr.Text = "1";
       // 
       // txtDescr
       // 
@@ -199,6 +196,16 @@
       // 
       this.nudAlarmLoVal2.DecimalPlaces = 1;
       this.nudAlarmLoVal2.Location = new System.Drawing.Point(9, 83);
+      this.nudAlarmLoVal2.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+      this.nudAlarmLoVal2.Minimum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            -2147483648});
       this.nudAlarmLoVal2.Name = "nudAlarmLoVal2";
       this.nudAlarmLoVal2.ReadOnly = true;
       this.nudAlarmLoVal2.Size = new System.Drawing.Size(64, 20);
@@ -226,6 +233,16 @@
       // 
       this.nudAlarmHiVal2.DecimalPlaces = 1;
       this.nudAlarmHiVal2.Location = new System.Drawing.Point(8, 30);
+      this.nudAlarmHiVal2.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+      this.nudAlarmHiVal2.Minimum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            -2147483648});
       this.nudAlarmHiVal2.Name = "nudAlarmHiVal2";
       this.nudAlarmHiVal2.ReadOnly = true;
       this.nudAlarmHiVal2.Size = new System.Drawing.Size(64, 20);
@@ -248,6 +265,16 @@
       // 
       this.nudAlarmLoVal1.DecimalPlaces = 1;
       this.nudAlarmLoVal1.Location = new System.Drawing.Point(7, 79);
+      this.nudAlarmLoVal1.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+      this.nudAlarmLoVal1.Minimum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            -2147483648});
       this.nudAlarmLoVal1.Name = "nudAlarmLoVal1";
       this.nudAlarmLoVal1.ReadOnly = true;
       this.nudAlarmLoVal1.Size = new System.Drawing.Size(64, 20);
@@ -275,6 +302,16 @@
       // 
       this.nudAlarmHiVal1.DecimalPlaces = 1;
       this.nudAlarmHiVal1.Location = new System.Drawing.Point(8, 32);
+      this.nudAlarmHiVal1.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+      this.nudAlarmHiVal1.Minimum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            -2147483648});
       this.nudAlarmHiVal1.Name = "nudAlarmHiVal1";
       this.nudAlarmHiVal1.ReadOnly = true;
       this.nudAlarmHiVal1.Size = new System.Drawing.Size(64, 20);
@@ -450,6 +487,66 @@
       this.label12.TabIndex = 75;
       this.label12.Text = "Max records:";
       // 
+      // chart1
+      // 
+      this.chart1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.chart1.BorderlineColor = System.Drawing.Color.Black;
+      this.chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+      chartArea1.AxisX.LineWidth = 2;
+      chartArea1.AxisY.LineWidth = 2;
+      chartArea1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+      chartArea1.Name = "ChartArea1";
+      this.chart1.ChartAreas.Add(chartArea1);
+      legend1.Name = "Legend1";
+      legend1.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Tall;
+      this.chart1.Legends.Add(legend1);
+      this.chart1.Location = new System.Drawing.Point(318, 339);
+      this.chart1.Name = "chart1";
+      series1.BorderWidth = 2;
+      series1.ChartArea = "ChartArea1";
+      series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+      series1.Legend = "Legend1";
+      series1.MarkerSize = 6;
+      series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
+      series1.Name = "val1";
+      series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+      series2.BorderWidth = 2;
+      series2.ChartArea = "ChartArea1";
+      series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+      series2.Legend = "Legend1";
+      series2.MarkerSize = 6;
+      series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+      series2.Name = "val2";
+      series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+      this.chart1.Series.Add(series1);
+      this.chart1.Series.Add(series2);
+      this.chart1.Size = new System.Drawing.Size(836, 395);
+      this.chart1.TabIndex = 76;
+      this.chart1.Text = "chart1";
+      this.chart1.CursorPositionChanged += new System.EventHandler<System.Windows.Forms.DataVisualization.Charting.CursorEventArgs>(this.chart1_CursorPositionChanging);
+      this.chart1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.chart1_MouseMove);
+      // 
+      // lbl_selDate
+      // 
+      this.lbl_selDate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.lbl_selDate.AutoSize = true;
+      this.lbl_selDate.Location = new System.Drawing.Point(1063, 405);
+      this.lbl_selDate.Name = "lbl_selDate";
+      this.lbl_selDate.Size = new System.Drawing.Size(71, 13);
+      this.lbl_selDate.TabIndex = 77;
+      this.lbl_selDate.Text = "Cursor X Pos:";
+      // 
+      // lbl_selValue
+      // 
+      this.lbl_selValue.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+      this.lbl_selValue.AutoSize = true;
+      this.lbl_selValue.Location = new System.Drawing.Point(1063, 441);
+      this.lbl_selValue.Name = "lbl_selValue";
+      this.lbl_selValue.Size = new System.Drawing.Size(71, 13);
+      this.lbl_selValue.TabIndex = 78;
+      this.lbl_selValue.Text = "Cursor Y Pos:";
+      // 
       // ucOnOff1
       // 
       this.ucOnOff1.isOn = false;
@@ -465,6 +562,9 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.AutoScroll = true;
       this.ClientSize = new System.Drawing.Size(1171, 750);
+      this.Controls.Add(this.lbl_selValue);
+      this.Controls.Add(this.lbl_selDate);
+      this.Controls.Add(this.chart1);
       this.Controls.Add(this.label12);
       this.Controls.Add(this.nudLimit);
       this.Controls.Add(this.label11);
@@ -488,7 +588,6 @@
       this.Controls.Add(this.label2);
       this.Controls.Add(this.label3);
       this.Controls.Add(this.label1);
-      this.Controls.Add(this.lblAddr);
       this.Controls.Add(this.lblVal2);
       this.Controls.Add(this.lblVal1);
       this.Controls.Add(this.lblUp);
@@ -507,6 +606,7 @@
       ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudLimit)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -518,7 +618,6 @@
     private System.Windows.Forms.Label lblVal2;
     private System.Windows.Forms.Label lblVal1;
     private System.Windows.Forms.Timer timer1;
-    private System.Windows.Forms.Label lblAddr;
     private System.Windows.Forms.TextBox txtDescr;
     private System.Windows.Forms.TextBox txtName;
     private System.Windows.Forms.Label label2;
@@ -551,5 +650,8 @@
     private System.Windows.Forms.Label label11;
     private System.Windows.Forms.NumericUpDown nudLimit;
     private System.Windows.Forms.Label label12;
+    private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+    private System.Windows.Forms.Label lbl_selDate;
+    private System.Windows.Forms.Label lbl_selValue;
   }
 }

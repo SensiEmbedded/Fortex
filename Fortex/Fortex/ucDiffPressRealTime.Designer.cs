@@ -44,15 +44,15 @@
       // 
       // lblDiff
       // 
-      this.lblDiff.Dock = System.Windows.Forms.DockStyle.Top;
+      this.lblDiff.Dock = System.Windows.Forms.DockStyle.Fill;
       this.lblDiff.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
       this.lblDiff.ForeColor = System.Drawing.SystemColors.ActiveCaption;
       this.lblDiff.Location = new System.Drawing.Point(0, 32);
       this.lblDiff.Name = "lblDiff";
-      this.lblDiff.Size = new System.Drawing.Size(84, 66);
+      this.lblDiff.Size = new System.Drawing.Size(84, 83);
       this.lblDiff.TabIndex = 7;
       this.lblDiff.Text = "--.-  ";
-      this.lblDiff.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.lblDiff.TextAlign = System.Drawing.ContentAlignment.TopCenter;
       this.lblDiff.Click += new System.EventHandler(this.ucDiffPressRealTime_Click);
       // 
       // timer1
@@ -68,7 +68,7 @@
       this.Controls.Add(this.lblDiff);
       this.Controls.Add(this.lblUp);
       this.Name = "ucDiffPressRealTime";
-      this.Size = new System.Drawing.Size(84, 156);
+      this.Size = new System.Drawing.Size(84, 115);
       this.Click += new System.EventHandler(this.ucDiffPressRealTime_Click);
       this.ResumeLayout(false);
 

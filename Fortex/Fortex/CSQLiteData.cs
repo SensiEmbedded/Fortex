@@ -130,7 +130,7 @@ namespace DiffPress {
       string start = CUtils.GimiGlobalDateTime(dtStart);
       string end = CUtils.GimiGlobalDateTime(dtEnd);
       //(dt,device,val1,val2)
-      string sql = "select dt,device,val1,val2 from tblData WHERE device = @id AND dt BETWEEN @start and @end ORDER BY ID DESC LIMIT @limit";
+      string sql = "select ID,dt,device,val1,val2 from tblData WHERE device = @id AND dt BETWEEN @start and @end ORDER BY ID DESC LIMIT @limit";
       //string sql = "select * from tblData WHERE device = @id AND dt BETWEEN @start and @end ORDER BY ID DESC LIMIT @limit";
       SQLiteCommand selectSQL = new SQLiteCommand(sql);
       selectSQL.Parameters.AddWithValue("@id", id);
@@ -143,7 +143,7 @@ namespace DiffPress {
       string start = CUtils.GimiGlobalDateTime(dtStart);
       string end = CUtils.GimiGlobalDateTime(dtEnd);
       //(dt,device,val1,val2)
-      string sql = "select dt,device,val1 from tblData WHERE device = @id AND dt BETWEEN @start and @end ORDER BY ID DESC LIMIT @limit";
+      string sql = "select ID,dt,device,val1 from tblData WHERE device = @id AND dt BETWEEN @start and @end ORDER BY ID DESC LIMIT @limit";
       //string sql = "select * from tblData WHERE device = @id AND dt BETWEEN @start and @end ORDER BY ID DESC LIMIT @limit";
       SQLiteCommand selectSQL = new SQLiteCommand(sql);
       selectSQL.Parameters.AddWithValue("@id", id);
