@@ -161,11 +161,8 @@ namespace DiffPress {
       if (++timerGuiUpdate < 5)
         return;
       timerGuiUpdate = 0;
-      
       ShowVals();
       ShowAlarms();
-      glob.data.InsertDataRow(cdev.strID, 12.3,32.1);
-         
     }
 
     private void label3_Click(object sender, EventArgs e) {

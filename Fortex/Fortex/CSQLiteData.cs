@@ -70,7 +70,23 @@ namespace DiffPress {
       SQLiteCommand.ExecuteNonQuery();
       sqlconn.Close();
     }
-    public void InsertDataRow(string device,double val1,double val2) {
+
+    public void InsertDataRow(string device, double val1, double val2) {
+      string DB_NAME = Application.StartupPath + @"\data.db";
+      string connString = String.Format("Data Source={0};New=False;Version=3", DB_NAME);
+      using (var connection = new SQLiteConnection(connString)) {
+        string queryString = "INSERT INTO tblData (dt,device,val1,val2) VALUES (?,?,?,?)";
+        using (var command = new SQLiteCommand(queryString, connection)) {
+          command.Parameters.Add(new SQLiteParameter("@dt", DateTime.Now));
+          command.Parameters.Add(new SQLiteParameter("@device", device));
+          command.Parameters.Add(new SQLiteParameter("@val1", val1));
+          command.Parameters.Add(new SQLiteParameter("@val2", val2));
+          command.Connection.Open();
+          command.ExecuteNonQuery();
+        }
+      }
+    }
+    public void InsertDataRow2(string device,double val1,double val2) {
       string DB_NAME = Application.StartupPath + @"\data.db";
       string connString = String.Format("Data Source={0};New=False;Version=3", DB_NAME);
       SQLiteConnection sqlconn = new SQLiteConnection(connString);
@@ -159,30 +175,33 @@ namespace DiffPress {
       string end = CUtils.GimiGlobalDateTime(dtEnd);
       string connString = String.Format("Data Source={0};New=False;Version=3", DB_NAME);
       SQLiteConnection sqlconn = new SQLiteConnection(connString);
-      sqlconn.Open();
-          
       SQLiteCommand selectSQL;
       if (type == TypeDevice.RHT) {
         selectSQL = CreateRHCommand(id, dtStart, dtEnd, Limit);
       } else {
         selectSQL = CreatePressureCommand(id, dtStart, dtEnd, Limit);
       }
+      
       try {
-        //conn.Open();
+        sqlconn.Open();
         DataSet ds = new DataSet();
         selectSQL.Connection = sqlconn;
         selectSQL.ExecuteScalar();
         var da = new SQLiteDataAdapter(selectSQL);
         //var da = new SQLiteDataAdapter(sql, conn);
         da.Fill(ds);
-        sqlconn.Close();
+        
         //dataGridView1.DataSource = ds.Tables[0].DefaultView;
         return ds;
       } catch (Exception ex) {
         System.Diagnostics.Debug.WriteLine(ex.Message);
         //throw;
+      } finally {
+        sqlconn.Close();
+        selectSQL.Dispose();
+        sqlconn.Dispose();
       }
-      sqlconn.Close();
+      
       return null;
     }
     #endregion

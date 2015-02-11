@@ -247,6 +247,7 @@ namespace DiffPress {
       
       this.CheckAlarms();
       if (++timerDB > glob.g_wr.writeInterval) {
+        timerDB = 0;
         Write2DB();
       }
     }
@@ -324,6 +325,9 @@ namespace DiffPress {
     public void Write2DB() {
       if (this.Enable == false)
         return;
+      if (this.strID == "floor3.2") {
+        System.Diagnostics.Debug.WriteLine(this.val1.ToString());
+      }
       glob.data.InsertDataRow(this.strID, this.val1,this.val2);
     }
     public static string ShowErr(double val) {

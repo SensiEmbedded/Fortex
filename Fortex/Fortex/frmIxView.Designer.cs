@@ -53,7 +53,6 @@
       this.label6 = new System.Windows.Forms.Label();
       this.label8 = new System.Windows.Forms.Label();
       this.nudAlarmHiVal1 = new System.Windows.Forms.NumericUpDown();
-      this.pbDevices = new System.Windows.Forms.PictureBox();
       this.imageList1 = new System.Windows.Forms.ImageList(this.components);
       this.label4 = new System.Windows.Forms.Label();
       this.lblStaticVal1 = new System.Windows.Forms.Label();
@@ -63,7 +62,6 @@
       this.label9 = new System.Windows.Forms.Label();
       this.dtpStart = new System.Windows.Forms.DateTimePicker();
       this.dtpEnd = new System.Windows.Forms.DateTimePicker();
-      this.btnSelect = new System.Windows.Forms.Button();
       this.label10 = new System.Windows.Forms.Label();
       this.label11 = new System.Windows.Forms.Label();
       this.nudLimit = new System.Windows.Forms.NumericUpDown();
@@ -71,17 +69,25 @@
       this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
       this.lbl_selDate = new System.Windows.Forms.Label();
       this.lbl_selValue = new System.Windows.Forms.Label();
+      this.groupBox1 = new System.Windows.Forms.GroupBox();
       this.ucOnOff1 = new DiffPress.ucOnOff();
+      this.groupBox2 = new System.Windows.Forms.GroupBox();
+      this.btnSelect = new System.Windows.Forms.Button();
+      this.pbDevices = new System.Windows.Forms.PictureBox();
+      this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.grpBox2.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmHiVal2)).BeginInit();
       this.grpBox1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmHiVal1)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudLimit)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
+      this.groupBox1.SuspendLayout();
+      this.groupBox2.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.SuspendLayout();
       // 
       // lblUp
@@ -127,16 +133,16 @@
       // 
       // txtDescr
       // 
-      this.txtDescr.Location = new System.Drawing.Point(12, 232);
+      this.txtDescr.Location = new System.Drawing.Point(11, 136);
       this.txtDescr.Multiline = true;
       this.txtDescr.Name = "txtDescr";
       this.txtDescr.ReadOnly = true;
-      this.txtDescr.Size = new System.Drawing.Size(281, 89);
+      this.txtDescr.Size = new System.Drawing.Size(281, 61);
       this.txtDescr.TabIndex = 2;
       // 
       // txtName
       // 
-      this.txtName.Location = new System.Drawing.Point(11, 187);
+      this.txtName.Location = new System.Drawing.Point(10, 91);
       this.txtName.Name = "txtName";
       this.txtName.ReadOnly = true;
       this.txtName.Size = new System.Drawing.Size(280, 20);
@@ -146,7 +152,7 @@
       // label2
       // 
       this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(10, 215);
+      this.label2.Location = new System.Drawing.Point(9, 119);
       this.label2.Name = "label2";
       this.label2.Size = new System.Drawing.Size(35, 13);
       this.label2.TabIndex = 15;
@@ -155,7 +161,7 @@
       // label3
       // 
       this.label3.AutoSize = true;
-      this.label3.Location = new System.Drawing.Point(10, 172);
+      this.label3.Location = new System.Drawing.Point(9, 76);
       this.label3.Name = "label3";
       this.label3.Size = new System.Drawing.Size(38, 13);
       this.label3.TabIndex = 16;
@@ -165,7 +171,7 @@
       // label1
       // 
       this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(149, 116);
+      this.label1.Location = new System.Drawing.Point(148, 20);
       this.label1.Name = "label1";
       this.label1.Size = new System.Drawing.Size(34, 13);
       this.label1.TabIndex = 14;
@@ -173,7 +179,7 @@
       // 
       // txtType
       // 
-      this.txtType.Location = new System.Drawing.Point(149, 133);
+      this.txtType.Location = new System.Drawing.Point(148, 37);
       this.txtType.Name = "txtType";
       this.txtType.ReadOnly = true;
       this.txtType.Size = new System.Drawing.Size(132, 20);
@@ -185,9 +191,9 @@
       this.grpBox2.Controls.Add(this.label5);
       this.grpBox2.Controls.Add(this.label7);
       this.grpBox2.Controls.Add(this.nudAlarmHiVal2);
-      this.grpBox2.Location = new System.Drawing.Point(189, 362);
+      this.grpBox2.Location = new System.Drawing.Point(179, 208);
       this.grpBox2.Name = "grpBox2";
-      this.grpBox2.Size = new System.Drawing.Size(104, 112);
+      this.grpBox2.Size = new System.Drawing.Size(111, 112);
       this.grpBox2.TabIndex = 24;
       this.grpBox2.TabStop = false;
       this.grpBox2.Text = "val2";
@@ -254,7 +260,7 @@
       this.grpBox1.Controls.Add(this.label6);
       this.grpBox1.Controls.Add(this.label8);
       this.grpBox1.Controls.Add(this.nudAlarmHiVal1);
-      this.grpBox1.Location = new System.Drawing.Point(9, 364);
+      this.grpBox1.Location = new System.Drawing.Point(8, 205);
       this.grpBox1.Name = "grpBox1";
       this.grpBox1.Size = new System.Drawing.Size(104, 112);
       this.grpBox1.TabIndex = 23;
@@ -317,16 +323,6 @@
       this.nudAlarmHiVal1.Size = new System.Drawing.Size(64, 20);
       this.nudAlarmHiVal1.TabIndex = 0;
       // 
-      // pbDevices
-      // 
-      this.pbDevices.Image = global::DiffPress.Properties.Resources.DTP_031;
-      this.pbDevices.Location = new System.Drawing.Point(175, 485);
-      this.pbDevices.Name = "pbDevices";
-      this.pbDevices.Size = new System.Drawing.Size(120, 153);
-      this.pbDevices.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-      this.pbDevices.TabIndex = 25;
-      this.pbDevices.TabStop = false;
-      // 
       // imageList1
       // 
       this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
@@ -337,7 +333,7 @@
       // label4
       // 
       this.label4.AutoSize = true;
-      this.label4.Location = new System.Drawing.Point(11, 483);
+      this.label4.Location = new System.Drawing.Point(10, 324);
       this.label4.Name = "label4";
       this.label4.Size = new System.Drawing.Size(80, 13);
       this.label4.TabIndex = 26;
@@ -381,7 +377,7 @@
       dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
       dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
       this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-      this.dataGridView1.Location = new System.Drawing.Point(318, 86);
+      this.dataGridView1.Location = new System.Drawing.Point(318, 48);
       this.dataGridView1.Name = "dataGridView1";
       dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
       dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -395,12 +391,12 @@
       dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
       this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
       this.dataGridView1.RowTemplate.Height = 25;
-      this.dataGridView1.Size = new System.Drawing.Size(833, 232);
+      this.dataGridView1.Size = new System.Drawing.Size(490, 270);
       this.dataGridView1.TabIndex = 66;
       // 
       // txtID
       // 
-      this.txtID.Location = new System.Drawing.Point(11, 133);
+      this.txtID.Location = new System.Drawing.Point(10, 37);
       this.txtID.Name = "txtID";
       this.txtID.ReadOnly = true;
       this.txtID.Size = new System.Drawing.Size(114, 20);
@@ -409,7 +405,7 @@
       // label9
       // 
       this.label9.AutoSize = true;
-      this.label9.Location = new System.Drawing.Point(11, 117);
+      this.label9.Location = new System.Drawing.Point(10, 21);
       this.label9.Name = "label9";
       this.label9.Size = new System.Drawing.Size(58, 13);
       this.label9.TabIndex = 68;
@@ -419,7 +415,7 @@
       // 
       this.dtpStart.CustomFormat = "yyyy-MM-dd HH:mm:ss";
       this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-      this.dtpStart.Location = new System.Drawing.Point(317, 56);
+      this.dtpStart.Location = new System.Drawing.Point(19, 33);
       this.dtpStart.Name = "dtpStart";
       this.dtpStart.Size = new System.Drawing.Size(151, 20);
       this.dtpStart.TabIndex = 69;
@@ -428,25 +424,15 @@
       // 
       this.dtpEnd.CustomFormat = "yyyy-MM-dd HH:mm:ss";
       this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-      this.dtpEnd.Location = new System.Drawing.Point(502, 56);
+      this.dtpEnd.Location = new System.Drawing.Point(21, 76);
       this.dtpEnd.Name = "dtpEnd";
       this.dtpEnd.Size = new System.Drawing.Size(151, 20);
       this.dtpEnd.TabIndex = 70;
       // 
-      // btnSelect
-      // 
-      this.btnSelect.Location = new System.Drawing.Point(805, 45);
-      this.btnSelect.Name = "btnSelect";
-      this.btnSelect.Size = new System.Drawing.Size(67, 31);
-      this.btnSelect.TabIndex = 71;
-      this.btnSelect.Text = "Refresh";
-      this.btnSelect.UseVisualStyleBackColor = true;
-      this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
-      // 
       // label10
       // 
       this.label10.AutoSize = true;
-      this.label10.Location = new System.Drawing.Point(317, 41);
+      this.label10.Location = new System.Drawing.Point(19, 18);
       this.label10.Name = "label10";
       this.label10.Size = new System.Drawing.Size(96, 13);
       this.label10.TabIndex = 72;
@@ -455,7 +441,7 @@
       // label11
       // 
       this.label11.AutoSize = true;
-      this.label11.Location = new System.Drawing.Point(500, 39);
+      this.label11.Location = new System.Drawing.Point(19, 59);
       this.label11.Name = "label11";
       this.label11.Size = new System.Drawing.Size(93, 13);
       this.label11.TabIndex = 73;
@@ -463,14 +449,14 @@
       // 
       // nudLimit
       // 
-      this.nudLimit.Location = new System.Drawing.Point(691, 54);
+      this.nudLimit.Location = new System.Drawing.Point(21, 125);
       this.nudLimit.Maximum = new decimal(new int[] {
             100000,
             0,
             0,
             0});
       this.nudLimit.Name = "nudLimit";
-      this.nudLimit.Size = new System.Drawing.Size(94, 20);
+      this.nudLimit.Size = new System.Drawing.Size(83, 20);
       this.nudLimit.TabIndex = 74;
       this.nudLimit.Value = new decimal(new int[] {
             100,
@@ -481,7 +467,7 @@
       // label12
       // 
       this.label12.AutoSize = true;
-      this.label12.Location = new System.Drawing.Point(688, 36);
+      this.label12.Location = new System.Drawing.Point(18, 107);
       this.label12.Name = "label12";
       this.label12.Size = new System.Drawing.Size(68, 13);
       this.label12.TabIndex = 75;
@@ -505,7 +491,7 @@
       this.chart1.Name = "chart1";
       series1.BorderWidth = 2;
       series1.ChartArea = "ChartArea1";
-      series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+      series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
       series1.Legend = "Legend1";
       series1.MarkerSize = 6;
       series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
@@ -513,7 +499,7 @@
       series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
       series2.BorderWidth = 2;
       series2.ChartArea = "ChartArea1";
-      series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Spline;
+      series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
       series2.Legend = "Legend1";
       series2.MarkerSize = 6;
       series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
@@ -547,14 +533,86 @@
       this.lbl_selValue.TabIndex = 78;
       this.lbl_selValue.Text = "Cursor Y Pos:";
       // 
+      // groupBox1
+      // 
+      this.groupBox1.Controls.Add(this.txtID);
+      this.groupBox1.Controls.Add(this.label9);
+      this.groupBox1.Controls.Add(this.ucOnOff1);
+      this.groupBox1.Controls.Add(this.label4);
+      this.groupBox1.Controls.Add(this.pbDevices);
+      this.groupBox1.Controls.Add(this.grpBox2);
+      this.groupBox1.Controls.Add(this.grpBox1);
+      this.groupBox1.Controls.Add(this.txtType);
+      this.groupBox1.Controls.Add(this.txtDescr);
+      this.groupBox1.Controls.Add(this.txtName);
+      this.groupBox1.Controls.Add(this.label2);
+      this.groupBox1.Controls.Add(this.label3);
+      this.groupBox1.Controls.Add(this.label1);
+      this.groupBox1.Location = new System.Drawing.Point(3, 107);
+      this.groupBox1.Name = "groupBox1";
+      this.groupBox1.Size = new System.Drawing.Size(307, 507);
+      this.groupBox1.TabIndex = 79;
+      this.groupBox1.TabStop = false;
+      this.groupBox1.Text = "Device Properties";
+      // 
       // ucOnOff1
       // 
       this.ucOnOff1.isOn = false;
-      this.ucOnOff1.Location = new System.Drawing.Point(13, 504);
+      this.ucOnOff1.Location = new System.Drawing.Point(12, 345);
       this.ucOnOff1.Name = "ucOnOff1";
       this.ucOnOff1.ReadOnly = true;
       this.ucOnOff1.Size = new System.Drawing.Size(74, 132);
       this.ucOnOff1.TabIndex = 27;
+      // 
+      // groupBox2
+      // 
+      this.groupBox2.Controls.Add(this.pictureBox1);
+      this.groupBox2.Controls.Add(this.label12);
+      this.groupBox2.Controls.Add(this.nudLimit);
+      this.groupBox2.Controls.Add(this.label11);
+      this.groupBox2.Controls.Add(this.label10);
+      this.groupBox2.Controls.Add(this.btnSelect);
+      this.groupBox2.Controls.Add(this.dtpEnd);
+      this.groupBox2.Controls.Add(this.dtpStart);
+      this.groupBox2.Location = new System.Drawing.Point(818, 47);
+      this.groupBox2.Name = "groupBox2";
+      this.groupBox2.Size = new System.Drawing.Size(210, 231);
+      this.groupBox2.TabIndex = 80;
+      this.groupBox2.TabStop = false;
+      this.groupBox2.Text = "Filter Records";
+      // 
+      // btnSelect
+      // 
+      this.btnSelect.Location = new System.Drawing.Point(19, 159);
+      this.btnSelect.Name = "btnSelect";
+      this.btnSelect.Size = new System.Drawing.Size(89, 48);
+      this.btnSelect.TabIndex = 71;
+      this.btnSelect.Text = "Show ";
+      this.btnSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.btnSelect.UseVisualStyleBackColor = true;
+      this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
+      // 
+      // pbDevices
+      // 
+      this.pbDevices.Image = global::DiffPress.Properties.Resources.DTP_031;
+      this.pbDevices.Location = new System.Drawing.Point(165, 331);
+      this.pbDevices.Name = "pbDevices";
+      this.pbDevices.Size = new System.Drawing.Size(127, 153);
+      this.pbDevices.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pbDevices.TabIndex = 25;
+      this.pbDevices.TabStop = false;
+      // 
+      // pictureBox1
+      // 
+      this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+      this.pictureBox1.Image = global::DiffPress.Properties.Resources.Filter;
+      this.pictureBox1.Location = new System.Drawing.Point(24, 163);
+      this.pictureBox1.Name = "pictureBox1";
+      this.pictureBox1.Size = new System.Drawing.Size(44, 40);
+      this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pictureBox1.TabIndex = 81;
+      this.pictureBox1.TabStop = false;
+      this.pictureBox1.Click += new System.EventHandler(this.btnSelect_Click);
       // 
       // frmIxView
       // 
@@ -562,32 +620,14 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.AutoScroll = true;
       this.ClientSize = new System.Drawing.Size(1171, 750);
+      this.Controls.Add(this.groupBox2);
+      this.Controls.Add(this.groupBox1);
       this.Controls.Add(this.lbl_selValue);
       this.Controls.Add(this.lbl_selDate);
       this.Controls.Add(this.chart1);
-      this.Controls.Add(this.label12);
-      this.Controls.Add(this.nudLimit);
-      this.Controls.Add(this.label11);
-      this.Controls.Add(this.label10);
-      this.Controls.Add(this.btnSelect);
-      this.Controls.Add(this.dtpEnd);
-      this.Controls.Add(this.dtpStart);
-      this.Controls.Add(this.txtID);
-      this.Controls.Add(this.label9);
       this.Controls.Add(this.dataGridView1);
       this.Controls.Add(this.lblStaticVal2);
       this.Controls.Add(this.lblStaticVal1);
-      this.Controls.Add(this.ucOnOff1);
-      this.Controls.Add(this.label4);
-      this.Controls.Add(this.pbDevices);
-      this.Controls.Add(this.grpBox2);
-      this.Controls.Add(this.grpBox1);
-      this.Controls.Add(this.txtType);
-      this.Controls.Add(this.txtDescr);
-      this.Controls.Add(this.txtName);
-      this.Controls.Add(this.label2);
-      this.Controls.Add(this.label3);
-      this.Controls.Add(this.label1);
       this.Controls.Add(this.lblVal2);
       this.Controls.Add(this.lblVal1);
       this.Controls.Add(this.lblUp);
@@ -603,10 +643,15 @@
       this.grpBox1.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmHiVal1)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudLimit)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
+      this.groupBox1.ResumeLayout(false);
+      this.groupBox1.PerformLayout();
+      this.groupBox2.ResumeLayout(false);
+      this.groupBox2.PerformLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -653,5 +698,8 @@
     private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
     private System.Windows.Forms.Label lbl_selDate;
     private System.Windows.Forms.Label lbl_selValue;
+    private System.Windows.Forms.GroupBox groupBox1;
+    private System.Windows.Forms.GroupBox groupBox2;
+    private System.Windows.Forms.PictureBox pictureBox1;
   }
 }
