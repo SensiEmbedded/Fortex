@@ -35,6 +35,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Iocomp.Instrumentation.WF40.Common, Version=4.0.6.40794, Culture=neutral, PublicKeyToken=a217a64fde564c89" />
+    <Reference Include="Iocomp.Instrumentation.WF40.Plot, Version=4.0.6.40847, Culture=neutral, PublicKeyToken=a217a64fde564c89" />
     <Reference Include="LibUsbDotNet">
       <HintPath>..\LibUsbDotNet.dll</HintPath>
     </Reference>
@@ -46,6 +48,9 @@
       <HintPath>..\MfgControl.AdvancedHMI.Controls.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="netchartdir">
+      <HintPath>C:\Program Files (x86)\ChartDirector\bin\netchartdir.dll</HintPath>
+    </Reference>
     <Reference Include="nmodbuspc">
       <HintPath>..\nmodbuspc.dll</HintPath>
     </Reference>
@@ -63,6 +68,7 @@
     <Reference Include="System.Design" />
     <Reference Include="System.Messaging" />
     <Reference Include="System.Speech" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -91,6 +97,12 @@
     </Compile>
     <Compile Include="frmAbout.Designer.cs">
       <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmChartDir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmChartDir.Designer.cs">
+      <DependentUpon>frmChartDir.cs</DependentUpon>
     </Compile>
     <Compile Include="frmDevSett.cs">
       <SubType>Form</SubType>
@@ -145,6 +157,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ucChartDir.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ucChartDir.Designer.cs">
+      <DependentUpon>ucChartDir.cs</DependentUpon>
+    </Compile>
     <Compile Include="ucDevSet.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -171,6 +189,9 @@
     </Compile>
     <EmbeddedResource Include="frmAbout.resx">
       <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmChartDir.resx">
+      <DependentUpon>frmChartDir.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmDevSett.resx">
       <DependentUpon>frmDevSett.cs</DependentUpon>
@@ -207,6 +228,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ucChartDir.resx">
+      <DependentUpon>ucChartDir.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ucDevSet.resx">
       <DependentUpon>ucDevSet.cs</DependentUpon>
     </EmbeddedResource>
@@ -298,6 +322,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\Filter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\stair.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Bracket.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -25,14 +25,14 @@
     private void InitializeComponent() {
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmIxView));
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-      System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-      System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-      System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
-      System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+      System.Windows.Forms.DataVisualization.Charting.Legend legend11 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+      System.Windows.Forms.DataVisualization.Charting.Series series21 = new System.Windows.Forms.DataVisualization.Charting.Series();
+      System.Windows.Forms.DataVisualization.Charting.Series series22 = new System.Windows.Forms.DataVisualization.Charting.Series();
       this.lblUp = new System.Windows.Forms.Label();
       this.lblVal2 = new System.Windows.Forms.Label();
       this.lblVal1 = new System.Windows.Forms.Label();
@@ -70,11 +70,19 @@
       this.lbl_selDate = new System.Windows.Forms.Label();
       this.lbl_selValue = new System.Windows.Forms.Label();
       this.groupBox1 = new System.Windows.Forms.GroupBox();
-      this.ucOnOff1 = new DiffPress.ucOnOff();
       this.groupBox2 = new System.Windows.Forms.GroupBox();
       this.btnSelect = new System.Windows.Forms.Button();
-      this.pbDevices = new System.Windows.Forms.PictureBox();
       this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.pbDevices = new System.Windows.Forms.PictureBox();
+      this.ucOnOff1 = new DiffPress.ucOnOff();
+      this.label13 = new System.Windows.Forms.Label();
+      this.label14 = new System.Windows.Forms.Label();
+      this.label15 = new System.Windows.Forms.Label();
+      this.label16 = new System.Windows.Forms.Label();
+      this.label17 = new System.Windows.Forms.Label();
+      this.label18 = new System.Windows.Forms.Label();
+      this.label19 = new System.Windows.Forms.Label();
+      this.groupBox3 = new System.Windows.Forms.GroupBox();
       this.grpBox2.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmHiVal2)).BeginInit();
@@ -86,8 +94,9 @@
       ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
       this.groupBox1.SuspendLayout();
       this.groupBox2.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).BeginInit();
+      this.groupBox3.SuspendLayout();
       this.SuspendLayout();
       // 
       // lblUp
@@ -360,36 +369,36 @@
       // dataGridView1
       // 
       this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-      dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-      dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-      dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-      dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-      dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-      this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+      dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle41.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      dataGridViewCellStyle41.ForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle41.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+      this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
       this.dataGridView1.ColumnHeadersHeight = 25;
-      dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-      dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-      dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-      dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-      dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-      this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+      dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Window;
+      dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.ControlText;
+      dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+      this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle42;
       this.dataGridView1.Location = new System.Drawing.Point(318, 48);
       this.dataGridView1.Name = "dataGridView1";
-      dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-      dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-      dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-      dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-      dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-      dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-      this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+      dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      dataGridViewCellStyle43.ForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+      this.dataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle43;
       this.dataGridView1.RowHeadersWidth = 20;
-      dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
-      this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
+      dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+      this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle44;
       this.dataGridView1.RowTemplate.Height = 25;
       this.dataGridView1.Size = new System.Drawing.Size(490, 270);
       this.dataGridView1.TabIndex = 66;
@@ -479,34 +488,34 @@
                   | System.Windows.Forms.AnchorStyles.Right)));
       this.chart1.BorderlineColor = System.Drawing.Color.Black;
       this.chart1.BorderlineDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-      chartArea1.AxisX.LineWidth = 2;
-      chartArea1.AxisY.LineWidth = 2;
-      chartArea1.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
-      chartArea1.Name = "ChartArea1";
-      this.chart1.ChartAreas.Add(chartArea1);
-      legend1.Name = "Legend1";
-      legend1.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Tall;
-      this.chart1.Legends.Add(legend1);
+      chartArea11.AxisX.LineWidth = 2;
+      chartArea11.AxisY.LineWidth = 2;
+      chartArea11.BorderDashStyle = System.Windows.Forms.DataVisualization.Charting.ChartDashStyle.Solid;
+      chartArea11.Name = "ChartArea1";
+      this.chart1.ChartAreas.Add(chartArea11);
+      legend11.Name = "Legend1";
+      legend11.TableStyle = System.Windows.Forms.DataVisualization.Charting.LegendTableStyle.Tall;
+      this.chart1.Legends.Add(legend11);
       this.chart1.Location = new System.Drawing.Point(318, 339);
       this.chart1.Name = "chart1";
-      series1.BorderWidth = 2;
-      series1.ChartArea = "ChartArea1";
-      series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-      series1.Legend = "Legend1";
-      series1.MarkerSize = 6;
-      series1.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
-      series1.Name = "val1";
-      series1.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-      series2.BorderWidth = 2;
-      series2.ChartArea = "ChartArea1";
-      series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
-      series2.Legend = "Legend1";
-      series2.MarkerSize = 6;
-      series2.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
-      series2.Name = "val2";
-      series2.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
-      this.chart1.Series.Add(series1);
-      this.chart1.Series.Add(series2);
+      series21.BorderWidth = 2;
+      series21.ChartArea = "ChartArea1";
+      series21.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+      series21.Legend = "Legend1";
+      series21.MarkerSize = 6;
+      series21.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Diamond;
+      series21.Name = "val1";
+      series21.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+      series22.BorderWidth = 2;
+      series22.ChartArea = "ChartArea1";
+      series22.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
+      series22.Legend = "Legend1";
+      series22.MarkerSize = 6;
+      series22.MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle;
+      series22.Name = "val2";
+      series22.XValueType = System.Windows.Forms.DataVisualization.Charting.ChartValueType.DateTime;
+      this.chart1.Series.Add(series21);
+      this.chart1.Series.Add(series22);
       this.chart1.Size = new System.Drawing.Size(836, 395);
       this.chart1.TabIndex = 76;
       this.chart1.Text = "chart1";
@@ -550,19 +559,10 @@
       this.groupBox1.Controls.Add(this.label1);
       this.groupBox1.Location = new System.Drawing.Point(3, 107);
       this.groupBox1.Name = "groupBox1";
-      this.groupBox1.Size = new System.Drawing.Size(307, 507);
+      this.groupBox1.Size = new System.Drawing.Size(307, 488);
       this.groupBox1.TabIndex = 79;
       this.groupBox1.TabStop = false;
       this.groupBox1.Text = "Device Properties";
-      // 
-      // ucOnOff1
-      // 
-      this.ucOnOff1.isOn = false;
-      this.ucOnOff1.Location = new System.Drawing.Point(12, 345);
-      this.ucOnOff1.Name = "ucOnOff1";
-      this.ucOnOff1.ReadOnly = true;
-      this.ucOnOff1.Size = new System.Drawing.Size(74, 132);
-      this.ucOnOff1.TabIndex = 27;
       // 
       // groupBox2
       // 
@@ -592,16 +592,6 @@
       this.btnSelect.UseVisualStyleBackColor = true;
       this.btnSelect.Click += new System.EventHandler(this.btnSelect_Click);
       // 
-      // pbDevices
-      // 
-      this.pbDevices.Image = global::DiffPress.Properties.Resources.DTP_031;
-      this.pbDevices.Location = new System.Drawing.Point(165, 331);
-      this.pbDevices.Name = "pbDevices";
-      this.pbDevices.Size = new System.Drawing.Size(127, 153);
-      this.pbDevices.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-      this.pbDevices.TabIndex = 25;
-      this.pbDevices.TabStop = false;
-      // 
       // pictureBox1
       // 
       this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -614,12 +604,111 @@
       this.pictureBox1.TabStop = false;
       this.pictureBox1.Click += new System.EventHandler(this.btnSelect_Click);
       // 
+      // pbDevices
+      // 
+      this.pbDevices.Image = global::DiffPress.Properties.Resources.DTP_031;
+      this.pbDevices.Location = new System.Drawing.Point(165, 331);
+      this.pbDevices.Name = "pbDevices";
+      this.pbDevices.Size = new System.Drawing.Size(127, 153);
+      this.pbDevices.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pbDevices.TabIndex = 25;
+      this.pbDevices.TabStop = false;
+      // 
+      // ucOnOff1
+      // 
+      this.ucOnOff1.isOn = false;
+      this.ucOnOff1.Location = new System.Drawing.Point(12, 345);
+      this.ucOnOff1.Name = "ucOnOff1";
+      this.ucOnOff1.ReadOnly = true;
+      this.ucOnOff1.Size = new System.Drawing.Size(74, 132);
+      this.ucOnOff1.TabIndex = 27;
+      // 
+      // label13
+      // 
+      this.label13.AutoSize = true;
+      this.label13.Location = new System.Drawing.Point(6, 24);
+      this.label13.Name = "label13";
+      this.label13.Size = new System.Drawing.Size(125, 13);
+      this.label13.TabIndex = 81;
+      this.label13.Text = "-20002 - TimeOut Sensor";
+      // 
+      // label14
+      // 
+      this.label14.AutoSize = true;
+      this.label14.Location = new System.Drawing.Point(8, 42);
+      this.label14.Name = "label14";
+      this.label14.Size = new System.Drawing.Size(220, 13);
+      this.label14.TabIndex = 82;
+      this.label14.Text = "-20003 - Modbus Addres Exception in Sensor";
+      // 
+      // label15
+      // 
+      this.label15.AutoSize = true;
+      this.label15.Location = new System.Drawing.Point(8, 59);
+      this.label15.Name = "label15";
+      this.label15.Size = new System.Drawing.Size(185, 13);
+      this.label15.TabIndex = 83;
+      this.label15.Text = "-20004 - Measurement Error in Sensor";
+      // 
+      // label16
+      // 
+      this.label16.AutoSize = true;
+      this.label16.Location = new System.Drawing.Point(8, 75);
+      this.label16.Name = "label16";
+      this.label16.Size = new System.Drawing.Size(134, 13);
+      this.label16.TabIndex = 84;
+      this.label16.Text = "-20005 - TimeOut Gateway";
+      // 
+      // label17
+      // 
+      this.label17.AutoSize = true;
+      this.label17.Location = new System.Drawing.Point(8, 91);
+      this.label17.Name = "label17";
+      this.label17.Size = new System.Drawing.Size(196, 13);
+      this.label17.TabIndex = 85;
+      this.label17.Text = "-20006 - Address Exception  in Gateway";
+      // 
+      // label18
+      // 
+      this.label18.AutoSize = true;
+      this.label18.Location = new System.Drawing.Point(7, 108);
+      this.label18.Name = "label18";
+      this.label18.Size = new System.Drawing.Size(162, 13);
+      this.label18.TabIndex = 86;
+      this.label18.Text = "-20007 - COM port does not exist";
+      // 
+      // label19
+      // 
+      this.label19.AutoSize = true;
+      this.label19.Location = new System.Drawing.Point(7, 125);
+      this.label19.Name = "label19";
+      this.label19.Size = new System.Drawing.Size(120, 13);
+      this.label19.TabIndex = 87;
+      this.label19.Text = "-20008 - Unknown Error";
+      // 
+      // groupBox3
+      // 
+      this.groupBox3.Controls.Add(this.label19);
+      this.groupBox3.Controls.Add(this.label18);
+      this.groupBox3.Controls.Add(this.label17);
+      this.groupBox3.Controls.Add(this.label16);
+      this.groupBox3.Controls.Add(this.label15);
+      this.groupBox3.Controls.Add(this.label14);
+      this.groupBox3.Controls.Add(this.label13);
+      this.groupBox3.Location = new System.Drawing.Point(2, 598);
+      this.groupBox3.Name = "groupBox3";
+      this.groupBox3.Size = new System.Drawing.Size(309, 154);
+      this.groupBox3.TabIndex = 88;
+      this.groupBox3.TabStop = false;
+      this.groupBox3.Text = "Legend - Special Values";
+      // 
       // frmIxView
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.AutoScroll = true;
-      this.ClientSize = new System.Drawing.Size(1171, 750);
+      this.ClientSize = new System.Drawing.Size(1171, 769);
+      this.Controls.Add(this.groupBox3);
       this.Controls.Add(this.groupBox2);
       this.Controls.Add(this.groupBox1);
       this.Controls.Add(this.lbl_selValue);
@@ -650,8 +739,10 @@
       this.groupBox1.PerformLayout();
       this.groupBox2.ResumeLayout(false);
       this.groupBox2.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).EndInit();
+      this.groupBox3.ResumeLayout(false);
+      this.groupBox3.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -701,5 +792,13 @@
     private System.Windows.Forms.GroupBox groupBox1;
     private System.Windows.Forms.GroupBox groupBox2;
     private System.Windows.Forms.PictureBox pictureBox1;
+    private System.Windows.Forms.Label label13;
+    private System.Windows.Forms.Label label14;
+    private System.Windows.Forms.Label label15;
+    private System.Windows.Forms.Label label16;
+    private System.Windows.Forms.Label label17;
+    private System.Windows.Forms.Label label18;
+    private System.Windows.Forms.Label label19;
+    private System.Windows.Forms.GroupBox groupBox3;
   }
 }

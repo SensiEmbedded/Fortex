@@ -439,11 +439,18 @@ namespace DiffPress {
       }
       alarmStatusLast_HiVal2 = alarmStatus_HiVal2;
     }
+    private void ClearAlarms() {
+      alarmStatusLast_LoVal1 = alarmStatus_LoVal1 = DevAlarms.None;
+      alarmStatusLast_HiVal1 = alarmStatus_HiVal1 = DevAlarms.None;
+      alarmStatusLast_LoVal2 = alarmStatus_LoVal2 = DevAlarms.None;
+      alarmStatusLast_HiVal2 = alarmStatus_HiVal2 = DevAlarms.None;
+
+    }
     private void CheckAlarms() {
-      if(this.Enable == false)return;
-      if(glob == null)return;
-      if(val1 < -2000)return;
-      if(val2 < -2000)return;
+      if(this.Enable == false){ClearAlarms(); return;}
+      if(glob == null){ClearAlarms(); return;}
+      if(val1 < -2000){ClearAlarms(); return;}
+      if(val2 < -2000){ClearAlarms(); return;}
 
       int timeAlarm = glob.g_wr.timeAlarm;
       CheckVal1AlarmsLo(timeAlarm);
