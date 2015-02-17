@@ -25,7 +25,8 @@ namespace DiffPress {
 		// The current visible duration of the view port in seconds
 		private double currentDuration = 360 * 86400;
 		// In this demo, the maximum zoom-in is set to 10 days
-		private double minDuration = 10 * 86400;
+		//private double minDuration = 86400;
+    private double minDuration = 30;
 	
 		// Will set to true at the end of initialization
 		private bool hasFinishedInitialization = false;
@@ -64,10 +65,21 @@ namespace DiffPress {
 		}
     private void ucChartDir_Load(object sender, EventArgs e) {
       Control parent= this.Parent;
-			if (parent != null) {
-				//./glob = ((frmMain)parent).glob;
+
+      if (parent.GetType() == typeof(frmChartDir)) {
+        // v desiged time e neshto drugo
+        frmChartDir frm = (frmChartDir)parent;
+        glob = ((frmMain)frm.Owner).glob;
+      }
+      
+			if (glob == null) {
+				//glob = ((frmMain)parent).glob;
+        return;
 			}
-      loadData();
+      System.Data.DataSet ds = glob.data.GimitblMess(cdev.type,cdev.strID, dtpStart.Value,dtpEnd.Value,(int)nudLimit.Value);
+      SetDataSet(ds);
+      //loadData();
+      /*
       // In this demo, we obtain the horizontal scroll range from the actual data.
 			minDate = timeStamps[0];
 			dateRange = timeStamps[timeStamps.Length - 1].Subtract(minDate).TotalSeconds;
@@ -83,9 +95,63 @@ namespace DiffPress {
 
 			// Can update chart now
 			hasFinishedInitialization = true;
+       */ 
 			winChartViewer1.updateViewPort(true, true);
     }
     #region Chart
+    public bool SetDataSet(System.Data.DataSet ds) {
+      if (ds == null) {
+        return false;
+      }
+      double t = cdev.val1;
+      double t2= cdev.val2;
+      DateTime dtv;
+      DataTable dt = ds.Tables[0];
+      int count = dt.Rows.Count;
+
+      if(count == 0)return false;
+      timeStamps = new DateTime[count];
+      dataSeriesA = new double[count];
+      dataSeriesB = new double[count];
+
+      int ix = 0;
+      /*
+      DataRow r;
+      for (int i = count - 1; i >= 0; --i) {
+        r = dt.Rows[i];
+        dtv = Convert.ToDateTime( r["dt"]);
+        timeStamps[i] = dtv;
+        t = Convert.ToDouble(r["val1"]);
+        dataSeriesA[i] = t;
+        //dataSeriesA[]
+        if (cdev.type == TypeDevice.RHT) {
+          t2 = Convert.ToDouble(r["val2"]);
+          dataSeriesB[i] = t2;
+        }
+      } */
+      
+      foreach(DataRow dr in dt.Rows){
+        dtv = Convert.ToDateTime( dr["dt"]);
+        timeStamps[ix] = dtv;
+        t = Convert.ToDouble(dr["val1"]);
+        dataSeriesA[ix] = t;
+        //dataSeriesA[]
+        //./chart1.Series[0].Points.AddXY(dtv, t);
+        if (cdev.type == TypeDevice.RHT) {
+          t2 = Convert.ToDouble(dr["val2"]);
+          dataSeriesB[ix] = t2;
+          //./chart1.Series[1].Points.AddXY(dtv, t2);
+        }
+        ++ix;
+        //System.Diagnostics.Debug.WriteLine(dr["dt"].ToString());
+        //System.Diagnostics.Debug.WriteLine(dr["val1"].ToString());
+      }  
+      
+      //ArrayMath a = new ArrayMath(timeStamps);
+      
+      return true;
+    }
+
 		private void loadData()
 		{
 			// In this demo, we allow scrolling for the last 5 years.
@@ -153,9 +219,110 @@ namespace DiffPress {
 			{
 				winChartViewer1.ImageMap = winChartViewer1.Chart.getHTMLImageMap("clickable", "",
 					"title='[{dataSetName}] {x|mmm dd, yyyy}: USD {value|2}'");
+        
+        //plotToolBarStandard1.Plot = 
 			}
 		}
-    private void drawChart(WinChartViewer viewer)
+    private void drawChart(WinChartViewer viewer) {
+      // Create an XYChart object 600 x 300 pixels in size, with pale blue (0xf0f0ff) 
+			// background, black (000000) border, 1 pixel raised effect, and with a rounded frame.
+			XYChart c = new XYChart(2*600, 2*300, 0xf0f0ff, 0, 1);
+			c.setRoundedFrame(Chart.CColor(BackColor));
+			
+			// Set the plotarea at (52, 60) and of size 520 x 192 pixels. Use white (ffffff) 
+			// background. Enable both horizontal and vertical grids by setting their colors to 
+			// grey (cccccc). Set clipping mode to clip the data lines to the plot area.
+			c.setPlotArea(52, 60, 2*600-80, 2*300 - 100, 0xffffff, -1, -1, 0xcccccc, 0xcccccc);
+			c.setClipping();
+
+			// Add a top title to the chart using 15 pts Times New Roman Bold Italic font, with a 
+			// light blue (ccccff) background, black (000000) border, and a glass like raised effect.
+			c.addTitle("RH & T recorded data", "Times New Roman Bold Italic", 10 ).setBackground(0xccccff, 0x0, Chart.glassEffect());
+
+			// Add a bottom title to the chart to show the date range of the axis, with a light blue 
+			// (ccccff) background.
+                          
+      //c.addTitle2(Chart.Bottom, "From <*font=Arial Bold Italic*>" 
+      //    + c.formatValue(viewPortStartDate, "{value|mmm dd, yyyy}") 
+      //  + "<*/font*> to <*font=Arial Bold Italic*>" 
+      //  + c.formatValue(viewPortEndDate, "{value|mmm dd, yyyy}") 
+      //  + "<*/font*> (Duration <*font=Arial Bold Italic*>" 
+      //  + Math.Round(viewPortEndDate.Subtract(viewPortStartDate).TotalSeconds / 86400.0)
+      //  + "<*/font*> days)", "Arial Italic", 10).setBackground(0xccccff);
+                            
+			// Add a legend box at the top of the plot area with 9pts Arial Bold font with flow layout. 
+			c.addLegend(50, 33, false, "Arial Bold", 9).setBackground(Chart.Transparent, Chart.Transparent);
+
+			// Set axes width to 2 pixels
+			c.yAxis().setWidth(2);
+			c.xAxis().setWidth(2);
+
+			// Add a title to the y-axis
+			c.yAxis().setTitle("RH(%) Temperature", "Arial Bold", 9);
+
+			///////////////////////////////////////////////////////////////////////////////////////
+			// Step 2 - Add data to chart
+			///////////////////////////////////////////////////////////////////////////////////////
+		
+			// 
+			// In this example, we represent the data by lines. You may modify the code below if 
+			// you want to use other representations (areas, scatter plot, etc).
+			//
+
+			// Add a line layer for the lines, using a line width of 2 pixels
+			Layer layer = c.addLineLayer2();
+			layer.setLineWidth(2);
+
+			// Now we add the 3 data series to a line layer, using the color red (ff0000), green
+			// (00cc00) and blue (0000ff)
+			layer.setXData(timeStamps);
+			layer.addDataSet( dataSeriesA , 0xff0000, "Temp");
+			layer.addDataSet(dataSeriesB, 0x00cc00, "RH");
+      
+			
+
+			///////////////////////////////////////////////////////////////////////////////////////
+			// Step 3 - Set up x-axis scale
+			///////////////////////////////////////////////////////////////////////////////////////
+			
+			// Set x-axis date scale to the view port date range. 
+			//./c.xAxis().setDateScale(viewPortStartDate, viewPortEndDate);
+
+			
+			///////////////////////////////////////////////////////////////////////////////////////
+			// Step 4 - Set up y-axis scale
+			///////////////////////////////////////////////////////////////////////////////////////
+			
+      if ((viewer.ZoomDirection == WinChartDirection.Horizontal) || (minValue == maxValue)){
+				// y-axis is auto-scaled - save the chosen y-axis scaled to support xy-zoom mode
+				c.layout();
+				minValue = c.yAxis().getMinValue();
+				maxValue = c.yAxis().getMaxValue();
+			}else{
+				// xy-zoom mode - compute the actual axis scale in the view port 
+        maxValue = 110;
+        minValue = -20109;
+				double axisLowerLimit =  maxValue - (maxValue - minValue) * (viewer.ViewPortTop + viewer.ViewPortHeight);
+				double axisUpperLimit =  maxValue - (maxValue - minValue) * viewer.ViewPortTop;
+				// *** use the following formula if you are using a log scale axis ***
+				// double axisLowerLimit = maxValue * Math.Pow(minValue / maxValue, viewer.ViewPortTop + viewer.ViewPortHeight);
+				// double axisUpperLimit = maxValue * Math.Pow(minValue / maxValue, viewer.ViewPortTop);
+				// use the zoomed-in scale
+				c.yAxis().setLinearScale(axisLowerLimit, axisUpperLimit);
+				c.yAxis().setRounding(false, false);
+			}
+      Mark m = c.yAxis().addMark(70, 0xff0000, "Alarm = " + 70);
+				m.setAlignment(Chart.Left);
+				m.setBackground(0xffcccc);
+			///////////////////////////////////////////////////////////////////////////////////////
+			// Step 5 - Display the chart
+			///////////////////////////////////////////////////////////////////////////////////////
+      //./c.yAxis().setAutoScale();
+			viewer.Chart = c;
+      viewer.ZoomDirection = WinChartDirection.HorizontalVertical;
+		  viewer.ScrollDirection = WinChartDirection.HorizontalVertical;
+    }
+    private void drawChartOld(WinChartViewer viewer)
 		{ 
 			//
 			// In this demo, we copy the visible part of the data to a separate buffer for chart
@@ -187,7 +354,7 @@ namespace DiffPress {
 			DateTime[] viewPortTimeStamps = new DateTime[noOfPoints];
 			double[] viewPortDataSeriesA = new double[noOfPoints];
 			double[] viewPortDataSeriesB = new double[noOfPoints];
-			double[] viewPortDataSeriesC = new double[noOfPoints];
+			
 			Array.Copy(timeStamps, startIndex, viewPortTimeStamps, 0, noOfPoints);
 			Array.Copy(dataSeriesA, startIndex, viewPortDataSeriesA, 0, noOfPoints);
 			Array.Copy(dataSeriesB, startIndex, viewPortDataSeriesB, 0, noOfPoints);
@@ -425,5 +592,32 @@ namespace DiffPress {
 			}
 		}
 		#endregion
+
+    private void btnUpdate_Click(object sender, EventArgs e) {
+      System.Data.DataSet ds = glob.data.GimitblMess(cdev.type,cdev.strID, dtpStart.Value,dtpEnd.Value,(int)nudLimit.Value);
+      if (SetDataSet(ds) == false) {
+        return ;
+      }
+      //./loadData();
+      // In this demo, we obtain the horizontal scroll range from the actual data.
+      
+			minDate = timeStamps[0];
+			dateRange = timeStamps[timeStamps.Length - 1].Subtract(minDate).TotalSeconds;
+
+			// Set the winChartViewer to reflect the visible and minimum duration
+			winChartViewer1.ZoomInWidthLimit = minDuration / dateRange;
+      winChartViewer1.ViewPortWidth = currentDuration / dateRange;
+			winChartViewer1.ViewPortLeft = 1 - winChartViewer1.ViewPortWidth;
+
+			// Initially choose the pointer mode (drag to scroll mode)
+			pointerPB.Checked = true;
+			// Can update chart now
+			hasFinishedInitialization = true;
+      //XYChart c = (XYChart)winChartViewer1.Chart;
+      //MessageBox.Show( c.yAxis().getMinValue().ToString());
+			winChartViewer1.updateViewPort(true, true);
+      //winChartViewer1.Chart.yAxis().setLinearScale(axisLowerLimit, axisUpperLimit);
+    }
+
   }
 }

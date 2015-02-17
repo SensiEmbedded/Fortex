@@ -339,6 +339,9 @@ namespace DiffPress {
 
     private void pictureBox4_Click(object sender, EventArgs e) {
       frmChartDir frm = new frmChartDir();
+      frm.SetRef(ref glob);
+      frm.cdev = glob.g_wr.floor1Devs[1];
+
       frm.ShowDialog(this);
     }
   }
