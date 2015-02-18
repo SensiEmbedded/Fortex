@@ -27,7 +27,6 @@
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucChartDir));
       this.panel1 = new System.Windows.Forms.Panel();
       this.btnUpdate = new System.Windows.Forms.Button();
-      this.imageList1 = new System.Windows.Forms.ImageList(this.components);
       this.label12 = new System.Windows.Forms.Label();
       this.nudLimit = new System.Windows.Forms.NumericUpDown();
       this.label11 = new System.Windows.Forms.Label();
@@ -37,6 +36,7 @@
       this.pointerPB = new System.Windows.Forms.RadioButton();
       this.zoomInPB = new System.Windows.Forms.RadioButton();
       this.zoomOutPB = new System.Windows.Forms.RadioButton();
+      this.imageList1 = new System.Windows.Forms.ImageList(this.components);
       this.winChartViewer1 = new ChartDirector.WinChartViewer();
       this.panel1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudLimit)).BeginInit();
@@ -58,37 +58,18 @@
       this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
       this.panel1.Location = new System.Drawing.Point(0, 0);
       this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(238, 414);
+      this.panel1.Size = new System.Drawing.Size(151, 414);
       this.panel1.TabIndex = 0;
       // 
       // btnUpdate
       // 
       this.btnUpdate.Location = new System.Drawing.Point(13, 243);
       this.btnUpdate.Name = "btnUpdate";
-      this.btnUpdate.Size = new System.Drawing.Size(130, 36);
+      this.btnUpdate.Size = new System.Drawing.Size(120, 36);
       this.btnUpdate.TabIndex = 83;
       this.btnUpdate.Text = "button1";
       this.btnUpdate.UseVisualStyleBackColor = true;
       this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-      // 
-      // imageList1
-      // 
-      this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
-      this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
-      this.imageList1.Images.SetKeyName(0, "");
-      this.imageList1.Images.SetKeyName(1, "");
-      this.imageList1.Images.SetKeyName(2, "");
-      this.imageList1.Images.SetKeyName(3, "");
-      this.imageList1.Images.SetKeyName(4, "");
-      this.imageList1.Images.SetKeyName(5, "");
-      this.imageList1.Images.SetKeyName(6, "");
-      this.imageList1.Images.SetKeyName(7, "");
-      this.imageList1.Images.SetKeyName(8, "");
-      this.imageList1.Images.SetKeyName(9, "");
-      this.imageList1.Images.SetKeyName(10, "");
-      this.imageList1.Images.SetKeyName(11, "");
-      this.imageList1.Images.SetKeyName(12, "");
-      this.imageList1.Images.SetKeyName(13, "");
       // 
       // label12
       // 
@@ -191,15 +172,34 @@
       this.zoomOutPB.Text = "      Zoom Out";
       this.zoomOutPB.CheckedChanged += new System.EventHandler(this.zoomOutPB_CheckedChanged);
       // 
+      // imageList1
+      // 
+      this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+      this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+      this.imageList1.Images.SetKeyName(0, "");
+      this.imageList1.Images.SetKeyName(1, "");
+      this.imageList1.Images.SetKeyName(2, "");
+      this.imageList1.Images.SetKeyName(3, "");
+      this.imageList1.Images.SetKeyName(4, "");
+      this.imageList1.Images.SetKeyName(5, "");
+      this.imageList1.Images.SetKeyName(6, "");
+      this.imageList1.Images.SetKeyName(7, "");
+      this.imageList1.Images.SetKeyName(8, "");
+      this.imageList1.Images.SetKeyName(9, "");
+      this.imageList1.Images.SetKeyName(10, "");
+      this.imageList1.Images.SetKeyName(11, "");
+      this.imageList1.Images.SetKeyName(12, "");
+      this.imageList1.Images.SetKeyName(13, "");
+      // 
       // winChartViewer1
       // 
       this.winChartViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.winChartViewer1.ChartSizeMode = ChartDirector.WinChartSizeMode.StretchImage;
       this.winChartViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.winChartViewer1.Location = new System.Drawing.Point(238, 0);
+      this.winChartViewer1.Location = new System.Drawing.Point(151, 0);
       this.winChartViewer1.Name = "winChartViewer1";
       this.winChartViewer1.ScrollDirection = ChartDirector.WinChartDirection.HorizontalVertical;
-      this.winChartViewer1.Size = new System.Drawing.Size(627, 414);
+      this.winChartViewer1.Size = new System.Drawing.Size(714, 414);
       this.winChartViewer1.TabIndex = 47;
       this.winChartViewer1.TabStop = false;
       this.winChartViewer1.ZoomDirection = ChartDirector.WinChartDirection.HorizontalVertical;

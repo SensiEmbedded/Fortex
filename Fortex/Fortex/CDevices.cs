@@ -221,12 +221,13 @@ namespace DiffPress {
   //----------------------------------------------------------------------------------------------------------------------------------
   public class CDev{
     private CGlobal glob;
-    private System.Timers.Timer tmr = new System.Timers.Timer();
+    //private System.Timers.Timer tmr = new System.Timers.Timer();
+    private System.Windows.Forms.Timer tmr = new System.Windows.Forms.Timer();
     private int timerDB;
- 
     public CDev(){
       tmr.Interval = 1000;
-      tmr.Elapsed += new System.Timers.ElapsedEventHandler(tmr_Elapsed);
+      //tmr.Elapsed += new System.Timers.ElapsedEventHandler(tmr_Elapsed);
+      tmr.Tick += new EventHandler(tmr_Tick);
       tmr.Enabled = true;
       alarmStatus_HiVal1 = DevAlarms.None;
       alarmStatus_HiVal2 = DevAlarms.None;
@@ -240,16 +241,24 @@ namespace DiffPress {
       this.InstanceID = Guid.NewGuid();
 
     }
-    public void SetRef(ref CGlobal gl){
-      this.glob = gl;
-    }
-    void tmr_Elapsed(object sender, System.Timers.ElapsedEventArgs e) {
-      
+
+    void tmr_Tick(object sender, EventArgs e) {
       this.CheckAlarms();
       if (++timerDB > glob.g_wr.writeInterval) {
         timerDB = 0;
         Write2DB();
       }
+    }
+    public void SetRef(ref CGlobal gl){
+      this.glob = gl;
+    }
+    void tmr_Elapsed(object sender, System.Timers.ElapsedEventArgs e) {
+      
+      /*this.CheckAlarms();
+      if (++timerDB > glob.g_wr.writeInterval) {
+        timerDB = 0;
+        Write2DB();
+      } */
     }
 
     

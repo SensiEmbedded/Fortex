@@ -193,5 +193,19 @@ namespace DiffPress {
     private void ucRHTRealTime_Load(object sender, EventArgs e) {
 
     }
+
+
+    private void chartDirToolStripMenuItem_Click(object sender, EventArgs e) {
+      frmChartDir frm = new frmChartDir();
+      //frm.SetRef(ref glob);
+      frm.cdev = _cdev;
+      frm.ShowDialog(this);
+    }
+
+    private void historyToolStripMenuItem_Click(object sender, EventArgs e) {
+      frmIxView frm = new frmIxView();
+      frm.cdev = _cdev;
+      frm.ShowDialog(this);
+    }
   }
 }

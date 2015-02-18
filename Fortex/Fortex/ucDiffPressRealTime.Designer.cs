@@ -27,11 +27,16 @@
       this.lblUp = new System.Windows.Forms.Label();
       this.lblDiff = new System.Windows.Forms.Label();
       this.timer1 = new System.Windows.Forms.Timer(this.components);
+      this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+      this.historyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.chartDirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+      this.contextMenuStrip1.SuspendLayout();
       this.SuspendLayout();
       // 
       // lblUp
       // 
       this.lblUp.BackColor = System.Drawing.Color.Olive;
+      this.lblUp.ContextMenuStrip = this.contextMenuStrip1;
       this.lblUp.Dock = System.Windows.Forms.DockStyle.Top;
       this.lblUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
       this.lblUp.ForeColor = System.Drawing.SystemColors.Desktop;
@@ -44,6 +49,7 @@
       // 
       // lblDiff
       // 
+      this.lblDiff.ContextMenuStrip = this.contextMenuStrip1;
       this.lblDiff.Dock = System.Windows.Forms.DockStyle.Fill;
       this.lblDiff.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
       this.lblDiff.ForeColor = System.Drawing.SystemColors.ActiveCaption;
@@ -61,6 +67,28 @@
       this.timer1.Interval = 1000;
       this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
       // 
+      // contextMenuStrip1
+      // 
+      this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.historyToolStripMenuItem,
+            this.chartDirToolStripMenuItem});
+      this.contextMenuStrip1.Name = "contextMenuStrip1";
+      this.contextMenuStrip1.Size = new System.Drawing.Size(153, 70);
+      // 
+      // historyToolStripMenuItem
+      // 
+      this.historyToolStripMenuItem.Name = "historyToolStripMenuItem";
+      this.historyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.historyToolStripMenuItem.Text = "History";
+      this.historyToolStripMenuItem.Click += new System.EventHandler(this.historyToolStripMenuItem_Click);
+      // 
+      // chartDirToolStripMenuItem
+      // 
+      this.chartDirToolStripMenuItem.Name = "chartDirToolStripMenuItem";
+      this.chartDirToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+      this.chartDirToolStripMenuItem.Text = "Chart Dir";
+      this.chartDirToolStripMenuItem.Click += new System.EventHandler(this.chartDirToolStripMenuItem_Click);
+      // 
       // ucDiffPressRealTime
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -70,6 +98,7 @@
       this.Name = "ucDiffPressRealTime";
       this.Size = new System.Drawing.Size(84, 115);
       this.Click += new System.EventHandler(this.ucDiffPressRealTime_Click);
+      this.contextMenuStrip1.ResumeLayout(false);
       this.ResumeLayout(false);
 
     }
@@ -79,5 +108,8 @@
     private System.Windows.Forms.Label lblUp;
     private System.Windows.Forms.Label lblDiff;
     private System.Windows.Forms.Timer timer1;
+    private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+    private System.Windows.Forms.ToolStripMenuItem historyToolStripMenuItem;
+    private System.Windows.Forms.ToolStripMenuItem chartDirToolStripMenuItem;
   }
 }

@@ -36,6 +36,10 @@ namespace aUtils {
         code.Invoke();
       }
     }
+    public static void Max(this double[] arr) {
+
+
+    }
     /*
     public static void SafeInvoke<t>(this Label isi, Action<t> call) where Label : ISynchronizeInvoke {
       if (isi.InvokeRequired)

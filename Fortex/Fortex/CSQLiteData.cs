@@ -74,6 +74,29 @@ namespace DiffPress {
     public void InsertDataRow(string device, double val1, double val2) {
       string DB_NAME = Application.StartupPath + @"\data.db";
       string connString = String.Format("Data Source={0};New=False;Version=3", DB_NAME);
+      //---------------------
+      SQLiteConnection sqlconn = new SQLiteConnection(connString);
+      string queryString = "INSERT INTO tblData (dt,device,val1,val2) VALUES (?,?,?,?)";
+      SQLiteCommand command = new SQLiteCommand(queryString);
+      command.Parameters.Add(new SQLiteParameter("@dt", DateTime.Now));
+      command.Parameters.Add(new SQLiteParameter("@device", device));
+      command.Parameters.Add(new SQLiteParameter("@val1", val1));
+      command.Parameters.Add(new SQLiteParameter("@val2", val2));
+
+      try {
+        sqlconn.Open();
+        command.Connection = sqlconn;
+        command.ExecuteNonQuery();
+      } catch (Exception ex) {
+        if (ex.Message.Contains("locked")) {
+        }
+      } finally {
+        sqlconn.Close();
+        command.Dispose();
+        sqlconn.Dispose();
+      }
+      //---------------------
+      /*
       using (var connection = new SQLiteConnection(connString)) {
         string queryString = "INSERT INTO tblData (dt,device,val1,val2) VALUES (?,?,?,?)";
         using (var command = new SQLiteCommand(queryString, connection)) {
@@ -84,7 +107,7 @@ namespace DiffPress {
           command.Connection.Open();
           command.ExecuteNonQuery();
         }
-      }
+      } */
     }
     public void InsertDataRow2(string device,double val1,double val2) {
       string DB_NAME = Application.StartupPath + @"\data.db";
