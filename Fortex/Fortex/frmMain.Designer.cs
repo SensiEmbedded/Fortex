@@ -40,6 +40,8 @@
           this.lblRemain = new System.Windows.Forms.Label();
           this.label3 = new System.Windows.Forms.Label();
           this.groupBox2 = new System.Windows.Forms.GroupBox();
+          this.pictureBox3 = new System.Windows.Forms.PictureBox();
+          this.pictureBox2 = new System.Windows.Forms.PictureBox();
           this.label2 = new System.Windows.Forms.Label();
           this.label1 = new System.Windows.Forms.Label();
           this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -60,8 +62,6 @@
           this.pictureBox5 = new System.Windows.Forms.PictureBox();
           this.pictureBox4 = new System.Windows.Forms.PictureBox();
           this.pictureBox1 = new System.Windows.Forms.PictureBox();
-          this.pictureBox3 = new System.Windows.Forms.PictureBox();
-          this.pictureBox2 = new System.Windows.Forms.PictureBox();
           this.pictureBox7 = new System.Windows.Forms.PictureBox();
           this.pictureBox8 = new System.Windows.Forms.PictureBox();
           this.pictureBox9 = new System.Windows.Forms.PictureBox();
@@ -70,14 +70,14 @@
           this.line2 = new Unclassified.UI.Line();
           this.grbStatus.SuspendLayout();
           this.groupBox2.SuspendLayout();
+          ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+          ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
           this.groupBox1.SuspendLayout();
           ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-          ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-          ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -154,6 +154,30 @@
           this.groupBox2.TabIndex = 45;
           this.groupBox2.TabStop = false;
           this.groupBox2.Text = "Params";
+          // 
+          // pictureBox3
+          // 
+          this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
+          this.pictureBox3.Image = global::DiffPress.Properties.Resources.FullScreen;
+          this.pictureBox3.Location = new System.Drawing.Point(22, 22);
+          this.pictureBox3.Name = "pictureBox3";
+          this.pictureBox3.Size = new System.Drawing.Size(89, 77);
+          this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+          this.pictureBox3.TabIndex = 41;
+          this.pictureBox3.TabStop = false;
+          this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+          // 
+          // pictureBox2
+          // 
+          this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
+          this.pictureBox2.Image = global::DiffPress.Properties.Resources.Wrench;
+          this.pictureBox2.Location = new System.Drawing.Point(136, 22);
+          this.pictureBox2.Name = "pictureBox2";
+          this.pictureBox2.Size = new System.Drawing.Size(89, 77);
+          this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+          this.pictureBox2.TabIndex = 41;
+          this.pictureBox2.TabStop = false;
+          this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
           // 
           // label2
           // 
@@ -283,7 +307,7 @@
           this.pnlFloor1.AutoScroll = true;
           this.pnlFloor1.AutoScrollMargin = new System.Drawing.Size(100, 10);
           this.pnlFloor1.BackColor = System.Drawing.Color.WhiteSmoke;
-          this.pnlFloor1.Location = new System.Drawing.Point(120, 498);
+          this.pnlFloor1.Location = new System.Drawing.Point(89, 494);
           this.pnlFloor1.Name = "pnlFloor1";
           this.pnlFloor1.Size = new System.Drawing.Size(2247, 115);
           this.pnlFloor1.TabIndex = 67;
@@ -295,7 +319,7 @@
           this.pnlFloor2.AutoScroll = true;
           this.pnlFloor2.AutoScrollMargin = new System.Drawing.Size(100, 10);
           this.pnlFloor2.BackColor = System.Drawing.Color.Gainsboro;
-          this.pnlFloor2.Location = new System.Drawing.Point(120, 341);
+          this.pnlFloor2.Location = new System.Drawing.Point(89, 337);
           this.pnlFloor2.Name = "pnlFloor2";
           this.pnlFloor2.Size = new System.Drawing.Size(2247, 115);
           this.pnlFloor2.TabIndex = 67;
@@ -307,7 +331,7 @@
           this.pnlFloor2_2.AutoScroll = true;
           this.pnlFloor2_2.AutoScrollMargin = new System.Drawing.Size(100, 10);
           this.pnlFloor2_2.BackColor = System.Drawing.Color.Gainsboro;
-          this.pnlFloor2_2.Location = new System.Drawing.Point(120, 222);
+          this.pnlFloor2_2.Location = new System.Drawing.Point(89, 218);
           this.pnlFloor2_2.Name = "pnlFloor2_2";
           this.pnlFloor2_2.Size = new System.Drawing.Size(2246, 115);
           this.pnlFloor2_2.TabIndex = 67;
@@ -319,7 +343,7 @@
           this.pnlFloor3.AutoScroll = true;
           this.pnlFloor3.AutoScrollMargin = new System.Drawing.Size(100, 10);
           this.pnlFloor3.BackColor = System.Drawing.Color.Gray;
-          this.pnlFloor3.Location = new System.Drawing.Point(120, 59);
+          this.pnlFloor3.Location = new System.Drawing.Point(89, 55);
           this.pnlFloor3.Name = "pnlFloor3";
           this.pnlFloor3.Size = new System.Drawing.Size(2252, 115);
           this.pnlFloor3.TabIndex = 67;
@@ -328,7 +352,7 @@
           // 
           this.label6.AutoSize = true;
           this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-          this.label6.Location = new System.Drawing.Point(42, 519);
+          this.label6.Location = new System.Drawing.Point(25, 496);
           this.label6.Name = "label6";
           this.label6.Size = new System.Drawing.Size(32, 33);
           this.label6.TabIndex = 69;
@@ -339,7 +363,7 @@
           // 
           this.label7.AutoSize = true;
           this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-          this.label7.Location = new System.Drawing.Point(45, 304);
+          this.label7.Location = new System.Drawing.Point(23, 277);
           this.label7.Name = "label7";
           this.label7.Size = new System.Drawing.Size(32, 33);
           this.label7.TabIndex = 71;
@@ -349,7 +373,7 @@
           // 
           this.label8.AutoSize = true;
           this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-          this.label8.Location = new System.Drawing.Point(37, 76);
+          this.label8.Location = new System.Drawing.Point(23, 62);
           this.label8.Name = "label8";
           this.label8.Size = new System.Drawing.Size(32, 33);
           this.label8.TabIndex = 73;
@@ -358,9 +382,9 @@
           // pictureBox6
           // 
           this.pictureBox6.Image = global::DiffPress.Properties.Resources.stair;
-          this.pictureBox6.Location = new System.Drawing.Point(6, 119);
+          this.pictureBox6.Location = new System.Drawing.Point(14, 97);
           this.pictureBox6.Name = "pictureBox6";
-          this.pictureBox6.Size = new System.Drawing.Size(83, 54);
+          this.pictureBox6.Size = new System.Drawing.Size(47, 34);
           this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
           this.pictureBox6.TabIndex = 78;
           this.pictureBox6.TabStop = false;
@@ -368,9 +392,9 @@
           // pictureBox5
           // 
           this.pictureBox5.Image = global::DiffPress.Properties.Resources.stair;
-          this.pictureBox5.Location = new System.Drawing.Point(14, 348);
+          this.pictureBox5.Location = new System.Drawing.Point(15, 318);
           this.pictureBox5.Name = "pictureBox5";
-          this.pictureBox5.Size = new System.Drawing.Size(83, 54);
+          this.pictureBox5.Size = new System.Drawing.Size(47, 34);
           this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
           this.pictureBox5.TabIndex = 77;
           this.pictureBox5.TabStop = false;
@@ -378,9 +402,9 @@
           // pictureBox4
           // 
           this.pictureBox4.Image = global::DiffPress.Properties.Resources.stair;
-          this.pictureBox4.Location = new System.Drawing.Point(16, 559);
+          this.pictureBox4.Location = new System.Drawing.Point(19, 536);
           this.pictureBox4.Name = "pictureBox4";
-          this.pictureBox4.Size = new System.Drawing.Size(83, 54);
+          this.pictureBox4.Size = new System.Drawing.Size(47, 34);
           this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
           this.pictureBox4.TabIndex = 68;
           this.pictureBox4.TabStop = false;
@@ -397,34 +421,10 @@
           this.pictureBox1.TabStop = false;
           this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
           // 
-          // pictureBox3
-          // 
-          this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
-          this.pictureBox3.Image = global::DiffPress.Properties.Resources.FullScreen;
-          this.pictureBox3.Location = new System.Drawing.Point(22, 22);
-          this.pictureBox3.Name = "pictureBox3";
-          this.pictureBox3.Size = new System.Drawing.Size(89, 77);
-          this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-          this.pictureBox3.TabIndex = 41;
-          this.pictureBox3.TabStop = false;
-          this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-          // 
-          // pictureBox2
-          // 
-          this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
-          this.pictureBox2.Image = global::DiffPress.Properties.Resources.Wrench;
-          this.pictureBox2.Location = new System.Drawing.Point(136, 22);
-          this.pictureBox2.Name = "pictureBox2";
-          this.pictureBox2.Size = new System.Drawing.Size(89, 77);
-          this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-          this.pictureBox2.TabIndex = 41;
-          this.pictureBox2.TabStop = false;
-          this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
-          // 
           // pictureBox7
           // 
           this.pictureBox7.Image = global::DiffPress.Properties.Resources.Bracket;
-          this.pictureBox7.Location = new System.Drawing.Point(101, 499);
+          this.pictureBox7.Location = new System.Drawing.Point(70, 495);
           this.pictureBox7.Name = "pictureBox7";
           this.pictureBox7.Size = new System.Drawing.Size(57, 114);
           this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -434,7 +434,7 @@
           // pictureBox8
           // 
           this.pictureBox8.Image = global::DiffPress.Properties.Resources.Bracket;
-          this.pictureBox8.Location = new System.Drawing.Point(101, 222);
+          this.pictureBox8.Location = new System.Drawing.Point(70, 218);
           this.pictureBox8.Name = "pictureBox8";
           this.pictureBox8.Size = new System.Drawing.Size(57, 237);
           this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -444,7 +444,7 @@
           // pictureBox9
           // 
           this.pictureBox9.Image = global::DiffPress.Properties.Resources.Bracket;
-          this.pictureBox9.Location = new System.Drawing.Point(101, 59);
+          this.pictureBox9.Location = new System.Drawing.Point(70, 55);
           this.pictureBox9.Name = "pictureBox9";
           this.pictureBox9.Size = new System.Drawing.Size(57, 114);
           this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -522,6 +522,8 @@
           this.grbStatus.PerformLayout();
           this.groupBox2.ResumeLayout(false);
           this.groupBox2.PerformLayout();
+          ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+          ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
           this.groupBox1.ResumeLayout(false);
           this.groupBox1.PerformLayout();
           ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -529,8 +531,6 @@
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-          ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-          ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();

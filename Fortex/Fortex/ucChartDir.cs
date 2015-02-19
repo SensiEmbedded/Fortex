@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -7,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using ChartDirector;
+
+
 
 namespace DiffPress {
   public partial class ucChartDir : UserControl {
@@ -65,6 +68,7 @@ namespace DiffPress {
 		void _cdev_Changed(object sender, EventArgs e) {
 			//./this.UIThread(() => this.ShowVals());
 		}
+    #region InitFunctions
     private void ucChartDir_Load(object sender, EventArgs e) {
       Control parent= this.Parent;
 
@@ -78,9 +82,7 @@ namespace DiffPress {
 				//glob = ((frmMain)parent).glob;
         return;
 			}
-      System.Data.DataSet ds = glob.data.GimitblMess(cdev.type,cdev.strID, dtpStart.Value,dtpEnd.Value,(int)nudLimit.Value);
-      UpdatePlot(ds);
-      
+      PopulateStaticLabels();
       //loadData();
       /*
       // In this demo, we obtain the horizontal scroll range from the actual data.
@@ -101,6 +103,28 @@ namespace DiffPress {
        */ 
 			
     }
+    
+
+    private void PopulateStaticLabels() {
+      if(cdev == null)return;
+      if (cdev.type == TypeDevice.RHT) {
+        cbShowHiAlarmsVal1.Text = "Temp High";
+        cbShowLoAlarmsVal1.Text = "Temp Low";
+        cbShowHiAlarmsVal2.Text = "RH High";
+        cbShowLoAlarmsVal2.Text = "RH Low";
+        cbShowHiAlarmsVal2.Visible = true;
+        cbShowLoAlarmsVal2.Visible = true;
+      } else {
+        cbShowHiAlarmsVal1.Text = "Press High";
+        cbShowLoAlarmsVal1.Text = "Press Low";
+        cbShowHiAlarmsVal2.Text = "---";
+        cbShowLoAlarmsVal2.Text = "---";
+        cbShowHiAlarmsVal2.Visible = false;
+        cbShowLoAlarmsVal2.Visible = false;
+      
+      }
+    }
+    #endregion
     #region Chart
     public bool SetDataSet(System.Data.DataSet ds) {
       if (ds == null) {
@@ -155,36 +179,6 @@ namespace DiffPress {
       return true;
     }
 
-		private void loadData()
-		{
-			// In this demo, we allow scrolling for the last 5 years.
-			DateTime lastDate = DateTime.Now.Date;
-			DateTime firstDate = DateTime.Now.Date.AddYears(-5);
-
-			// The initial view port is to show 1 year of data.
-			currentDuration = lastDate.Subtract(DateTime.Now.Date.AddYears(-1)).TotalSeconds;
-
-			//
-			// Get the data and stores them in a memory buffer for fast scrolling / zooming. In 
-			// this demo, we just use a random number generator. In practice, you may get the data
-			// from a database or XML or by other means. (See the ChartDirector documentation on 
-			// "Using Data Sources with ChartDirector" if you need some sample code on how to read
-			// data from database to array variables.)
-			//
-
-			// Set up random number generator
-			RanTable r = new RanTable(127, 4, lastDate.Subtract(firstDate).Days + 1);
-			r.setDateCol(0, firstDate, 86400);
-			r.setCol(1, 150, -10, 10);
-			r.setCol(2, 200, -10, 10);
-			r.setCol(3, 250, -10, 10);
-			
-			// Read random data into the data arrays
-			timeStamps = Chart.NTime(r.getCol(0));
-			dataSeriesA = r.getCol(1);
-			dataSeriesB = r.getCol(2);
-			
-		}
     private void winChartViewer1_ViewPortChanged(object sender, WinViewPortEventArgs e)
 		{
 			// Compute the view port start date and duration
@@ -233,13 +227,13 @@ namespace DiffPress {
 
       // Create an XYChart object 600 x 300 pixels in size, with pale blue (0xf0f0ff) 
 			// background, black (000000) border, 1 pixel raised effect, and with a rounded frame.
-			XYChart c = new XYChart(2*400, 2*200, 0xf0f0ff, 0, 1);
+			XYChart c = new XYChart(2*450, 2*250, 0xf0f0ff, 0, 1);
 			c.setRoundedFrame(Chart.CColor(BackColor));
 			
 			// Set the plotarea at (52, 60) and of size 520 x 192 pixels. Use white (ffffff) 
 			// background. Enable both horizontal and vertical grids by setting their colors to 
 			// grey (cccccc). Set clipping mode to clip the data lines to the plot area.
-			c.setPlotArea(52, 60, 2*400-100, 2*200 - 120, 0xffffff, -1, -1, 0xcccccc, 0xcccccc);
+			c.setPlotArea(42, 58, 2*450-50, 2*250 - 100, 0xffffff, -1, -1, 0xcccccc, 0xcccccc);
 			c.setClipping();
 
 			// Add a top title to the chart using 15 pts Times New Roman Bold Italic font, with a 
@@ -264,6 +258,8 @@ namespace DiffPress {
 			c.yAxis().setWidth(2);
 			c.xAxis().setWidth(2);
       c.xAxis().setLabelFormat("{value|yy/mm/dd \n hh:nn:ss}, ");
+      
+      
       //c.xAxis().setLabelGap(50);
 
 			// Add a title to the y-axis
@@ -298,10 +294,8 @@ namespace DiffPress {
 			//layer.addDataSet( dataSeriesA , 0xff0000, "Temp");
 			//layer.addDataSet(dataSeriesB, 0x00cc00, "RH");
 
-      layer.addDataSet(dataSeriesA, 0xff0000, "Temp").setDataSymbol(Chart.DiamondSymbol, 9);
-			layer.addDataSet(dataSeriesB, 0x00cc00, "RH").setDataSymbol(Chart.SquareSymbol, 9);;
-      
-			
+      layer.addDataSet(dataSeriesA, 0xff0000, "Temp").setDataSymbol(Chart.DiamondSymbol, 7);
+			layer.addDataSet(dataSeriesB, 0x00cc00, "RH").setDataSymbol(Chart.SquareSymbol, 7);
 
 			///////////////////////////////////////////////////////////////////////////////////////
 			// Step 3 - Set up x-axis scale
@@ -309,7 +303,8 @@ namespace DiffPress {
 			
 			// Set x-axis date scale to the view port date range. 
 			c.xAxis().setDateScale(viewPortStartDate, viewPortEndDate);
-      //c.xAxis().setAutoScale();
+      c.xAxis().setLabelStep(1);
+      
 
 			
 			///////////////////////////////////////////////////////////////////////////////////////
@@ -337,9 +332,8 @@ namespace DiffPress {
       ///////////////////////////////////////////////////////////////////////////////////////
 			// Step - Make line for Alarm limits
 			///////////////////////////////////////////////////////////////////////////////////////
-      Mark m = c.yAxis().addMark(70, 0xff0000, "Alarm = " + 70);
-      m.setAlignment(Chart.Left);
-			m.setBackground(0xffcccc);
+      ShowAlarmsInChart(c);
+      
 			///////////////////////////////////////////////////////////////////////////////////////
 			// Step 5 - Display the chart
 			///////////////////////////////////////////////////////////////////////////////////////
@@ -348,6 +342,49 @@ namespace DiffPress {
       viewer.ZoomDirection = WinChartDirection.HorizontalVertical;
 		  viewer.ScrollDirection = WinChartDirection.HorizontalVertical;
     }
+    
+    private void ShowRHAlarms(XYChart c){
+      //Red temperatura, Green - RH
+      double alTempHi = cdev.alarmHiTemp;
+      double alTempLo = cdev.alarmLoTemp;
+      double alRHHi = cdev.alarmHiRH;
+      double alRHLo = cdev.alarmLoRH;
+
+      Mark m = null;
+
+      if (cbShowHiAlarmsVal1.Checked == true) {
+        m = c.yAxis().addMark(alTempHi, 0xff0000, "AlarmTHi = " + alTempHi.ToString());
+        m.setAlignment(Chart.Left);
+        m.setBackground(0xffcccc);
+      }
+      if (cbShowLoAlarmsVal1.Checked == true) {
+        m = c.yAxis().addMark(alTempLo, 0xff0000, "AlarmTLo = " + alTempLo.ToString());
+        m.setAlignment(Chart.Left);
+        m.setBackground(0xffcccc);
+      }
+      if (cbShowLoAlarmsVal2.Checked == true) {
+        m = c.yAxis().addMark(alRHLo, 0x00ff00, "AlarmRhLo = " + alRHLo.ToString());
+        m.setAlignment(Chart.Right);
+        m.setBackground(0xccffcc);
+      }
+      if (cbShowHiAlarmsVal2.Checked == true) {
+        m = c.yAxis().addMark(alRHHi, 0x00ff00, "AlarmRhHi = " + alRHHi.ToString());
+        m.setAlignment(Chart.Right);
+        m.setBackground(0xccffcc);
+      }
+
+    }
+    private void ShowPressureAlarms(XYChart c){
+    }
+    private void ShowAlarmsInChart(XYChart c) {
+      if(cdev == null )return;
+      if (cdev.type == TypeDevice.RHT) {
+        ShowRHAlarms(c);
+      } else {
+        ShowPressureAlarms(c);
+      }
+    }
+
     private void drawChartOld(WinChartViewer viewer)
 		{ 
 			//
@@ -623,7 +660,9 @@ namespace DiffPress {
         return ;
       }
       minDate = timeStamps[0];
+      minDate = minDate.AddSeconds(-10); 
 			dateRange = timeStamps[timeStamps.Length - 1].Subtract(minDate).TotalSeconds;
+      dateRange += 10;
 
       
       minValue = dataSeriesA.Min();
@@ -635,6 +674,8 @@ namespace DiffPress {
       minValue -= 2;
       maxValue += 2;
       if(minValue < -20000)minValue = -20050;//da se vizda po-hubavo
+
+      maxValue = 100;//ebal sym go
       //minValue i maxValue sa Limiti na zoom-a
 
 			// Set the winChartViewer to reflect the visible and minimum duration
@@ -653,10 +694,9 @@ namespace DiffPress {
 			winChartViewer1.updateViewPort(true, true);
 
     }
-    private void btnUpdate_Click(object sender, EventArgs e) {
-      System.Data.DataSet ds = glob.data.GimitblMess(cdev.type,cdev.strID, dtpStart.Value,dtpEnd.Value,(int)nudLimit.Value);
-      UpdatePlot(ds);
-      //winChartViewer1.Chart.yAxis().setLinearScale(axisLowerLimit, axisUpperLimit);
+
+    private void cbShowHiAlarmsVal1_CheckedChanged(object sender, EventArgs e) {
+      winChartViewer1.updateViewPort(true, true);
     }
 
   }

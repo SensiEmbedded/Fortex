@@ -260,9 +260,39 @@ namespace DiffPress {
         Write2DB();
       } */
     }
-
+    #region Artificial Properties
     
+    public double  RH {
+      get {return val2;}
+      set{val2 = value;}
+    }
+    public double  Temp {
+      get {return val1;}
+      set{val1 = value;}
+    }
+    public double  DiffPress {
+      get {return val1;}
+      set{val1 = value;}
+    }
 
+    public double  alarmHiTemp {
+      get {return alarmHiVal1;}
+      set{alarmHiVal1 = value;}
+    }
+    public double  alarmLoTemp {
+      get {return alarmLowVal1;}
+      set{alarmLowVal1 = value;}
+    }
+    public double  alarmHiRH {
+      get {return alarmHiVal2;}
+      set{alarmHiVal2 = value;}
+    }
+    public double  alarmLoRH {
+      get {return alarmLowVal2;}
+      set{alarmLowVal2 = value;}
+    }
+
+    #endregion
     private double _val1;
     [Browsable(false)]
     public double val1 {get{ return _val1;} set {_val1 = value; FireChangeEvent();}}

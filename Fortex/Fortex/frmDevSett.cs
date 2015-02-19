@@ -46,15 +46,15 @@ namespace DiffPress {
       
     }
     private void SetRHTTypeControl() {
-      grpBox1.Text = "Humidity (%)";
+      grpBox1.Text = "Temperature (" + ((char)176).ToString() + "C)";
+      grpBox2.Text = "Humidity (%)";
       grpBox2.Visible = true;
-      grpBox2.Text = "Temperature (" + ((char)176).ToString() + "C)";
       pbDevices.Image = imageList1.Images[0];
     }
     private void SetPressureTypeControl() {
       grpBox1.Text = "Diff.Pressure (PA)";
+      grpBox2.Text = "---";
       grpBox2.Visible = false;
-      grpBox2.Text = "Temperature (" + ((char)176).ToString() + "C)";
       pbDevices.Image = imageList1.Images[1];
     }
     private void btnOK_Click(object sender, EventArgs e) {

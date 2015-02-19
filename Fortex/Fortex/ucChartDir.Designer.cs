@@ -26,112 +26,32 @@
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucChartDir));
       this.panel1 = new System.Windows.Forms.Panel();
-      this.btnUpdate = new System.Windows.Forms.Button();
-      this.label12 = new System.Windows.Forms.Label();
-      this.nudLimit = new System.Windows.Forms.NumericUpDown();
-      this.label11 = new System.Windows.Forms.Label();
-      this.label10 = new System.Windows.Forms.Label();
-      this.dtpEnd = new System.Windows.Forms.DateTimePicker();
-      this.dtpStart = new System.Windows.Forms.DateTimePicker();
       this.pointerPB = new System.Windows.Forms.RadioButton();
       this.zoomInPB = new System.Windows.Forms.RadioButton();
       this.zoomOutPB = new System.Windows.Forms.RadioButton();
       this.imageList1 = new System.Windows.Forms.ImageList(this.components);
       this.winChartViewer1 = new ChartDirector.WinChartViewer();
+      this.groupBox1 = new System.Windows.Forms.GroupBox();
+      this.groupBox2 = new System.Windows.Forms.GroupBox();
+      this.cbShowHiAlarmsVal1 = new System.Windows.Forms.CheckBox();
+      this.cbShowLoAlarmsVal1 = new System.Windows.Forms.CheckBox();
+      this.cbShowLoAlarmsVal2 = new System.Windows.Forms.CheckBox();
+      this.cbShowHiAlarmsVal2 = new System.Windows.Forms.CheckBox();
       this.panel1.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.nudLimit)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.winChartViewer1)).BeginInit();
+      this.groupBox1.SuspendLayout();
+      this.groupBox2.SuspendLayout();
       this.SuspendLayout();
       // 
       // panel1
       // 
-      this.panel1.Controls.Add(this.btnUpdate);
-      this.panel1.Controls.Add(this.label12);
-      this.panel1.Controls.Add(this.nudLimit);
-      this.panel1.Controls.Add(this.label11);
-      this.panel1.Controls.Add(this.label10);
-      this.panel1.Controls.Add(this.dtpEnd);
-      this.panel1.Controls.Add(this.dtpStart);
-      this.panel1.Controls.Add(this.pointerPB);
-      this.panel1.Controls.Add(this.zoomInPB);
-      this.panel1.Controls.Add(this.zoomOutPB);
+      this.panel1.Controls.Add(this.groupBox2);
+      this.panel1.Controls.Add(this.groupBox1);
       this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
       this.panel1.Location = new System.Drawing.Point(0, 0);
       this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(151, 414);
+      this.panel1.Size = new System.Drawing.Size(126, 414);
       this.panel1.TabIndex = 0;
-      // 
-      // btnUpdate
-      // 
-      this.btnUpdate.Location = new System.Drawing.Point(13, 243);
-      this.btnUpdate.Name = "btnUpdate";
-      this.btnUpdate.Size = new System.Drawing.Size(120, 36);
-      this.btnUpdate.TabIndex = 83;
-      this.btnUpdate.Text = "button1";
-      this.btnUpdate.UseVisualStyleBackColor = true;
-      this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-      // 
-      // label12
-      // 
-      this.label12.AutoSize = true;
-      this.label12.Location = new System.Drawing.Point(11, 193);
-      this.label12.Name = "label12";
-      this.label12.Size = new System.Drawing.Size(68, 13);
-      this.label12.TabIndex = 81;
-      this.label12.Text = "Max records:";
-      // 
-      // nudLimit
-      // 
-      this.nudLimit.Location = new System.Drawing.Point(14, 211);
-      this.nudLimit.Maximum = new decimal(new int[] {
-            100000,
-            0,
-            0,
-            0});
-      this.nudLimit.Name = "nudLimit";
-      this.nudLimit.Size = new System.Drawing.Size(83, 20);
-      this.nudLimit.TabIndex = 80;
-      this.nudLimit.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-      // 
-      // label11
-      // 
-      this.label11.AutoSize = true;
-      this.label11.Location = new System.Drawing.Point(12, 145);
-      this.label11.Name = "label11";
-      this.label11.Size = new System.Drawing.Size(93, 13);
-      this.label11.TabIndex = 79;
-      this.label11.Text = "End date and time";
-      // 
-      // label10
-      // 
-      this.label10.AutoSize = true;
-      this.label10.Location = new System.Drawing.Point(12, 104);
-      this.label10.Name = "label10";
-      this.label10.Size = new System.Drawing.Size(96, 13);
-      this.label10.TabIndex = 78;
-      this.label10.Text = "Start date and time";
-      // 
-      // dtpEnd
-      // 
-      this.dtpEnd.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-      this.dtpEnd.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-      this.dtpEnd.Location = new System.Drawing.Point(14, 162);
-      this.dtpEnd.Name = "dtpEnd";
-      this.dtpEnd.Size = new System.Drawing.Size(120, 20);
-      this.dtpEnd.TabIndex = 77;
-      // 
-      // dtpStart
-      // 
-      this.dtpStart.CustomFormat = "yyyy-MM-dd HH:mm:ss";
-      this.dtpStart.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-      this.dtpStart.Location = new System.Drawing.Point(12, 119);
-      this.dtpStart.Name = "dtpStart";
-      this.dtpStart.Size = new System.Drawing.Size(122, 20);
-      this.dtpStart.TabIndex = 76;
       // 
       // pointerPB
       // 
@@ -139,9 +59,9 @@
       this.pointerPB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.pointerPB.Image = ((System.Drawing.Image)(resources.GetObject("pointerPB.Image")));
       this.pointerPB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      this.pointerPB.Location = new System.Drawing.Point(11, 16);
+      this.pointerPB.Location = new System.Drawing.Point(7, 18);
       this.pointerPB.Name = "pointerPB";
-      this.pointerPB.Size = new System.Drawing.Size(120, 25);
+      this.pointerPB.Size = new System.Drawing.Size(103, 25);
       this.pointerPB.TabIndex = 46;
       this.pointerPB.Text = "      Pointer";
       this.pointerPB.CheckedChanged += new System.EventHandler(this.pointerPB_CheckedChanged);
@@ -152,9 +72,9 @@
       this.zoomInPB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.zoomInPB.Image = ((System.Drawing.Image)(resources.GetObject("zoomInPB.Image")));
       this.zoomInPB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      this.zoomInPB.Location = new System.Drawing.Point(11, 41);
+      this.zoomInPB.Location = new System.Drawing.Point(7, 43);
       this.zoomInPB.Name = "zoomInPB";
-      this.zoomInPB.Size = new System.Drawing.Size(120, 25);
+      this.zoomInPB.Size = new System.Drawing.Size(103, 25);
       this.zoomInPB.TabIndex = 47;
       this.zoomInPB.Text = "      Zoom In";
       this.zoomInPB.CheckedChanged += new System.EventHandler(this.zoomInPB_CheckedChanged);
@@ -165,9 +85,9 @@
       this.zoomOutPB.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
       this.zoomOutPB.Image = ((System.Drawing.Image)(resources.GetObject("zoomOutPB.Image")));
       this.zoomOutPB.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-      this.zoomOutPB.Location = new System.Drawing.Point(11, 65);
+      this.zoomOutPB.Location = new System.Drawing.Point(7, 67);
       this.zoomOutPB.Name = "zoomOutPB";
-      this.zoomOutPB.Size = new System.Drawing.Size(120, 24);
+      this.zoomOutPB.Size = new System.Drawing.Size(104, 24);
       this.zoomOutPB.TabIndex = 48;
       this.zoomOutPB.Text = "      Zoom Out";
       this.zoomOutPB.CheckedChanged += new System.EventHandler(this.zoomOutPB_CheckedChanged);
@@ -196,10 +116,10 @@
       this.winChartViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
       this.winChartViewer1.ChartSizeMode = ChartDirector.WinChartSizeMode.StretchImage;
       this.winChartViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-      this.winChartViewer1.Location = new System.Drawing.Point(151, 0);
+      this.winChartViewer1.Location = new System.Drawing.Point(126, 0);
       this.winChartViewer1.Name = "winChartViewer1";
       this.winChartViewer1.ScrollDirection = ChartDirector.WinChartDirection.HorizontalVertical;
-      this.winChartViewer1.Size = new System.Drawing.Size(714, 414);
+      this.winChartViewer1.Size = new System.Drawing.Size(739, 414);
       this.winChartViewer1.TabIndex = 47;
       this.winChartViewer1.TabStop = false;
       this.winChartViewer1.ZoomDirection = ChartDirector.WinChartDirection.HorizontalVertical;
@@ -207,6 +127,75 @@
       this.winChartViewer1.ZoomInWidthLimit = 0.001D;
       this.winChartViewer1.ZoomOutRatio = 0.05D;
       this.winChartViewer1.ViewPortChanged += new ChartDirector.WinViewPortEventHandler(this.winChartViewer1_ViewPortChanged);
+      // 
+      // groupBox1
+      // 
+      this.groupBox1.Controls.Add(this.zoomOutPB);
+      this.groupBox1.Controls.Add(this.zoomInPB);
+      this.groupBox1.Controls.Add(this.pointerPB);
+      this.groupBox1.Location = new System.Drawing.Point(3, 7);
+      this.groupBox1.Name = "groupBox1";
+      this.groupBox1.Size = new System.Drawing.Size(116, 111);
+      this.groupBox1.TabIndex = 50;
+      this.groupBox1.TabStop = false;
+      this.groupBox1.Text = "Chart Control";
+      // 
+      // groupBox2
+      // 
+      this.groupBox2.Controls.Add(this.cbShowLoAlarmsVal2);
+      this.groupBox2.Controls.Add(this.cbShowHiAlarmsVal2);
+      this.groupBox2.Controls.Add(this.cbShowLoAlarmsVal1);
+      this.groupBox2.Controls.Add(this.cbShowHiAlarmsVal1);
+      this.groupBox2.Location = new System.Drawing.Point(6, 130);
+      this.groupBox2.Name = "groupBox2";
+      this.groupBox2.Size = new System.Drawing.Size(116, 111);
+      this.groupBox2.TabIndex = 51;
+      this.groupBox2.TabStop = false;
+      this.groupBox2.Text = "Alarms Show/Hide";
+      // 
+      // cbShowHiAlarmsVal1
+      // 
+      this.cbShowHiAlarmsVal1.AutoSize = true;
+      this.cbShowHiAlarmsVal1.Location = new System.Drawing.Point(4, 24);
+      this.cbShowHiAlarmsVal1.Name = "cbShowHiAlarmsVal1";
+      this.cbShowHiAlarmsVal1.Size = new System.Drawing.Size(94, 17);
+      this.cbShowHiAlarmsVal1.TabIndex = 0;
+      this.cbShowHiAlarmsVal1.Text = "ShowHiAlarms";
+      this.cbShowHiAlarmsVal1.UseVisualStyleBackColor = true;
+      this.cbShowHiAlarmsVal1.CheckedChanged += new System.EventHandler(this.cbShowHiAlarmsVal1_CheckedChanged);
+      // 
+      // cbShowLoAlarmsVal1
+      // 
+      this.cbShowLoAlarmsVal1.AutoSize = true;
+      this.cbShowLoAlarmsVal1.Location = new System.Drawing.Point(4, 44);
+      this.cbShowLoAlarmsVal1.Name = "cbShowLoAlarmsVal1";
+      this.cbShowLoAlarmsVal1.Size = new System.Drawing.Size(96, 17);
+      this.cbShowLoAlarmsVal1.TabIndex = 1;
+      this.cbShowLoAlarmsVal1.Text = "ShowLoAlarms";
+      this.cbShowLoAlarmsVal1.UseVisualStyleBackColor = true;
+      this.cbShowLoAlarmsVal1.CheckedChanged += new System.EventHandler(this.cbShowHiAlarmsVal1_CheckedChanged);
+      // 
+      // cbShowLoAlarmsVal2
+      // 
+      this.cbShowLoAlarmsVal2.AutoSize = true;
+      this.cbShowLoAlarmsVal2.Location = new System.Drawing.Point(4, 88);
+      this.cbShowLoAlarmsVal2.Name = "cbShowLoAlarmsVal2";
+      this.cbShowLoAlarmsVal2.Size = new System.Drawing.Size(96, 17);
+      this.cbShowLoAlarmsVal2.TabIndex = 3;
+      this.cbShowLoAlarmsVal2.Text = "ShowLoAlarms";
+      this.cbShowLoAlarmsVal2.UseVisualStyleBackColor = true;
+      this.cbShowLoAlarmsVal2.CheckedChanged += new System.EventHandler(this.cbShowHiAlarmsVal1_CheckedChanged);
+      // 
+      // cbShowHiAlarmsVal2
+      // 
+      this.cbShowHiAlarmsVal2.AutoSize = true;
+      this.cbShowHiAlarmsVal2.Location = new System.Drawing.Point(4, 65);
+      this.cbShowHiAlarmsVal2.Name = "cbShowHiAlarmsVal2";
+      this.cbShowHiAlarmsVal2.Size = new System.Drawing.Size(94, 17);
+      this.cbShowHiAlarmsVal2.TabIndex = 2;
+      this.cbShowHiAlarmsVal2.Text = "ShowHiAlarms";
+      this.cbShowHiAlarmsVal2.UseVisualStyleBackColor = true;
+      this.cbShowHiAlarmsVal2.CheckedChanged += new System.EventHandler(this.cbShowHiAlarmsVal1_CheckedChanged);
       // 
       // ucChartDir
       // 
@@ -218,9 +207,10 @@
       this.Size = new System.Drawing.Size(865, 414);
       this.Load += new System.EventHandler(this.ucChartDir_Load);
       this.panel1.ResumeLayout(false);
-      this.panel1.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.nudLimit)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.winChartViewer1)).EndInit();
+      this.groupBox1.ResumeLayout(false);
+      this.groupBox2.ResumeLayout(false);
+      this.groupBox2.PerformLayout();
       this.ResumeLayout(false);
 
     }
@@ -232,13 +222,12 @@
     private System.Windows.Forms.RadioButton pointerPB;
     private System.Windows.Forms.RadioButton zoomInPB;
     private System.Windows.Forms.RadioButton zoomOutPB;
-    private System.Windows.Forms.Label label12;
-    private System.Windows.Forms.NumericUpDown nudLimit;
-    private System.Windows.Forms.Label label11;
-    private System.Windows.Forms.Label label10;
-    private System.Windows.Forms.DateTimePicker dtpEnd;
-    private System.Windows.Forms.DateTimePicker dtpStart;
-    private System.Windows.Forms.Button btnUpdate;
     private System.Windows.Forms.ImageList imageList1;
+    private System.Windows.Forms.GroupBox groupBox2;
+    private System.Windows.Forms.CheckBox cbShowLoAlarmsVal1;
+    private System.Windows.Forms.CheckBox cbShowHiAlarmsVal1;
+    private System.Windows.Forms.GroupBox groupBox1;
+    private System.Windows.Forms.CheckBox cbShowLoAlarmsVal2;
+    private System.Windows.Forms.CheckBox cbShowHiAlarmsVal2;
   }
 }
