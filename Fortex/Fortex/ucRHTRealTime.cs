@@ -185,7 +185,8 @@ namespace DiffPress {
 
     private void ucRHTRealTime_Click(object sender, EventArgs e) {
       
-      frmIxView frm = new frmIxView();
+      frmChartDir frm = new frmChartDir();
+      //frm.SetRef(ref glob);
       frm.cdev = _cdev;
       frm.ShowDialog(this);
     }

@@ -93,9 +93,11 @@ namespace DiffPress {
     }
 
     private void ucDiffPressRealTime_Click(object sender, EventArgs e) {
-      frmIxView frm = new frmIxView();
+      frmChartDir frm = new frmChartDir();
+      //frm.SetRef(ref glob);
       frm.cdev = _cdev;
       frm.ShowDialog(this);
+      
     }
      private void chartDirToolStripMenuItem_Click(object sender, EventArgs e) {
       frmChartDir frm = new frmChartDir();

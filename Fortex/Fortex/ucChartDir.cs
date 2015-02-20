@@ -126,6 +126,9 @@ namespace DiffPress {
     }
     #endregion
     #region Chart
+    public WinChartViewer GimiChart() {
+      return winChartViewer1;
+    }
     public bool SetDataSet(System.Data.DataSet ds) {
       if (ds == null) {
         return false;
@@ -212,10 +215,9 @@ namespace DiffPress {
     private void updateImageMap(WinChartViewer viewer)
 		{
 			// Include tool tip for the chart
-			if (winChartViewer1.ImageMap == null)
-			{
+			if (winChartViewer1.ImageMap == null){
 				winChartViewer1.ImageMap = winChartViewer1.Chart.getHTMLImageMap("clickable", "",
-					"title='[{dataSetName}] {x|mmm dd, yyyy}: USD {value|2}'");
+					"title='[{dataSetName}] {x|yyyy mm dd \n hh:mm:ss}: value {value|2}'");
         
         //plotToolBarStandard1.Plot = 
 			}
@@ -238,7 +240,11 @@ namespace DiffPress {
 
 			// Add a top title to the chart using 15 pts Times New Roman Bold Italic font, with a 
 			// light blue (ccccff) background, black (000000) border, and a glass like raised effect.
-			c.addTitle("RH & T recorded data", "Times New Roman Bold Italic", 10 ).setBackground(0xccccff, 0x0, Chart.glassEffect());
+      if (cdev.type == TypeDevice.RHT) {
+        c.addTitle("RH & T recorded data", "Times New Roman Bold Italic", 10).setBackground(0xccccff, 0x0, Chart.glassEffect());
+      } else {
+        c.addTitle("Diff. Pressure recorded data", "Times New Roman Bold Italic", 10).setBackground(0xccccff, 0x0, Chart.glassEffect());
+      }
 
 			// Add a bottom title to the chart to show the date range of the axis, with a light blue 
 			// (ccccff) background.
@@ -263,17 +269,8 @@ namespace DiffPress {
       //c.xAxis().setLabelGap(50);
 
 			// Add a title to the y-axis
-			c.yAxis().setTitle("RH(%) Temperature", "Arial Bold", 9);
-      /*
-      if (timeStamps.Length > 100) {
-       ArrayMath mm = new ArrayMath(timeStamps);
-			  mm.selectRegularSpacing(timeStamps.Length / 50);
-			  // For the timestamps, take the first timestamp on each slot
-			  timeStamps = mm.aggregate(timeStamps, Chart.AggregateFirst);
-			  // For the data values, aggregate by taking the averages
-			  dataSeriesA = mm.aggregate(dataSeriesA, Chart.AggregateAvg);
-			  dataSeriesB = mm.aggregate(dataSeriesB, Chart.AggregateAvg);
-      } */
+			//./c.yAxis().setTitle("RH(%) Temperature", "Arial Bold", 9);
+      
 
 			///////////////////////////////////////////////////////////////////////////////////////
 			// Step 2 - Add data to chart
@@ -293,9 +290,14 @@ namespace DiffPress {
 			layer.setXData(timeStamps);
 			//layer.addDataSet( dataSeriesA , 0xff0000, "Temp");
 			//layer.addDataSet(dataSeriesB, 0x00cc00, "RH");
-
-      layer.addDataSet(dataSeriesA, 0xff0000, "Temp").setDataSymbol(Chart.DiamondSymbol, 7);
-			layer.addDataSet(dataSeriesB, 0x00cc00, "RH").setDataSymbol(Chart.SquareSymbol, 7);
+      if (cdev.type == TypeDevice.RHT) {
+        layer.addDataSet(dataSeriesA, 0xff0000, "Temp").setDataSymbol(Chart.DiamondSymbol, 7);
+			  layer.addDataSet(dataSeriesB, 0x00cc00, "RH").setDataSymbol(Chart.SquareSymbol, 7);
+      } else {
+        layer.addDataSet(dataSeriesA, 0xff0000, "Pressure").setDataSymbol(Chart.DiamondSymbol, 7);
+			  
+      }
+      
 
 			///////////////////////////////////////////////////////////////////////////////////////
 			// Step 3 - Set up x-axis scale
@@ -375,6 +377,23 @@ namespace DiffPress {
 
     }
     private void ShowPressureAlarms(XYChart c){
+      //Red temperatura, Green - RH
+      double alDiffHi = cdev.alarmHiDiffPress;
+      double alDiffLo = cdev.alarmLoDiffPress;
+      
+      Mark m = null;
+
+      if (cbShowHiAlarmsVal1.Checked == true) {
+        m = c.yAxis().addMark(alDiffHi, 0xff0000, "AlarmTHi = " + alDiffHi.ToString());
+        m.setAlignment(Chart.Left);
+        m.setBackground(0xffcccc);
+      }
+      if (cbShowLoAlarmsVal1.Checked == true) {
+        m = c.yAxis().addMark(alDiffLo, 0xff0000, "AlarmTLo = " + alDiffLo.ToString());
+        m.setAlignment(Chart.Left);
+        m.setBackground(0xffcccc);
+      }
+      
     }
     private void ShowAlarmsInChart(XYChart c) {
       if(cdev == null )return;
@@ -385,207 +404,7 @@ namespace DiffPress {
       }
     }
 
-    private void drawChartOld(WinChartViewer viewer)
-		{ 
-			//
-			// In this demo, we copy the visible part of the data to a separate buffer for chart
-			// plotting. 
-			//
-			// Note that if you only have a small amount of data (a few hundred data points), it
-			// may be easier to just plot all data in any case (so the following copying code is 
-			// not needed), and let ChartDirector "clip" the chart to the plot area. 
-			//
-
-			// Using ViewPortLeft and ViewPortWidth, get the start and end dates of the view port.
-			DateTime viewPortStartDate = minDate.AddSeconds(Math.Round(viewer.ViewPortLeft * dateRange));
-			DateTime viewPortEndDate = viewPortStartDate.AddSeconds(Math.Round(viewer.ViewPortWidth * dateRange));
-				
-			// Get the starting index of the array using the start date
-			int startIndex = Array.BinarySearch(timeStamps, viewPortStartDate);
-			if (startIndex < 0) 
-				startIndex = (~startIndex) - 1;
-			
-			// Get the ending index of the array using the end date
-			int endIndex = Array.BinarySearch(timeStamps, viewPortEndDate);
-			if (endIndex < 0) 
-				endIndex = ((~endIndex) < timeStamps.Length) ? ~endIndex : timeStamps.Length - 1;
-
-			// Get the length
-			int noOfPoints = endIndex - startIndex + 1;
-
-			// Now, we can just copy the visible data we need into the view port data series
-			DateTime[] viewPortTimeStamps = new DateTime[noOfPoints];
-			double[] viewPortDataSeriesA = new double[noOfPoints];
-			double[] viewPortDataSeriesB = new double[noOfPoints];
-			
-			Array.Copy(timeStamps, startIndex, viewPortTimeStamps, 0, noOfPoints);
-			Array.Copy(dataSeriesA, startIndex, viewPortDataSeriesA, 0, noOfPoints);
-			Array.Copy(dataSeriesB, startIndex, viewPortDataSeriesB, 0, noOfPoints);
-			
-
-      if (viewPortTimeStamps.Length >= 520)	{
-				//
-				// Zoomable chart with high zooming ratios often need to plot many thousands of 
-				// points when fully zoomed out. However, it is usually not needed to plot more
-				// data points than the resolution of the chart. Plotting too many points may cause
-				// the points and the lines to overlap. So rather than increasing resolution, this 
-				// reduces the clarity of the chart. So it is better to aggregate the data first if
-				// there are too many points.
-				//
-				// In our current example, the chart only has 520 pixels in width and is using a 2
-				// pixel line width. So if there are more than 520 data points, we aggregate the 
-				// data using the ChartDirector aggregation utility method.
-				//
-				// If in your real application, you do not have too many data points, you may 
-				// remove the following code altogether.
-				//
-
-				// Set up an aggregator to aggregate the data based on regular sized slots
-				ArrayMath m = new ArrayMath(viewPortTimeStamps);
-				m.selectRegularSpacing(viewPortTimeStamps.Length / 260);
-				
-				// For the timestamps, take the first timestamp on each slot
-				viewPortTimeStamps = m.aggregate(viewPortTimeStamps, Chart.AggregateFirst);
-
-				// For the data values, aggregate by taking the averages
-				viewPortDataSeriesA = m.aggregate(viewPortDataSeriesA, Chart.AggregateAvg);
-				viewPortDataSeriesB = m.aggregate(viewPortDataSeriesB, Chart.AggregateAvg);
-				
-			}
-
-			//
-			// Now we have obtained the data, we can plot the chart. 
-			//
-
-			///////////////////////////////////////////////////////////////////////////////////////
-			// Step 1 - Configure overall chart appearance. 
-			///////////////////////////////////////////////////////////////////////////////////////
-
-			// Create an XYChart object 600 x 300 pixels in size, with pale blue (0xf0f0ff) 
-			// background, black (000000) border, 1 pixel raised effect, and with a rounded frame.
-			XYChart c = new XYChart(2*600, 2*300, 0xf0f0ff, 0, 1);
-			c.setRoundedFrame(Chart.CColor(BackColor));
-			
-			// Set the plotarea at (52, 60) and of size 520 x 192 pixels. Use white (ffffff) 
-			// background. Enable both horizontal and vertical grids by setting their colors to 
-			// grey (cccccc). Set clipping mode to clip the data lines to the plot area.
-			c.setPlotArea(52, 60, 2*600-80, 2*300 - 100, 0xffffff, -1, -1, 0xcccccc, 0xcccccc);
-			c.setClipping();
-
-			// Add a top title to the chart using 15 pts Times New Roman Bold Italic font, with a 
-			// light blue (ccccff) background, black (000000) border, and a glass like raised effect.
-			c.addTitle("RH & T recorded data", "Times New Roman Bold Italic", 10 ).setBackground(0xccccff, 0x0, Chart.glassEffect());
-
-			// Add a bottom title to the chart to show the date range of the axis, with a light blue 
-			// (ccccff) background.
-      
-			c.addTitle2(Chart.Bottom, "From <*font=Arial Bold Italic*>" 
-		  		+ c.formatValue(viewPortStartDate, "{value|mmm dd, yyyy}") 
-				+ "<*/font*> to <*font=Arial Bold Italic*>" 
-				+ c.formatValue(viewPortEndDate, "{value|mmm dd, yyyy}") 
-				+ "<*/font*> (Duration <*font=Arial Bold Italic*>" 
-				+ Math.Round(viewPortEndDate.Subtract(viewPortStartDate).TotalSeconds / 86400.0)
-				+ "<*/font*> days)", "Arial Italic", 10).setBackground(0xccccff);
-
-			// Add a legend box at the top of the plot area with 9pts Arial Bold font with flow layout. 
-			c.addLegend(50, 33, false, "Arial Bold", 9).setBackground(Chart.Transparent, Chart.Transparent);
-
-			// Set axes width to 2 pixels
-			c.yAxis().setWidth(2);
-			c.xAxis().setWidth(2);
-
-			// Add a title to the y-axis
-			c.yAxis().setTitle("RH(%) Temperature", "Arial Bold", 9);
-
-			///////////////////////////////////////////////////////////////////////////////////////
-			// Step 2 - Add data to chart
-			///////////////////////////////////////////////////////////////////////////////////////
-		
-			// 
-			// In this example, we represent the data by lines. You may modify the code below if 
-			// you want to use other representations (areas, scatter plot, etc).
-			//
-
-			// Add a line layer for the lines, using a line width of 2 pixels
-			Layer layer = c.addLineLayer2();
-			layer.setLineWidth(2);
-
-			// Now we add the 3 data series to a line layer, using the color red (ff0000), green
-			// (00cc00) and blue (0000ff)
-			layer.setXData(viewPortTimeStamps);
-			layer.addDataSet(viewPortDataSeriesA, 0xff0000, "Temp").setDataSymbol(Chart.DiamondSymbol, 9);
-			layer.addDataSet(viewPortDataSeriesB, 0x00cc00, "RH").setDataSymbol(Chart.SquareSymbol, 9);;
-      
-			
-
-			///////////////////////////////////////////////////////////////////////////////////////
-			// Step 3 - Set up x-axis scale
-			///////////////////////////////////////////////////////////////////////////////////////
-			
-			// Set x-axis date scale to the view port date range. 
-			c.xAxis().setDateScale(viewPortStartDate, viewPortEndDate);
-
-			//
-			// In the current demo, the x-axis range can be from a few years to a few days. We can 
-			// let ChartDirector auto-determine the date/time format. However, for more beautiful 
-			// formatting, we set up several label formats to be applied at different conditions. 
-			//
-      /*
-			// If all ticks are yearly aligned, then we use "yyyy" as the label format.
-			c.xAxis().setFormatCondition("align", 360 * 86400);
-			c.xAxis().setLabelFormat("{value|yyyy}");
-			
-			// If all ticks are monthly aligned, then we use "mmm yyyy" in bold font as the first 
-			// label of a year, and "mmm" for other labels.
-			c.xAxis().setFormatCondition("align", 30 * 86400);
-			c.xAxis().setMultiFormat(Chart.StartOfYearFilter(), "<*font=bold*>{value|mmm yyyy}", 
-				Chart.AllPassFilter(), "{value|mmm}");
-			
-			// If all ticks are daily algined, then we use "mmm dd<*br*>yyyy" in bold font as the 
-			// first label of a year, and "mmm dd" in bold font as the first label of a month, and
-			// "dd" for other labels.
-			c.xAxis().setFormatCondition("align", 86400);
-			c.xAxis().setMultiFormat(
-				Chart.StartOfYearFilter(), "<*block,halign=left*><*font=bold*>{value|mmm dd<*br*>yyyy}", 
-				Chart.StartOfMonthFilter(), "<*font=bold*>{value|mmm dd}");
-			c.xAxis().setMultiFormat2(Chart.AllPassFilter(), "{value|dd}");
-
-			// For all other cases (sub-daily ticks), use "hh:nn<*br*>mmm dd" for the first label of
-			// a day, and "hh:nn" for other labels.
-			c.xAxis().setFormatCondition("else");
-			c.xAxis().setMultiFormat(Chart.StartOfDayFilter(), "<*font=bold*>{value|hh:nn<*br*>mmm dd}", 
-				Chart.AllPassFilter(), "{value|hh:nn}");
-			  */
-			///////////////////////////////////////////////////////////////////////////////////////
-			// Step 4 - Set up y-axis scale
-			///////////////////////////////////////////////////////////////////////////////////////
-			
-      if ((viewer.ZoomDirection == WinChartDirection.Horizontal) || (minValue == maxValue)){
-				// y-axis is auto-scaled - save the chosen y-axis scaled to support xy-zoom mode
-				c.layout();
-				minValue = c.yAxis().getMinValue();
-				maxValue = c.yAxis().getMaxValue();
-			}else{
-				// xy-zoom mode - compute the actual axis scale in the view port 
-				double axisLowerLimit =  maxValue - (maxValue - minValue) * (viewer.ViewPortTop + viewer.ViewPortHeight);
-				double axisUpperLimit =  maxValue - (maxValue - minValue) * viewer.ViewPortTop;
-				// *** use the following formula if you are using a log scale axis ***
-				// double axisLowerLimit = maxValue * Math.Pow(minValue / maxValue, viewer.ViewPortTop + viewer.ViewPortHeight);
-				// double axisUpperLimit = maxValue * Math.Pow(minValue / maxValue, viewer.ViewPortTop);
-
-				// use the zoomed-in scale
-				c.yAxis().setLinearScale(axisLowerLimit, axisUpperLimit);
-				c.yAxis().setRounding(false, false);
-			}
-
-			///////////////////////////////////////////////////////////////////////////////////////
-			// Step 5 - Display the chart
-			///////////////////////////////////////////////////////////////////////////////////////
-
-			viewer.Chart = c;
-      viewer.ZoomDirection = WinChartDirection.HorizontalVertical;
-		  viewer.ScrollDirection = WinChartDirection.HorizontalVertical;
-		}
+   
     /// <summary>
 		/// CheckChanged event for the pointerPB.
 		/// </summary>
@@ -676,6 +495,11 @@ namespace DiffPress {
       if(minValue < -20000)minValue = -20050;//da se vizda po-hubavo
 
       maxValue = 100;//ebal sym go
+
+      nudUpper.Value = (decimal)maxValue;
+      nudDown.Value = (decimal)minValue;
+
+
       //minValue i maxValue sa Limiti na zoom-a
 
 			// Set the winChartViewer to reflect the visible and minimum duration
@@ -696,6 +520,16 @@ namespace DiffPress {
     }
 
     private void cbShowHiAlarmsVal1_CheckedChanged(object sender, EventArgs e) {
+      winChartViewer1.updateViewPort(true, true);
+    }
+
+    private void nudUpper_ValueChanged(object sender, EventArgs e) {
+      maxValue = (double)nudUpper.Value;
+      winChartViewer1.updateViewPort(true, true);
+    }
+
+    private void nudDown_ValueChanged(object sender, EventArgs e) {
+      minValue = (double)nudDown.Value;
       winChartViewer1.updateViewPort(true, true);
     }
 

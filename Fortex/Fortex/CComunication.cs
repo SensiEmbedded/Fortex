@@ -62,7 +62,7 @@ namespace DiffPress {
     void aTimer_Elapsed(object sender, ElapsedEventArgs e) {
       if (this.IsConnect() == false) {
         this.Connect();
-        return;
+        //return;
       }
       devs.ReadNextDevice();
       

@@ -146,7 +146,12 @@ namespace DiffPress {
       return h;
     }
     int Read() {
+
       try {
+        if (gl.comm.IsConnect() == false) {
+          PopulateErrorCDevvArray(DevErrorCodes.ComNotExist);
+          return 0;
+        }
         holdingregister = null;
         numofPoints = HowManyDevPerPloor();
         numofPoints *= 2;
@@ -291,7 +296,14 @@ namespace DiffPress {
       get {return alarmLowVal2;}
       set{alarmLowVal2 = value;}
     }
-
+    public double  alarmHiDiffPress {
+      get {return alarmHiVal1;}
+      set{alarmHiVal1 = value;}
+    }
+    public double  alarmLoDiffPress {
+      get {return alarmLowVal1;}
+      set{alarmLowVal1 = value;}
+    }
     #endregion
     private double _val1;
     [Browsable(false)]

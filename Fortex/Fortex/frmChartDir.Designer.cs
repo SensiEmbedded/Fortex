@@ -29,9 +29,7 @@
       System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
       System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChartDir));
-      this.ucChartDir1 = new DiffPress.ucChartDir();
       this.groupBox2 = new System.Windows.Forms.GroupBox();
-      this.pictureBox1 = new System.Windows.Forms.PictureBox();
       this.label12 = new System.Windows.Forms.Label();
       this.nudLimit = new System.Windows.Forms.NumericUpDown();
       this.label11 = new System.Windows.Forms.Label();
@@ -51,9 +49,7 @@
       this.groupBox1 = new System.Windows.Forms.GroupBox();
       this.txtID = new System.Windows.Forms.TextBox();
       this.label9 = new System.Windows.Forms.Label();
-      this.ucOnOff1 = new DiffPress.ucOnOff();
       this.label4 = new System.Windows.Forms.Label();
-      this.pbDevices = new System.Windows.Forms.PictureBox();
       this.grpBox2 = new System.Windows.Forms.GroupBox();
       this.nudAlarmLoVal2 = new System.Windows.Forms.NumericUpDown();
       this.label5 = new System.Windows.Forms.Label();
@@ -76,31 +72,34 @@
       this.lblVal1 = new System.Windows.Forms.Label();
       this.timer1 = new System.Windows.Forms.Timer(this.components);
       this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+      this.btnReport = new System.Windows.Forms.Button();
+      this.pbDevices = new System.Windows.Forms.PictureBox();
+      this.pictureBox2 = new System.Windows.Forms.PictureBox();
+      this.pictureBox1 = new System.Windows.Forms.PictureBox();
+      this.ucOnOff1 = new DiffPress.ucOnOff();
+      this.ucChartDir1 = new DiffPress.ucChartDir();
+      this.button1 = new System.Windows.Forms.Button();
       this.groupBox2.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudLimit)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
       this.groupBox3.SuspendLayout();
       this.groupBox1.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).BeginInit();
       this.grpBox2.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmHiVal2)).BeginInit();
       this.grpBox1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal1)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmHiVal1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.SuspendLayout();
-      // 
-      // ucChartDir1
-      // 
-      this.ucChartDir1.cdev = null;
-      this.ucChartDir1.Location = new System.Drawing.Point(325, 314);
-      this.ucChartDir1.Name = "ucChartDir1";
-      this.ucChartDir1.Size = new System.Drawing.Size(1017, 523);
-      this.ucChartDir1.TabIndex = 47;
       // 
       // groupBox2
       // 
+      this.groupBox2.Controls.Add(this.button1);
+      this.groupBox2.Controls.Add(this.pictureBox2);
+      this.groupBox2.Controls.Add(this.btnReport);
       this.groupBox2.Controls.Add(this.pictureBox1);
       this.groupBox2.Controls.Add(this.label12);
       this.groupBox2.Controls.Add(this.nudLimit);
@@ -109,24 +108,12 @@
       this.groupBox2.Controls.Add(this.btnSelect);
       this.groupBox2.Controls.Add(this.dtpEnd);
       this.groupBox2.Controls.Add(this.dtpStart);
-      this.groupBox2.Location = new System.Drawing.Point(930, 28);
+      this.groupBox2.Location = new System.Drawing.Point(332, 17);
       this.groupBox2.Name = "groupBox2";
-      this.groupBox2.Size = new System.Drawing.Size(210, 231);
+      this.groupBox2.Size = new System.Drawing.Size(210, 294);
       this.groupBox2.TabIndex = 81;
       this.groupBox2.TabStop = false;
       this.groupBox2.Text = "Filter Records";
-      // 
-      // pictureBox1
-      // 
-      this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-      this.pictureBox1.Image = global::DiffPress.Properties.Resources.Filter;
-      this.pictureBox1.Location = new System.Drawing.Point(24, 163);
-      this.pictureBox1.Name = "pictureBox1";
-      this.pictureBox1.Size = new System.Drawing.Size(44, 40);
-      this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-      this.pictureBox1.TabIndex = 81;
-      this.pictureBox1.TabStop = false;
-      this.pictureBox1.Click += new System.EventHandler(this.btnSelect_Click);
       // 
       // label12
       // 
@@ -176,7 +163,7 @@
       // 
       this.btnSelect.Location = new System.Drawing.Point(19, 159);
       this.btnSelect.Name = "btnSelect";
-      this.btnSelect.Size = new System.Drawing.Size(89, 48);
+      this.btnSelect.Size = new System.Drawing.Size(96, 48);
       this.btnSelect.TabIndex = 71;
       this.btnSelect.Text = "Show ";
       this.btnSelect.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -221,7 +208,7 @@
       dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
       dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
       this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-      this.dataGridView1.Location = new System.Drawing.Point(333, 34);
+      this.dataGridView1.Location = new System.Drawing.Point(549, 22);
       this.dataGridView1.Name = "dataGridView1";
       dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
       dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -356,15 +343,6 @@
       this.label9.TabIndex = 68;
       this.label9.Text = "Device ID:";
       // 
-      // ucOnOff1
-      // 
-      this.ucOnOff1.isOn = false;
-      this.ucOnOff1.Location = new System.Drawing.Point(12, 345);
-      this.ucOnOff1.Name = "ucOnOff1";
-      this.ucOnOff1.ReadOnly = true;
-      this.ucOnOff1.Size = new System.Drawing.Size(74, 132);
-      this.ucOnOff1.TabIndex = 27;
-      // 
       // label4
       // 
       this.label4.AutoSize = true;
@@ -373,16 +351,6 @@
       this.label4.Size = new System.Drawing.Size(80, 13);
       this.label4.TabIndex = 26;
       this.label4.Text = "On/Off Device:";
-      // 
-      // pbDevices
-      // 
-      this.pbDevices.Image = global::DiffPress.Properties.Resources.DTP_031;
-      this.pbDevices.Location = new System.Drawing.Point(165, 331);
-      this.pbDevices.Name = "pbDevices";
-      this.pbDevices.Size = new System.Drawing.Size(127, 153);
-      this.pbDevices.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-      this.pbDevices.TabIndex = 25;
-      this.pbDevices.TabStop = false;
       // 
       // grpBox2
       // 
@@ -627,6 +595,78 @@
       this.imageList1.Images.SetKeyName(0, "RH&T_final.png");
       this.imageList1.Images.SetKeyName(1, "DTP_031.png");
       // 
+      // btnReport
+      // 
+      this.btnReport.Location = new System.Drawing.Point(17, 221);
+      this.btnReport.Name = "btnReport";
+      this.btnReport.Size = new System.Drawing.Size(99, 50);
+      this.btnReport.TabIndex = 82;
+      this.btnReport.Text = "Report";
+      this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.btnReport.UseVisualStyleBackColor = true;
+      this.btnReport.Click += new System.EventHandler(this.btnReport_Click);
+      // 
+      // pbDevices
+      // 
+      this.pbDevices.Image = global::DiffPress.Properties.Resources.DTP_031;
+      this.pbDevices.Location = new System.Drawing.Point(165, 331);
+      this.pbDevices.Name = "pbDevices";
+      this.pbDevices.Size = new System.Drawing.Size(127, 153);
+      this.pbDevices.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pbDevices.TabIndex = 25;
+      this.pbDevices.TabStop = false;
+      // 
+      // pictureBox2
+      // 
+      this.pictureBox2.Image = global::DiffPress.Properties.Resources.report;
+      this.pictureBox2.Location = new System.Drawing.Point(24, 226);
+      this.pictureBox2.Name = "pictureBox2";
+      this.pictureBox2.Size = new System.Drawing.Size(44, 40);
+      this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pictureBox2.TabIndex = 83;
+      this.pictureBox2.TabStop = false;
+      this.pictureBox2.Click += new System.EventHandler(this.btnReport_Click);
+      // 
+      // pictureBox1
+      // 
+      this.pictureBox1.Image = global::DiffPress.Properties.Resources.Filter;
+      this.pictureBox1.Location = new System.Drawing.Point(24, 163);
+      this.pictureBox1.Name = "pictureBox1";
+      this.pictureBox1.Size = new System.Drawing.Size(44, 40);
+      this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pictureBox1.TabIndex = 81;
+      this.pictureBox1.TabStop = false;
+      this.pictureBox1.Click += new System.EventHandler(this.btnSelect_Click);
+      // 
+      // ucOnOff1
+      // 
+      this.ucOnOff1.isOn = false;
+      this.ucOnOff1.Location = new System.Drawing.Point(12, 345);
+      this.ucOnOff1.Name = "ucOnOff1";
+      this.ucOnOff1.ReadOnly = true;
+      this.ucOnOff1.Size = new System.Drawing.Size(74, 132);
+      this.ucOnOff1.TabIndex = 27;
+      // 
+      // ucChartDir1
+      // 
+      this.ucChartDir1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.ucChartDir1.cdev = null;
+      this.ucChartDir1.Location = new System.Drawing.Point(325, 314);
+      this.ucChartDir1.Name = "ucChartDir1";
+      this.ucChartDir1.Size = new System.Drawing.Size(1017, 523);
+      this.ucChartDir1.TabIndex = 47;
+      // 
+      // button1
+      // 
+      this.button1.Location = new System.Drawing.Point(146, 225);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(46, 35);
+      this.button1.TabIndex = 84;
+      this.button1.Text = "button1";
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new System.EventHandler(this.button1_Click);
+      // 
       // frmChartDir
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -641,19 +681,18 @@
       this.Controls.Add(this.dataGridView1);
       this.Controls.Add(this.groupBox2);
       this.Controls.Add(this.ucChartDir1);
+      this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
       this.Name = "frmChartDir";
-      this.Text = "frmChartDir";
+      this.Text = "Channel History";
       this.Load += new System.EventHandler(this.frmChartDir_Load);
       this.groupBox2.ResumeLayout(false);
       this.groupBox2.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudLimit)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
       this.groupBox3.ResumeLayout(false);
       this.groupBox3.PerformLayout();
       this.groupBox1.ResumeLayout(false);
       this.groupBox1.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).EndInit();
       this.grpBox2.ResumeLayout(false);
       this.grpBox2.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal2)).EndInit();
@@ -662,6 +701,9 @@
       this.grpBox1.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmLoVal1)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmHiVal1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pbDevices)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -716,5 +758,8 @@
     private System.Windows.Forms.Label lblVal1;
     private System.Windows.Forms.Timer timer1;
     private System.Windows.Forms.ImageList imageList1;
+    private System.Windows.Forms.Button btnReport;
+    private System.Windows.Forms.PictureBox pictureBox2;
+    private System.Windows.Forms.Button button1;
   }
 }

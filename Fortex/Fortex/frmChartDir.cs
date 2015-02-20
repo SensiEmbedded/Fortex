@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using aUtils;
 using ChartDirector;
+using System.IO;
 
 namespace DiffPress {
 	public partial class frmChartDir : Form {
@@ -16,6 +17,7 @@ namespace DiffPress {
     bool isAlarmTemp = false;
     bool isAlarmRH = false;
     Color colorControl;
+    System.Data.DataSet dataset;
     
 
 		public frmChartDir() {
@@ -145,9 +147,9 @@ namespace DiffPress {
     }
      #region SQLite Data
     
-    void PopulateGrid() {
+    void PopulateGrid(System.Data.DataSet ds) {
       //DataSet ds = glob.data.GimitblMess(cdev.strID);
-      System.Data.DataSet ds = glob.data.GimitblMess(cdev.type,cdev.strID, dtpStart.Value,dtpEnd.Value,(int)nudLimit.Value);
+      
       if (ds == null) {
         return;
       }
@@ -213,15 +215,165 @@ namespace DiffPress {
    
 
     private void btnSelect_Click(object sender, EventArgs e) {
-      System.Data.DataSet ds = glob.data.GimitblMess(cdev.type,cdev.strID, dtpStart.Value,dtpEnd.Value,(int)nudLimit.Value);
-      if (ds == null) {
+      dataset = glob.data.GimitblMess(cdev.type,cdev.strID, dtpStart.Value,dtpEnd.Value,(int)nudLimit.Value);
+      if (dataset == null) {
         return;
       }
       //this.UIThread(() => this.dataGridView1.DataSource = ds.Tables[0].DefaultView);
-      PopulateGrid();
-      ucChartDir1.UpdatePlot(ds);
+      PopulateGrid(dataset);
+      ucChartDir1.UpdatePlot(dataset);
     }
-		
+    #region HTML Report
+    string MakeImageSrcData(string filename) {
+      FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
+      byte[] filebytes = new byte[fs.Length];
+      fs.Read(filebytes, 0, Convert.ToInt32(fs.Length));
+      return "data:image/png;base64," +
+        Convert.ToBase64String(filebytes, Base64FormattingOptions.None);
+    }
+    private string GimiImgTag(string imgPath) {
+      string imghtml;
+      imghtml = "<img src=\"" + MakeImageSrcData(imgPath) + "\"/>";
+      return imghtml;
+    }
+
+    string MakeImageFromChart() {
+      WinChartViewer viewChart = ucChartDir1.GimiChart();
+      XYChart c = (XYChart)viewChart.Chart;
+      if (c == null) {
+        return "none";
+      }
+      byte[] filebytes = c.makeChart2(0);
+      return "data:image/png;base64," +
+        Convert.ToBase64String(filebytes, Base64FormattingOptions.None);
+    }
+    
+    private string GimiImgChart() {
+      string imghtml;
+      //739, 414
+      imghtml = "<img height='414' width='739' src=\"" + MakeImageFromChart() + "\"/>";
+      return imghtml;
+    }
+    string PlotStartDate() {
+      WinChartViewer viewChart = ucChartDir1.GimiChart();
+      XYChart c = (XYChart)viewChart.Chart;
+      if (c == null) {
+        return "none";
+      }
+      
+      double d = c.xAxis().getMinValue();
+      DateTime dt = ChartDirector.Chart.NTime(d);
+      return CUtils.GimiGlobalDateTime(dt);
+    }
+    string PlotEndtDate() {
+      WinChartViewer viewChart = ucChartDir1.GimiChart();
+      XYChart c = (XYChart)viewChart.Chart;
+      if (c == null) {
+        return "none";
+      }
+      double d = c.xAxis().getMaxValue();
+      DateTime dt = ChartDirector.Chart.NTime(d);
+      return CUtils.GimiGlobalDateTime(dt);
+    }
+    string TypeCurrDevice() {
+      if (cdev.type == TypeDevice.RHT) {
+        return "RH&T";
+      }
+      return "Diff.Pressure";
+    }
+    string TableData() {
+      if (dataset == null)
+        return "none";
+      /*
+       * 
+       <table style="width:100%">
+        <tr>
+        <td>Jill</td>
+        <td>Smith</td> 
+      </tr>
+      </table>*/
+      string table = "<table style='width:100%'>";
+      table += "<th>DateTime</th>";
+      if (cdev.type == TypeDevice.RHT) {
+        table += "<th>Temp</th>";
+        table += "<th>RH</th>";
+      } else {
+        table += "<th>Pressure</th>";
+        
+      }
+      
+      DataTable dt = dataset.Tables[0];
+      if(dt == null)return "none";
+      int count = dt.Rows.Count;
+      DataRow r;
+      DateTime dtv;
+      double t,t2;
+      for (int i = count - 1; i >= 0; --i) {
+        //"<tr><td>Jill</td><td>Smith</td>  </tr> </table>"
+        r = dt.Rows[i];
+        table += "<tr>";
+        table += "<td>";
+        dtv = Convert.ToDateTime( r["dt"]);
+        table += CUtils.GimiGlobalDateTime(dtv);
+        table += "</td>";
+
+        table += "<td>";
+        t = Convert.ToDouble(r["val1"]);
+        table += t.ToString("N1");
+        table += "</td>";
+
+        if (cdev.type == TypeDevice.RHT) {
+          table += "<td>";
+          t = Convert.ToDouble(r["val2"]);
+          table += t.ToString("N1");
+          table += "</td>";
+        }
+        table += "</tr>";
+      } 
+      //string table = "<table style='width:100%'><tr><td>Jill</td><td>Smith</td>  </tr> </table>";
+      //string table = "<table style='width:100%'><tr><td>Jill</td><td>Smith</td>  </tr> </table>";
+      table += "</table";
+      return table;
+    }
+    private string SetOutputFile() {
+      SaveFileDialog saveFileDialog1 = new SaveFileDialog();
+      saveFileDialog1.Filter = "html files|*.html|All files|*.*";
+      saveFileDialog1.Title = "Generate Report File ";
+      saveFileDialog1.AddExtension = true;
+      saveFileDialog1.OverwritePrompt = true;
+      saveFileDialog1.ShowDialog();
+
+      // If the file name is not an empty string open it for saving.
+      if (saveFileDialog1.FileName != "") {
+        return saveFileDialog1.FileName;
+      } else {
+        return null;
+      }
+    }
+    private void MakeReport() {
+      string outputFile = SetOutputFile();
+      if(outputFile == null)return;
+      string pathTemplate = Application.StartupPath + @"\reportTemplate.html";
+      string text = System.IO.File.ReadAllText(pathTemplate);
+      text = text.Replace("<!--CurrDate-->",CUtils.GimiGlobalDateTime(DateTime.Now));
+      text = text.Replace("<!--SensorName-->",cdev.name);
+      text = text.Replace("<!--SensorID-->",cdev.strID);
+      text = text.Replace("<!--SensorType-->",TypeCurrDevice());
+      text = text.Replace("<!--StartDate-->",PlotStartDate());
+      text = text.Replace("<!--EndDate-->",PlotEndtDate());
+      text = text.Replace("<!--Plot-->",GimiImgChart());
+      text = text.Replace("<!--DataTable-->",TableData());
+      System.IO.File.WriteAllText(outputFile,text);
+    }
+    private void btnReport_Click(object sender, EventArgs e) {
+      MakeReport();
+    }
+		#endregion
+
+    private void button1_Click(object sender, EventArgs e) {
+      string s = PlotStartDate();
+      MessageBox.Show(s);
+    }
     
     
 
