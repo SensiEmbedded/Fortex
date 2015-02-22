@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -222,8 +223,10 @@ namespace DiffPress {
       //this.UIThread(() => this.dataGridView1.DataSource = ds.Tables[0].DefaultView);
       PopulateGrid(dataset);
       ucChartDir1.UpdatePlot(dataset);
+      DataTable dt = MakeStat();
+      dgvStatistic.DataSource = dt;
     }
-    #region HTML Report
+    #region  Report
     string MakeImageSrcData(string filename) {
       FileStream fs = new FileStream(filename, FileMode.Open, FileAccess.Read);
       byte[] filebytes = new byte[fs.Length];
@@ -281,9 +284,37 @@ namespace DiffPress {
       }
       return "Diff.Pressure";
     }
+    string StatTable() {
+      string table = "<table style='width:100%'>";
+      table += "<th>name</th>";
+      table += "<th>val</th>";
+
+
+      DataTable dt = (DataTable)dgvStatistic.DataSource;
+      
+      if (dt == null)
+        return "none";
+
+      foreach (DataRow dr in dt.Rows) {
+        table += "<tr>";
+        table += "<td>";
+        table += dr[0];
+        table += "</td>";
+        table += "<td>";
+        table += dr[1];
+        table += "</td>";
+        table += "</tr>";
+      }
+
+      table += "</table";
+      return table;
+    }
     string TableData() {
       if (dataset == null)
         return "none";
+      if(cbIncludeDataTable.Checked == false)
+        return "none";
+
       /*
        * 
        <table style="width:100%">
@@ -361,6 +392,7 @@ namespace DiffPress {
       text = text.Replace("<!--SensorType-->",TypeCurrDevice());
       text = text.Replace("<!--StartDate-->",PlotStartDate());
       text = text.Replace("<!--EndDate-->",PlotEndtDate());
+      text = text.Replace("<!--StatTable-->",StatTable());
       text = text.Replace("<!--Plot-->",GimiImgChart());
       text = text.Replace("<!--DataTable-->",TableData());
       System.IO.File.WriteAllText(outputFile,text);
@@ -369,10 +401,106 @@ namespace DiffPress {
       MakeReport();
     }
 		#endregion
+    private void SetArrayMath() {
+      DataTable dt = dataset.Tables[0];
+      
+      
+      
+    }
+    private DataTable MakeStat() {
+      DataTable dt = new DataTable("Statistic");
+      dt.Columns.Add("name", typeof(string));
+      dt.Columns.Add("val", typeof(string));
+      //-----------------------------
+      if (ucChartDir1.dataSeriesA == null ) {
+        return dt;
+      }
+      //-------- remove error codes
+      int howMany = ucChartDir1.dataSeriesA.Length;
+      ArrayList dts = new ArrayList();
+      ArrayList vals1 = new ArrayList();
+      ArrayList vals2 = new ArrayList();
+      
+      for (int i = 0; i < howMany; ++i) {
+        if (ucChartDir1.dataSeriesA[i] > -20000 && ucChartDir1.dataSeriesB[i] > -20000) {
+          dts.Add(ucChartDir1.timeStamps[i]);
+          vals1.Add(ucChartDir1.dataSeriesA[i]);
+          vals2.Add(ucChartDir1.dataSeriesB[i]);
+        }
+      }
 
+      double[] d1 = vals1.ToArray(typeof(double)) as double[];
+      double[] d2 = vals2.ToArray(typeof(double)) as double[];
+      //double[] d1 = (double[])vals1.ToArray(typeof(double));
+
+
+
+      //var arr1 = ucChartDir1.dataSeriesA.Where(e => e > -20000);
+      //var arr2 = ucChartDir1.dataSeriesB.Where(e => e > -20000);
+
+      ArrayMath armVal1 = new ArrayMath(d1);
+      ArrayMath armVal2 = new ArrayMath(d2);
+      
+      // double[] arr1 = ucChartDir1.dataSeriesA.Select(e => e > -20000);
+
+     
+      //-----------------------------
+      int ix;
+      dt.Rows.Add("Sensor Name",cdev.name);
+      dt.Rows.Add("Sensor ID", cdev.strID);
+      dt.Rows.Add("Sensor Type", cdev.type.ToString());
+
+
+      dt.Rows.Add("Start Date", CUtils.GimiGlobalDateTime((DateTime)dts[0]));
+      dt.Rows.Add("End Date", CUtils.GimiGlobalDateTime((DateTime)dts[dts.Count - 1]));
+
+      dt.Rows.Add("Number of records", dts.Count);
+
+      if(cdev.type == TypeDevice.RHT){
+
+        dt.Rows.Add("Max Temperature", armVal1.max());
+        ix = armVal1.maxIndex();
+        dt.Rows.Add("Max Temp. DateTime", dts[ix]);
+
+        dt.Rows.Add("Min Temperature", armVal1.min());
+        ix = armVal1.minIndex();
+        dt.Rows.Add("Min Temp. DateTime", dts[ix]);
+
+        dt.Rows.Add("Average Temperature", armVal1.avg().ToString("N1"));
+
+        dt.Rows.Add("Max Humidity", armVal2.max());
+        ix = armVal2.maxIndex();
+        dt.Rows.Add("Max Hum. DateTime", dts[ix]);
+
+        dt.Rows.Add("Min Humidity", armVal2.min());
+        ix = armVal2.minIndex();
+        dt.Rows.Add("Min Hum. DateTime", dts[ix]);
+
+        dt.Rows.Add("Average Humidity", armVal2.avg().ToString("N1"));
+        
+        
+      }else{
+        dt.Rows.Add("Max Pressure", armVal1.max());
+        ix = armVal1.maxIndex();
+        dt.Rows.Add("Max Pressure. DateTime", dts[ix]);
+
+        dt.Rows.Add("Min Pressure", armVal1.min());
+        ix = armVal1.minIndex();
+        dt.Rows.Add("Min Pressure. DateTime", dts[ix]);
+
+        dt.Rows.Add("Average Pressure", armVal1.avg().ToString("N1"));
+
+      }
+            
+      
+      
+      //./ArrayMath m = new ArrayMath(viewPortTimeStamps);
+
+      return dt;
+    }
     private void button1_Click(object sender, EventArgs e) {
-      string s = PlotStartDate();
-      MessageBox.Show(s);
+      DataTable dt = MakeStat();
+      dgvStatistic.DataSource = dt;
     }
     
     

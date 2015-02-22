@@ -14,9 +14,9 @@ using ChartDirector;
 namespace DiffPress {
   public partial class ucChartDir : UserControl {
     CGlobal glob;
-    private DateTime[] timeStamps;
-		private double[] dataSeriesA;
-		private double[] dataSeriesB;
+    public DateTime[] timeStamps;
+		public double[] dataSeriesA;
+		public double[] dataSeriesB;
 		// The earliest date and the duration in seconds for horizontal scrolling
 		private DateTime minDate;
 		private double dateRange;
@@ -33,6 +33,7 @@ namespace DiffPress {
 	
 		// Will set to true at the end of initialization
 		private bool hasFinishedInitialization = false;
+    public Layer lay=null;
 
     public ucChartDir() {
       System.Diagnostics.Debug.WriteLine("ucChartDir() 1");
@@ -139,7 +140,12 @@ namespace DiffPress {
       DataTable dt = ds.Tables[0];
       int count = dt.Rows.Count;
 
-      if(count == 0)return false;
+      if (count == 0) {
+        timeStamps = null;
+        dataSeriesA = null;
+        dataSeriesB = null;
+        return false;
+      } 
       timeStamps = new DateTime[count];
       dataSeriesA = new double[count];
       dataSeriesB = new double[count];
@@ -283,6 +289,7 @@ namespace DiffPress {
 
 			// Add a line layer for the lines, using a line width of 2 pixels
 			Layer layer = c.addLineLayer2();
+      lay = layer;
 			layer.setLineWidth(2);
 
 			// Now we add the 3 data series to a line layer, using the color red (ff0000), green
@@ -298,7 +305,7 @@ namespace DiffPress {
 			  
       }
       
-
+      
 			///////////////////////////////////////////////////////////////////////////////////////
 			// Step 3 - Set up x-axis scale
 			///////////////////////////////////////////////////////////////////////////////////////
@@ -476,6 +483,7 @@ namespace DiffPress {
 		#endregion
     public void UpdatePlot(System.Data.DataSet ds) {
       if (SetDataSet(ds) == false) {
+        winChartViewer1.updateViewPort(true,true);
         return ;
       }
       minDate = timeStamps[0];

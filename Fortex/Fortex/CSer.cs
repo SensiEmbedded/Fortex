@@ -72,12 +72,13 @@ namespace DiffPress {
     public CDev[] floor3Devs {get;set;}
 
     [Category("technologic"), Description("Time (sec) presence alarm")]
+    
     public int timeAlarm { get; set;}
 
      [Category("appereance"), Description("Specifies something")]
     public bool fullScreen { get; set;}
 
-    [Category("MS Server"), Description("Connection string to SENSATA traceabillity MS SQL")]
+    [Category("MS Server"),Browsable(false), Description("Connection string to SENSATA traceabillity MS SQL")]
     public string sqlConnectionString { get; set; }
 
     [Category("MS Server"), Description("Write interval (sec)")]
