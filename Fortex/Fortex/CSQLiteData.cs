@@ -71,6 +71,33 @@ namespace DiffPress {
       sqlconn.Close();
     }
 
+    public void InsertAlarmRow(string device, double val,string mess) {
+      string DB_NAME = Application.StartupPath + @"\data.db";
+      string connString = String.Format("Data Source={0};New=False;Version=3", DB_NAME);
+      //---------------------
+      //"CREATE TABLE tblAlarms(ID INTEGER PRIMARY KEY, dt datetime, device TEXT,val REAL,mess TEXT);";
+      SQLiteConnection sqlconn = new SQLiteConnection(connString);
+      string queryString = "INSERT INTO tblAlarms (dt,device,val,mess) VALUES (?,?,?,?)";
+      SQLiteCommand command = new SQLiteCommand(queryString);
+      command.Parameters.Add(new SQLiteParameter("@dt", DateTime.Now));
+      command.Parameters.Add(new SQLiteParameter("@device", device));
+      command.Parameters.Add(new SQLiteParameter("@val", val));
+      command.Parameters.Add(new SQLiteParameter("@mess", mess));
+      try {
+        sqlconn.Open();
+        command.Connection = sqlconn;
+        command.ExecuteNonQuery();
+      } catch (Exception ex) {
+        if (ex.Message.Contains("locked")) {
+        }
+      } finally {
+        sqlconn.Close();
+        command.Dispose();
+        sqlconn.Dispose();
+      }
+
+    }
+
     public void InsertDataRow(string device, double val1, double val2) {
       string DB_NAME = Application.StartupPath + @"\data.db";
       string connString = String.Format("Data Source={0};New=False;Version=3", DB_NAME);
@@ -204,6 +231,73 @@ namespace DiffPress {
       } else {
         selectSQL = CreatePressureCommand(id, dtStart, dtEnd, Limit);
       }
+      
+      try {
+        sqlconn.Open();
+        DataSet ds = new DataSet();
+        selectSQL.Connection = sqlconn;
+        selectSQL.ExecuteScalar();
+        var da = new SQLiteDataAdapter(selectSQL);
+        //var da = new SQLiteDataAdapter(sql, conn);
+        da.Fill(ds);
+        
+        //dataGridView1.DataSource = ds.Tables[0].DefaultView;
+        return ds;
+      } catch (Exception ex) {
+        System.Diagnostics.Debug.WriteLine(ex.Message);
+        //throw;
+      } finally {
+        sqlconn.Close();
+        selectSQL.Dispose();
+        sqlconn.Dispose();
+      }
+      
+      return null;
+    }
+    public int SelectLastID_Alarms() {
+      string DB_NAME = Application.StartupPath + @"\data.db";
+      
+      string connString = String.Format("Data Source={0};New=False;Version=3", DB_NAME);
+      SQLiteConnection sqlconn = new SQLiteConnection(connString);
+      string sql = "SELECT Max(ID) FROM tblAlarms";
+      //string sql = "select * from tblData WHERE device = @id AND dt BETWEEN @start and @end ORDER BY ID DESC LIMIT @limit";
+      SQLiteCommand selectSQL = new SQLiteCommand(sql);
+      int rezID;
+      try {
+        sqlconn.Open();
+        selectSQL.Connection = sqlconn;
+        selectSQL.ExecuteNonQuery();
+        var da = new SQLiteDataAdapter(selectSQL);
+        //var da = new SQLiteDataAdapter(sql, conn) ;
+        DataSet ds = new DataSet();
+        da.Fill(ds);
+        //var da = new SQLiteDataAdapter(sql, conn);
+        if (ds.Tables[0].Rows.Count == 1) {
+          DataRow dr = ds.Tables[0].Rows[0];
+          int r = Convert.ToInt32(dr[0]);
+          return r;
+        }
+        return -1;
+      } catch (Exception ex) {
+        System.Diagnostics.Debug.WriteLine(ex.Message);
+        //throw;
+      } finally {
+        sqlconn.Close();
+        selectSQL.Dispose();
+        sqlconn.Dispose();
+      }
+      
+      return -1;
+    }
+    public DataSet GimiLast100Alarms() {
+      
+      string DB_NAME = Application.StartupPath + @"\data.db";
+      
+      string connString = String.Format("Data Source={0};New=False;Version=3", DB_NAME);
+      SQLiteConnection sqlconn = new SQLiteConnection(connString);
+      string sql = "select * FROM tblalarms ORDER BY ID DESC LIMIT 100";
+      //string sql = "select * from tblData WHERE device = @id AND dt BETWEEN @start and @end ORDER BY ID DESC LIMIT @limit";
+      SQLiteCommand selectSQL = new SQLiteCommand(sql);
       
       try {
         sqlconn.Open();

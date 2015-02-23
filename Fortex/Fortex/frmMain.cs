@@ -27,7 +27,7 @@ namespace DiffPress {
     int sample2s = 0;
     int sample4s = 0;
     bool fullScreen = false;
-
+    int alarmID_last;
     public frmMain() {
       InitializeComponent();
     }
@@ -58,6 +58,7 @@ namespace DiffPress {
       //  progressBar1.Increment(1);
         //Thread.Sleep(1000);
       PopulateAllFloors();
+      PopulateAlarmGrid();
       glob.sqlite.LogMessage("Program started.");
      
       return;
@@ -156,6 +157,8 @@ namespace DiffPress {
       if (++sample4s < 2)
         return;
       sample4s = 0;
+
+      PopulateAlarmGridIfNeeded();
       
       /*
       if (glob.comm.devs.devVir.holdingregister != null) {
@@ -318,12 +321,24 @@ namespace DiffPress {
         return;
       }
       this.UIThread(() => this.dataGridView1.DataSource = ds.Tables[0].DefaultView);
-      
-
-      
     }
     #endregion
 
+    void PopulateAlarmGridIfNeeded() {
+      int id = glob.data.SelectLastID_Alarms();
+      if (id != alarmID_last) {
+        PopulateAlarmGrid();
+        alarmID_last = id;
+      }
+    }
+    void PopulateAlarmGrid() {
+      DataSet ds = glob.data.GimiLast100Alarms();
+      if (ds == null) {
+        return;
+      }
+      this.UIThread(() => this.dgvAlarms.DataSource = ds.Tables[0].DefaultView);
+
+    }
     private void pictureBox1_Click(object sender, EventArgs e) {
       frmAbout frm = new frmAbout();
       frm.ShowDialog();

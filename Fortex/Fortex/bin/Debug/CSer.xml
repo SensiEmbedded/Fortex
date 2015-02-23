@@ -4,7 +4,7 @@
   <stopBits>One</stopBits>
   <dataBits>8</dataBits>
   <baudRate>19200</baudRate>
-  <portName>COM2</portName>
+  <portName>COM4</portName>
   <timeOut>500</timeOut>
   <retries>2</retries>
   <updatems>1000</updatems>
@@ -17,23 +17,23 @@
       <InstanceID>6cf1138b-86c1-4951-bb20-5e3fab6d6a99</InstanceID>
       <alarmStatus_HiVal1>None</alarmStatus_HiVal1>
       <alarmStatusLast_HiVal1>None</alarmStatusLast_HiVal1>
-      <alarmStatus_LoVal1>Lo</alarmStatus_LoVal1>
-      <alarmStatusLast_LoVal1>Lo</alarmStatusLast_LoVal1>
+      <alarmStatus_LoVal1>None</alarmStatus_LoVal1>
+      <alarmStatusLast_LoVal1>None</alarmStatusLast_LoVal1>
       <alarmStatus_HiVal2>None</alarmStatus_HiVal2>
       <alarmStatusLast_HiVal2>None</alarmStatusLast_HiVal2>
-      <alarmStatus_LoVal2>Lo</alarmStatus_LoVal2>
-      <alarmStatusLast_LoVal2>Lo</alarmStatusLast_LoVal2>
-      <RH>0</RH>
-      <Temp>0</Temp>
-      <DiffPress>0</DiffPress>
+      <alarmStatus_LoVal2>None</alarmStatus_LoVal2>
+      <alarmStatusLast_LoVal2>None</alarmStatusLast_LoVal2>
+      <RH>-20005</RH>
+      <Temp>-20005</Temp>
+      <DiffPress>-20005</DiffPress>
       <alarmHiTemp>70</alarmHiTemp>
       <alarmLoTemp>10</alarmLoTemp>
       <alarmHiRH>70</alarmHiRH>
       <alarmLoRH>10</alarmLoRH>
       <alarmHiDiffPress>70</alarmHiDiffPress>
       <alarmLoDiffPress>10</alarmLoDiffPress>
-      <val1>0</val1>
-      <val2>0</val2>
+      <val1>-20005</val1>
+      <val2>-20005</val2>
       <type>RHT</type>
       <name>floor1.dev1</name>
       <Enable>true</Enable>
@@ -49,23 +49,23 @@
       <InstanceID>ee437656-63e5-47a5-a333-99dc448e0d0b</InstanceID>
       <alarmStatus_HiVal1>None</alarmStatus_HiVal1>
       <alarmStatusLast_HiVal1>None</alarmStatusLast_HiVal1>
-      <alarmStatus_LoVal1>Lo</alarmStatus_LoVal1>
-      <alarmStatusLast_LoVal1>Lo</alarmStatusLast_LoVal1>
-      <alarmStatus_HiVal2>Hi</alarmStatus_HiVal2>
-      <alarmStatusLast_HiVal2>Hi</alarmStatusLast_HiVal2>
-      <alarmStatus_LoVal2>Lo</alarmStatus_LoVal2>
-      <alarmStatusLast_LoVal2>Lo</alarmStatusLast_LoVal2>
-      <RH>0</RH>
-      <Temp>0</Temp>
-      <DiffPress>0</DiffPress>
+      <alarmStatus_LoVal1>None</alarmStatus_LoVal1>
+      <alarmStatusLast_LoVal1>None</alarmStatusLast_LoVal1>
+      <alarmStatus_HiVal2>None</alarmStatus_HiVal2>
+      <alarmStatusLast_HiVal2>None</alarmStatusLast_HiVal2>
+      <alarmStatus_LoVal2>None</alarmStatus_LoVal2>
+      <alarmStatusLast_LoVal2>None</alarmStatusLast_LoVal2>
+      <RH>-20005</RH>
+      <Temp>-20005</Temp>
+      <DiffPress>-20005</DiffPress>
       <alarmHiTemp>100</alarmHiTemp>
       <alarmLoTemp>30</alarmLoTemp>
       <alarmHiRH>0</alarmHiRH>
       <alarmLoRH>0</alarmLoRH>
       <alarmHiDiffPress>100</alarmHiDiffPress>
       <alarmLoDiffPress>30</alarmLoDiffPress>
-      <val1>0</val1>
-      <val2>0</val2>
+      <val1>-20005</val1>
+      <val2>-20005</val2>
       <type>DiffPress</type>
       <name>floor1.dev2</name>
       <Enable>true</Enable>

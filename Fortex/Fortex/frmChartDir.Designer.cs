@@ -691,7 +691,7 @@
       this.ucChartDir1.cdev = null;
       this.ucChartDir1.Location = new System.Drawing.Point(325, 314);
       this.ucChartDir1.Name = "ucChartDir1";
-      this.ucChartDir1.Size = new System.Drawing.Size(836, 523);
+      this.ucChartDir1.Size = new System.Drawing.Size(788, 523);
       this.ucChartDir1.TabIndex = 47;
       // 
       // frmChartDir
@@ -699,6 +699,7 @@
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.AutoScroll = true;
+      this.AutoSize = true;
       this.ClientSize = new System.Drawing.Size(1370, 750);
       this.Controls.Add(this.groupBox4);
       this.Controls.Add(this.lblStaticVal2);

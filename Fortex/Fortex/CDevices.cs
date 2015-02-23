@@ -367,11 +367,46 @@ namespace DiffPress {
       }
     }
     void FireAlarmEvent(DevAlarms type,DevAlarms typeLast,string tag) {
+
+      Write2DBAlarm(type,typeLast,tag); 
+      
       if (evAlarm != null) {
         evAlarm(type,typeLast,tag);
       } else {
         
       }
+    }
+    public void Write2DBAlarm(DevAlarms type, DevAlarms typeLast, string tag) {
+      double val = (tag == "val1")?this.val1:this.val2;
+      string mess = "";
+      if (this.type == TypeDevice.RHT) {
+        mess = (tag == "val1")?"Temperature ":"Humidity ";
+      } else {
+        mess = "Pressure ";
+      }
+      switch (type) {
+        case DevAlarms.Hi:
+          mess += "AlarmHi:";
+          break;
+        case DevAlarms.Lo:
+          mess += "AlarmLo:";
+          break;
+        case DevAlarms.None:
+          mess += "Normalized:";
+          break;
+      }
+
+      switch (typeLast) {
+        case DevAlarms.Hi:
+          mess += "From Hi:";
+          break;
+        case DevAlarms.Lo:
+          mess += "From Lo:";
+          break;
+        case DevAlarms.None:
+          break;
+      }
+      glob.data.InsertAlarmRow(this.strID,val,mess);
     }
     public void Write2DB() {
       if (this.Enable == false)

@@ -33,15 +33,11 @@
           System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
           System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
           System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+          System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+          System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+          System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+          System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
           System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-          this.grbStatus = new System.Windows.Forms.GroupBox();
-          this.line1 = new Unclassified.UI.Line();
-          this.line3 = new Unclassified.UI.Line();
-          this.line2 = new Unclassified.UI.Line();
-          this.lblComm = new System.Windows.Forms.Label();
-          this.label4 = new System.Windows.Forms.Label();
-          this.lblRemain = new System.Windows.Forms.Label();
-          this.label3 = new System.Windows.Forms.Label();
           this.groupBox2 = new System.Windows.Forms.GroupBox();
           this.pictureBox3 = new System.Windows.Forms.PictureBox();
           this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -68,7 +64,9 @@
           this.pictureBox7 = new System.Windows.Forms.PictureBox();
           this.pictureBox8 = new System.Windows.Forms.PictureBox();
           this.pictureBox9 = new System.Windows.Forms.PictureBox();
-          this.grbStatus.SuspendLayout();
+          this.dgvAlarms = new System.Windows.Forms.DataGridView();
+          this.groupBox3 = new System.Windows.Forms.GroupBox();
+          this.groupBox4 = new System.Windows.Forms.GroupBox();
           this.groupBox2.SuspendLayout();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -81,103 +79,10 @@
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+          ((System.ComponentModel.ISupportInitialize)(this.dgvAlarms)).BeginInit();
+          this.groupBox3.SuspendLayout();
+          this.groupBox4.SuspendLayout();
           this.SuspendLayout();
-          // 
-          // grbStatus
-          // 
-          this.grbStatus.Controls.Add(this.line1);
-          this.grbStatus.Controls.Add(this.line3);
-          this.grbStatus.Controls.Add(this.line2);
-          this.grbStatus.Controls.Add(this.lblComm);
-          this.grbStatus.Controls.Add(this.label4);
-          this.grbStatus.Controls.Add(this.lblRemain);
-          this.grbStatus.Controls.Add(this.label3);
-          this.grbStatus.Location = new System.Drawing.Point(156, 640);
-          this.grbStatus.Name = "grbStatus";
-          this.grbStatus.Size = new System.Drawing.Size(225, 220);
-          this.grbStatus.TabIndex = 48;
-          this.grbStatus.TabStop = false;
-          this.grbStatus.Text = "Status:";
-          // 
-          // line1
-          // 
-          this.line1.BorderColor = System.Drawing.SystemColors.ControlText;
-          this.line1.Dark3dColor = System.Drawing.SystemColors.ControlDark;
-          this.line1.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-          this.line1.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
-          this.line1.Location = new System.Drawing.Point(100, 20);
-          this.line1.Name = "line1";
-          this.line1.Orientation = Unclassified.UI.LineOrientation.Vertical;
-          this.line1.Size = new System.Drawing.Size(1, 98);
-          this.line1.TabIndex = 5;
-          this.line1.TabStop = false;
-          // 
-          // line3
-          // 
-          this.line3.BorderColor = System.Drawing.SystemColors.ControlText;
-          this.line3.Dark3dColor = System.Drawing.SystemColors.ControlDark;
-          this.line3.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-          this.line3.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
-          this.line3.Location = new System.Drawing.Point(9, 92);
-          this.line3.Name = "line3";
-          this.line3.Size = new System.Drawing.Size(148, 2);
-          this.line3.TabIndex = 6;
-          this.line3.TabStop = false;
-          // 
-          // line2
-          // 
-          this.line2.BorderColor = System.Drawing.SystemColors.ControlText;
-          this.line2.Dark3dColor = System.Drawing.SystemColors.ControlDark;
-          this.line2.DashStyle = System.Drawing.Drawing2D.DashStyle.Solid;
-          this.line2.Light3dColor = System.Drawing.SystemColors.ControlLightLight;
-          this.line2.Location = new System.Drawing.Point(8, 70);
-          this.line2.Name = "line2";
-          this.line2.Size = new System.Drawing.Size(148, 2);
-          this.line2.TabIndex = 6;
-          this.line2.TabStop = false;
-          // 
-          // lblComm
-          // 
-          this.lblComm.AutoSize = true;
-          this.lblComm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-          this.lblComm.Location = new System.Drawing.Point(105, 74);
-          this.lblComm.Name = "lblComm";
-          this.lblComm.Size = new System.Drawing.Size(50, 13);
-          this.lblComm.TabIndex = 3;
-          this.lblComm.Text = "Not Set";
-          // 
-          // label4
-          // 
-          this.label4.AutoSize = true;
-          this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-          this.label4.Location = new System.Drawing.Point(9, 73);
-          this.label4.Name = "label4";
-          this.label4.Size = new System.Drawing.Size(81, 13);
-          this.label4.TabIndex = 2;
-          this.label4.Text = "communication:";
-          this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-          // 
-          // lblRemain
-          // 
-          this.lblRemain.AutoSize = true;
-          this.lblRemain.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-          this.lblRemain.Location = new System.Drawing.Point(108, 31);
-          this.lblRemain.Name = "lblRemain";
-          this.lblRemain.Size = new System.Drawing.Size(16, 16);
-          this.lblRemain.TabIndex = 3;
-          this.lblRemain.Text = "0";
-          // 
-          // label3
-          // 
-          this.label3.AutoSize = true;
-          this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-          this.label3.Location = new System.Drawing.Point(32, 21);
-          this.label3.Name = "label3";
-          this.label3.Size = new System.Drawing.Size(67, 39);
-          this.label3.TabIndex = 2;
-          this.label3.Text = "Time remain \r\nto write in\r\ntraceability:";
-          this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-          this.label3.Click += new System.EventHandler(this.label3_Click);
           // 
           // groupBox2
           // 
@@ -185,9 +90,9 @@
           this.groupBox2.Controls.Add(this.pictureBox2);
           this.groupBox2.Controls.Add(this.label2);
           this.groupBox2.Controls.Add(this.label1);
-          this.groupBox2.Location = new System.Drawing.Point(6, 870);
+          this.groupBox2.Location = new System.Drawing.Point(256, 631);
           this.groupBox2.Name = "groupBox2";
-          this.groupBox2.Size = new System.Drawing.Size(375, 139);
+          this.groupBox2.Size = new System.Drawing.Size(148, 366);
           this.groupBox2.TabIndex = 45;
           this.groupBox2.TabStop = false;
           this.groupBox2.Text = "Params";
@@ -196,7 +101,7 @@
           // 
           this.pictureBox3.Cursor = System.Windows.Forms.Cursors.Hand;
           this.pictureBox3.Image = global::DiffPress.Properties.Resources.FullScreen;
-          this.pictureBox3.Location = new System.Drawing.Point(22, 22);
+          this.pictureBox3.Location = new System.Drawing.Point(19, 28);
           this.pictureBox3.Name = "pictureBox3";
           this.pictureBox3.Size = new System.Drawing.Size(89, 77);
           this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -208,7 +113,7 @@
           // 
           this.pictureBox2.Cursor = System.Windows.Forms.Cursors.Hand;
           this.pictureBox2.Image = global::DiffPress.Properties.Resources.Wrench;
-          this.pictureBox2.Location = new System.Drawing.Point(136, 22);
+          this.pictureBox2.Location = new System.Drawing.Point(16, 154);
           this.pictureBox2.Name = "pictureBox2";
           this.pictureBox2.Size = new System.Drawing.Size(89, 77);
           this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -220,7 +125,7 @@
           // 
           this.label2.AutoSize = true;
           this.label2.Font = new System.Drawing.Font("Comic Sans MS", 12F);
-          this.label2.Location = new System.Drawing.Point(22, 101);
+          this.label2.Location = new System.Drawing.Point(19, 107);
           this.label2.Name = "label2";
           this.label2.Size = new System.Drawing.Size(94, 23);
           this.label2.TabIndex = 43;
@@ -231,7 +136,7 @@
           // 
           this.label1.AutoSize = true;
           this.label1.Font = new System.Drawing.Font("Comic Sans MS", 12F);
-          this.label1.Location = new System.Drawing.Point(140, 103);
+          this.label1.Location = new System.Drawing.Point(20, 235);
           this.label1.Name = "label1";
           this.label1.Size = new System.Drawing.Size(71, 23);
           this.label1.TabIndex = 43;
@@ -242,9 +147,9 @@
           // 
           this.groupBox1.Controls.Add(this.blueClock1);
           this.groupBox1.Controls.Add(this.lblClock);
-          this.groupBox1.Location = new System.Drawing.Point(9, 637);
+          this.groupBox1.Location = new System.Drawing.Point(12, 632);
           this.groupBox1.Name = "groupBox1";
-          this.groupBox1.Size = new System.Drawing.Size(139, 221);
+          this.groupBox1.Size = new System.Drawing.Size(235, 363);
           this.groupBox1.TabIndex = 44;
           this.groupBox1.TabStop = false;
           this.groupBox1.Text = "Clock";
@@ -256,22 +161,22 @@
           this.blueClock1.DisplaySecond = true;
           this.blueClock1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F);
           this.blueClock1.Hour = 12;
-          this.blueClock1.Location = new System.Drawing.Point(11, 22);
+          this.blueClock1.Location = new System.Drawing.Point(30, 21);
           this.blueClock1.Minute = 0;
           this.blueClock1.Month = 7;
           this.blueClock1.Name = "blueClock1";
           this.blueClock1.Second = 0;
-          this.blueClock1.Size = new System.Drawing.Size(110, 110);
+          this.blueClock1.Size = new System.Drawing.Size(164, 164);
           this.blueClock1.TabIndex = 42;
           this.blueClock1.Text = "lunch time";
           // 
           // lblClock
           // 
           this.lblClock.AutoSize = true;
-          this.lblClock.Font = new System.Drawing.Font("Comic Sans MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-          this.lblClock.Location = new System.Drawing.Point(5, 149);
+          this.lblClock.Font = new System.Drawing.Font("Comic Sans MS", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+          this.lblClock.Location = new System.Drawing.Point(6, 248);
           this.lblClock.Name = "lblClock";
-          this.lblClock.Size = new System.Drawing.Size(40, 29);
+          this.lblClock.Size = new System.Drawing.Size(50, 40);
           this.lblClock.TabIndex = 43;
           this.lblClock.Text = "---";
           this.lblClock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -308,7 +213,7 @@
           dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
           dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
           this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-          this.dataGridView1.Location = new System.Drawing.Point(605, 634);
+          this.dataGridView1.Location = new System.Drawing.Point(16, 17);
           this.dataGridView1.Name = "dataGridView1";
           dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
           dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -322,7 +227,7 @@
           dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
           this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
           this.dataGridView1.RowTemplate.Height = 25;
-          this.dataGridView1.Size = new System.Drawing.Size(743, 156);
+          this.dataGridView1.Size = new System.Drawing.Size(628, 344);
           this.dataGridView1.TabIndex = 65;
           // 
           // label5
@@ -346,7 +251,7 @@
           this.pnlFloor1.BackColor = System.Drawing.Color.WhiteSmoke;
           this.pnlFloor1.Location = new System.Drawing.Point(89, 494);
           this.pnlFloor1.Name = "pnlFloor1";
-          this.pnlFloor1.Size = new System.Drawing.Size(2234, 115);
+          this.pnlFloor1.Size = new System.Drawing.Size(3084, 115);
           this.pnlFloor1.TabIndex = 67;
           // 
           // pnlFloor2
@@ -358,7 +263,7 @@
           this.pnlFloor2.BackColor = System.Drawing.Color.Gainsboro;
           this.pnlFloor2.Location = new System.Drawing.Point(89, 337);
           this.pnlFloor2.Name = "pnlFloor2";
-          this.pnlFloor2.Size = new System.Drawing.Size(2234, 115);
+          this.pnlFloor2.Size = new System.Drawing.Size(3084, 115);
           this.pnlFloor2.TabIndex = 67;
           // 
           // pnlFloor2_2
@@ -370,7 +275,7 @@
           this.pnlFloor2_2.BackColor = System.Drawing.Color.Gainsboro;
           this.pnlFloor2_2.Location = new System.Drawing.Point(89, 218);
           this.pnlFloor2_2.Name = "pnlFloor2_2";
-          this.pnlFloor2_2.Size = new System.Drawing.Size(2233, 115);
+          this.pnlFloor2_2.Size = new System.Drawing.Size(3083, 115);
           this.pnlFloor2_2.TabIndex = 67;
           // 
           // pnlFloor3
@@ -382,7 +287,7 @@
           this.pnlFloor3.BackColor = System.Drawing.Color.Gray;
           this.pnlFloor3.Location = new System.Drawing.Point(89, 55);
           this.pnlFloor3.Name = "pnlFloor3";
-          this.pnlFloor3.Size = new System.Drawing.Size(2239, 115);
+          this.pnlFloor3.Size = new System.Drawing.Size(3089, 115);
           this.pnlFloor3.TabIndex = 67;
           // 
           // label6
@@ -488,20 +393,78 @@
           this.pictureBox9.TabIndex = 76;
           this.pictureBox9.TabStop = false;
           // 
+          // dgvAlarms
+          // 
+          this.dgvAlarms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+          dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+          dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+          dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+          dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+          dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+          dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+          dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+          this.dgvAlarms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+          this.dgvAlarms.ColumnHeadersHeight = 25;
+          dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+          dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+          dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+          dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+          dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+          dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+          dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+          this.dgvAlarms.DefaultCellStyle = dataGridViewCellStyle6;
+          this.dgvAlarms.Location = new System.Drawing.Point(13, 17);
+          this.dgvAlarms.Name = "dgvAlarms";
+          dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+          dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+          dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+          dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+          dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+          dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+          dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+          this.dgvAlarms.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+          this.dgvAlarms.RowHeadersWidth = 20;
+          dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+          this.dgvAlarms.RowsDefaultCellStyle = dataGridViewCellStyle8;
+          this.dgvAlarms.RowTemplate.Height = 25;
+          this.dgvAlarms.Size = new System.Drawing.Size(743, 342);
+          this.dgvAlarms.TabIndex = 65;
+          // 
+          // groupBox3
+          // 
+          this.groupBox3.Controls.Add(this.dataGridView1);
+          this.groupBox3.Location = new System.Drawing.Point(1224, 627);
+          this.groupBox3.Name = "groupBox3";
+          this.groupBox3.Size = new System.Drawing.Size(666, 374);
+          this.groupBox3.TabIndex = 79;
+          this.groupBox3.TabStop = false;
+          this.groupBox3.Text = "Messages";
+          // 
+          // groupBox4
+          // 
+          this.groupBox4.Controls.Add(this.dgvAlarms);
+          this.groupBox4.Location = new System.Drawing.Point(412, 629);
+          this.groupBox4.Name = "groupBox4";
+          this.groupBox4.Size = new System.Drawing.Size(787, 374);
+          this.groupBox4.TabIndex = 80;
+          this.groupBox4.TabStop = false;
+          this.groupBox4.Text = "Alarms";
+          // 
           // frmMain
           // 
           this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
           this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
           this.AutoScroll = true;
           this.BackColor = System.Drawing.Color.White;
-          this.ClientSize = new System.Drawing.Size(1370, 750);
+          this.ClientSize = new System.Drawing.Size(1578, 958);
+          this.Controls.Add(this.groupBox4);
+          this.Controls.Add(this.groupBox3);
           this.Controls.Add(this.pictureBox6);
           this.Controls.Add(this.pictureBox5);
           this.Controls.Add(this.label8);
           this.Controls.Add(this.label7);
           this.Controls.Add(this.label6);
           this.Controls.Add(this.pictureBox4);
-          this.Controls.Add(this.grbStatus);
           this.Controls.Add(this.pictureBox1);
           this.Controls.Add(this.groupBox2);
           this.Controls.Add(this.pnlFloor3);
@@ -510,7 +473,6 @@
           this.Controls.Add(this.pnlFloor1);
           this.Controls.Add(this.label5);
           this.Controls.Add(this.groupBox1);
-          this.Controls.Add(this.dataGridView1);
           this.Controls.Add(this.pictureBox7);
           this.Controls.Add(this.pictureBox8);
           this.Controls.Add(this.pictureBox9);
@@ -519,8 +481,6 @@
           this.Text = "Differential Pressure";
           this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
           this.Load += new System.EventHandler(this.Form1_Load);
-          this.grbStatus.ResumeLayout(false);
-          this.grbStatus.PerformLayout();
           this.groupBox2.ResumeLayout(false);
           this.groupBox2.PerformLayout();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -535,6 +495,9 @@
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
           ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+          ((System.ComponentModel.ISupportInitialize)(this.dgvAlarms)).EndInit();
+          this.groupBox3.ResumeLayout(false);
+          this.groupBox4.ResumeLayout(false);
           this.ResumeLayout(false);
           this.PerformLayout();
 
@@ -554,14 +517,6 @@
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.GroupBox grbStatus;
-        private System.Windows.Forms.Label lblRemain;
-        private System.Windows.Forms.Label label3;
-        private Unclassified.UI.Line line1;
-        private Unclassified.UI.Line line2;
-        private Unclassified.UI.Line line3;
-        private System.Windows.Forms.Label lblComm;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel pnlFloor1;
         private System.Windows.Forms.Panel pnlFloor2;
@@ -576,6 +531,9 @@
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.DataGridView dgvAlarms;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.GroupBox groupBox4;
         
     }
 }

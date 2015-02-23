@@ -285,7 +285,9 @@ namespace DiffPress {
       return "Diff.Pressure";
     }
     string StatTable() {
-      string table = "<table style='width:100%'>";
+      string table = "<table  align='center'> \n";
+      table += "<col width='230' >\n";
+      table += "<col width='200'>\n";
       table += "<th>name</th>";
       table += "<th>val</th>";
 
@@ -297,10 +299,10 @@ namespace DiffPress {
 
       foreach (DataRow dr in dt.Rows) {
         table += "<tr>";
-        table += "<td>";
+        table += "<td align='right'>";
         table += dr[0];
         table += "</td>";
-        table += "<td>";
+        table += "<td  align='left'>";
         table += dr[1];
         table += "</td>";
         table += "</tr>";
@@ -323,14 +325,17 @@ namespace DiffPress {
         <td>Smith</td> 
       </tr>
       </table>*/
-      string table = "<table style='width:100%'>";
+      string table = "<table  align='center'>";
+      table += "<col width='230' >\n";
+      table += "<col width='200'>\n";
+      table += "<col width='200'>\n";
+
       table += "<th>DateTime</th>";
       if (cdev.type == TypeDevice.RHT) {
         table += "<th>Temp</th>";
         table += "<th>RH</th>";
       } else {
         table += "<th>Pressure</th>";
-        
       }
       
       DataTable dt = dataset.Tables[0];
@@ -396,6 +401,7 @@ namespace DiffPress {
       text = text.Replace("<!--Plot-->",GimiImgChart());
       text = text.Replace("<!--DataTable-->",TableData());
       System.IO.File.WriteAllText(outputFile,text);
+      System.Diagnostics.Process.Start(outputFile);
     }
     private void btnReport_Click(object sender, EventArgs e) {
       MakeReport();
