@@ -369,11 +369,31 @@ namespace DiffPress {
     void FireAlarmEvent(DevAlarms type,DevAlarms typeLast,string tag) {
 
       Write2DBAlarm(type,typeLast,tag); 
+      Write2DataIfNeeded(type,typeLast,tag);
       
       if (evAlarm != null) {
         evAlarm(type,typeLast,tag);
       } else {
         
+      }
+    }
+    private void Write2DataIfNeeded(DevAlarms type, DevAlarms typeLast, string tag) {
+      bool write = false;
+      switch (type) {
+        case DevAlarms.Hi:
+        case DevAlarms.Lo:
+          if (glob.g_wr.writeIfAlarm == true) {
+            write = true;
+          }
+          break;
+        case DevAlarms.None:
+          if (glob.g_wr.writeWhenNormalize == true) {
+            write = true;
+          }
+          break;
+      }
+      if (write == true) {
+        glob.data.InsertDataRow(this.strID, this.val1,this.val2);
       }
     }
     public void Write2DBAlarm(DevAlarms type, DevAlarms typeLast, string tag) {
@@ -411,9 +431,6 @@ namespace DiffPress {
     public void Write2DB() {
       if (this.Enable == false)
         return;
-      if (this.strID == "floor3.2") {
-        System.Diagnostics.Debug.WriteLine(this.val1.ToString());
-      }
       glob.data.InsertDataRow(this.strID, this.val1,this.val2);
     }
     public static string ShowErr(double val) {

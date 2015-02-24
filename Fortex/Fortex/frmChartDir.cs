@@ -147,7 +147,15 @@ namespace DiffPress {
       }
     }
      #region SQLite Data
-    
+    void PopulateGridAlarm() {
+      System.Data.DataSet ds = glob.data.GimiLast100AlarmsID(cdev.strID);
+      if (ds == null) {
+        return;
+      }
+      this.dgvAlarms.DataSource = ds.Tables[0].DefaultView;
+      dataGridView1.Columns["dt"].HeaderText = "Date Time"; 
+      dataGridView1.Columns["device"].HeaderText = "Device ID"; 
+    }
     void PopulateGrid(System.Data.DataSet ds) {
       //DataSet ds = glob.data.GimitblMess(cdev.strID);
       
@@ -217,12 +225,13 @@ namespace DiffPress {
 
     private void btnSelect_Click(object sender, EventArgs e) {
       dataset = glob.data.GimitblMess(cdev.type,cdev.strID, dtpStart.Value,dtpEnd.Value,(int)nudLimit.Value);
-      if (dataset == null) {
+      /*if (dataset == null) {
         return;
-      }
+      } */
       //this.UIThread(() => this.dataGridView1.DataSource = ds.Tables[0].DefaultView);
       PopulateGrid(dataset);
       ucChartDir1.UpdatePlot(dataset);
+      PopulateGridAlarm();
       DataTable dt = MakeStat();
       dgvStatistic.DataSource = dt;
     }
@@ -283,6 +292,47 @@ namespace DiffPress {
         return "RH&T";
       }
       return "Diff.Pressure";
+    }
+    string AlarmTable() {
+      string table = "<table  align='center'> \n";
+      table += "<col width='230' >\n";
+      table += "<col width='200'>\n";
+      table += "<th>ID</th>";
+      table += "<th>Date Time</th>";
+      table += "<th>val</th>";
+      table += "<th>Message</th>";
+
+      DataView dv = (DataView)dgvAlarms.DataSource;
+      
+      DataTable dt = (DataTable)dv.Table;
+      
+      if (dt == null)
+        return "none";
+
+      foreach (DataRow dr in dt.Rows) {
+        table += "<tr>";
+
+        table += "<td align='center'>";
+        table += dr["ID"];
+        table += "</td>";
+
+        table += "<td  align='center'>";
+        table += dr["dt"];
+        table += "</td>";
+
+        table += "<td  align='center'>";
+        table += dr["val"];
+        table += "</td>";
+
+        table += "<td  align='center'>";
+        table += dr["mess"];
+        table += "</td>";
+
+        table += "</tr>";
+      }
+
+      table += "</table";
+      return table;
     }
     string StatTable() {
       string table = "<table  align='center'> \n";
@@ -371,9 +421,10 @@ namespace DiffPress {
       table += "</table";
       return table;
     }
-    private string SetOutputFile() {
+    private string SetOutputFile(string filter) {
       SaveFileDialog saveFileDialog1 = new SaveFileDialog();
-      saveFileDialog1.Filter = "html files|*.html|All files|*.*";
+      //saveFileDialog1.Filter = "html files|*.html|All files|*.*";
+      saveFileDialog1.Filter = filter;
       saveFileDialog1.Title = "Generate Report File ";
       saveFileDialog1.AddExtension = true;
       saveFileDialog1.OverwritePrompt = true;
@@ -387,7 +438,7 @@ namespace DiffPress {
       }
     }
     private void MakeReport() {
-      string outputFile = SetOutputFile();
+      string outputFile = SetOutputFile("html files|*.html|All files|*.*");
       if(outputFile == null)return;
       string pathTemplate = Application.StartupPath + @"\reportTemplate.html";
       string text = System.IO.File.ReadAllText(pathTemplate);
@@ -398,15 +449,62 @@ namespace DiffPress {
       text = text.Replace("<!--StartDate-->",PlotStartDate());
       text = text.Replace("<!--EndDate-->",PlotEndtDate());
       text = text.Replace("<!--StatTable-->",StatTable());
+      text = text.Replace("<!--AlarmTable-->",AlarmTable());
       text = text.Replace("<!--Plot-->",GimiImgChart());
       text = text.Replace("<!--DataTable-->",TableData());
       System.IO.File.WriteAllText(outputFile,text);
       System.Diagnostics.Process.Start(outputFile);
     }
     private void btnReport_Click(object sender, EventArgs e) {
-      MakeReport();
+      try{
+        MakeReport();
+      }catch(Exception ex){
+        MessageBox.Show(ex.Message);
+        glob.sqlite.LogMessage(ex.Message);
+      }
     }
 		#endregion
+    #region CSV
+    public static void CSVWriteDataTable(DataTable sourceTable, TextWriter writer, bool includeHeaders) {
+      if (includeHeaders) {
+        List<string> headerValues = new List<string>();
+        foreach (DataColumn column in sourceTable.Columns) {
+          headerValues.Add(QuoteValue(column.ColumnName));
+        }
+
+        writer.WriteLine(String.Join(",", headerValues.ToArray()));
+      }
+
+      string[] items = null;
+      string line;
+      foreach (DataRow row in sourceTable.Rows) {
+        line = row["ID"] + "," + CUtils.GimiGlobalDateTime(Convert.ToDateTime(row["dt"]) ) + "," + row["val1"]+"," + row["val2"]; 
+        //items = row.ItemArray.Select(o => QuoteValue(o.ToString())).ToArray();
+        writer.WriteLine(line);
+        //writer.WriteLine(String.Join(",", items));
+      }
+
+      writer.Flush();
+    }
+    private static string QuoteValue(string value) {
+      return value;
+      //./return String.Concat("\"", value.Replace("\"", "\"\""), "\"");
+    }
+
+    private void MakeCSV() {
+      string outputFile = SetOutputFile("scv files|*.csv|All files|*.*");
+      if(outputFile == null)return;
+      if(dataset == null)return;
+      if(dataset.Tables.Count == 0)return;
+
+      using (StreamWriter writer = new StreamWriter(outputFile)) {
+        CSVWriteDataTable(dataset.Tables[0], writer, true);
+      }
+    }
+    private void button1_Click_1(object sender, EventArgs e) {
+      MakeCSV();
+    }
+    #endregion
     private void SetArrayMath() {
       DataTable dt = dataset.Tables[0];
       
@@ -508,6 +606,8 @@ namespace DiffPress {
       DataTable dt = MakeStat();
       dgvStatistic.DataSource = dt;
     }
+
+    
     
     
 

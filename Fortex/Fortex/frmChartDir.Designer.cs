@@ -29,6 +29,10 @@
       System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
       System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmChartDir));
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+      System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
       this.groupBox2 = new System.Windows.Forms.GroupBox();
       this.cbIncludeDataTable = new System.Windows.Forms.CheckBox();
       this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -79,8 +83,13 @@
       this.imageList1 = new System.Windows.Forms.ImageList(this.components);
       this.groupBox4 = new System.Windows.Forms.GroupBox();
       this.dgvStatistic = new System.Windows.Forms.DataGridView();
+      this.dgvAlarms = new System.Windows.Forms.DataGridView();
+      this.groupBox5 = new System.Windows.Forms.GroupBox();
+      this.groupBox6 = new System.Windows.Forms.GroupBox();
       this.ucOnOff1 = new DiffPress.ucOnOff();
       this.ucChartDir1 = new DiffPress.ucChartDir();
+      this.pictureBox3 = new System.Windows.Forms.PictureBox();
+      this.button1 = new System.Windows.Forms.Button();
       this.groupBox2.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -97,10 +106,16 @@
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmHiVal1)).BeginInit();
       this.groupBox4.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.dgvStatistic)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dgvAlarms)).BeginInit();
+      this.groupBox5.SuspendLayout();
+      this.groupBox6.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
       this.SuspendLayout();
       // 
       // groupBox2
       // 
+      this.groupBox2.Controls.Add(this.pictureBox3);
+      this.groupBox2.Controls.Add(this.button1);
       this.groupBox2.Controls.Add(this.cbIncludeDataTable);
       this.groupBox2.Controls.Add(this.pictureBox2);
       this.groupBox2.Controls.Add(this.btnReport);
@@ -112,9 +127,9 @@
       this.groupBox2.Controls.Add(this.btnSelect);
       this.groupBox2.Controls.Add(this.dtpEnd);
       this.groupBox2.Controls.Add(this.dtpStart);
-      this.groupBox2.Location = new System.Drawing.Point(332, 17);
+      this.groupBox2.Location = new System.Drawing.Point(324, 17);
       this.groupBox2.Name = "groupBox2";
-      this.groupBox2.Size = new System.Drawing.Size(209, 294);
+      this.groupBox2.Size = new System.Drawing.Size(217, 294);
       this.groupBox2.TabIndex = 81;
       this.groupBox2.TabStop = false;
       this.groupBox2.Text = "Filter Records";
@@ -124,17 +139,17 @@
       this.cbIncludeDataTable.AutoSize = true;
       this.cbIncludeDataTable.Checked = true;
       this.cbIncludeDataTable.CheckState = System.Windows.Forms.CheckState.Checked;
-      this.cbIncludeDataTable.Location = new System.Drawing.Point(122, 226);
+      this.cbIncludeDataTable.Location = new System.Drawing.Point(18, 265);
       this.cbIncludeDataTable.Name = "cbIncludeDataTable";
-      this.cbIncludeDataTable.Size = new System.Drawing.Size(91, 17);
+      this.cbIncludeDataTable.Size = new System.Drawing.Size(163, 17);
       this.cbIncludeDataTable.TabIndex = 85;
-      this.cbIncludeDataTable.Text = "Include Table";
+      this.cbIncludeDataTable.Text = "Include Data Table in Report";
       this.cbIncludeDataTable.UseVisualStyleBackColor = true;
       // 
       // pictureBox2
       // 
       this.pictureBox2.Image = global::DiffPress.Properties.Resources.report;
-      this.pictureBox2.Location = new System.Drawing.Point(24, 226);
+      this.pictureBox2.Location = new System.Drawing.Point(24, 212);
       this.pictureBox2.Name = "pictureBox2";
       this.pictureBox2.Size = new System.Drawing.Size(44, 40);
       this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -144,9 +159,9 @@
       // 
       // btnReport
       // 
-      this.btnReport.Location = new System.Drawing.Point(17, 221);
+      this.btnReport.Location = new System.Drawing.Point(17, 207);
       this.btnReport.Name = "btnReport";
-      this.btnReport.Size = new System.Drawing.Size(99, 50);
+      this.btnReport.Size = new System.Drawing.Size(96, 50);
       this.btnReport.TabIndex = 82;
       this.btnReport.Text = "Report";
       this.btnReport.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -156,7 +171,7 @@
       // pictureBox1
       // 
       this.pictureBox1.Image = global::DiffPress.Properties.Resources.Filter;
-      this.pictureBox1.Location = new System.Drawing.Point(24, 163);
+      this.pictureBox1.Location = new System.Drawing.Point(22, 153);
       this.pictureBox1.Name = "pictureBox1";
       this.pictureBox1.Size = new System.Drawing.Size(44, 40);
       this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -167,7 +182,7 @@
       // label12
       // 
       this.label12.AutoSize = true;
-      this.label12.Location = new System.Drawing.Point(18, 107);
+      this.label12.Location = new System.Drawing.Point(18, 103);
       this.label12.Name = "label12";
       this.label12.Size = new System.Drawing.Size(68, 13);
       this.label12.TabIndex = 75;
@@ -175,7 +190,7 @@
       // 
       // nudLimit
       // 
-      this.nudLimit.Location = new System.Drawing.Point(21, 125);
+      this.nudLimit.Location = new System.Drawing.Point(21, 121);
       this.nudLimit.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -210,7 +225,7 @@
       // 
       // btnSelect
       // 
-      this.btnSelect.Location = new System.Drawing.Point(19, 159);
+      this.btnSelect.Location = new System.Drawing.Point(17, 149);
       this.btnSelect.Name = "btnSelect";
       this.btnSelect.Size = new System.Drawing.Size(96, 48);
       this.btnSelect.TabIndex = 71;
@@ -257,7 +272,7 @@
       dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
       dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
       this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-      this.dataGridView1.Location = new System.Drawing.Point(786, 28);
+      this.dataGridView1.Location = new System.Drawing.Point(6, 19);
       this.dataGridView1.Name = "dataGridView1";
       dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
       dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
@@ -271,7 +286,7 @@
       dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
       this.dataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle4;
       this.dataGridView1.RowTemplate.Height = 25;
-      this.dataGridView1.Size = new System.Drawing.Size(546, 270);
+      this.dataGridView1.Size = new System.Drawing.Size(411, 265);
       this.dataGridView1.TabIndex = 82;
       // 
       // groupBox3
@@ -668,12 +683,70 @@
       // 
       this.dgvStatistic.AllowUserToAddRows = false;
       this.dgvStatistic.AllowUserToDeleteRows = false;
+      this.dgvStatistic.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
       this.dgvStatistic.Location = new System.Drawing.Point(6, 19);
       this.dgvStatistic.Name = "dgvStatistic";
       this.dgvStatistic.ReadOnly = true;
       this.dgvStatistic.RowHeadersVisible = false;
       this.dgvStatistic.Size = new System.Drawing.Size(210, 265);
       this.dgvStatistic.TabIndex = 0;
+      // 
+      // dgvAlarms
+      // 
+      this.dgvAlarms.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+      dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+      this.dgvAlarms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+      this.dgvAlarms.ColumnHeadersHeight = 25;
+      dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+      dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+      dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+      this.dgvAlarms.DefaultCellStyle = dataGridViewCellStyle6;
+      this.dgvAlarms.Location = new System.Drawing.Point(7, 19);
+      this.dgvAlarms.Name = "dgvAlarms";
+      dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+      dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+      dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+      dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+      dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+      dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+      this.dgvAlarms.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+      this.dgvAlarms.RowHeadersWidth = 20;
+      dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.25F);
+      this.dgvAlarms.RowsDefaultCellStyle = dataGridViewCellStyle8;
+      this.dgvAlarms.RowTemplate.Height = 25;
+      this.dgvAlarms.Size = new System.Drawing.Size(405, 265);
+      this.dgvAlarms.TabIndex = 96;
+      // 
+      // groupBox5
+      // 
+      this.groupBox5.Controls.Add(this.dataGridView1);
+      this.groupBox5.Location = new System.Drawing.Point(781, 16);
+      this.groupBox5.Name = "groupBox5";
+      this.groupBox5.Size = new System.Drawing.Size(424, 291);
+      this.groupBox5.TabIndex = 97;
+      this.groupBox5.TabStop = false;
+      this.groupBox5.Text = "Data";
+      // 
+      // groupBox6
+      // 
+      this.groupBox6.Controls.Add(this.dgvAlarms);
+      this.groupBox6.Location = new System.Drawing.Point(1218, 17);
+      this.groupBox6.Name = "groupBox6";
+      this.groupBox6.Size = new System.Drawing.Size(422, 291);
+      this.groupBox6.TabIndex = 98;
+      this.groupBox6.TabStop = false;
+      this.groupBox6.Text = "Alarms";
       // 
       // ucOnOff1
       // 
@@ -691,16 +764,38 @@
       this.ucChartDir1.cdev = null;
       this.ucChartDir1.Location = new System.Drawing.Point(325, 314);
       this.ucChartDir1.Name = "ucChartDir1";
-      this.ucChartDir1.Size = new System.Drawing.Size(788, 523);
+      this.ucChartDir1.Size = new System.Drawing.Size(1315, 523);
       this.ucChartDir1.TabIndex = 47;
+      // 
+      // pictureBox3
+      // 
+      this.pictureBox3.Image = global::DiffPress.Properties.Resources.report;
+      this.pictureBox3.Location = new System.Drawing.Point(122, 212);
+      this.pictureBox3.Name = "pictureBox3";
+      this.pictureBox3.Size = new System.Drawing.Size(44, 40);
+      this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+      this.pictureBox3.TabIndex = 87;
+      this.pictureBox3.TabStop = false;
+      // 
+      // button1
+      // 
+      this.button1.Location = new System.Drawing.Point(115, 207);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(96, 50);
+      this.button1.TabIndex = 86;
+      this.button1.Text = "CSV";
+      this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new System.EventHandler(this.button1_Click_1);
       // 
       // frmChartDir
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.AutoScroll = true;
-      this.AutoSize = true;
-      this.ClientSize = new System.Drawing.Size(1370, 750);
+      this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+      this.ClientSize = new System.Drawing.Size(1656, 849);
+      this.Controls.Add(this.groupBox6);
+      this.Controls.Add(this.groupBox5);
       this.Controls.Add(this.groupBox4);
       this.Controls.Add(this.lblStaticVal2);
       this.Controls.Add(this.lblStaticVal1);
@@ -708,7 +803,6 @@
       this.Controls.Add(this.lblVal1);
       this.Controls.Add(this.groupBox3);
       this.Controls.Add(this.groupBox1);
-      this.Controls.Add(this.dataGridView1);
       this.Controls.Add(this.groupBox2);
       this.Controls.Add(this.ucChartDir1);
       this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -736,6 +830,10 @@
       ((System.ComponentModel.ISupportInitialize)(this.nudAlarmHiVal1)).EndInit();
       this.groupBox4.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize)(this.dgvStatistic)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dgvAlarms)).EndInit();
+      this.groupBox5.ResumeLayout(false);
+      this.groupBox6.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -795,5 +893,10 @@
     private System.Windows.Forms.CheckBox cbIncludeDataTable;
     private System.Windows.Forms.GroupBox groupBox4;
     private System.Windows.Forms.DataGridView dgvStatistic;
+    private System.Windows.Forms.DataGridView dgvAlarms;
+    private System.Windows.Forms.GroupBox groupBox5;
+    private System.Windows.Forms.GroupBox groupBox6;
+    private System.Windows.Forms.PictureBox pictureBox3;
+    private System.Windows.Forms.Button button1;
   }
 }

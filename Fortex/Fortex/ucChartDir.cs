@@ -235,13 +235,13 @@ namespace DiffPress {
 
       // Create an XYChart object 600 x 300 pixels in size, with pale blue (0xf0f0ff) 
 			// background, black (000000) border, 1 pixel raised effect, and with a rounded frame.
-			XYChart c = new XYChart(2*450, 2*250, 0xf0f0ff, 0, 1);
+			XYChart c = new XYChart(2*650, 2*350, 0xf0f0ff, 0, 1);
 			c.setRoundedFrame(Chart.CColor(BackColor));
 			
 			// Set the plotarea at (52, 60) and of size 520 x 192 pixels. Use white (ffffff) 
 			// background. Enable both horizontal and vertical grids by setting their colors to 
 			// grey (cccccc). Set clipping mode to clip the data lines to the plot area.
-			c.setPlotArea(42, 58, 2*450-50, 2*250 - 100, 0xffffff, -1, -1, 0xcccccc, 0xcccccc);
+			c.setPlotArea(42, 58, 2*650-50, 2*350 - 100, 0xffffff, -1, -1, 0xcccccc, 0xcccccc);
 			c.setClipping();
 
 			// Add a top title to the chart using 15 pts Times New Roman Bold Italic font, with a 

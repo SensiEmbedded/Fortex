@@ -321,6 +321,39 @@ namespace DiffPress {
       
       return null;
     }
+    public DataSet GimiLast100AlarmsID(string devID) {
+      
+      string DB_NAME = Application.StartupPath + @"\data.db";
+      string connString = String.Format("Data Source={0};New=False;Version=3", DB_NAME);
+      SQLiteConnection sqlconn = new SQLiteConnection(connString);
+
+      string sql = "select * FROM tblAlarms WHERE device = @id ORDER BY ID DESC LIMIT 100";
+      //string sql = "select * from tblData WHERE device = @id AND dt BETWEEN @start and @end ORDER BY ID DESC LIMIT @limit";
+      SQLiteCommand selectSQL = new SQLiteCommand(sql);
+      selectSQL.Parameters.AddWithValue("@id", devID);
+      
+      try {
+        sqlconn.Open();
+        DataSet ds = new DataSet();
+        selectSQL.Connection = sqlconn;
+        selectSQL.ExecuteScalar();
+        var da = new SQLiteDataAdapter(selectSQL);
+        //var da = new SQLiteDataAdapter(sql, conn);
+        da.Fill(ds);
+        
+        //dataGridView1.DataSource = ds.Tables[0].DefaultView;
+        return ds;
+      } catch (Exception ex) {
+        System.Diagnostics.Debug.WriteLine(ex.Message);
+        //throw;
+      } finally {
+        sqlconn.Close();
+        selectSQL.Dispose();
+        sqlconn.Dispose();
+      }
+      
+      return null;
+    }
     #endregion
   }
 }

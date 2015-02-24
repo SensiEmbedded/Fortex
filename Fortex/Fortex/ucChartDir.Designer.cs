@@ -32,21 +32,21 @@
       this.cbShowLoAlarmsVal1 = new System.Windows.Forms.CheckBox();
       this.cbShowHiAlarmsVal1 = new System.Windows.Forms.CheckBox();
       this.groupBox1 = new System.Windows.Forms.GroupBox();
+      this.label2 = new System.Windows.Forms.Label();
+      this.label1 = new System.Windows.Forms.Label();
+      this.nudUpper = new System.Windows.Forms.NumericUpDown();
+      this.nudDown = new System.Windows.Forms.NumericUpDown();
       this.zoomOutPB = new System.Windows.Forms.RadioButton();
       this.zoomInPB = new System.Windows.Forms.RadioButton();
       this.pointerPB = new System.Windows.Forms.RadioButton();
       this.imageList1 = new System.Windows.Forms.ImageList(this.components);
       this.winChartViewer1 = new ChartDirector.WinChartViewer();
-      this.nudDown = new System.Windows.Forms.NumericUpDown();
-      this.nudUpper = new System.Windows.Forms.NumericUpDown();
-      this.label1 = new System.Windows.Forms.Label();
-      this.label2 = new System.Windows.Forms.Label();
       this.panel1.SuspendLayout();
       this.groupBox2.SuspendLayout();
       this.groupBox1.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.winChartViewer1)).BeginInit();
-      ((System.ComponentModel.ISupportInitialize)(this.nudDown)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudUpper)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.nudDown)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.winChartViewer1)).BeginInit();
       this.SuspendLayout();
       // 
       // panel1
@@ -132,6 +132,65 @@
       this.groupBox1.TabStop = false;
       this.groupBox1.Text = "Chart Control";
       // 
+      // label2
+      // 
+      this.label2.AutoSize = true;
+      this.label2.Location = new System.Drawing.Point(9, 141);
+      this.label2.Name = "label2";
+      this.label2.Size = new System.Drawing.Size(55, 13);
+      this.label2.TabIndex = 52;
+      this.label2.Text = "Y axis Min";
+      // 
+      // label1
+      // 
+      this.label1.AutoSize = true;
+      this.label1.Location = new System.Drawing.Point(9, 96);
+      this.label1.Name = "label1";
+      this.label1.Size = new System.Drawing.Size(58, 13);
+      this.label1.TabIndex = 51;
+      this.label1.Text = "Y axis Max";
+      // 
+      // nudUpper
+      // 
+      this.nudUpper.Location = new System.Drawing.Point(10, 112);
+      this.nudUpper.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+      this.nudUpper.Minimum = new decimal(new int[] {
+            20050,
+            0,
+            0,
+            -2147483648});
+      this.nudUpper.Name = "nudUpper";
+      this.nudUpper.Size = new System.Drawing.Size(96, 20);
+      this.nudUpper.TabIndex = 50;
+      this.nudUpper.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+      this.nudUpper.ValueChanged += new System.EventHandler(this.nudUpper_ValueChanged);
+      // 
+      // nudDown
+      // 
+      this.nudDown.Location = new System.Drawing.Point(9, 157);
+      this.nudDown.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+      this.nudDown.Minimum = new decimal(new int[] {
+            20050,
+            0,
+            0,
+            -2147483648});
+      this.nudDown.Name = "nudDown";
+      this.nudDown.Size = new System.Drawing.Size(96, 20);
+      this.nudDown.TabIndex = 49;
+      this.nudDown.ValueChanged += new System.EventHandler(this.nudDown_ValueChanged);
+      // 
       // zoomOutPB
       // 
       this.zoomOutPB.Appearance = System.Windows.Forms.Appearance.Button;
@@ -198,7 +257,7 @@
       this.winChartViewer1.Location = new System.Drawing.Point(126, 0);
       this.winChartViewer1.Name = "winChartViewer1";
       this.winChartViewer1.ScrollDirection = ChartDirector.WinChartDirection.HorizontalVertical;
-      this.winChartViewer1.Size = new System.Drawing.Size(739, 414);
+      this.winChartViewer1.Size = new System.Drawing.Size(660, 414);
       this.winChartViewer1.TabIndex = 47;
       this.winChartViewer1.TabStop = false;
       this.winChartViewer1.ZoomDirection = ChartDirector.WinChartDirection.HorizontalVertical;
@@ -207,65 +266,6 @@
       this.winChartViewer1.ZoomOutRatio = 0.05D;
       this.winChartViewer1.ViewPortChanged += new ChartDirector.WinViewPortEventHandler(this.winChartViewer1_ViewPortChanged);
       // 
-      // nudDown
-      // 
-      this.nudDown.Location = new System.Drawing.Point(9, 157);
-      this.nudDown.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-      this.nudDown.Minimum = new decimal(new int[] {
-            20050,
-            0,
-            0,
-            -2147483648});
-      this.nudDown.Name = "nudDown";
-      this.nudDown.Size = new System.Drawing.Size(96, 20);
-      this.nudDown.TabIndex = 49;
-      this.nudDown.ValueChanged += new System.EventHandler(this.nudDown_ValueChanged);
-      // 
-      // nudUpper
-      // 
-      this.nudUpper.Location = new System.Drawing.Point(10, 112);
-      this.nudUpper.Maximum = new decimal(new int[] {
-            1000,
-            0,
-            0,
-            0});
-      this.nudUpper.Minimum = new decimal(new int[] {
-            20050,
-            0,
-            0,
-            -2147483648});
-      this.nudUpper.Name = "nudUpper";
-      this.nudUpper.Size = new System.Drawing.Size(96, 20);
-      this.nudUpper.TabIndex = 50;
-      this.nudUpper.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-      this.nudUpper.ValueChanged += new System.EventHandler(this.nudUpper_ValueChanged);
-      // 
-      // label1
-      // 
-      this.label1.AutoSize = true;
-      this.label1.Location = new System.Drawing.Point(9, 96);
-      this.label1.Name = "label1";
-      this.label1.Size = new System.Drawing.Size(58, 13);
-      this.label1.TabIndex = 51;
-      this.label1.Text = "Y axis Max";
-      // 
-      // label2
-      // 
-      this.label2.AutoSize = true;
-      this.label2.Location = new System.Drawing.Point(9, 141);
-      this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(55, 13);
-      this.label2.TabIndex = 52;
-      this.label2.Text = "Y axis Min";
-      // 
       // ucChartDir
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,16 +273,16 @@
       this.Controls.Add(this.winChartViewer1);
       this.Controls.Add(this.panel1);
       this.Name = "ucChartDir";
-      this.Size = new System.Drawing.Size(865, 414);
+      this.Size = new System.Drawing.Size(786, 414);
       this.Load += new System.EventHandler(this.ucChartDir_Load);
       this.panel1.ResumeLayout(false);
       this.groupBox2.ResumeLayout(false);
       this.groupBox2.PerformLayout();
       this.groupBox1.ResumeLayout(false);
       this.groupBox1.PerformLayout();
-      ((System.ComponentModel.ISupportInitialize)(this.winChartViewer1)).EndInit();
-      ((System.ComponentModel.ISupportInitialize)(this.nudDown)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.nudUpper)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.nudDown)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.winChartViewer1)).EndInit();
       this.ResumeLayout(false);
 
     }

@@ -22,6 +22,8 @@ namespace DiffPress {
       colorControl = lblTemp.BackColor;
       fontControlLarge = lblTemp.Font;
       fontControlSmall =  new Font(fontControlLarge.FontFamily, 10);
+      lblID.BackColor = colorControl;
+      
     }
     /*
     protected override void WndProc(ref Message m)
@@ -45,7 +47,8 @@ namespace DiffPress {
         _cdev = value;
         if (_cdev != null) {  
           _cdev.Changed +=new ChangedEventHandler(_cdev_Changed);
-          _cdev.evAlarm += new AlarmOccured(_cdev_evAlarm);                                               
+          _cdev.evAlarm += new AlarmOccured(_cdev_evAlarm); 
+          lblID.Text = _cdev.strID;                                    
         }
       }
     }
@@ -186,6 +189,7 @@ namespace DiffPress {
     private void ucRHTRealTime_Click(object sender, EventArgs e) {
       
       frmChartDir frm = new frmChartDir();
+      frm.StartPosition = FormStartPosition.CenterScreen;
       //frm.SetRef(ref glob);
       frm.cdev = _cdev;
       frm.ShowDialog(this);
@@ -196,17 +200,6 @@ namespace DiffPress {
     }
 
 
-    private void chartDirToolStripMenuItem_Click(object sender, EventArgs e) {
-      frmChartDir frm = new frmChartDir();
-      //frm.SetRef(ref glob);
-      frm.cdev = _cdev;
-      frm.ShowDialog(this);
-    }
-
-    private void historyToolStripMenuItem_Click(object sender, EventArgs e) {
-      frmIxView frm = new frmIxView();
-      frm.cdev = _cdev;
-      frm.ShowDialog(this);
-    }
+    
   }
 }
