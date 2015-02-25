@@ -51,7 +51,7 @@
       this.lblTemp.Dock = System.Windows.Forms.DockStyle.Top;
       this.lblTemp.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
       this.lblTemp.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-      this.lblTemp.Location = new System.Drawing.Point(0, 65);
+      this.lblTemp.Location = new System.Drawing.Point(0, 32);
       this.lblTemp.Name = "lblTemp";
       this.lblTemp.Size = new System.Drawing.Size(84, 33);
       this.lblTemp.TabIndex = 3;
@@ -64,7 +64,7 @@
       this.lblRH.Dock = System.Windows.Forms.DockStyle.Top;
       this.lblRH.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
       this.lblRH.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-      this.lblRH.Location = new System.Drawing.Point(0, 32);
+      this.lblRH.Location = new System.Drawing.Point(0, 65);
       this.lblRH.Name = "lblRH";
       this.lblRH.Size = new System.Drawing.Size(84, 33);
       this.lblRH.TabIndex = 3;
@@ -94,8 +94,8 @@
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.Controls.Add(this.lblID);
-      this.Controls.Add(this.lblTemp);
       this.Controls.Add(this.lblRH);
+      this.Controls.Add(this.lblTemp);
       this.Controls.Add(this.lblUp);
       this.Name = "ucRHTRealTime";
       this.Size = new System.Drawing.Size(84, 115);

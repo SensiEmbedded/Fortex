@@ -224,16 +224,20 @@ namespace DiffPress {
    
 
     private void btnSelect_Click(object sender, EventArgs e) {
-      dataset = glob.data.GimitblMess(cdev.type,cdev.strID, dtpStart.Value,dtpEnd.Value,(int)nudLimit.Value);
-      /*if (dataset == null) {
-        return;
-      } */
-      //this.UIThread(() => this.dataGridView1.DataSource = ds.Tables[0].DefaultView);
-      PopulateGrid(dataset);
-      ucChartDir1.UpdatePlot(dataset);
-      PopulateGridAlarm();
-      DataTable dt = MakeStat();
-      dgvStatistic.DataSource = dt;
+      try {
+        dataset = glob.data.GimitblMess(cdev.type, cdev.strID, dtpStart.Value, dtpEnd.Value, (int)nudLimit.Value);
+        /*if (dataset == null) {
+          return;
+        } */
+        //this.UIThread(() => this.dataGridView1.DataSource = ds.Tables[0].DefaultView);
+        PopulateGrid(dataset);
+        ucChartDir1.UpdatePlot(dataset);
+        PopulateGridAlarm();
+        DataTable dt = MakeStat();
+        dgvStatistic.DataSource = dt;
+      } catch (Exception ex) {
+        glob.sqlite.LogMessage(ex.Message);
+      }
     }
     #region  Report
     string MakeImageSrcData(string filename) {
@@ -532,7 +536,9 @@ namespace DiffPress {
           vals2.Add(ucChartDir1.dataSeriesB[i]);
         }
       }
-
+      if (vals1.Count == 0) {
+        return dt;
+      }
       double[] d1 = vals1.ToArray(typeof(double)) as double[];
       double[] d2 = vals2.ToArray(typeof(double)) as double[];
       //double[] d1 = (double[])vals1.ToArray(typeof(double));
