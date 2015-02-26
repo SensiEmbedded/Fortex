@@ -60,3 +60,4 @@ D:\Visual Studio Projects\C#.net 2010\Fortex\Fortex\Fortex\obj\x86\Debug\DiffPre
 D:\Visual Studio Projects\C#.net 2010\Fortex\Fortex\Fortex\obj\x86\Debug\DiffPress.ucOnOff.resources
 D:\Visual Studio Projects\C#.net 2010\Fortex\Fortex\Fortex\obj\x86\Debug\DiffPress.ucRHTRealTime.resources
 D:\Visual Studio Projects\C#.net 2010\Fortex\Fortex\Fortex\obj\x86\Debug\Fortex.csproj.GenerateResource.Cache
+D:\Visual Studio Projects\C#.net 2010\Fortex\Fortex\Fortex\obj\x86\Debug\DiffPress.frmEmails.resources

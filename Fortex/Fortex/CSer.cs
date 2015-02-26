@@ -90,7 +90,39 @@ namespace DiffPress {
     [Category("MS Server"), Description("Write when alarm disappear (normalize).")]
     public bool writeWhenNormalize{get; set;}
 
-    
+    //------ Email settings -------------
+    [Category("Email Settings"),Browsable(false), Description("like mail4.host.bg")]
+    public CEmailSettings emailSetts { get; set; }
+    /*
+    [Category("Email Settings"),Browsable(true), Description("like mail4.host.bg")]
+    public string Host { get; set; }
+
+    [Category("Email Settings"),Browsable(true), Description("ssl - 25; no ssl-587")]
+    public int Port { get; set; }
+
+    [Category("Email Settings"),Browsable(true), Description("control@fortex.bg")]
+    public string fromEmail { get; set; }
+
+    [Category("Email Settings"),Browsable(true), Description("control@fortex.bg")]
+    public string user { get; set; }
+
+    [Category("Email Settings"),Browsable(true), Description("")]
+    public string pass { get; set; }
+
+    [Category("Email Settings"),Browsable(true), Description("use SSL connection or not")]
+    public bool useSsl { get; set; }
+      */
+    //-------------------------------------
+    public void SetDefaultsEmail() {
+      emailSetts = new CEmailSettings();
+      emailSetts.Host = "mail4.host.bg";
+      emailSetts.Port = 25;
+      emailSetts.fromEmail = "control@fortex.bg";
+      emailSetts.user = "control@fortex.bg";
+      emailSetts.pass = "Control1!";
+      emailSetts.useSsl = false;
+    }
+
 
     public void SetDefaults(){
       parity = Parity.None;
@@ -130,9 +162,16 @@ namespace DiffPress {
       floor1Devs.ToList().ForEach(c => {c.Enable = false; c.type = TypeDevice.RHT;});
       floor2Devs.ToList().ForEach(c => {c.Enable = false; c.type = TypeDevice.RHT;});
       floor3Devs.ToList().ForEach(c => {c.Enable = false; c.type = TypeDevice.RHT;});
+      
+      SetDefaultsEmail();
 
-          
-
+      /*Host = "mail4.host.bg";
+      Port  = 25;
+      fromEmail = "control@fortex.bg";
+      user  = "control@fortex.bg";
+      pass = "Control1!";
+      useSsl  = false;
+        */
       /*
       alarmsDiffPres = new double[32];
       alarmsRH_Hi = new double[64];

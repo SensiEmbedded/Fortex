@@ -38,6 +38,21 @@ namespace DiffPress {
     }
     
     private void btnDefault_Click(object sender, EventArgs e) {
+      DialogResult result1 = MessageBox.Show("This will erase all settings and set them to theirs defaults?",
+      		"ВНИМАВАЙТЕ",
+		      MessageBoxButtons.YesNo);
+      if (result1 == System.Windows.Forms.DialogResult.Yes) {
+        glob.g_wr.SetDefaults();
+      }
+    }
+
+    private void btnSetDevices_Click(object sender, EventArgs e) {
+      frmDevsSett devs = new frmDevsSett();
+      devs.SetRef(ref glob);
+      devs.ShowDialog();
+    }
+
+    private void btnAdvance_Click(object sender, EventArgs e) {
       frmPassword frm = new frmPassword();
       frm.m_Password = "aa";
       if (frm.ShowDialog() == DialogResult.OK) {
@@ -47,8 +62,8 @@ namespace DiffPress {
       }
     }
 
-    private void btnSetDevices_Click(object sender, EventArgs e) {
-       frmDevsSett devs = new frmDevsSett();
+    private void btnEmail_Click(object sender, EventArgs e) {
+      frmEmails devs = new frmEmails();
       devs.SetRef(ref glob);
       devs.ShowDialog();
     }

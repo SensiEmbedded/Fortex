@@ -85,6 +85,7 @@
   <ItemGroup>
     <Compile Include="CComunication.cs" />
     <Compile Include="CDevices.cs" />
+    <Compile Include="CEmail.cs" />
     <Compile Include="CGlobal.cs" />
     <Compile Include="CSer.cs">
       <SubType>Code</SubType>
@@ -115,6 +116,12 @@
     </Compile>
     <Compile Include="frmDevsSett.Designer.cs">
       <DependentUpon>frmDevsSett.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmails.Designer.cs">
+      <DependentUpon>frmEmails.cs</DependentUpon>
     </Compile>
     <Compile Include="frmIxView.cs">
       <SubType>Form</SubType>
@@ -198,6 +205,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDevsSett.resx">
       <DependentUpon>frmDevsSett.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmails.resx">
+      <DependentUpon>frmEmails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmIxView.resx">
       <DependentUpon>frmIxView.cs</DependentUpon>
@@ -330,6 +340,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="img\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="img\Advance.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

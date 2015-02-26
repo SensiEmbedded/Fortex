@@ -73,6 +73,16 @@ namespace DiffPress.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Advance {
+            get {
+                object obj = ResourceManager.GetObject("Advance", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Bracket {
             get {
                 object obj = ResourceManager.GetObject("Bracket", resourceCulture);
@@ -156,6 +166,16 @@ namespace DiffPress.Properties {
         internal static System.Drawing.Bitmap DTP_031 {
             get {
                 object obj = ResourceManager.GetObject("DTP_031", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap email {
+            get {
+                object obj = ResourceManager.GetObject("email", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
