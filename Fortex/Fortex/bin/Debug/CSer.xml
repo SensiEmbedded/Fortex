@@ -2918,5 +2918,15 @@
     <user>control@fortex.bg</user>
     <pass>Control1!</pass>
     <useSsl>false</useSsl>
+    <useEmails>true</useEmails>
+    <adresants>
+      <string>assen@deltainst.com</string>
+      <string>assencho@piach.com</string>
+      <string>sensi@piach.com</string>
+      <string />
+      <string />
+      <string />
+      <string>assen@deltainst.com</string>
+    </adresants>
   </emailSetts>
 </CSer>

@@ -45,10 +45,29 @@
       this.btnSave = new System.Windows.Forms.Button();
       this.txtTestEmail = new System.Windows.Forms.TextBox();
       this.label6 = new System.Windows.Forms.Label();
+      this.btnApply = new System.Windows.Forms.Button();
+      this.txtEmail1 = new System.Windows.Forms.TextBox();
+      this.label7 = new System.Windows.Forms.Label();
+      this.groupBox2 = new System.Windows.Forms.GroupBox();
+      this.label8 = new System.Windows.Forms.Label();
+      this.txtEmail2 = new System.Windows.Forms.TextBox();
+      this.label9 = new System.Windows.Forms.Label();
+      this.txtEmail3 = new System.Windows.Forms.TextBox();
+      this.label10 = new System.Windows.Forms.Label();
+      this.txtEmail4 = new System.Windows.Forms.TextBox();
+      this.label11 = new System.Windows.Forms.Label();
+      this.txtEmail5 = new System.Windows.Forms.TextBox();
+      this.label12 = new System.Windows.Forms.Label();
+      this.txtEmail6 = new System.Windows.Forms.TextBox();
+      this.label13 = new System.Windows.Forms.Label();
+      this.txtEmail7 = new System.Windows.Forms.TextBox();
+      this.cbUseEmails = new System.Windows.Forms.CheckBox();
+      this.button1 = new System.Windows.Forms.Button();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
       this.groupBox1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+      this.groupBox2.SuspendLayout();
       this.SuspendLayout();
       // 
       // txtHost
@@ -85,9 +104,9 @@
       this.label2.AutoSize = true;
       this.label2.Location = new System.Drawing.Point(13, 66);
       this.label2.Name = "label2";
-      this.label2.Size = new System.Drawing.Size(26, 13);
+      this.label2.Size = new System.Drawing.Size(83, 13);
       this.label2.TabIndex = 49;
-      this.label2.Text = "Port";
+      this.label2.Text = "Port (25,587 ssl)";
       // 
       // txtPort
       // 
@@ -115,23 +134,25 @@
       // label4
       // 
       this.label4.AutoSize = true;
-      this.label4.Location = new System.Drawing.Point(13, 159);
+      this.label4.Location = new System.Drawing.Point(11, 151);
       this.label4.Name = "label4";
       this.label4.Size = new System.Drawing.Size(27, 13);
       this.label4.TabIndex = 53;
       this.label4.Text = "user";
+      this.label4.Click += new System.EventHandler(this.label4_Click);
       // 
       // txtUser
       // 
-      this.txtUser.Location = new System.Drawing.Point(13, 176);
+      this.txtUser.Location = new System.Drawing.Point(11, 168);
       this.txtUser.Name = "txtUser";
       this.txtUser.Size = new System.Drawing.Size(111, 20);
       this.txtUser.TabIndex = 52;
+      this.txtUser.TextChanged += new System.EventHandler(this.txtUser_TextChanged);
       // 
       // label5
       // 
       this.label5.AutoSize = true;
-      this.label5.Location = new System.Drawing.Point(13, 209);
+      this.label5.Location = new System.Drawing.Point(11, 194);
       this.label5.Name = "label5";
       this.label5.Size = new System.Drawing.Size(53, 13);
       this.label5.TabIndex = 55;
@@ -139,7 +160,7 @@
       // 
       // txtPassword
       // 
-      this.txtPassword.Location = new System.Drawing.Point(13, 226);
+      this.txtPassword.Location = new System.Drawing.Point(11, 211);
       this.txtPassword.Name = "txtPassword";
       this.txtPassword.Size = new System.Drawing.Size(111, 20);
       this.txtPassword.TabIndex = 54;
@@ -147,7 +168,7 @@
       // cbUseSSL
       // 
       this.cbUseSSL.AutoSize = true;
-      this.cbUseSSL.Location = new System.Drawing.Point(13, 268);
+      this.cbUseSSL.Location = new System.Drawing.Point(11, 242);
       this.cbUseSSL.Name = "cbUseSSL";
       this.cbUseSSL.Size = new System.Drawing.Size(68, 17);
       this.cbUseSSL.TabIndex = 57;
@@ -156,6 +177,7 @@
       // 
       // groupBox1
       // 
+      this.groupBox1.Controls.Add(this.btnApply);
       this.groupBox1.Controls.Add(this.btnSetDefaults);
       this.groupBox1.Controls.Add(this.cbUseSSL);
       this.groupBox1.Controls.Add(this.label5);
@@ -168,9 +190,9 @@
       this.groupBox1.Controls.Add(this.txtPort);
       this.groupBox1.Controls.Add(this.label1);
       this.groupBox1.Controls.Add(this.txtHost);
-      this.groupBox1.Location = new System.Drawing.Point(3, 6);
+      this.groupBox1.Location = new System.Drawing.Point(9, 46);
       this.groupBox1.Name = "groupBox1";
-      this.groupBox1.Size = new System.Drawing.Size(154, 357);
+      this.groupBox1.Size = new System.Drawing.Size(160, 357);
       this.groupBox1.TabIndex = 58;
       this.groupBox1.TabStop = false;
       this.groupBox1.Text = "Email Settings";
@@ -187,13 +209,13 @@
       // 
       // btnTest
       // 
-      this.btnTest.Location = new System.Drawing.Point(240, 177);
+      this.btnTest.Location = new System.Drawing.Point(337, 447);
       this.btnTest.Name = "btnTest";
       this.btnTest.Size = new System.Drawing.Size(70, 40);
       this.btnTest.TabIndex = 59;
       this.btnTest.Text = "Test\r\nSend email";
       this.btnTest.UseVisualStyleBackColor = true;
-      this.btnTest.Click += new System.EventHandler(this.button1_Click);
+      this.btnTest.Click += new System.EventHandler(this.btnTest_Click);
       // 
       // pictureBox2
       // 
@@ -245,7 +267,7 @@
       // 
       // txtTestEmail
       // 
-      this.txtTestEmail.Location = new System.Drawing.Point(318, 191);
+      this.txtTestEmail.Location = new System.Drawing.Point(416, 467);
       this.txtTestEmail.Name = "txtTestEmail";
       this.txtTestEmail.Size = new System.Drawing.Size(168, 20);
       this.txtTestEmail.TabIndex = 64;
@@ -253,23 +275,192 @@
       // label6
       // 
       this.label6.AutoSize = true;
-      this.label6.Location = new System.Drawing.Point(317, 172);
+      this.label6.Location = new System.Drawing.Point(415, 448);
       this.label6.Name = "label6";
       this.label6.Size = new System.Drawing.Size(58, 13);
       this.label6.TabIndex = 59;
       this.label6.Text = "Test email:";
+      // 
+      // btnApply
+      // 
+      this.btnApply.Location = new System.Drawing.Point(88, 314);
+      this.btnApply.Name = "btnApply";
+      this.btnApply.Size = new System.Drawing.Size(63, 29);
+      this.btnApply.TabIndex = 58;
+      this.btnApply.Text = "Apply";
+      this.btnApply.UseVisualStyleBackColor = true;
+      this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+      // 
+      // txtEmail1
+      // 
+      this.txtEmail1.Location = new System.Drawing.Point(19, 41);
+      this.txtEmail1.Name = "txtEmail1";
+      this.txtEmail1.Size = new System.Drawing.Size(168, 20);
+      this.txtEmail1.TabIndex = 64;
+      // 
+      // label7
+      // 
+      this.label7.AutoSize = true;
+      this.label7.Location = new System.Drawing.Point(18, 22);
+      this.label7.Name = "label7";
+      this.label7.Size = new System.Drawing.Size(41, 13);
+      this.label7.TabIndex = 59;
+      this.label7.Text = "Email 1";
+      // 
+      // groupBox2
+      // 
+      this.groupBox2.Controls.Add(this.label13);
+      this.groupBox2.Controls.Add(this.txtEmail7);
+      this.groupBox2.Controls.Add(this.label12);
+      this.groupBox2.Controls.Add(this.txtEmail6);
+      this.groupBox2.Controls.Add(this.label11);
+      this.groupBox2.Controls.Add(this.txtEmail5);
+      this.groupBox2.Controls.Add(this.label10);
+      this.groupBox2.Controls.Add(this.txtEmail4);
+      this.groupBox2.Controls.Add(this.label9);
+      this.groupBox2.Controls.Add(this.txtEmail3);
+      this.groupBox2.Controls.Add(this.label8);
+      this.groupBox2.Controls.Add(this.txtEmail2);
+      this.groupBox2.Controls.Add(this.label7);
+      this.groupBox2.Controls.Add(this.txtEmail1);
+      this.groupBox2.Location = new System.Drawing.Point(204, 45);
+      this.groupBox2.Name = "groupBox2";
+      this.groupBox2.Size = new System.Drawing.Size(225, 358);
+      this.groupBox2.TabIndex = 65;
+      this.groupBox2.TabStop = false;
+      this.groupBox2.Text = "If Alarm Send Email to:";
+      // 
+      // label8
+      // 
+      this.label8.AutoSize = true;
+      this.label8.Location = new System.Drawing.Point(17, 64);
+      this.label8.Name = "label8";
+      this.label8.Size = new System.Drawing.Size(41, 13);
+      this.label8.TabIndex = 65;
+      this.label8.Text = "Email 2";
+      // 
+      // txtEmail2
+      // 
+      this.txtEmail2.Location = new System.Drawing.Point(18, 83);
+      this.txtEmail2.Name = "txtEmail2";
+      this.txtEmail2.Size = new System.Drawing.Size(168, 20);
+      this.txtEmail2.TabIndex = 66;
+      // 
+      // label9
+      // 
+      this.label9.AutoSize = true;
+      this.label9.Location = new System.Drawing.Point(16, 105);
+      this.label9.Name = "label9";
+      this.label9.Size = new System.Drawing.Size(41, 13);
+      this.label9.TabIndex = 67;
+      this.label9.Text = "Email 3";
+      // 
+      // txtEmail3
+      // 
+      this.txtEmail3.Location = new System.Drawing.Point(17, 124);
+      this.txtEmail3.Name = "txtEmail3";
+      this.txtEmail3.Size = new System.Drawing.Size(168, 20);
+      this.txtEmail3.TabIndex = 68;
+      // 
+      // label10
+      // 
+      this.label10.AutoSize = true;
+      this.label10.Location = new System.Drawing.Point(16, 151);
+      this.label10.Name = "label10";
+      this.label10.Size = new System.Drawing.Size(41, 13);
+      this.label10.TabIndex = 69;
+      this.label10.Text = "Email 4";
+      // 
+      // txtEmail4
+      // 
+      this.txtEmail4.Location = new System.Drawing.Point(17, 170);
+      this.txtEmail4.Name = "txtEmail4";
+      this.txtEmail4.Size = new System.Drawing.Size(168, 20);
+      this.txtEmail4.TabIndex = 70;
+      // 
+      // label11
+      // 
+      this.label11.AutoSize = true;
+      this.label11.Location = new System.Drawing.Point(15, 194);
+      this.label11.Name = "label11";
+      this.label11.Size = new System.Drawing.Size(41, 13);
+      this.label11.TabIndex = 71;
+      this.label11.Text = "Email 5";
+      // 
+      // txtEmail5
+      // 
+      this.txtEmail5.Location = new System.Drawing.Point(16, 213);
+      this.txtEmail5.Name = "txtEmail5";
+      this.txtEmail5.Size = new System.Drawing.Size(168, 20);
+      this.txtEmail5.TabIndex = 72;
+      // 
+      // label12
+      // 
+      this.label12.AutoSize = true;
+      this.label12.Location = new System.Drawing.Point(13, 239);
+      this.label12.Name = "label12";
+      this.label12.Size = new System.Drawing.Size(41, 13);
+      this.label12.TabIndex = 73;
+      this.label12.Text = "Email 6";
+      // 
+      // txtEmail6
+      // 
+      this.txtEmail6.Location = new System.Drawing.Point(14, 258);
+      this.txtEmail6.Name = "txtEmail6";
+      this.txtEmail6.Size = new System.Drawing.Size(168, 20);
+      this.txtEmail6.TabIndex = 74;
+      // 
+      // label13
+      // 
+      this.label13.AutoSize = true;
+      this.label13.Location = new System.Drawing.Point(12, 284);
+      this.label13.Name = "label13";
+      this.label13.Size = new System.Drawing.Size(41, 13);
+      this.label13.TabIndex = 75;
+      this.label13.Text = "Email 7";
+      // 
+      // txtEmail7
+      // 
+      this.txtEmail7.Location = new System.Drawing.Point(13, 303);
+      this.txtEmail7.Name = "txtEmail7";
+      this.txtEmail7.Size = new System.Drawing.Size(168, 20);
+      this.txtEmail7.TabIndex = 76;
+      // 
+      // cbUseEmails
+      // 
+      this.cbUseEmails.AutoSize = true;
+      this.cbUseEmails.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.cbUseEmails.Location = new System.Drawing.Point(13, 8);
+      this.cbUseEmails.Name = "cbUseEmails";
+      this.cbUseEmails.Size = new System.Drawing.Size(223, 24);
+      this.cbUseEmails.TabIndex = 66;
+      this.cbUseEmails.Text = "Send email if alarm occured";
+      this.cbUseEmails.UseVisualStyleBackColor = true;
+      // 
+      // button1
+      // 
+      this.button1.Location = new System.Drawing.Point(470, 365);
+      this.button1.Name = "button1";
+      this.button1.Size = new System.Drawing.Size(70, 40);
+      this.button1.TabIndex = 59;
+      this.button1.Text = "Test\r\nSend email";
+      this.button1.UseVisualStyleBackColor = true;
+      this.button1.Click += new System.EventHandler(this.button1_Click);
       // 
       // frmEmails
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(711, 505);
+      this.Controls.Add(this.cbUseEmails);
+      this.Controls.Add(this.groupBox2);
       this.Controls.Add(this.label6);
       this.Controls.Add(this.txtTestEmail);
       this.Controls.Add(this.pictureBox1);
       this.Controls.Add(this.btnSave);
       this.Controls.Add(this.pictureBox2);
       this.Controls.Add(this.btnClose);
+      this.Controls.Add(this.button1);
       this.Controls.Add(this.btnTest);
       this.Controls.Add(this.groupBox1);
       this.Controls.Add(this.pictureBox5);
@@ -281,6 +472,8 @@
       this.groupBox1.PerformLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+      this.groupBox2.ResumeLayout(false);
+      this.groupBox2.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -309,5 +502,23 @@
     private System.Windows.Forms.Button btnSave;
     private System.Windows.Forms.TextBox txtTestEmail;
     private System.Windows.Forms.Label label6;
+    private System.Windows.Forms.Button btnApply;
+    private System.Windows.Forms.TextBox txtEmail1;
+    private System.Windows.Forms.Label label7;
+    private System.Windows.Forms.GroupBox groupBox2;
+    private System.Windows.Forms.Label label13;
+    private System.Windows.Forms.TextBox txtEmail7;
+    private System.Windows.Forms.Label label12;
+    private System.Windows.Forms.TextBox txtEmail6;
+    private System.Windows.Forms.Label label11;
+    private System.Windows.Forms.TextBox txtEmail5;
+    private System.Windows.Forms.Label label10;
+    private System.Windows.Forms.TextBox txtEmail4;
+    private System.Windows.Forms.Label label9;
+    private System.Windows.Forms.TextBox txtEmail3;
+    private System.Windows.Forms.Label label8;
+    private System.Windows.Forms.TextBox txtEmail2;
+    private System.Windows.Forms.CheckBox cbUseEmails;
+    private System.Windows.Forms.Button button1;
   }
 }

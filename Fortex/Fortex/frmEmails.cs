@@ -5,13 +5,22 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Collections;
 using System.Windows.Forms;
 
 namespace DiffPress {
   public partial class frmEmails : Form {
     CGlobal glob;
+     private static List<System.Windows.Forms.TextBox> tbs = new List<TextBox>();
     public frmEmails() {
       InitializeComponent();
+      tbs.Add(txtEmail1);
+      tbs.Add(txtEmail2);
+      tbs.Add(txtEmail3);
+      tbs.Add(txtEmail4);
+      tbs.Add(txtEmail5);
+      tbs.Add(txtEmail6);
+      tbs.Add(txtEmail7);
     }
     public void SetRef(ref CGlobal rfGl) {
       glob = rfGl;
@@ -24,7 +33,14 @@ namespace DiffPress {
       }
       return base.ProcessCmdKey(ref msg, keyData);
     }
-
+    
+   
+      
+    void PopulateAdresants(CEmailSettings e){
+      for (int i = 0; i < e.adresants.Length; ++i) {
+        tbs[i].Text = e.adresants[i];
+      }
+    }
     void PopulateControls(CEmailSettings e){
       if(e == null)return;
       txtHost.Text = e.Host;
@@ -33,6 +49,8 @@ namespace DiffPress {
       txtUser.Text = e.user;
       txtPassword.Text = e.pass;
       cbUseSSL.Checked =  e.useSsl;
+      cbUseEmails.Checked = e.useEmails;
+      PopulateAdresants(e);
     }
     bool ValidateControls() {
       foreach (Control c in groupBox1.Controls) {
@@ -49,6 +67,11 @@ namespace DiffPress {
       return true;
     }
 
+    void ApplyAdresants(CEmailSettings e) {
+      for (int i = 0; i < e.adresants.Length; ++i) {
+        e.adresants[i] = tbs[i].Text;
+      }
+    }
     void ApplySettings(CEmailSettings e) {
       e.Host = txtHost.Text;
       e.Port = Convert.ToInt32( txtPort.Text);
@@ -56,6 +79,8 @@ namespace DiffPress {
       e.user = txtUser.Text;
       e.pass = txtPassword.Text;
       e.useSsl = cbUseSSL.Checked;
+      e.useEmails = cbUseEmails.Checked;
+      ApplyAdresants(e);
     }
     void Send() {
       /*
@@ -81,11 +106,12 @@ namespace DiffPress {
       }
     }
 
-    private void button1_Click(object sender, EventArgs e) {
-      CEmail em = new CEmail();
+    private void btnSyncSend_Click(object sender, EventArgs e) {
+
+      CEmail em = new CEmail(ref glob);
       CEmailSettings set = glob.g_wr.emailSetts;
       em.sett = set;
-      em.SendEmail(txtTestEmail.Text);
+      em.SendEmailSync(txtTestEmail.Text);
     }
 
     private void btnClose_Click(object sender, EventArgs e) {
@@ -108,6 +134,37 @@ namespace DiffPress {
       }
       ApplySettings(em);
       glob.SaveSettings();
+    }
+
+    private void btnTest_Click(object sender, EventArgs e) {
+      CEmail em = new CEmail(ref glob);
+      CEmailSettings set = glob.g_wr.emailSetts;
+      em.sett = set;
+      em.SendEmailAsync(txtTestEmail.Text, true);
+    }
+
+    private void btnApply_Click(object sender, EventArgs e) {
+      CEmailSettings em = glob.g_wr.emailSetts;
+      if (em == null) {
+        em = new CEmailSettings();
+      }
+      ApplySettings(em);
+    }
+
+    private void label4_Click(object sender, EventArgs e) {
+
+    }
+
+    private void txtUser_TextChanged(object sender, EventArgs e) {
+        
+    }
+
+    private void button1_Click(object sender, EventArgs e) {
+      CEmail em = new CEmail(ref glob);
+      CEmailSettings set = glob.g_wr.emailSetts;
+      em.sett = set;
+      em.Send2All();
+
     }
   }
 }
