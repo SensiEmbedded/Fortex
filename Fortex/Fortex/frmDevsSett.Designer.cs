@@ -49,7 +49,7 @@
       this.pnlFloor3.BackColor = System.Drawing.Color.Gray;
       this.pnlFloor3.Location = new System.Drawing.Point(74, 2);
       this.pnlFloor3.Name = "pnlFloor3";
-      this.pnlFloor3.Size = new System.Drawing.Size(1088, 219);
+      this.pnlFloor3.Size = new System.Drawing.Size(1072, 219);
       this.pnlFloor3.TabIndex = 2;
       // 
       // pnlFloor2
@@ -61,7 +61,7 @@
       this.pnlFloor2.BackColor = System.Drawing.Color.Gray;
       this.pnlFloor2.Location = new System.Drawing.Point(75, 235);
       this.pnlFloor2.Name = "pnlFloor2";
-      this.pnlFloor2.Size = new System.Drawing.Size(1087, 219);
+      this.pnlFloor2.Size = new System.Drawing.Size(1071, 219);
       this.pnlFloor2.TabIndex = 3;
       // 
       // pnlFloor1
@@ -73,7 +73,7 @@
       this.pnlFloor1.BackColor = System.Drawing.Color.Gray;
       this.pnlFloor1.Location = new System.Drawing.Point(76, 468);
       this.pnlFloor1.Name = "pnlFloor1";
-      this.pnlFloor1.Size = new System.Drawing.Size(1086, 219);
+      this.pnlFloor1.Size = new System.Drawing.Size(1070, 219);
       this.pnlFloor1.TabIndex = 3;
       // 
       // button1
@@ -125,7 +125,7 @@
                   | System.Windows.Forms.AnchorStyles.Right)));
       this.groupBox1.Location = new System.Drawing.Point(1, 695);
       this.groupBox1.Name = "groupBox1";
-      this.groupBox1.Size = new System.Drawing.Size(1164, 12);
+      this.groupBox1.Size = new System.Drawing.Size(1148, 12);
       this.groupBox1.TabIndex = 19;
       this.groupBox1.TabStop = false;
       // 

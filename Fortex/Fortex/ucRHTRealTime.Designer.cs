@@ -66,7 +66,7 @@
       this.lblRH.ForeColor = System.Drawing.SystemColors.ActiveCaption;
       this.lblRH.Location = new System.Drawing.Point(0, 65);
       this.lblRH.Name = "lblRH";
-      this.lblRH.Size = new System.Drawing.Size(84, 33);
+      this.lblRH.Size = new System.Drawing.Size(84, 36);
       this.lblRH.TabIndex = 3;
       this.lblRH.Text = "--.-";
       this.lblRH.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -80,14 +80,15 @@
       // 
       // lblID
       // 
-      this.lblID.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.lblID.Dock = System.Windows.Forms.DockStyle.Bottom;
       this.lblID.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-      this.lblID.Location = new System.Drawing.Point(0, 98);
+      this.lblID.Location = new System.Drawing.Point(0, 100);
       this.lblID.Name = "lblID";
-      this.lblID.Size = new System.Drawing.Size(84, 17);
+      this.lblID.Size = new System.Drawing.Size(84, 15);
       this.lblID.TabIndex = 4;
       this.lblID.Text = "floor1.1";
       this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.lblID.DoubleClick += new System.EventHandler(this.lblID_DoubleClick);
       // 
       // ucRHTRealTime
       // 

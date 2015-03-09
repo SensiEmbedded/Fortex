@@ -13,6 +13,7 @@ namespace DiffPress{
     
     public CSQLite sqlite;
     public CSQLiteData data;
+    public CSoundAlarm sound;
     
 
     public CGlobal(){
@@ -29,6 +30,7 @@ namespace DiffPress{
       sqlite = new CSQLite();
       data = new CSQLiteData();
       comm = new CComunication();
+      sound = new CSoundAlarm(this);
     
     }
     public void SaveSettings() {                    

@@ -356,8 +356,13 @@ namespace DiffPress {
     public int address { get;set; }
     public string description {get;set;}
 
+    [Browsable(false),NonSerialized]
+    public bool isSoundKvint = false;
+
     public event ChangedEventHandler Changed;
     public event AlarmOccured evAlarm;
+
+
 
     void FireChangeEvent() {
       if (Changed != null) {
@@ -370,6 +375,7 @@ namespace DiffPress {
 
       Write2DBAlarm(type,typeLast,tag); 
       Write2DataIfNeeded(type,typeLast,tag);
+      isSoundKvint = false;
       
       if (evAlarm != null) {
         evAlarm(type,typeLast,tag);
@@ -558,8 +564,13 @@ namespace DiffPress {
       int timeAlarm = glob.g_wr.timeAlarm;
       CheckVal1AlarmsLo(timeAlarm);
       CheckVal1AlarmsHi(timeAlarm);
-      CheckVal2AlarmsLo(timeAlarm);
-      CheckVal2AlarmsHi(timeAlarm);
+
+      if (this.type == TypeDevice.RHT) {
+        CheckVal2AlarmsLo(timeAlarm);
+        CheckVal2AlarmsHi(timeAlarm);
+      } else {
+      
+      }
 
     }
     #endregion

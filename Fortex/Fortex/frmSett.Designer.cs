@@ -120,7 +120,7 @@
       this.btnEmail.Name = "btnEmail";
       this.btnEmail.Size = new System.Drawing.Size(117, 62);
       this.btnEmail.TabIndex = 45;
-      this.btnEmail.Text = "Email";
+      this.btnEmail.Text = "Email\r\nSound";
       this.btnEmail.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
       this.btnEmail.UseVisualStyleBackColor = true;
       this.btnEmail.Click += new System.EventHandler(this.btnEmail_Click);

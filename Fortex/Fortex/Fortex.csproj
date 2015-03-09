@@ -90,6 +90,7 @@
     <Compile Include="CSer.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="CSoundAlarm.cs" />
     <Compile Include="CSQLite.cs" />
     <Compile Include="CSQLiteData.cs" />
     <Compile Include="CUtils.cs" />

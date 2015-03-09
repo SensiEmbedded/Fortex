@@ -51,6 +51,7 @@ namespace DiffPress {
       cbUseSSL.Checked =  e.useSsl;
       cbUseEmails.Checked = e.useEmails;
       PopulateAdresants(e);
+      PopulateSoundRadioButton();
     }
     bool ValidateControls() {
       foreach (Control c in groupBox1.Controls) {
@@ -81,6 +82,7 @@ namespace DiffPress {
       e.useSsl = cbUseSSL.Checked;
       e.useEmails = cbUseEmails.Checked;
       ApplyAdresants(e);
+      ApplySoundWavFile();
     }
     void Send() {
       /*
@@ -133,6 +135,7 @@ namespace DiffPress {
         em = new CEmailSettings();
       }
       ApplySettings(em);
+      ApplySoundWavFile();
       glob.SaveSettings();
     }
 
@@ -164,7 +167,75 @@ namespace DiffPress {
       CEmailSettings set = glob.g_wr.emailSetts;
       em.sett = set;
       em.Send2All();
+    }
+    #region Sound
+    private void PopulateSoundRadioButton() {
+      if(glob == null)return;
+      if(glob.g_wr.alarmWavFile == "")return;
+      cbUseSound.Checked = glob.g_wr.alarmPlaySound;
+      if (glob.g_wr.alarmWavFile == "s1.wav") {
+        rbSound1.Checked = true;
+        return;
+      }
+      if (glob.g_wr.alarmWavFile == "s2.wav") {
+        rbSound2.Checked = true;
+        return;
+      }
+      if (glob.g_wr.alarmWavFile == "s3.wav") {
+        rbSound3.Checked = true;
+        return;
+      }
+      if (glob.g_wr.alarmWavFile == "s4.wav") {
+        rbSound4.Checked = true;
+        return;
+      }
 
+    }
+    private void ApplySoundWavFile() {
+      if (rbSound1.Checked == true) {
+        glob.g_wr.alarmWavFile =  "s1.wav";
+      }
+      if (rbSound2.Checked == true) {
+        glob.g_wr.alarmWavFile =  "s2.wav";
+      }
+      if (rbSound3.Checked == true) {
+        glob.g_wr.alarmWavFile =  "s3.wav";
+      }
+      if (rbSound4.Checked == true) {
+        glob.g_wr.alarmWavFile =  "s4.wav";
+      }
+      glob.g_wr.alarmPlaySound = cbUseSound.Checked;
+
+      string pathWavFile = Application.StartupPath + @"\" + glob.g_wr.alarmWavFile;
+      glob.sound.SetWavFile(pathWavFile);
+      glob.sound.SetAlarmEnable(glob.g_wr.alarmPlaySound);
+    }
+    private void btnPlaySound_Click(object sender, EventArgs e) {
+      System.Media.SoundPlayer player = null;
+      if (rbSound1.Checked == true) {
+        player = new System.Media.SoundPlayer( Application.StartupPath + @"\s1.wav");
+      }
+      if (rbSound2.Checked == true) {
+        player = new System.Media.SoundPlayer( Application.StartupPath + @"\s2.wav");
+      }
+      if (rbSound3.Checked == true) {
+        player = new System.Media.SoundPlayer( Application.StartupPath + @"\s3.wav");
+      }
+      if (rbSound4.Checked == true) {
+        player = new System.Media.SoundPlayer( Application.StartupPath + @"\s4.wav");
+      }
+      //System.Media.SystemSounds.Asterisk.Play();
+      
+      if (player != null) {
+        //player.PlayLooping();
+        player.Play();
+      }
+      #endregion
+      //DialogResult r = MessageBox.Show("aaaa","oooo",MessageBoxButtons.OKCancel);
+      //if (r == System.Windows.Forms.DialogResult.OK) {
+      //  player.Stop();
+      //}
+      
     }
   }
 }

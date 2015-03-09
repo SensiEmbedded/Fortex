@@ -37,6 +37,7 @@
       this.txtPassword = new System.Windows.Forms.TextBox();
       this.cbUseSSL = new System.Windows.Forms.CheckBox();
       this.groupBox1 = new System.Windows.Forms.GroupBox();
+      this.btnApply = new System.Windows.Forms.Button();
       this.btnSetDefaults = new System.Windows.Forms.Button();
       this.btnTest = new System.Windows.Forms.Button();
       this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -45,29 +46,36 @@
       this.btnSave = new System.Windows.Forms.Button();
       this.txtTestEmail = new System.Windows.Forms.TextBox();
       this.label6 = new System.Windows.Forms.Label();
-      this.btnApply = new System.Windows.Forms.Button();
       this.txtEmail1 = new System.Windows.Forms.TextBox();
       this.label7 = new System.Windows.Forms.Label();
       this.groupBox2 = new System.Windows.Forms.GroupBox();
-      this.label8 = new System.Windows.Forms.Label();
-      this.txtEmail2 = new System.Windows.Forms.TextBox();
-      this.label9 = new System.Windows.Forms.Label();
-      this.txtEmail3 = new System.Windows.Forms.TextBox();
-      this.label10 = new System.Windows.Forms.Label();
-      this.txtEmail4 = new System.Windows.Forms.TextBox();
-      this.label11 = new System.Windows.Forms.Label();
-      this.txtEmail5 = new System.Windows.Forms.TextBox();
-      this.label12 = new System.Windows.Forms.Label();
-      this.txtEmail6 = new System.Windows.Forms.TextBox();
       this.label13 = new System.Windows.Forms.Label();
       this.txtEmail7 = new System.Windows.Forms.TextBox();
+      this.label12 = new System.Windows.Forms.Label();
+      this.txtEmail6 = new System.Windows.Forms.TextBox();
+      this.label11 = new System.Windows.Forms.Label();
+      this.txtEmail5 = new System.Windows.Forms.TextBox();
+      this.label10 = new System.Windows.Forms.Label();
+      this.txtEmail4 = new System.Windows.Forms.TextBox();
+      this.label9 = new System.Windows.Forms.Label();
+      this.txtEmail3 = new System.Windows.Forms.TextBox();
+      this.label8 = new System.Windows.Forms.Label();
+      this.txtEmail2 = new System.Windows.Forms.TextBox();
       this.cbUseEmails = new System.Windows.Forms.CheckBox();
       this.button1 = new System.Windows.Forms.Button();
+      this.btnPlaySound = new System.Windows.Forms.Button();
+      this.groupBox3 = new System.Windows.Forms.GroupBox();
+      this.rbSound1 = new System.Windows.Forms.RadioButton();
+      this.rbSound2 = new System.Windows.Forms.RadioButton();
+      this.rbSound3 = new System.Windows.Forms.RadioButton();
+      this.rbSound4 = new System.Windows.Forms.RadioButton();
+      this.cbUseSound = new System.Windows.Forms.CheckBox();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
       this.groupBox1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
       this.groupBox2.SuspendLayout();
+      this.groupBox3.SuspendLayout();
       this.SuspendLayout();
       // 
       // txtHost
@@ -197,6 +205,16 @@
       this.groupBox1.TabStop = false;
       this.groupBox1.Text = "Email Settings";
       // 
+      // btnApply
+      // 
+      this.btnApply.Location = new System.Drawing.Point(88, 314);
+      this.btnApply.Name = "btnApply";
+      this.btnApply.Size = new System.Drawing.Size(63, 29);
+      this.btnApply.TabIndex = 58;
+      this.btnApply.Text = "Apply";
+      this.btnApply.UseVisualStyleBackColor = true;
+      this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
+      // 
       // btnSetDefaults
       // 
       this.btnSetDefaults.Location = new System.Drawing.Point(9, 314);
@@ -281,16 +299,6 @@
       this.label6.TabIndex = 59;
       this.label6.Text = "Test email:";
       // 
-      // btnApply
-      // 
-      this.btnApply.Location = new System.Drawing.Point(88, 314);
-      this.btnApply.Name = "btnApply";
-      this.btnApply.Size = new System.Drawing.Size(63, 29);
-      this.btnApply.TabIndex = 58;
-      this.btnApply.Text = "Apply";
-      this.btnApply.UseVisualStyleBackColor = true;
-      this.btnApply.Click += new System.EventHandler(this.btnApply_Click);
-      // 
       // txtEmail1
       // 
       this.txtEmail1.Location = new System.Drawing.Point(19, 41);
@@ -330,69 +338,21 @@
       this.groupBox2.TabStop = false;
       this.groupBox2.Text = "If Alarm Send Email to:";
       // 
-      // label8
+      // label13
       // 
-      this.label8.AutoSize = true;
-      this.label8.Location = new System.Drawing.Point(17, 64);
-      this.label8.Name = "label8";
-      this.label8.Size = new System.Drawing.Size(41, 13);
-      this.label8.TabIndex = 65;
-      this.label8.Text = "Email 2";
+      this.label13.AutoSize = true;
+      this.label13.Location = new System.Drawing.Point(12, 284);
+      this.label13.Name = "label13";
+      this.label13.Size = new System.Drawing.Size(41, 13);
+      this.label13.TabIndex = 75;
+      this.label13.Text = "Email 7";
       // 
-      // txtEmail2
+      // txtEmail7
       // 
-      this.txtEmail2.Location = new System.Drawing.Point(18, 83);
-      this.txtEmail2.Name = "txtEmail2";
-      this.txtEmail2.Size = new System.Drawing.Size(168, 20);
-      this.txtEmail2.TabIndex = 66;
-      // 
-      // label9
-      // 
-      this.label9.AutoSize = true;
-      this.label9.Location = new System.Drawing.Point(16, 105);
-      this.label9.Name = "label9";
-      this.label9.Size = new System.Drawing.Size(41, 13);
-      this.label9.TabIndex = 67;
-      this.label9.Text = "Email 3";
-      // 
-      // txtEmail3
-      // 
-      this.txtEmail3.Location = new System.Drawing.Point(17, 124);
-      this.txtEmail3.Name = "txtEmail3";
-      this.txtEmail3.Size = new System.Drawing.Size(168, 20);
-      this.txtEmail3.TabIndex = 68;
-      // 
-      // label10
-      // 
-      this.label10.AutoSize = true;
-      this.label10.Location = new System.Drawing.Point(16, 151);
-      this.label10.Name = "label10";
-      this.label10.Size = new System.Drawing.Size(41, 13);
-      this.label10.TabIndex = 69;
-      this.label10.Text = "Email 4";
-      // 
-      // txtEmail4
-      // 
-      this.txtEmail4.Location = new System.Drawing.Point(17, 170);
-      this.txtEmail4.Name = "txtEmail4";
-      this.txtEmail4.Size = new System.Drawing.Size(168, 20);
-      this.txtEmail4.TabIndex = 70;
-      // 
-      // label11
-      // 
-      this.label11.AutoSize = true;
-      this.label11.Location = new System.Drawing.Point(15, 194);
-      this.label11.Name = "label11";
-      this.label11.Size = new System.Drawing.Size(41, 13);
-      this.label11.TabIndex = 71;
-      this.label11.Text = "Email 5";
-      // 
-      // txtEmail5
-      // 
-      this.txtEmail5.Location = new System.Drawing.Point(16, 213);
-      this.txtEmail5.Name = "txtEmail5";
-      this.txtEmail5.Size = new System.Drawing.Size(168, 20);
-      this.txtEmail5.TabIndex = 72;
+      this.txtEmail7.Location = new System.Drawing.Point(13, 303);
+      this.txtEmail7.Name = "txtEmail7";
+      this.txtEmail7.Size = new System.Drawing.Size(168, 20);
+      this.txtEmail7.TabIndex = 76;
       // 
       // label12
       // 
@@ -410,21 +370,69 @@
       this.txtEmail6.Size = new System.Drawing.Size(168, 20);
       this.txtEmail6.TabIndex = 74;
       // 
-      // label13
+      // label11
       // 
-      this.label13.AutoSize = true;
-      this.label13.Location = new System.Drawing.Point(12, 284);
-      this.label13.Name = "label13";
-      this.label13.Size = new System.Drawing.Size(41, 13);
-      this.label13.TabIndex = 75;
-      this.label13.Text = "Email 7";
+      this.label11.AutoSize = true;
+      this.label11.Location = new System.Drawing.Point(15, 194);
+      this.label11.Name = "label11";
+      this.label11.Size = new System.Drawing.Size(41, 13);
+      this.label11.TabIndex = 71;
+      this.label11.Text = "Email 5";
       // 
-      // txtEmail7
+      // txtEmail5
       // 
-      this.txtEmail7.Location = new System.Drawing.Point(13, 303);
-      this.txtEmail7.Name = "txtEmail7";
-      this.txtEmail7.Size = new System.Drawing.Size(168, 20);
-      this.txtEmail7.TabIndex = 76;
+      this.txtEmail5.Location = new System.Drawing.Point(16, 213);
+      this.txtEmail5.Name = "txtEmail5";
+      this.txtEmail5.Size = new System.Drawing.Size(168, 20);
+      this.txtEmail5.TabIndex = 72;
+      // 
+      // label10
+      // 
+      this.label10.AutoSize = true;
+      this.label10.Location = new System.Drawing.Point(16, 151);
+      this.label10.Name = "label10";
+      this.label10.Size = new System.Drawing.Size(41, 13);
+      this.label10.TabIndex = 69;
+      this.label10.Text = "Email 4";
+      // 
+      // txtEmail4
+      // 
+      this.txtEmail4.Location = new System.Drawing.Point(17, 170);
+      this.txtEmail4.Name = "txtEmail4";
+      this.txtEmail4.Size = new System.Drawing.Size(168, 20);
+      this.txtEmail4.TabIndex = 70;
+      // 
+      // label9
+      // 
+      this.label9.AutoSize = true;
+      this.label9.Location = new System.Drawing.Point(16, 105);
+      this.label9.Name = "label9";
+      this.label9.Size = new System.Drawing.Size(41, 13);
+      this.label9.TabIndex = 67;
+      this.label9.Text = "Email 3";
+      // 
+      // txtEmail3
+      // 
+      this.txtEmail3.Location = new System.Drawing.Point(17, 124);
+      this.txtEmail3.Name = "txtEmail3";
+      this.txtEmail3.Size = new System.Drawing.Size(168, 20);
+      this.txtEmail3.TabIndex = 68;
+      // 
+      // label8
+      // 
+      this.label8.AutoSize = true;
+      this.label8.Location = new System.Drawing.Point(17, 64);
+      this.label8.Name = "label8";
+      this.label8.Size = new System.Drawing.Size(41, 13);
+      this.label8.TabIndex = 65;
+      this.label8.Text = "Email 2";
+      // 
+      // txtEmail2
+      // 
+      this.txtEmail2.Location = new System.Drawing.Point(18, 83);
+      this.txtEmail2.Name = "txtEmail2";
+      this.txtEmail2.Size = new System.Drawing.Size(168, 20);
+      this.txtEmail2.TabIndex = 66;
       // 
       // cbUseEmails
       // 
@@ -439,19 +447,100 @@
       // 
       // button1
       // 
-      this.button1.Location = new System.Drawing.Point(470, 365);
+      this.button1.Location = new System.Drawing.Point(435, 361);
       this.button1.Name = "button1";
       this.button1.Size = new System.Drawing.Size(70, 40);
       this.button1.TabIndex = 59;
-      this.button1.Text = "Test\r\nSend email";
+      this.button1.Text = "Send 2 All";
       this.button1.UseVisualStyleBackColor = true;
       this.button1.Click += new System.EventHandler(this.button1_Click);
+      // 
+      // btnPlaySound
+      // 
+      this.btnPlaySound.Location = new System.Drawing.Point(9, 124);
+      this.btnPlaySound.Name = "btnPlaySound";
+      this.btnPlaySound.Size = new System.Drawing.Size(101, 34);
+      this.btnPlaySound.TabIndex = 67;
+      this.btnPlaySound.Text = "Play Sound";
+      this.btnPlaySound.UseVisualStyleBackColor = true;
+      this.btnPlaySound.Click += new System.EventHandler(this.btnPlaySound_Click);
+      // 
+      // groupBox3
+      // 
+      this.groupBox3.Controls.Add(this.rbSound4);
+      this.groupBox3.Controls.Add(this.rbSound3);
+      this.groupBox3.Controls.Add(this.rbSound2);
+      this.groupBox3.Controls.Add(this.rbSound1);
+      this.groupBox3.Controls.Add(this.btnPlaySound);
+      this.groupBox3.Location = new System.Drawing.Point(449, 46);
+      this.groupBox3.Name = "groupBox3";
+      this.groupBox3.Size = new System.Drawing.Size(186, 170);
+      this.groupBox3.TabIndex = 68;
+      this.groupBox3.TabStop = false;
+      this.groupBox3.Text = "Sound Alarm";
+      // 
+      // rbSound1
+      // 
+      this.rbSound1.AutoSize = true;
+      this.rbSound1.Location = new System.Drawing.Point(14, 26);
+      this.rbSound1.Name = "rbSound1";
+      this.rbSound1.Size = new System.Drawing.Size(63, 17);
+      this.rbSound1.TabIndex = 68;
+      this.rbSound1.TabStop = true;
+      this.rbSound1.Text = "sound 1";
+      this.rbSound1.UseVisualStyleBackColor = true;
+      // 
+      // rbSound2
+      // 
+      this.rbSound2.AutoSize = true;
+      this.rbSound2.Location = new System.Drawing.Point(14, 48);
+      this.rbSound2.Name = "rbSound2";
+      this.rbSound2.Size = new System.Drawing.Size(63, 17);
+      this.rbSound2.TabIndex = 69;
+      this.rbSound2.TabStop = true;
+      this.rbSound2.Text = "sound 2";
+      this.rbSound2.UseVisualStyleBackColor = true;
+      // 
+      // rbSound3
+      // 
+      this.rbSound3.AutoSize = true;
+      this.rbSound3.Location = new System.Drawing.Point(14, 69);
+      this.rbSound3.Name = "rbSound3";
+      this.rbSound3.Size = new System.Drawing.Size(63, 17);
+      this.rbSound3.TabIndex = 70;
+      this.rbSound3.TabStop = true;
+      this.rbSound3.Text = "sound 3";
+      this.rbSound3.UseVisualStyleBackColor = true;
+      // 
+      // rbSound4
+      // 
+      this.rbSound4.AutoSize = true;
+      this.rbSound4.Location = new System.Drawing.Point(14, 92);
+      this.rbSound4.Name = "rbSound4";
+      this.rbSound4.Size = new System.Drawing.Size(63, 17);
+      this.rbSound4.TabIndex = 71;
+      this.rbSound4.TabStop = true;
+      this.rbSound4.Text = "sound 4";
+      this.rbSound4.UseVisualStyleBackColor = true;
+      // 
+      // cbUseSound
+      // 
+      this.cbUseSound.AutoSize = true;
+      this.cbUseSound.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+      this.cbUseSound.Location = new System.Drawing.Point(447, 11);
+      this.cbUseSound.Name = "cbUseSound";
+      this.cbUseSound.Size = new System.Drawing.Size(163, 24);
+      this.cbUseSound.TabIndex = 69;
+      this.cbUseSound.Text = "Play Sound if alarm";
+      this.cbUseSound.UseVisualStyleBackColor = true;
       // 
       // frmEmails
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(711, 505);
+      this.Controls.Add(this.cbUseSound);
+      this.Controls.Add(this.groupBox3);
       this.Controls.Add(this.cbUseEmails);
       this.Controls.Add(this.groupBox2);
       this.Controls.Add(this.label6);
@@ -474,6 +563,8 @@
       ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
       this.groupBox2.ResumeLayout(false);
       this.groupBox2.PerformLayout();
+      this.groupBox3.ResumeLayout(false);
+      this.groupBox3.PerformLayout();
       this.ResumeLayout(false);
       this.PerformLayout();
 
@@ -520,5 +611,12 @@
     private System.Windows.Forms.TextBox txtEmail2;
     private System.Windows.Forms.CheckBox cbUseEmails;
     private System.Windows.Forms.Button button1;
+    private System.Windows.Forms.Button btnPlaySound;
+    private System.Windows.Forms.GroupBox groupBox3;
+    private System.Windows.Forms.RadioButton rbSound1;
+    private System.Windows.Forms.RadioButton rbSound4;
+    private System.Windows.Forms.RadioButton rbSound3;
+    private System.Windows.Forms.RadioButton rbSound2;
+    private System.Windows.Forms.CheckBox cbUseSound;
   }
 }

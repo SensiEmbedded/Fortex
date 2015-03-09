@@ -112,6 +112,17 @@ namespace DiffPress {
         return;
       }
     }
+    private void ShowKvint() {
+      if (cdev == null)
+        return;
+      if (cdev.Enable == false)
+        return;
+      if (cdev.isSoundKvint == true) {
+        lblID.BackColor = Color.Chocolate;
+      } else {
+        lblID.BackColor = colorControl;
+      }
+    }
     private void ShowAlarms() {
       if (cdev == null)
         return;
@@ -178,8 +189,7 @@ namespace DiffPress {
       
       ShowVals();
       ShowAlarms();
-      //ShowTemp();
-      //ShowRH();      
+      ShowKvint();
     }
 
     private void lblTemp_Click(object sender, EventArgs e) {
@@ -197,6 +207,13 @@ namespace DiffPress {
 
     private void ucRHTRealTime_Load(object sender, EventArgs e) {
 
+    }
+
+    private void lblID_DoubleClick(object sender, EventArgs e) {
+      if (isAlarmRH == true || isAlarmTemp == true) {
+        cdev.isSoundKvint = true;
+      }
+      ShowKvint();
     }
 
 

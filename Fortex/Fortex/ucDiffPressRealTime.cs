@@ -45,6 +45,17 @@ namespace DiffPress {
     }
     void _cdev_evAlarm(DevAlarms type, DevAlarms typeLast, string tag) {
     }
+    private void ShowKvint() {
+      if (cdev == null)
+        return;
+      if (cdev.Enable == false)
+        return;
+      if (cdev.isSoundKvint == true) {
+        lblID.BackColor = Color.Chocolate;
+      } else {
+        lblID.BackColor = colorControl;
+      }
+    }
     private void ShowAlarms() {
       if (cdev == null)
         return;
@@ -52,6 +63,8 @@ namespace DiffPress {
         return;
       isAlarmDiff = (cdev.alarmStatus_LoVal1 != DevAlarms.None) ? true : false;
       isAlarmDiff = (cdev.alarmStatus_HiVal1 != DevAlarms.None) ? true : isAlarmDiff;
+      
+
     }
     private void ShowVals() {
       if (cdev == null) {
@@ -92,6 +105,7 @@ namespace DiffPress {
       
       ShowVals();
       ShowAlarms();
+      ShowKvint();
     }
 
     private void ucDiffPressRealTime_Click(object sender, EventArgs e) {
@@ -101,6 +115,14 @@ namespace DiffPress {
       frm.cdev = _cdev;
       frm.ShowDialog(this);
       
+    }
+
+    private void lblID_Click(object sender, EventArgs e) {
+      if (isAlarmDiff == true) {
+        cdev.isSoundKvint = true;
+      }
+      
+      ShowKvint();
     }
     
   }

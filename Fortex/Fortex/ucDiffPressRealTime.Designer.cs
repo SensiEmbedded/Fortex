@@ -72,6 +72,7 @@
       this.lblID.TabIndex = 8;
       this.lblID.Text = "floor1.1";
       this.lblID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      this.lblID.Click += new System.EventHandler(this.lblID_Click);
       // 
       // ucDiffPressRealTime
       // 

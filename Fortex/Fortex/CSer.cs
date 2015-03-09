@@ -72,10 +72,15 @@ namespace DiffPress {
     public CDev[] floor3Devs {get;set;}
 
     [Category("technologic"), Description("Time (sec) presence alarm")]
-    
     public int timeAlarm { get; set;}
 
-     [Category("appereance"), Description("Specifies something")]
+    [Category("technologic"), Description("alarm wav file")]
+    public string alarmWavFile { get; set;}
+
+    [Category("technologic"), Description("Play Sound when Alarm")]
+    public bool alarmPlaySound { get; set;}
+
+    [Category("appereance"), Description("Specifies something")]
     public bool fullScreen { get; set;}
 
     [Category("MS Server"),Browsable(false), Description("Connection string to SENSATA traceabillity MS SQL")]
@@ -158,6 +163,9 @@ namespace DiffPress {
         floor3Devs[i].address = i+1;
 
       }
+
+      alarmWavFile = "s1.wav";
+      alarmPlaySound = true;
 
       floor1Devs.ToList().ForEach(c => {c.Enable = false; c.type = TypeDevice.RHT;});
       floor2Devs.ToList().ForEach(c => {c.Enable = false; c.type = TypeDevice.RHT;});
