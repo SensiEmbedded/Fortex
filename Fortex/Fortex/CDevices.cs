@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Xml.Serialization;
 using System.ComponentModel;
 //for serial port
 
@@ -84,6 +85,7 @@ namespace DiffPress {
 
   }
   //----------------------------------------------------------------------------------------------------------------------------------
+  [Serializable()]
   public class CDev_MMM {
     public CDevCommon cmn = new CDevCommon();
     private CGlobal gl;
@@ -224,6 +226,7 @@ namespace DiffPress {
 
   }
   //----------------------------------------------------------------------------------------------------------------------------------
+  [Serializable()]
   public class CDev{
     private CGlobal glob;
     //private System.Timers.Timer tmr = new System.Timers.Timer();
@@ -312,10 +315,10 @@ namespace DiffPress {
     [Browsable(false)]
     public double val2 {get{ return _val2;} set {_val2 = value; FireChangeEvent();}}
     
-    [Browsable(false),NonSerialized]
+    [Browsable(false),XmlIgnoreAttribute]
     public string strID="not set";
 
-    [Browsable(false),NonSerialized]
+    [Browsable(false),XmlIgnoreAttribute]
     public Guid InstanceID;
 
 
@@ -327,38 +330,48 @@ namespace DiffPress {
     public double alarmHiVal2 { get; set; }
     public double alarmLowVal2 { get;set; }
 
-    [Browsable(false),NonSerialized]
+    [Browsable(false),XmlIgnoreAttribute]
     public DevAlarms alarmStatus_HiVal1; //{ get; set; }
 
-    [Browsable(false),NonSerialized]
+    [Browsable(false),XmlIgnoreAttribute]
     public DevAlarms alarmStatusLast_HiVal1;
+
+    [Browsable(false),XmlIgnoreAttribute]
     private int dempAlarm_HiVal1;
 
-    [Browsable(false),NonSerialized]
+
+    [Browsable(false),XmlIgnoreAttribute]
     public DevAlarms alarmStatus_LoVal1;
-    [Browsable(false),NonSerialized]
+
+    [Browsable(false),XmlIgnoreAttribute]
     public DevAlarms alarmStatusLast_LoVal1;
+
+    [Browsable(false),XmlIgnoreAttribute]
     private int dempAlarm_LoVal1;
 
-    [Browsable(false),NonSerialized]
+
+    [Browsable(false),XmlIgnoreAttribute]
     public DevAlarms alarmStatus_HiVal2;
-    [Browsable(false),NonSerialized]
+    [Browsable(false),XmlIgnoreAttribute]
     public DevAlarms alarmStatusLast_HiVal2;
+    [Browsable(false),XmlIgnoreAttribute]
     private int dempAlarm_HiVal2;
 
-    [Browsable(false),NonSerialized]
+    [Browsable(false),XmlIgnoreAttribute]
     public DevAlarms alarmStatus_LoVal2;
-    [Browsable(false),NonSerialized]
+    [Browsable(false),XmlIgnoreAttribute]
     public DevAlarms alarmStatusLast_LoVal2;
+    [Browsable(false),XmlIgnoreAttribute]
     private int dempAlarm_LoVal2;
 
 
     public int address { get;set; }
     public string description {get;set;}
 
-    [Browsable(false),NonSerialized]
+    
+    [Browsable(false),XmlIgnoreAttribute]
     public bool isSoundKvint = false;
-
+                       
     public event ChangedEventHandler Changed;
     public event AlarmOccured evAlarm;
 
@@ -375,6 +388,7 @@ namespace DiffPress {
 
       Write2DBAlarm(type,typeLast,tag); 
       Write2DataIfNeeded(type,typeLast,tag);
+      SendEmails(type,typeLast,tag);
       isSoundKvint = false;
       
       if (evAlarm != null) {
@@ -383,6 +397,80 @@ namespace DiffPress {
         
       }
     }
+
+    private void SendEmails(DevAlarms type, DevAlarms typeLast, string tag) {
+      CEmail em = new CEmail(ref glob);
+      CEmailSettings set = glob.g_wr.emailSetts;
+      em.sett = set;
+      string subject = ConstructEmailSubject(type,typeLast,tag);
+      string body = ConstructEmailBody(type,typeLast,tag);;
+      em.Send2All(subject,body);
+    }
+    private string ConstructEmailSubject(DevAlarms type, DevAlarms typeLast, string tag) {
+      string sub = "";
+      switch (type) {
+        case DevAlarms.None:
+          sub = "Normalized from alarm";
+          break;
+        case DevAlarms.Hi:
+          sub = "Alarm high limit";
+          break; 
+        case DevAlarms.Lo:
+          sub = "Alarm low limit";
+          break;
+        default:
+          sub = "Alarm";
+          break;
+      }
+      
+      return sub;
+    } 
+    private string ConstructEmailBody(DevAlarms type, DevAlarms typeLast, string tag) {
+      string body = "";
+      string b = "";
+      switch (type) {
+        case DevAlarms.None:
+          b = "Normalized from alarm\n";
+          break;
+        case DevAlarms.Hi:
+          b = "Alarm high limit\n";
+          break; 
+        case DevAlarms.Lo:
+          b = "Alarm low limit\n";
+          break;
+        default:
+          b = "Alarm\n";
+          break;
+      }
+      body += "This is automatic email. Please don't replay.\n";
+      body += "This email is generated automatically by the software that monitor RH&T and differential pressure.\n";
+      body += "The reason for this email is:\n";
+      body += b + "\n";
+      body += "deviceID=" + this.strID + "\n";
+      body += "DateTime=" + DateTime.Now + "\n";
+      body += "type=" + this.type + "\n";
+      body += "name=" + this.name + "\n";
+      body += "description=" + this.description + "\n";
+
+      switch(this.type){
+        case TypeDevice.DiffPress:
+          body += "Measured Pressure(PA)=" + this.DiffPress.ToString("N1") + "\n";
+          body += "Alarm High Limit Pressure=" + this.alarmHiDiffPress + "\n";
+          body += "Alarm Low Limit Pressure=" + this.alarmLoDiffPress + "\n";
+          break;
+        case TypeDevice.RHT:
+          body += "Measured RH(%)=" + this.RH.ToString("N1") + "\n";
+          body += "Alarm High Limit RH=" + this.alarmHiRH + "\n";
+          body += "Alarm Low Limit RH=" + this.alarmLoRH + "\n";
+          body += "Measured Temperature(oC)=" + this.Temp.ToString("N1") + "\n";
+          body += "Alarm High Limit Temperature=" + this.alarmHiTemp + "\n";
+          body += "Alarm Low Limit Temperature=" + this.alarmLoTemp + "\n";
+          break;
+      }
+      
+
+      return body;
+    } 
     private void Write2DataIfNeeded(DevAlarms type, DevAlarms typeLast, string tag) {
       bool write = false;
       switch (type) {

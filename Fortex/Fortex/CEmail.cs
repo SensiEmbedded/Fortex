@@ -38,7 +38,7 @@ namespace DiffPress {
       //m.From = new MailAddress("control@fortex.bg", "RH&T Diff.Press. Control");
       m.From = new MailAddress(sett.fromEmail, "RH&T Diff.Press. Control");
       //m.To.Add(new MailAddress("assen@deltainst.com", "Display name To"));
-      m.To.Add(new MailAddress(toEmail, "Display name To"));
+      m.To.Add(new MailAddress(toEmail));
       //m.CC.Add(new MailAddress("CC@yahoo.com", "Display name CC"));
       //similarly BCC
       m.Subject = "Test";
@@ -61,12 +61,13 @@ namespace DiffPress {
       //sc.EnableSsl = false; // runtime encrypt the SMTP communications using 
       return sc;
     }
-    public void SendEmailAsync(string to,bool isTest) {
+    public void SendEmailAsync(string to,bool isTest,string subject, string body) {
       try {
 
         SmtpClient smtpClient = ContructSmtpClient();
         MailMessage message = ContructMailMessage(to);
-
+        message.Subject = subject;
+        message.Body = body;
         smtpClient.SendCompleted += (s, ex) => {
           try {
             SmtpClient callbackClient = s as SmtpClient;
@@ -79,7 +80,6 @@ namespace DiffPress {
             } else {
               gl.sqlite.LogMessage("Err in sending email async:" + e.Message);
             }
-            
           }
         };
         smtpClient.SendAsync(message, message);
@@ -89,10 +89,9 @@ namespace DiffPress {
         } else {
           gl.sqlite.LogMessage("Err in sending email async:" + ex.Message);
         }
-        
       }
     }
-    public void Send2All() {
+    public void Send2All(string subject, string body) {
       if(gl == null)return;
       if(gl.g_wr.emailSetts == null)return;
       if(gl.g_wr.emailSetts.adresants == null)return;
@@ -102,7 +101,7 @@ namespace DiffPress {
         if (add == "") {
           continue;
         }
-        SendEmailAsync(add,false);
+        SendEmailAsync(add,false,subject,body);
       }
     }
     public void SendEmailSync(string to) {

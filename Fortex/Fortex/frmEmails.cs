@@ -143,7 +143,7 @@ namespace DiffPress {
       CEmail em = new CEmail(ref glob);
       CEmailSettings set = glob.g_wr.emailSetts;
       em.sett = set;
-      em.SendEmailAsync(txtTestEmail.Text, true);
+      em.SendEmailAsync(txtTestEmail.Text, true,"Test","Test body");
     }
 
     private void btnApply_Click(object sender, EventArgs e) {
@@ -166,7 +166,7 @@ namespace DiffPress {
       CEmail em = new CEmail(ref glob);
       CEmailSettings set = glob.g_wr.emailSetts;
       em.sett = set;
-      em.Send2All();
+      em.Send2All("test","test body");
     }
     #region Sound
     private void PopulateSoundRadioButton() {

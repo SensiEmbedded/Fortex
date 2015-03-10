@@ -12,7 +12,7 @@ using System.Collections.Generic;
 
 
 namespace DiffPress {
-  [Serializable]
+  [Serializable()]
   public class CSer {
     //public string PortName;
     //public Parity parity;
