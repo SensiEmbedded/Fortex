@@ -251,7 +251,7 @@
           this.pnlFloor1.BackColor = System.Drawing.Color.WhiteSmoke;
           this.pnlFloor1.Location = new System.Drawing.Point(89, 494);
           this.pnlFloor1.Name = "pnlFloor1";
-          this.pnlFloor1.Size = new System.Drawing.Size(3084, 115);
+          this.pnlFloor1.Size = new System.Drawing.Size(3405, 115);
           this.pnlFloor1.TabIndex = 67;
           // 
           // pnlFloor2
@@ -263,7 +263,7 @@
           this.pnlFloor2.BackColor = System.Drawing.Color.Gainsboro;
           this.pnlFloor2.Location = new System.Drawing.Point(89, 337);
           this.pnlFloor2.Name = "pnlFloor2";
-          this.pnlFloor2.Size = new System.Drawing.Size(3084, 115);
+          this.pnlFloor2.Size = new System.Drawing.Size(3405, 115);
           this.pnlFloor2.TabIndex = 67;
           // 
           // pnlFloor2_2
@@ -275,7 +275,7 @@
           this.pnlFloor2_2.BackColor = System.Drawing.Color.Gainsboro;
           this.pnlFloor2_2.Location = new System.Drawing.Point(89, 218);
           this.pnlFloor2_2.Name = "pnlFloor2_2";
-          this.pnlFloor2_2.Size = new System.Drawing.Size(3083, 115);
+          this.pnlFloor2_2.Size = new System.Drawing.Size(3404, 115);
           this.pnlFloor2_2.TabIndex = 67;
           // 
           // pnlFloor3
@@ -287,7 +287,7 @@
           this.pnlFloor3.BackColor = System.Drawing.Color.Gray;
           this.pnlFloor3.Location = new System.Drawing.Point(89, 55);
           this.pnlFloor3.Name = "pnlFloor3";
-          this.pnlFloor3.Size = new System.Drawing.Size(3089, 115);
+          this.pnlFloor3.Size = new System.Drawing.Size(3410, 115);
           this.pnlFloor3.TabIndex = 67;
           // 
           // label6
@@ -478,8 +478,9 @@
           this.Controls.Add(this.pictureBox9);
           this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
           this.Name = "frmMain";
-          this.Text = "Differential Pressure";
+          this.Text = "Differential Pressure, Relative Humidity, Temperature";
           this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+          this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
           this.Load += new System.EventHandler(this.Form1_Load);
           this.groupBox2.ResumeLayout(false);
           this.groupBox2.PerformLayout();

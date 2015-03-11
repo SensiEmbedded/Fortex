@@ -223,7 +223,7 @@ namespace DiffPress {
 			// Include tool tip for the chart
 			if (winChartViewer1.ImageMap == null){
 				winChartViewer1.ImageMap = winChartViewer1.Chart.getHTMLImageMap("clickable", "",
-					"title='[{dataSetName}] {x|yyyy mm dd \n hh:mm:ss}: value {value|2}'");
+					"title='[{dataSetName}] {x|yyyy mm dd \n hh:nn:ss}: value {value|2}'");
         
         //plotToolBarStandard1.Plot = 
 			}

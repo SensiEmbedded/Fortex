@@ -38,6 +38,22 @@ namespace DiffPress {
       } */
       return base.ProcessCmdKey(ref msg, keyData);
     }
+    protected override CreateParams CreateParams {
+      get {
+        const int CS_NOCLOSE = 0x200;
+        CreateParams cp = base.CreateParams;
+        cp.ClassStyle |= CS_NOCLOSE;
+        return cp;
+      }
+    }
+    private void frmMain_FormClosing(object sender, FormClosingEventArgs e) {
+      var res = MessageBox.Show(this, "You really want to quit?", "Exit",
+             MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+      if (res != DialogResult.Yes) {
+        e.Cancel = true;
+        return;
+      }
+    }
     private void Form1_Load(object sender, EventArgs e) {
 
       glob.comm.SetRef(ref glob);
@@ -359,5 +375,7 @@ namespace DiffPress {
 
       frm.ShowDialog(this);
     }
+
+    
   }
 }
