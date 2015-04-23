@@ -11,9 +11,10 @@ using System.Windows.Forms;
 namespace DiffPress {
   public partial class frmEmails : Form {
     CGlobal glob;
-     private static List<System.Windows.Forms.TextBox> tbs = new List<TextBox>();
+    private static List<System.Windows.Forms.TextBox> tbs = new List<TextBox>();
     public frmEmails() {
       InitializeComponent();
+      if(tbs != null)tbs.Clear();
       tbs.Add(txtEmail1);
       tbs.Add(txtEmail2);
       tbs.Add(txtEmail3);

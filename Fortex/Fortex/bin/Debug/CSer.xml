@@ -8,193 +8,207 @@
   <timeOut>500</timeOut>
   <retries>2</retries>
   <updatems>1000</updatems>
-  <howManyDevsFloor1>3</howManyDevsFloor1>
-  <howManyDevsFloor2>0</howManyDevsFloor2>
-  <howManyDevsFloor3>3</howManyDevsFloor3>
+  <howManyDevsFloor1>9</howManyDevsFloor1>
+  <howManyDevsFloor2>31</howManyDevsFloor2>
+  <howManyDevsFloor3>11</howManyDevsFloor3>
   <floor1Devs>
     <CDev>
-      <RH>-20002</RH>
-      <Temp>-20002</Temp>
-      <DiffPress>-20002</DiffPress>
-      <alarmHiTemp>70</alarmHiTemp>
-      <alarmLoTemp>10</alarmLoTemp>
-      <alarmHiRH>70</alarmHiRH>
-      <alarmLoRH>10</alarmLoRH>
-      <alarmHiDiffPress>70</alarmHiDiffPress>
-      <alarmLoDiffPress>10</alarmLoDiffPress>
-      <val1>-20002</val1>
-      <val2>-20002</val2>
+      <RH>-20007</RH>
+      <Temp>-20007</Temp>
+      <DiffPress>-20007</DiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
+      <val1>-20007</val1>
+      <val2>-20007</val2>
       <type>RHT</type>
-      <name>nameFloor1.1</name>
+      <name>Склад1.1</name>
       <Enable>true</Enable>
-      <alarmHiVal1>70</alarmHiVal1>
-      <alarmLowVal1>10</alarmLowVal1>
-      <alarmHiVal2>70</alarmHiVal2>
-      <alarmLowVal2>10</alarmLowVal2>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>1</address>
       <description>DescFloor1.1</description>
     </CDev>
     <CDev>
-      <RH>-20002</RH>
-      <Temp>-20002</Temp>
-      <DiffPress>-20002</DiffPress>
-      <alarmHiTemp>70</alarmHiTemp>
-      <alarmLoTemp>10</alarmLoTemp>
-      <alarmHiRH>70</alarmHiRH>
-      <alarmLoRH>10</alarmLoRH>
-      <alarmHiDiffPress>70</alarmHiDiffPress>
-      <alarmLoDiffPress>10</alarmLoDiffPress>
-      <val1>-20002</val1>
-      <val2>-20002</val2>
-      <type>DiffPress</type>
-      <name>nameFloor1.2</name>
+      <RH>-20007</RH>
+      <Temp>-20007</Temp>
+      <DiffPress>-20007</DiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
+      <val1>-20007</val1>
+      <val2>-20007</val2>
+      <type>RHT</type>
+      <name>Склад1.2</name>
       <Enable>true</Enable>
-      <alarmHiVal1>70</alarmHiVal1>
-      <alarmLowVal1>10</alarmLowVal1>
-      <alarmHiVal2>70</alarmHiVal2>
-      <alarmLowVal2>10</alarmLowVal2>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>2</address>
       <description>descFloor1.2</description>
     </CDev>
     <CDev>
-      <RH>-20002</RH>
-      <Temp>-20002</Temp>
-      <DiffPress>-20002</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
-      <val1>-20002</val1>
-      <val2>-20002</val2>
+      <RH>-20007</RH>
+      <Temp>-20007</Temp>
+      <DiffPress>-20007</DiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
+      <val1>-20007</val1>
+      <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Медицински изделия</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>3</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
+      <alarmHiTemp>5</alarmHiTemp>
       <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
+      <alarmHiRH>100</alarmHiRH>
       <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
+      <alarmHiDiffPress>5</alarmHiDiffPress>
       <alarmLoDiffPress>0</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
+      <name>Хладилна камера</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>5</alarmHiVal1>
       <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
+      <alarmHiVal2>100</alarmHiVal2>
       <alarmLowVal2>0</alarmLowVal2>
       <address>4</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>17</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>17</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Музеен склад</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>17</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>5</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>17</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>17</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Изтеглени продукти</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>17</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>6</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Отхвърлени изходни суровини</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>7</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Приемно</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>8</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Експедиционно</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>9</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
@@ -662,621 +676,683 @@
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Предтегловно</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>1</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>7</alarmLoTemp>
+      <alarmHiRH>70</alarmHiRH>
+      <alarmLoRH>10</alarmLoRH>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>7</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <type>DiffPress</type>
+      <name>Миялно</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>7</alarmLowVal1>
+      <alarmHiVal2>70</alarmHiVal2>
+      <alarmLowVal2>10</alarmLowVal2>
       <address>2</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>7</alarmLoTemp>
+      <alarmHiRH>70</alarmHiRH>
+      <alarmLoRH>10</alarmLoRH>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>7</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <type>DiffPress</type>
+      <name>предтегловно</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>7</alarmLowVal1>
+      <alarmHiVal2>70</alarmHiVal2>
+      <alarmLowVal2>10</alarmLowVal2>
       <address>3</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>7</alarmLoTemp>
+      <alarmHiRH>70</alarmHiRH>
+      <alarmLoRH>10</alarmLoRH>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>7</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <type>DiffPress</type>
+      <name>тегловно</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>7</alarmLowVal1>
+      <alarmHiVal2>70</alarmHiVal2>
+      <alarmLowVal2>10</alarmLowVal2>
       <address>4</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>7</alarmLoTemp>
       <alarmHiRH>0</alarmHiRH>
       <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>7</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
+      <type>DiffPress</type>
+      <name>слюз тегловно</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>7</alarmLowVal1>
       <alarmHiVal2>0</alarmHiVal2>
       <alarmLowVal2>0</alarmLowVal2>
       <address>5</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Тегловно</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>6</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Смесително</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>7</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>7</alarmLoTemp>
       <alarmHiRH>0</alarmHiRH>
       <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>7</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
+      <type>DiffPress</type>
+      <name>Смесително</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>7</alarmLowVal1>
       <alarmHiVal2>0</alarmHiVal2>
       <alarmLowVal2>0</alarmLowVal2>
       <address>8</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Междинен склад</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>9</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>7</alarmLoTemp>
       <alarmHiRH>0</alarmHiRH>
       <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>7</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
+      <type>DiffPress</type>
+      <name>Капсулиране</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>7</alarmLowVal1>
       <alarmHiVal2>0</alarmHiVal2>
       <alarmLowVal2>0</alarmLowVal2>
       <address>10</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Капсулиране</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>11</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>7</alarmLoTemp>
       <alarmHiRH>0</alarmHiRH>
       <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>7</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
+      <type>DiffPress</type>
+      <name>Сашетиране</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>7</alarmLowVal1>
       <alarmHiVal2>0</alarmHiVal2>
       <alarmLowVal2>0</alarmLowVal2>
       <address>12</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Сашетиране</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>13</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>7</alarmLoTemp>
       <alarmHiRH>0</alarmHiRH>
       <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>7</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
+      <type>DiffPress</type>
+      <name>Блистериране1</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>7</alarmLowVal1>
       <alarmHiVal2>0</alarmHiVal2>
       <alarmLowVal2>0</alarmLowVal2>
       <address>14</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Блистериране1</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>15</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>7</alarmLoTemp>
       <alarmHiRH>0</alarmHiRH>
       <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>7</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
+      <type>DiffPress</type>
+      <name>Блистериране2</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>7</alarmLowVal1>
       <alarmHiVal2>0</alarmHiVal2>
       <alarmLowVal2>0</alarmLowVal2>
       <address>16</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Блистериране2</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>17</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>7</alarmLoTemp>
       <alarmHiRH>0</alarmHiRH>
       <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>7</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
+      <type>DiffPress</type>
+      <name>Таблетиране</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>7</alarmLowVal1>
       <alarmHiVal2>0</alarmHiVal2>
       <alarmLowVal2>0</alarmLowVal2>
       <address>18</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Таблетиране</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>19</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>7</alarmLoTemp>
       <alarmHiRH>0</alarmHiRH>
       <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>7</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
+      <type>DiffPress</type>
+      <name>Линия броене</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>7</alarmLowVal1>
       <alarmHiVal2>0</alarmHiVal2>
       <alarmLowVal2>0</alarmLowVal2>
       <address>20</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Линия броене</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>21</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>7</alarmLoTemp>
       <alarmHiRH>0</alarmHiRH>
       <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>7</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
+      <type>DiffPress</type>
+      <name>Шлюз съблекални</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>7</alarmLowVal1>
       <alarmHiVal2>0</alarmHiVal2>
       <alarmLowVal2>0</alarmLowVal2>
       <address>22</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Карантина ГП</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>23</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Карантина ДФ</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>24</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>7</alarmLoTemp>
+      <alarmHiRH>70</alarmHiRH>
       <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>7</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
+      <type>DiffPress</type>
+      <name>Шлюз опаковка</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>7</alarmLowVal1>
+      <alarmHiVal2>70</alarmHiVal2>
       <alarmLowVal2>0</alarmLowVal2>
       <address>25</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>7</alarmLoTemp>
       <alarmHiRH>0</alarmHiRH>
       <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>7</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
+      <type>DiffPress</type>
+      <name>Слюз складове</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>7</alarmLowVal1>
       <alarmHiVal2>0</alarmHiVal2>
       <alarmLowVal2>0</alarmLowVal2>
       <address>26</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>7</alarmLoTemp>
       <alarmHiRH>0</alarmHiRH>
       <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>7</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
+      <type>DiffPress</type>
+      <name>Слюз склад проба</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>7</alarmLowVal1>
       <alarmHiVal2>0</alarmHiVal2>
       <alarmLowVal2>0</alarmLowVal2>
       <address>27</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Склад проба</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>28</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Карантина</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>29</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>30</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>30</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Опаковка</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>30</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>30</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Предтегловно</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>31</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
@@ -1301,68 +1377,68 @@
   </floor2Devs>
   <floor3Devs>
     <CDev>
-      <RH>0</RH>
-      <Temp>0</Temp>
-      <DiffPress>0</DiffPress>
-      <alarmHiTemp>70</alarmHiTemp>
-      <alarmLoTemp>10</alarmLoTemp>
-      <alarmHiRH>70</alarmHiRH>
-      <alarmLoRH>10</alarmLoRH>
-      <alarmHiDiffPress>70</alarmHiDiffPress>
-      <alarmLoDiffPress>10</alarmLoDiffPress>
-      <val1>0</val1>
-      <val2>0</val2>
-      <type>DiffPress</type>
-      <name />
+      <RH>-20007</RH>
+      <Temp>-20007</Temp>
+      <DiffPress>-20007</DiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>18</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>30</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>18</alarmLoDiffPress>
+      <val1>-20007</val1>
+      <val2>-20007</val2>
+      <type>RHT</type>
+      <name>Лаборатория</name>
       <Enable>true</Enable>
-      <alarmHiVal1>70</alarmHiVal1>
-      <alarmLowVal1>10</alarmLowVal1>
-      <alarmHiVal2>70</alarmHiVal2>
-      <alarmLowVal2>10</alarmLowVal2>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>18</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>30</alarmLowVal2>
       <address>1</address>
       <description />
     </CDev>
     <CDev>
-      <RH>34</RH>
-      <Temp>23.1</Temp>
-      <DiffPress>23.1</DiffPress>
-      <alarmHiTemp>70</alarmHiTemp>
-      <alarmLoTemp>10</alarmLoTemp>
-      <alarmHiRH>70</alarmHiRH>
-      <alarmLoRH>10</alarmLoRH>
-      <alarmHiDiffPress>70</alarmHiDiffPress>
-      <alarmLoDiffPress>10</alarmLoDiffPress>
-      <val1>23.1</val1>
-      <val2>34</val2>
+      <RH>-20007</RH>
+      <Temp>-20007</Temp>
+      <DiffPress>-20007</DiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>18</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>30</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>18</alarmLoDiffPress>
+      <val1>-20007</val1>
+      <val2>-20007</val2>
       <type>RHT</type>
-      <name />
+      <name>Химически реактиви</name>
       <Enable>true</Enable>
-      <alarmHiVal1>70</alarmHiVal1>
-      <alarmLowVal1>10</alarmLowVal1>
-      <alarmHiVal2>70</alarmHiVal2>
-      <alarmLowVal2>10</alarmLowVal2>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>18</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>30</alarmLowVal2>
       <address>2</address>
       <description />
     </CDev>
     <CDev>
-      <RH>38.4</RH>
-      <Temp>22.7</Temp>
-      <DiffPress>22.7</DiffPress>
-      <alarmHiTemp>70</alarmHiTemp>
-      <alarmLoTemp>10</alarmLoTemp>
-      <alarmHiRH>70</alarmHiRH>
-      <alarmLoRH>10</alarmLoRH>
-      <alarmHiDiffPress>70</alarmHiDiffPress>
-      <alarmLoDiffPress>10</alarmLoDiffPress>
-      <val1>22.7</val1>
-      <val2>38.4</val2>
+      <RH>-20007</RH>
+      <Temp>-20007</Temp>
+      <DiffPress>-20007</DiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>18</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>30</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>18</alarmLoDiffPress>
+      <val1>-20007</val1>
+      <val2>-20007</val2>
       <type>RHT</type>
-      <name />
+      <name>Разпределяне на проби</name>
       <Enable>true</Enable>
-      <alarmHiVal1>70</alarmHiVal1>
-      <alarmLowVal1>10</alarmLowVal1>
-      <alarmHiVal2>70</alarmHiVal2>
-      <alarmLowVal2>10</alarmLowVal2>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>18</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>30</alarmLowVal2>
       <address>3</address>
       <description />
     </CDev>
@@ -1370,161 +1446,177 @@
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>18</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>30</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>18</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Склад МБ</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>18</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>30</alarmLowVal2>
       <address>4</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>18</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>30</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>18</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Автоклав</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>18</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>30</alarmLowVal2>
       <address>5</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
+      <alarmHiTemp>15</alarmHiTemp>
+      <alarmLoTemp>-0</alarmLoTemp>
       <alarmHiRH>0</alarmHiRH>
       <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiDiffPress>15</alarmHiDiffPress>
+      <alarmLoDiffPress>-0</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
-      <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
+      <type>DiffPress</type>
+      <name>Шлюз ламинар</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>15</alarmHiVal1>
+      <alarmLowVal1>-0</alarmLowVal1>
       <alarmHiVal2>0</alarmHiVal2>
       <alarmLowVal2>0</alarmLowVal2>
       <address>6</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>18</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>30</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>18</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Шлюз МБ</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>18</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>30</alarmLowVal2>
       <address>7</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>18</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>30</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>18</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Ламинар</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>18</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>30</alarmLowVal2>
       <address>8</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Склад вторична опаковка</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>9</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Склад първична опъковка</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>10</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
       <Temp>-20007</Temp>
       <DiffPress>-20007</DiffPress>
-      <alarmHiTemp>0</alarmHiTemp>
-      <alarmLoTemp>0</alarmLoTemp>
-      <alarmHiRH>0</alarmHiRH>
-      <alarmLoRH>0</alarmLoRH>
-      <alarmHiDiffPress>0</alarmHiDiffPress>
-      <alarmLoDiffPress>0</alarmLoDiffPress>
+      <alarmHiTemp>25</alarmHiTemp>
+      <alarmLoTemp>15</alarmLoTemp>
+      <alarmHiRH>65</alarmHiRH>
+      <alarmLoRH>35</alarmLoRH>
+      <alarmHiDiffPress>25</alarmHiDiffPress>
+      <alarmLoDiffPress>15</alarmLoDiffPress>
       <val1>-20007</val1>
       <val2>-20007</val2>
       <type>RHT</type>
-      <Enable>false</Enable>
-      <alarmHiVal1>0</alarmHiVal1>
-      <alarmLowVal1>0</alarmLowVal1>
-      <alarmHiVal2>0</alarmHiVal2>
-      <alarmLowVal2>0</alarmLowVal2>
+      <name>Склад суровини</name>
+      <Enable>true</Enable>
+      <alarmHiVal1>25</alarmHiVal1>
+      <alarmLowVal1>15</alarmLowVal1>
+      <alarmHiVal2>65</alarmHiVal2>
+      <alarmLowVal2>35</alarmLowVal2>
       <address>11</address>
+      <description />
     </CDev>
     <CDev>
       <RH>-20007</RH>
@@ -1947,13 +2039,13 @@
       <address>32</address>
     </CDev>
   </floor3Devs>
-  <timeAlarm>10</timeAlarm>
+  <timeAlarm>20</timeAlarm>
   <alarmWavFile>s1.wav</alarmWavFile>
   <alarmPlaySound>false</alarmPlaySound>
   <fullScreen>false</fullScreen>
   <sqlConnectionString>Server=qsen.corp.sensata.com;Database=assemtrace;User Id=thp;Password=thp;</sqlConnectionString>
   <writeInterval>300</writeInterval>
-  <writeIfAlarm>true</writeIfAlarm>
+  <writeIfAlarm>false</writeIfAlarm>
   <writeWhenNormalize>true</writeWhenNormalize>
   <emailSetts>
     <Host>mail4.host.bg</Host>
@@ -1962,10 +2054,10 @@
     <user>control@fortex.bg</user>
     <pass>Control1!</pass>
     <useSsl>false</useSsl>
-    <useEmails>false</useEmails>
+    <useEmails>true</useEmails>
     <adresants>
-      <string />
-      <string />
+      <string>radoslav@fortex.bg</string>
+      <string>a.penyashki@gmail.com</string>
       <string />
       <string />
       <string />
